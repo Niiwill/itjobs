@@ -368,7 +368,7 @@
                 white-space: normal; word-break: break-all; 
             }
             #features h2{
-                font-size: 2.5rem;
+                font-size: 2.2rem;
                 line-height: 1.375;
                 letter-spacing: -0.4px;
                 margin: 3.8rem 0;
@@ -403,6 +403,25 @@
                 color: #6b6e6f;
                 margin-bottom:0;
                 font-weight: 400;
+            }
+            @media (max-width: 1200px){
+                #features h2{
+                    font-size: 1.8rem;
+                }
+                .hero-body h1{
+                    font-size: 2.3rem;
+                }
+                .header-button a {
+                    width: 100%;
+                }
+                .header h2{
+                    text-align: center;
+                    font-size: 1.8rem;
+                }
+                .search-bar-home button {
+                    border-radius: 0 0 6px 6px;
+                    padding: 15px;
+                }
             }
 
         </style>
@@ -464,7 +483,7 @@
 
 
 <!-- JUMBOTRON -->
-        <div class="hero pt-5">
+        <div class="hero pt-0 pt-md-5">
             <div class="container">
                 <div class="row">
                     <div class="col-md-7 mt-5">
@@ -472,7 +491,7 @@
                         <div class="row">
 
                             <div class="col-md-12">
-                                <div class="hero-body p-3 p-md-0">
+                                <div class="hero-body py-5 py-md-0">
                                     <div class="row">
                                         <div class="col-md-12">
                                             <h1>Pronađi savršen <span style="color:#04D223;">IT</span> posao koji zaslužuješ.</h1>
@@ -525,14 +544,14 @@
 <div class="my-0 my-sm-4 py-5">
     <div class="container">
 
-        <div class="row" style="padding-bottom: 3rem">
-            <div class="col-12 col-lg-6">
+        <div class="row">
+            <div class="col-12 col-lg-6 py-4 py-sm-0 pb-sm-5">
                 <div class="header">
                     <h2 class="">Popularne kategorije</h2>
                 </div>
             </div>
 
-            <div class="col-12 col-lg-6">
+            <div class="col-12 col-lg-6 pb-5 pt-3 pt-sm-0 pb-sm-5">
                 <div class="header-button">
                     <a class="btn" href="/oglasi-za-posao">ISTRAŽI SVE</a>
                 </div>
@@ -614,7 +633,7 @@
 <div id="features" class="my-0 my-sm-5 py-0 py-sm-5">
     <div class="container">
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-6 pb-4 pb-sm-0">
                 <div class="p-2 p-sm-0 pr-sm-5">
                     <img  src="{{asset('storage/img/features.jpg')}}" alt="">
                 </div>
