@@ -102,8 +102,6 @@
             }
 
             .hero{
-                padding-top:110px;
-                /*background-color: #F4F7FA;*/
                 background-color: #f7f8fc;
             }
             .hero img{
@@ -416,7 +414,7 @@
 
         <nav class="navbar navbar-expand-lg">
             <div class="container">
-                <a class="navbar-logo" href="{{ url('/') }}">
+                <a class="navbar-logo navbar-logo px-3 px-sm-2 pt-3 pb-1" href="{{ url('/') }}">
                     <img src="{{asset('storage/img/logo.png')}}" alt="logo it poslovi crna gora me">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
@@ -466,15 +464,15 @@
 
 
 <!-- JUMBOTRON -->
-        <div class="hero">
+        <div class="hero pt-5">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-7">
+                    <div class="col-md-7 mt-5">
 
                         <div class="row">
 
                             <div class="col-md-12">
-                                <div class="hero-body">
+                                <div class="hero-body p-3 p-md-0">
                                     <div class="row">
                                         <div class="col-md-12">
                                             <h1>Pronađi savršen <span style="color:#04D223;">IT</span> posao koji zaslužuješ.</h1>
@@ -511,8 +509,8 @@
                         </div>
                     </div>
                     
-                    <div class="col-md-5">
-                        <img src="{{asset('storage/img/hero.png')}}" alt="logo it poslovi crna gora me" width="100%">
+                    <div class="col-md-5 mt-5">
+                        <img class="d-none d-md-block" src="{{asset('storage/img/hero.png')}}" class="m-4 m-md-0" alt="logo it poslovi crna gora me" width="100%">
 
                     </div>
                 </div>
@@ -524,7 +522,7 @@
     
 
 <!-- POPULARNE KATEGORIJE -->
-<div style="padding: 80px 0;">
+<div class="my-0 my-sm-4 py-5">
     <div class="container">
 
         <div class="row" style="padding-bottom: 3rem">
@@ -543,16 +541,16 @@
 
         <div class="row">
             <!-- Programiranje -->
-            <div class="col-lg-3">
-                <div class="cat-banner">
+            <div class="col-6 col-md-3">
+                <div class="cat-banner mb-5 mb-md-0">
                     <a href="/oglasi-za-posao?cat_id=1">
-                        <div class="cat-banner-icon" style="background-color: rgba(71,67,219,.1)">
+                        <div class="cat-banner-icon mx-auto mx-md-0" style="background-color: rgba(71,67,219,.1)">
                             <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-code-square" fill="#4743db" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" d="M14 1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
                                 <path fill-rule="evenodd" d="M6.854 4.646a.5.5 0 0 1 0 .708L4.207 8l2.647 2.646a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 0 1 .708 0zm2.292 0a.5.5 0 0 0 0 .708L11.793 8l-2.647 2.646a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708 0z"/>
                             </svg>
                         </div>
-                        <div class="cat-banner-body">
+                        <div class="cat-banner-body text-center text-md-left">
                             <h5>Programiranje</h5>
                             <p>12 Poslova</p>
                         </div>
@@ -560,16 +558,16 @@
                 </div>
             </div>
             <!-- QA -->
-            <div class="col-lg-3">
-                <div class="cat-banner">
+            <div class="col-6 col-md-3">
+                <div class="cat-banner mb-5 mb-md-0">
                     <a href="/oglasi-za-posao?cat_id=5">
-                        <div class="cat-banner-icon" style="background-color:rgba(255,179,0,.1)">
+                        <div class="cat-banner-icon mx-auto mx-md-0" style="background-color:rgba(255,179,0,.1)">
                             <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-tools" fill="#ffb300" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" d="M0 1l1-1 3.081 2.2a1 1 0 0 1 .419.815v.07a1 1 0 0 0 .293.708L10.5 9.5l.914-.305a1 1 0 0 1 1.023.242l3.356 3.356a1 1 0 0 1 0 1.414l-1.586 1.586a1 1 0 0 1-1.414 0l-3.356-3.356a1 1 0 0 1-.242-1.023L9.5 10.5 3.793 4.793a1 1 0 0 0-.707-.293h-.071a1 1 0 0 1-.814-.419L0 1zm11.354 9.646a.5.5 0 0 0-.708.708l3 3a.5.5 0 0 0 .708-.708l-3-3z"/>
                             <path fill-rule="evenodd" d="M15.898 2.223a3.003 3.003 0 0 1-3.679 3.674L5.878 12.15a3 3 0 1 1-2.027-2.027l6.252-6.341A3 3 0 0 1 13.778.1l-2.142 2.142L12 4l1.757.364 2.141-2.141zm-13.37 9.019L3.001 11l.471.242.529.026.287.445.445.287.026.529L5 13l-.242.471-.026.529-.445.287-.287.445-.529.026L3 15l-.471-.242L2 14.732l-.287-.445L1.268 14l-.026-.529L1 13l.242-.471.026-.529.445-.287.287-.445.529-.026z"/>
                             </svg>
                         </div>
-                        <div class="cat-banner-body">
+                        <div class="cat-banner-body text-center text-md-left">
                             <h5>QA</h5>
                             <p>7 Poslova</p>
                         </div>
@@ -577,15 +575,15 @@
                 </div>
             </div>
             <!-- Dizajn -->
-            <div class="col-lg-3">
-                <div class="cat-banner">
+            <div class="col-6 col-md-3">
+                <div class="cat-banner mb-5 mb-md-0">
                     <a href="/oglasi-za-posao?cat_id=2">
-                        <div class="cat-banner-icon" style="background-color: rgba(247,30,63,.1)">
+                        <div class="cat-banner-icon mx-auto mx-md-0" style="background-color: rgba(247,30,63,.1)">
                             <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-pencil-fill" fill="#f71e3f" xmlns="http://www.w3.org/2000/svg">
                               <path fill-rule="evenodd" d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"/>
                           </svg>
                         </div>
-                        <div class="cat-banner-body">
+                        <div class="cat-banner-body text-center text-md-left">
                             <h5>Dizajn</h5>
                             <p>5 Poslova</p>
                         </div>
@@ -593,15 +591,15 @@
                 </div>
             </div>
             <!-- Praksa -->
-            <div class="col-lg-3">
-                <div class="cat-banner">
+            <div class="col-6 col-md-3">
+                <div class="cat-banner mb-5 mb-md-0">
                     <a href="/oglasi-za-posao?cat_id=8">
-                        <div class="cat-banner-icon" style="background-color:rgba(0,176,116,.1)">
+                        <div class="cat-banner-icon mx-auto mx-md-0" style="background-color:rgba(0,176,116,.1)">
                             <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person-lines-fill" fill="#00b074" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm7 1.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5zm2 9a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5z"/>
                             </svg>
                         </div>
-                        <div class="cat-banner-body">
+                        <div class="cat-banner-body text-center text-md-left">
                             <h5>Prakse</h5>
                             <p>5 Poslova</p>
                         </div>
@@ -613,11 +611,11 @@
     </div>
 </div>
 
-<div id="features" style="padding: 40px 0px 120px;">
+<div id="features" class="my-0 my-sm-5 py-0 py-sm-5">
     <div class="container">
         <div class="row">
             <div class="col-md-6">
-                <div class="pr-5">
+                <div class="p-2 p-sm-0 pr-sm-5">
                     <img  src="{{asset('storage/img/features.jpg')}}" alt="">
                 </div>
             </div>
@@ -626,13 +624,13 @@
                 <div class="row">
                     <div class="col-md-12 mb-5">
                         <div class="row">
-                            <div class="col-md-2">
+                            <div class="col-2 col-md-2">
                                 <div class="features-icon" style="background-color: rgba(0, 176, 116, 0.2);">
                                     <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-check-square-fill" fill="#00b074" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd" d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm10.03 4.97a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/></svg>
                                 </div>
                             </div>
-                            <div class="col-md-10">
+                            <div class="col-10 col-md-10">
                                 <h5>#1 Sajt za IT poslove u CG</h5>
                                 <p>Najveća baza IT poslova i proverenih poslodavaca u Crnoj Gori.</p>
                             </div>
@@ -642,7 +640,7 @@
 
                     <div class="col-md-12 mb-5">
                         <div class="row">
-                            <div class="col-md-2">
+                            <div class="col-2 col-md-2">
                                 <div class="features-icon" style="background-color:rgba(250, 207, 50, 0.2);">
                                     <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-search" fill="#facf32" xmlns="http://www.w3.org/2000/svg">
                                       <path fill-rule="evenodd" d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"/>
@@ -650,9 +648,9 @@
                                     </svg>
                                 </div>
                             </div>
-                            <div class="col-md-10">
+                            <div class="col-10 col-md-10">
                                 <h5>Napredna pretraga</h5>
-                                <p>Pretraga je kreirana tako da dođete do oglasa koji su kompatabilni vašim vještinama.</p>
+                                <p>Pretraga je kreirana da lako dođete do oglasa koji su kompatabilni vašim vještinama.</p>
                             </div>
                         </div>
                     </div>  
@@ -660,7 +658,7 @@
 
                     <div class="col-md-12 mb-5">
                         <div class="row">
-                            <div class="col-md-2">
+                            <div class="col-2 col-md-2">
                                 <div class="features-icon" style="background-color:rgba(247, 30, 63, 0.2);">
                                     <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-award-fill" fill="#f71e3f" xmlns="http://www.w3.org/2000/svg">
                                       <path d="M8 0l1.669.864 1.858.282.842 1.68 1.337 1.32L13.4 6l.306 1.854-1.337 1.32-.842 1.68-1.858.282L8 12l-1.669-.864-1.858-.282-.842-1.68-1.337-1.32L2.6 6l-.306-1.854 1.337-1.32.842-1.68L6.331.864 8 0z"/>
@@ -668,7 +666,7 @@
                                     </svg>
                                 </div>
                             </div>
-                            <div class="col-md-10">
+                            <div class="col-10 col-md-10">
                                 <h5>Poslovi u top kompanijama</h5>
                                 <p>Trudićemo se da na našoj platformi nađete poslove istaknutih kompanija koje nude i najbolje uslove zapošljavanja.</p>
                             </div>
@@ -786,14 +784,14 @@
           </div>
           <div class="col-md-6" >
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-4 d-none d-sm-block">
                     <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-chat-right-dots-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd" d="M16 2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h9.586a1 1 0 0 1 .707.293l2.853 2.853a.5.5 0 0 0 .854-.353V2zM5 6a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
                     </svg>
                 </div>
-                <div class="col-md-8">
+                <div class="col-md-8 text-center text-sm-left">
                     <h5 style="font-weight: 400;font-size: 1.2rem;line-height: 1.625;letter-spacing: -.08px;">Konktarijate nas</h5>
-                <span style="color: #04D223;font-weight: 700;font-size: 1.2rem;line-height: 1.625;letter-spacing: -.08px;">mail@itposlovi.me</span>
+                <span style="color: #04D223;font-weight: 700;font-size: 1.2rem;line-height: 1.625;letter-spacing: -.08px;">itposlovi.me@gmail.com</span>
                 </div>
             </div>
           </div>
