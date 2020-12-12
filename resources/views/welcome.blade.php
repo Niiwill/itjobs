@@ -209,9 +209,9 @@
                 color: #2b3940;
                 display: inline-block;
                 text-align: center;
-                margin-right: .4rem;
+                margin-right: .3rem;
                 margin-top: .375rem;
-                font-size: 14px;
+                font-size: 13px;
                 min-width: 96px;
                 padding: .25rem 1rem;
                 border-radius: 3px;
@@ -220,7 +220,7 @@
                 letter-spacing: .26px;
             }
             .header h2{
-                font-size: 2.5rem;
+                font-size: 3rem;
                 line-height: 1.375;
                 letter-spacing: -.4px;
                 font-weight: 700;
@@ -409,18 +409,27 @@
                     font-size: 1.8rem;
                 }
                 .hero-body h1{
-                    font-size: 2.3rem;
+                    font-size: 2rem;
                 }
                 .header-button a {
                     width: 100%;
                 }
                 .header h2{
                     text-align: center;
-                    font-size: 1.8rem;
+                    font-size: 1.7rem;
                 }
                 .search-bar-home button {
                     border-radius: 0 0 6px 6px;
                     padding: 15px;
+                }
+                .job-card{
+                    padding:1.875rem 1.25rem 1.25rem 1.25rem;
+                }
+                .job-card-info svg {
+                    font-size: 15px;
+                }
+                .cat-banner{
+                    padding: 20px 10px 15px;
                 }
             }
 
@@ -700,13 +709,13 @@
 
 
 <!-- NAJNOVIJI POSLOVI -->
-<div style="background-color: #2b3940!important;padding-top: 6rem;padding-bottom:7.5rem; color: white;">
+<div style="background-color: #F4F5F8!important;padding-top: 6rem;padding-bottom:7.5rem;">
     <div class="container">
         <!-- Naslov -->
         <div class="row" style="padding-bottom: 3.4375rem;">
             <div class="col-12 col-lg-12">
                 <div class="header text-center">
-                    <h2 style="color: white;">Istaknuti <span style="color:#04D223;">IT</span> poslovi</h2>
+                    <h2>Istaknuti <span style="color:#04D223;">IT</span> poslovi</h2>
                 </div>
             </div>
            <!--  <div class="col-12 col-lg-6">
@@ -722,7 +731,7 @@
                 <!-- List item -->
                 <div class="job-card">
                     <div class="row">
-                        <div class="col-lg-10">
+                        <div class="col-12 col-md-10">
                             <div class="media">
                                 <div class="square72">
                                     <img src="http://www.lifeisone.net/site/wp-content/uploads/airbnb-logo.png" width="100%">
@@ -735,15 +744,15 @@
                         </div>
                     </div>
                     <div class="row" style="padding-top:1.6rem;">
-                        <div class="col-md-7">
+                        <div class="col-12 col-md-7">
                             <ul class="tags">
                                 <li><a href="">Agile</a></li>
                                 <li><a href="">Wireframing</a></li>
                                 <li><a href="">Prototyping</a></li>
                             </ul>
                         </div>
-                        <div class="col-md-5" style="padding-top:3px;padding-left:0;">
-                            <ul class="job-card-info">
+                        <div class="col-12 col-md-5 col-12 col-md-5 my-2 my-sm-0" style="padding-top:3px;">
+                            <ul class="job-card-info text-left text-sm-right">
                                 <li>
                                     <span>
                                         <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-geo-alt" fill="#6b6e6f" xmlns="http://www.w3.org/2000/svg">
