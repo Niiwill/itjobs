@@ -3,8 +3,11 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="icon" type="image/x-icon" href="{{asset('storage/img/favicon.png')}}" />
+        <title>ITPoslovi.me | Svi IT poslovi u Crnoj Gori, kompanije i poslodavci na jednom mestu</title>
+        <meta name="description" content="IT Poslovi, konkursi i slobodna radna mesta! Poslodavci i firme u Crnoj Gori na jednom mestu.">
 
-        <title>IT POSLOVI.me</title>
+        <link rel="canonical" href="http://itposlovi.me"/>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -644,7 +647,7 @@
         <div class="row">
             <div class="col-md-6 pb-4 pb-sm-0">
                 <div class="p-2 p-sm-0 pr-sm-5">
-                    <img  src="{{asset('storage/img/features.jpg')}}" alt="">
+                    <img  src="{{asset('storage/img/features.jpg')}}" alt=" it poslovi crna gora mali oglasi ">
                 </div>
             </div>
             <div class="col-md-5 offset-md-1">
@@ -805,7 +808,7 @@
           <div class="row" style="padding: 140px 0px 60px;">
           <div class="col-md-6" style="border-right: 1px solid #e5e5e5">
             <div style="text-align:center;">
-                <img src="{{asset('storage/img/logo.png')}}" alt="logo it poslovi crna gora me" width="150px">
+                <img src="{{asset('storage/img/logo.png')}}" alt="logo it poslovi crna gora me mali oglasi karijera it programiranje" width="150px">
             <small class="d-block mb-3 text-muted">© 2020</small>
     
             </div>
