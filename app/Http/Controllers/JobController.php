@@ -94,7 +94,7 @@ class JobController extends Controller
         // ]);
 
         $job = new Job;
-        $job->title = $request->title;
+        $job->title = ucwords(mb_strtolower($request->title));
         $job->text = $request->description;
         $job->user_id = Auth::id();
         $job->category_id = $request->category_id;

@@ -27,8 +27,7 @@
 
             }
             .btn-zeleni{
-                background-color: #04D223;
-                background-image: linear-gradient(-180deg,#34b859,#2ea44f);
+                background-color:#0fbc49;
                 color: white;
                 border: #04D223;
                 text-transform: uppercase;
@@ -167,9 +166,6 @@
                 min-height: 72px;
                 margin-right: 1.5625rem!important;
             }
-            .job-card .square72 img{
-                border-radius:5px;
-            }
 
             .job-card .media{
                 display: flex;
@@ -198,7 +194,7 @@
             .job-card-info svg{
                 color: #2b3940;
                 margin-right:.2rem;
-                font-size: 17px;
+                font-size: 16px;
                 margin-top: -3px; 
             }
             ul.tags{
@@ -799,7 +795,7 @@
                 <div class="input-group">
                     <input type="email" class="form-control jobletter-mail" placeholder="Mejl adresa" aria-label="Mejl adresa" aria-describedby="basic-addon2">
                     <div class="input-group-append">
-                        <button class="btn btn-zeleni" type="button">Prijavi se</button>
+                        <button class="btn btn-zeleni px-3" type="button">Prijavi se</button>
                     </div>
                 </div>
             </form>

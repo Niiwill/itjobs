@@ -150,17 +150,14 @@
             }
             .job-card .square72{
                 display: block;
-                max-width: 80px;
-                min-width: 80px;
-                max-height: 80px;
-                min-height: 80px;
+                max-width: 72px;
+                min-width: 72px;
+                max-height: 72px;
+                min-height: 72px;
                 margin-right: 1.5625rem;
                 display: flex;
                 align-items: center;
                 justify-items: center;
-            }
-            .job-card .square72 img{
-                border-radius:5px;
             }
 
             .job-card .media{
@@ -190,7 +187,7 @@
             .job-card-info svg{
                 color: #2b3940;
                 margin-right:.2rem;
-                font-size: 17px;
+                font-size: 16px;
                 margin-top: -3px; 
             }
             ul.tags{
@@ -207,7 +204,7 @@
                 color: #2b3940;
                 display: inline-block;
                 text-align: center;
-                margin-right: .3rem;
+                margin-right: .5rem;
                 margin-top: .375rem;
                 font-size: 13px;
                 min-width: 96px;
@@ -262,8 +259,7 @@
                 margin-bottom: 30px;
             }
              .btn-zeleni{
-                background-color: #04D223;
-                background-image: linear-gradient(-180deg,#34b859,#2ea44f);
+                background-color:#0fbc49;
                 color: white;
                 border: #04D223;
                 text-transform: uppercase;
@@ -365,11 +361,11 @@
                 #filter-button{
                     background-color: transparent;
                     border: 1px solid #00b074;
-                    border-radius: .5rem;
+                    border-radius: .4rem;
                     text-transform: uppercase;
                     letter-spacing: .26px;
                     font-weight: 600;
-                    font-size: 13px;
+                    font-size: 12px;
                     color: #00b074;
                 
                 }
@@ -444,7 +440,7 @@
         <!-- Home posao list -->
         <div class="row">
             <div class="col-sm-3 pt-2 pt-sm-5">
-                <button id="filter-button" class="btn d-block d-sm-none w-100 my-4 py-3">Filter</button>
+                <button id="filter-button" class="btn d-block d-sm-none w-100 my-4 py-3">Napredni Filteri</button>
             	<div id="filter">
             		<div class="filter-group">
 	            		<h4>Kategorije</h4>
@@ -570,7 +566,7 @@
                         <div class="col-12 col-md-10">
                             <div class="media">
                                 <div class="square72">
-                                    <img src="{{asset('storage/'.$job->company->logo_path)}}" alt="{{$job->company->name}}" width="100%">
+                                    <img src="http://www.lifeisone.net/site/wp-content/uploads/airbnb-logo.png" alt="{{$job->company->name}}" width="100%">
                                 </div>
                                 <div class="job-card-body">
                                     <h3><a href="/posao/{{$job->id}}/{{$job->slug}}" class="job-name">{{$job->title}}</a></h3>
@@ -579,7 +575,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row" style="padding-top:1.6rem;">
+                    <div class="row pt-4">
                         <div class="col-12 col-md-7">
                             <ul class="tags">
                                 @foreach($job->tags as $tag)
@@ -643,7 +639,7 @@
                 <div class="input-group">
                     <input type="email" class="form-control jobletter-mail" placeholder="Mejl adresa" aria-label="Mejl adresa" aria-describedby="basic-addon2">
                     <div class="input-group-append">
-                        <button class="btn btn-zeleni" type="button">Prijavi se</button>
+                        <button class="btn btn-zeleni px-3" type="button">Prijavi se</button>
                     </div>
                 </div>
             </form>
