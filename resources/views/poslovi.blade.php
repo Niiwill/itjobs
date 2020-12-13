@@ -3,8 +3,10 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-        <title>IT POSLOVI.me</title>
+        <link rel="icon" type="image/x-icon" href="{{asset('storage/img/favicon.png')}}" />
+        <title>Oglasi za posao i konkursi | ITPoslovi.me - Crna gora</title>
+        <meta name="description" content="IT Poslovi, konkursi i slobodna radna mesta! ITPoslovi.me - Crna gora Programeri, dizajneri, QA testeri, Sitemski administratori u  Crnoj Gori.">
+        <link rel="canonical" href="http://itposlovi.me/oglasi-za-posao"/>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -21,6 +23,16 @@
 
         <script type="text/javascript">
         	$(function(){$("input[type=\"checkbox\"]").on("change",function(){$("input[name=\""+this.name+"\"]").not(this).prop("checked",!1)}),$("input[type=checkbox]").change(function(){var a=$(this).attr("name"),b=$(this).val(),c=$("#poslovi-form");$(this).prop("checked")?(c.find("input[name="+a+"]").prop("disabled",!1),c.find("input[name="+a+"]").val(b)):c.find("input[name="+a+"]").prop("disabled",!0),c.submit()})});
+
+            $(document).ready(function () {
+                $('#filter-button').click(function () {
+                    // Animate the div element. A duration is set to 500 milliseconds.
+                    // $("#filter").hide("slide", { direction: "down" }, 1000);
+                    $("#filter").slideToggle('slow');
+
+
+                });
+            });
         </script>
      
         <!-- Styles -->
@@ -172,19 +184,21 @@
             }
             .job-card-info span{
                 color: #2b3940;
-                font-weight:700;
+                font-weight:600;
                 font-size: 13px; 
             }
             .job-card-info svg{
                 color: #2b3940;
                 margin-right:.2rem;
-                font-size: 19px;
+                font-size: 17px;
                 margin-top: -3px; 
             }
             ul.tags{
                 margin: 0px;
                 list-style: none;
                 padding: 0px;
+                display: flex;
+                flex-wrap: wrap;
             }
             ul.tags li{
                 display: inline;
@@ -193,9 +207,9 @@
                 color: #2b3940;
                 display: inline-block;
                 text-align: center;
-                margin-right: .4rem;
+                margin-right: .3rem;
                 margin-top: .375rem;
-                font-size: 14px;
+                font-size: 13px;
                 min-width: 96px;
                 padding: .25rem 1rem;
                 border-radius: 3px;
@@ -249,6 +263,7 @@
             }
              .btn-zeleni{
                 background-color: #04D223;
+                background-image: linear-gradient(-180deg,#34b859,#2ea44f);
                 color: white;
                 border: #04D223;
                 text-transform: uppercase;
@@ -276,7 +291,7 @@
         	#filter input[type=checkbox] + label:before {
         		content: "\2714";
         		border: 0.15em solid rgb(126 137 137);
-        		border-radius: 0.1em;
+        		border-radius: 0.15em;
         		display: inline-block;
         		width: 14px;
         		height: 14px;
@@ -301,6 +316,12 @@
         		background-color: #bfb;
         		border-color: #bfb;
         	}
+            #search-bar{
+                border-radius: .6rem;
+                background: white;
+                padding: 1rem;
+                box-shadow: 0 29px 75px rgba(156, 156, 156, 0.16);
+            }
         	#search-bar input, #search-bar select{
         		border-radius: 0px;
         		border: 0;
@@ -308,13 +329,15 @@
         		color: #6b6e6f;
         	}
         	#search-bar .btn{
-        		min-width: 160px;
+        		width:100%;
         		color: #fff;
         		background-color: #00b074;
+                background-image: linear-gradient(-180deg,#34b859,#2ea44f);
         		border-color: #00b074;
-        		height: 100%;
+        		height: 60px;
         		font-weight: 700;
         		font-size: 13px;
+                text-transform: uppercase;
         	}
         	#search-bar input:focus, #search-bar select:focus, #search-bar .btn:focus{
         		border: none;
@@ -331,10 +354,35 @@
         		font-size: 20px;
         		display: flex;
         		justify-content: center;
-                margin-right: 20px;
         	}
             select2-selection { overflow: hidden; }
             .select2-selection__rendered { white-space: normal; word-break: break-all; }
+
+            @media (max-width: 576px){
+                #filter{
+                    display: none;
+                }
+                #filter-button{
+                    background-color: transparent;
+                    border: 1px solid #00b074;
+                    border-radius: .5rem;
+                    text-transform: uppercase;
+                    letter-spacing: .26px;
+                    font-weight: 600;
+                    font-size: 13px;
+                    color: #00b074;
+                
+                }
+                .job-card{
+                    padding:1.875rem 1.25rem 1.25rem 1.25rem;
+                }
+                .job-card-info svg {
+                    font-size: 15px;
+                }
+                .cat-banner{
+                    padding: 20px 10px 15px;
+                }
+            }
             
         </style>
 
@@ -342,7 +390,7 @@
     <body>
 	 <nav class="navbar navbar-expand-lg">
             <div class="container">
-                <a class="navbar-logo" href="{{ url('/') }}">
+                <a class="navbar-logo navbar-logo px-3 px-sm-2 pt-3 pb-1" href="{{ url('/') }}">
                     <img src="{{asset('storage/img/logo.png')}}" alt="logo it poslovi crna gora me">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
@@ -390,12 +438,13 @@
   
 
 <!-- NAJNOVIJI POSLOVI -->
-<div style="padding-top:5rem;padding-bottom:7.5rem">
+<div  class="py-0 py-sm-5">
     <div class="container">
 
         <!-- Home posao list -->
         <div class="row">
-            <div class="col-sm-3">
+            <div class="col-sm-3 pt-2 pt-sm-5">
+                <button id="filter-button" class="btn d-block d-sm-none w-100 my-4 py-3">Filter</button>
             	<div id="filter">
             		<div class="filter-group">
 	            		<h4>Kategorije</h4>
@@ -451,52 +500,58 @@
                 </div>
             </div>
 
-            <div class="col-sm-9">
-            	<div class="row">
-            		<div class="col-md-12">
-            			<div id="search-bar">
-	            		<form id="poslovi-form" action="/oglasi-za-posao" method="get">
+            <div class="col-sm-9 pt-0 pt-sm-5">
+                <div class="row">
+                    <div class="col-12">
+                        <div id="search-bar">
+                            <form id="poslovi-form" action="/oglasi-za-posao" method="get">
+                                <input type="hidden" name="cat_id" value="{{ request()->get('cat_id')}}" {{ (request()->get('cat_id')) ? "":"disabled"}}>
+                                <input type="hidden" name="type_id" value="{{ request()->get('type_id')}}" {{ (request()->get('type_id')) ? "":"disabled"}}>
+                                <input type="hidden" name="level_id" value="{{ request()->get('level_id')}}" {{ (request()->get('level_id')) ? "":"disabled"}}>
+                              <div class="form-row align-items-center">
 
-	  					<input type="hidden" name="cat_id" value="{{ request()->get('cat_id')}}" {{ (request()->get('cat_id')) ? "":"disabled"}}>
-	  					<input type="hidden" name="type_id" value="{{ request()->get('type_id')}}" {{ (request()->get('type_id')) ? "":"disabled"}}>
-	  					<input type="hidden" name="level_id" value="{{ request()->get('level_id')}}" {{ (request()->get('level_id')) ? "":"disabled"}}>
+                                <div class="col-12 col-sm-5 my-1 pl-1 pl-sm-3">
+                                    <div class="input-group mb-1">
+                                        <div class="input-group-prepend mr-2 icon">
+                                            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-geo-alt" fill="#00b074" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" d="M12.166 8.94C12.696 7.867 13 6.862 13 6A5 5 0 0 0 3 6c0 .862.305 1.867.834 2.94.524 1.062 1.234 2.12 1.96 3.07A31.481 31.481 0 0 0 8 14.58l.208-.22a31.493 31.493 0 0 0 1.998-2.35c.726-.95 1.436-2.008 1.96-3.07zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z"/>
+                                                <path fill-rule="evenodd" d="M8 8a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                                            </svg>
+                                        </div>
+                                        
+                                        <select class="search_tags form-control" data-placeholder="Tehnologija" name="tag_id" multiple="multiple">
+                                            @foreach ($tags as $tag)
+                                                <option value="{{$tag->id}}" {{ request()->get('tag_id') == $tag->id ? "selected":""}}>{{$tag->name}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
 
-		            		<div style="background-color: white;padding:1rem;border-radius: .3125rem!important;box-shadow: 0 29px 75px hsla(0,0%,61.2%,.16);display: flex;align-items: center;">
-		            			<div style="width:50%;padding: 0.25rem 1rem;display: flex;align-content: center;">
-		            				<span class="icon">
-		            					<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-search" fill="#00b074" xmlns="http://www.w3.org/2000/svg">
-  										<path fill-rule="evenodd" d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"/>
-  										<path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
-										</svg>
-									</span>
-		            				<select class="search_tags" data-placeholder="Tehnologije" name="tag_id" multiple="multiple" style="width: 100%;">
-									  @foreach ($tags as $tag)
-                                        <option value="{{$tag->id}}" {{ request()->get('tag_id') == $tag->id ? "selected":""}}>{{$tag->name}}</option>
-                                         @endforeach
-									</select>
-		            			</div>
-		            			<div style="width:50%;padding: 0.25rem 2rem;display: flex;align-content: center;">
-		            				<span class="icon">
-		            					<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-geo-alt" fill="#00b074" xmlns="http://www.w3.org/2000/svg">
-  											<path fill-rule="evenodd" d="M12.166 8.94C12.696 7.867 13 6.862 13 6A5 5 0 0 0 3 6c0 .862.305 1.867.834 2.94.524 1.062 1.234 2.12 1.96 3.07A31.481 31.481 0 0 0 8 14.58l.208-.22a31.493 31.493 0 0 0 1.998-2.35c.726-.95 1.436-2.008 1.96-3.07zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z"/>
-  											<path fill-rule="evenodd" d="M8 8a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
-										</svg>
-									</span>
-		            				<select class="form-control" name="city_id" style="border:0px!important;" >
-		            					<option value="" selected disabled>Choose here</option>
-                                        @foreach ($cities as $city)
-                                        <option value="{{$city->id}}" {{ request()->get('city_id') == $city->id ? "selected":""}}>{{$city->name}}</option>
-                                         @endforeach
-            						</select>
-		            			</div>
-		            			<div style="height: 60px;">
-		            				<button type="submit" value="Submit" class="btn">TRAŽI</button>
-								</div>
-		            		</div>
-	            		</form>
-	            		</div>
-            		</div>
-            	</div>
+                                <div class="col-12 col-sm-5 my-1 pr-0 pr-sm-5">
+                                    <div class="input-group mb-1">
+                                        <div class="input-group-prepend icon">
+                                            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-geo-alt" fill="#00b074" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" d="M12.166 8.94C12.696 7.867 13 6.862 13 6A5 5 0 0 0 3 6c0 .862.305 1.867.834 2.94.524 1.062 1.234 2.12 1.96 3.07A31.481 31.481 0 0 0 8 14.58l.208-.22a31.493 31.493 0 0 0 1.998-2.35c.726-.95 1.436-2.008 1.96-3.07zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z"/>
+                                                <path fill-rule="evenodd" d="M8 8a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                                            </svg>
+                                        </div>
+                                        <select class="form-control" name="city_id" style="border:0px!important;" >
+                                            <option value="" selected disabled>Lokacija</option>
+                                            @foreach ($cities as $city)
+                                            <option value="{{$city->id}}" {{ request()->get('city_id') == $city->id ? "selected":""}}>{{$city->name}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-12 col-sm-2 my-1">
+                                  <button type="submit" class="btn btn-primary w-100">Traži</button>
+                                </div>
+                              </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
 
 
 
@@ -510,33 +565,33 @@
             	</div>
                 @foreach ($jobs as $job)
             	<!-- List item -->
-                <div class="job-card">
+                  <div class="job-card">
                     <div class="row">
-                        <div class="col-lg-10">
+                        <div class="col-12 col-md-10">
                             <div class="media">
-                            	<div class="square72">
-                                	<img src="{{asset('storage/'.$job->company->logo_path)}}" alt="{{$job->company->name}}" width="100%">
-                            	</div>
-                            	<div class="job-card-body">
-                                	<h3><a href="/posao/{{$job->id}}/{{$job->slug}}" class="job-name">{{$job->title}}</a></h3>
-                                	<a class="company-name">{{$job->company->name}}</a>
-                            	</div>
+                                <div class="square72">
+                                    <img src="{{asset('storage/'.$job->company->logo_path)}}" alt="{{$job->company->name}}" width="100%">
+                                </div>
+                                <div class="job-card-body">
+                                    <h3><a href="/posao/{{$job->id}}/{{$job->slug}}" class="job-name">{{$job->title}}</a></h3>
+                                    <a class="company-name">{{$job->company->name}}</a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="row" style="padding-top: 1.6rem;">
-                        <div class="col-md-8">
+                    <div class="row" style="padding-top:1.6rem;">
+                        <div class="col-12 col-md-7">
                             <ul class="tags">
                                 @foreach($job->tags as $tag)
                                 <li><a href="/oglasi-za-posao?tag_id={{$tag->id}}">{{$tag->name}}</a></li>
                                 @endforeach
                             </ul>
                         </div>
-                        <div class="col-md-4" style="padding-top:3px;padding-left:0;">
-                            <ul class="job-card-info">
+                        <div class="col-12 col-md-5 col-12 col-md-5 my-2 my-sm-0" style="padding-top:3px;">
+                            <ul class="job-card-info text-left text-sm-right">
                                 <li>
                                     <span>
-                                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-geo-alt" fill="#6b6e6f" xmlns="http://www.w3.org/2000/svg">
+                                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-geo-alt" fill="#828282" xmlns="http://www.w3.org/2000/svg">
                                             <path fill-rule="evenodd" d="M12.166 8.94C12.696 7.867 13 6.862 13 6A5 5 0 0 0 3 6c0 .862.305 1.867.834 2.94.524 1.062 1.234 2.12 1.96 3.07A31.481 31.481 0 0 0 8 14.58l.208-.22a31.493 31.493 0 0 0 1.998-2.35c.726-.95 1.436-2.008 1.96-3.07zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z"/>
                                             <path fill-rule="evenodd" d="M8 8a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
                                         </svg>
@@ -545,7 +600,7 @@
                                 </li>
                                 <li>
                                     <span>
-                                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-clock" fill="#6b6e6f" xmlns="http://www.w3.org/2000/svg">
+                                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-clock" fill="#828282" xmlns="http://www.w3.org/2000/svg">
                                             <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm8-7A8 8 0 1 1 0 8a8 8 0 0 1 16 0z"/>
                                             <path fill-rule="evenodd" d="M7.5 3a.5.5 0 0 1 .5.5v5.21l3.248 1.856a.5.5 0 0 1-.496.868l-3.5-2A.5.5 0 0 1 7 9V3.5a.5.5 0 0 1 .5-.5z"/>
                                         </svg>
@@ -598,19 +653,19 @@
           <div class="row" style="padding: 140px 0px 60px;">
           <div class="col-md-6" style="border-right: 1px solid #e5e5e5">
             <div style="text-align:center;">
-                <img src="{{asset('storage/img/logo.png')}}" alt="logo it poslovi crna gora me" width="150px">
+                <img src="{{asset('storage/img/logo.png')}}" alt="logo it poslovi crna gora me mali oglasi karijera it programiranje" width="150px">
             <small class="d-block mb-3 text-muted">© 2020</small>
     
             </div>
           </div>
           <div class="col-md-6" >
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-4 d-none d-sm-block">
                     <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-chat-right-dots-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd" d="M16 2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h9.586a1 1 0 0 1 .707.293l2.853 2.853a.5.5 0 0 0 .854-.353V2zM5 6a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
                     </svg>
                 </div>
-                <div class="col-md-8">
+                <div class="col-md-8 text-center text-sm-left">
                     <h5 style="font-weight: 400;font-size: 1.2rem;line-height: 1.625;letter-spacing: -.08px;">Konktarijate nas</h5>
                 <span style="color: #04D223;font-weight: 700;font-size: 1.2rem;line-height: 1.625;letter-spacing: -.08px;">itposlovi.me@gmail.com</span>
                 </div>

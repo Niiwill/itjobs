@@ -21,13 +21,14 @@
         <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
         <!-- Styles -->
         <style>
-
+            
             body{
                 font-family: 'Inter', sans-serif;
 
             }
             .btn-zeleni{
                 background-color: #04D223;
+                background-image: linear-gradient(-180deg,#34b859,#2ea44f);
                 color: white;
                 border: #04D223;
                 text-transform: uppercase;
@@ -197,7 +198,7 @@
             .job-card-info svg{
                 color: #2b3940;
                 margin-right:.2rem;
-                font-size: 19px;
+                font-size: 17px;
                 margin-top: -3px; 
             }
             ul.tags{
