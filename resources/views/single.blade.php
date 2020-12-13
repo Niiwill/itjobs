@@ -3,8 +3,10 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-        <title>IT POSLOVI.me</title>
+        <link rel="icon" type="image/x-icon" href="{{asset('storage/img/favicon.png')}}" />
+        <title>{{$job->title}} | {{$job->company->name}} | {{$job->city->name}} | ITPoslovi.me</title>
+        <meta name="description" content="Oglas: {{$job->title}} - Crna Gora / Montenegro - Svi It oglasi na jednom mjestu. Pronađite sve software kompanije u Crnoj Gori i biraj posao koji voliš. ">
+        <link rel="canonical" href="{{url()->current()}}"/>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -231,15 +233,23 @@
             .job-body h3, .job-body p{
                 color: #2b3940;
                 font-weight: 400;
-                font-size: 1rem;
+                font-size: 15px;
                 line-height: 1.625;
                 letter-spacing: -.08px;
                 margin-bottom: 1.25rem;
             }
             .job-body h3{
-                font-weight: 600;
-                font-size: 1.1rem;
+                font-weight: 700;
+                font-size: 1.3rem;
               
+            }
+            .job-body ul{
+                color: #2b3940;
+                padding-left: 0;
+                font-size: 15px;
+            }
+            .job-body ul li{
+                margin-bottom: 1rem;
             }
             #back{
                 margin-bottom: 1.875rem;
@@ -278,7 +288,11 @@
                 font-weight: 600;
                 color: #6b6e6f;
             }
-
+            @media (max-width: 576px){
+                .job-body {
+                    padding: 3rem 2rem 5rem 2rem;
+                }
+            }
         	
             
         </style>
@@ -287,7 +301,7 @@
     <body>
 	<nav class="navbar navbar-expand-lg">
             <div class="container">
-                <a class="navbar-logo" href="{{ url('/') }}">
+                <a class="navbar-logo navbar-logo px-3 px-sm-2 pt-3 pb-1" href="{{ url('/') }}">
                     <img src="{{asset('storage/img/logo.png')}}" alt="logo it poslovi crna gora me">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
@@ -336,7 +350,7 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-md-10 offset-md-1" style="margin-top:70px;">
+            <div class="col-md-10 offset-md-1 mt-5">
                 <div id="back">
                     <a href="{{ URL::previous() }}">
                         <div id="back-icon">
@@ -374,7 +388,7 @@
                     <div id="job-details">
                         <div class="row">
 
-                            <div class="col-md-3">
+                            <div class="col-6 col-md-3 mb-4 mb-sm-0">
                                 <div class="job-info">
                                     <div class="icon">
                                         <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-lightning-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -385,7 +399,7 @@
                                 </div>
                             </div>  
 
-                            <div class="col-md-3">
+                            <div class="col-6 col-md-3 mb-4 mb-sm-0">
                                 <div class="job-info">
                                     <div class="icon">
                                         <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-briefcase-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -397,7 +411,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-md-3">
+                            <div class="col-6 col-md-3 mb-4 mb-sm-0">
                                 <div class="job-info">
                                     <div class="icon">
                                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-clock-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -408,7 +422,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-md-3">
+                            <div class="col-6 col-md-3 mb-4 mb-sm-0">
                                 <div class="job-info">
                                     <div class="icon">
                                         <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-geo-alt-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -438,6 +452,7 @@
 
 
 <!-- FOOTER -->
+<!-- FOOTER -->
 <footer>
     <div class="container">
         <div class="row">
@@ -450,7 +465,7 @@
                 <div class="input-group">
                     <input type="email" class="form-control jobletter-mail" placeholder="Mejl adresa" aria-label="Mejl adresa" aria-describedby="basic-addon2">
                     <div class="input-group-append">
-                        <button class="btn btn-zeleni" type="button">Prijavi se</button>
+                        <button class="btn btn-zeleni px-3" type="button">Prijavi se</button>
                     </div>
                 </div>
             </form>
@@ -460,19 +475,19 @@
           <div class="row" style="padding: 140px 0px 60px;">
           <div class="col-md-6" style="border-right: 1px solid #e5e5e5">
             <div style="text-align:center;">
-        <img src="{{asset('storage/img/logo.png')}}" alt="logo it poslovi crna gora me" width="150px">
+                <img src="{{asset('storage/img/logo.png')}}" alt="logo it poslovi crna gora me mali oglasi karijera it programiranje" width="150px">
             <small class="d-block mb-3 text-muted">© 2020</small>
     
             </div>
           </div>
           <div class="col-md-6" >
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-4 d-none d-sm-block">
                     <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-chat-right-dots-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd" d="M16 2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h9.586a1 1 0 0 1 .707.293l2.853 2.853a.5.5 0 0 0 .854-.353V2zM5 6a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
                     </svg>
                 </div>
-                <div class="col-md-8">
+                <div class="col-md-8 text-center text-sm-left">
                     <h5 style="font-weight: 400;font-size: 1.2rem;line-height: 1.625;letter-spacing: -.08px;">Konktarijate nas</h5>
                 <span style="color: #04D223;font-weight: 700;font-size: 1.2rem;line-height: 1.625;letter-spacing: -.08px;">itposlovi.me@gmail.com</span>
                 </div>

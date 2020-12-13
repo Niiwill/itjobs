@@ -1,13 +1,16 @@
-<!-- @push('scripts')
+@push('scripts')
 <script src="https://cloud.tinymce.com/5/tinymce.min.js?apiKey=orluaejj30g3r6fymv4rb18b45bnrfsojdct6gsht1kvazt8" referrerpolicy="origin"></script>
 <script>tinymce.init({
 selector: 'textarea',
+plugins: 'lists',
+toolbar: "undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist",
 style_formats: [
-{title: 'Zaglavlje', format: 'h3'},
-{title: 'Paragraf', format: 'p'},
+{title: 'Podnaslov', format: 'h3'},
+{title: 'Paragraf', format: 'p'}
 ],
+menubar:false
 });</script>
-@endpush -->
+@endpush
 
 @push('scripts')
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -92,7 +95,7 @@ style_formats: [
             						<label for="about" class="block text-sm leading-5 font-medium text-gray-700 mb-4">
 										Upišite tekst oglasa
             						</label>
-            						<textarea id="mytextarea" name="description" rows="20"></textarea>
+            						<textarea id="mytextarea" name="text" rows="20"></textarea>
             					</div>
             					<!-- <p>Partner odgovara za tačnost i istinitost svih podataka koje dostavi PrekoVeze za potrebe sastavljanja Informacije o Partneru. Partner garantuje PrekoVeze da na tekstu, fotografijama, graficima i sličnom, koje dostavlja PrekoVeze za potrebe Informacije o Partneru, polaže autorska i srodna prava i obavezuje se da trećim licima i PrekoVeze nadoknadi svu eventualno nastalu štetu u slučaju povrede navedenih prava. -->
 

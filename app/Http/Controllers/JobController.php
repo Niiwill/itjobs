@@ -95,7 +95,7 @@ class JobController extends Controller
 
         $job = new Job;
         $job->title = ucwords(mb_strtolower($request->title));
-        $job->text = $request->description;
+        $job->text = $request->text;
         $job->user_id = Auth::id();
         $job->category_id = $request->category_id;
         $job->level_id = $request->level_id;
@@ -152,8 +152,8 @@ class JobController extends Controller
     {
 
         $job = Job::find($id);
-        $job->title = $request->title;
-        $job->text = 'hiiii';
+        $job->title = ucwords(mb_strtolower($request->title));
+        $job->text = $request->text;
         $job->user_id = Auth::id();
         $job->category_id = $request->category_id;
         $job->level_id = $request->level_id;
