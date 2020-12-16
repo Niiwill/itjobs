@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="icon" type="image/x-icon" href="{{asset('storage/img/favicon.png')}}" />
         <title>ITPoslovi.me | Svi IT poslovi u Crnoj Gori, kompanije i poslodavci na jednom mestu</title>
-        <meta name="description" content="IT Poslovi, konkursi i slobodna radna mesta! Poslodavci i firme u Crnoj Gori na jednom mestu.">
+        <meta name="description" content="IT Poslovi, konkursi i slobodna radna mesta! Poslodavci i firme u Crnoj Gori na jednom mestu. Oglasi za programiranje, dizajn, administraciju, web poslove i socijalne mreze i drugo.">
 
         <link rel="canonical" href="http://itposlovi.me"/>
 
@@ -408,8 +408,14 @@
                 #features h2{
                     font-size: 1.8rem;
                 }
+                .hero-body{
+                    text-align: center;
+                }
                 .hero-body h1{
-                    font-size: 2rem;
+                    font-size: 1.9rem;  
+                }
+                .hero-body p{
+                    font-size: 1.1rem;
                 }
                 .header-button a {
                     width: 100%;
@@ -495,7 +501,7 @@
         <div class="hero pt-0 pt-md-5">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-7 mt-5">
+                    <div class="col-md-7 mt-4 mt-sm-5">
 
                         <div class="row">
 
@@ -515,7 +521,7 @@
                                 <div class="row no-gutters search-bar-home">                                    
                                     <div class="search_padding col-md-8">
                                         <span class="search_icon">
-                                        <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-search" fill="#00b074" xmlns="http://www.w3.org/2000/svg">
+                                        <svg width="1.4em" height="1.4em" viewBox="0 0 16 16" class="bi bi-search" fill="#00b074" xmlns="http://www.w3.org/2000/svg">
                                         <path fill-rule="evenodd" d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"/>
                                         <path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
                                         </svg>
