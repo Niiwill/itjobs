@@ -22,8 +22,6 @@ class JobController extends Controller
      */
     public function index(Request $request)
     {
-        \DB::enableQueryLog();
-
 
         // Ako trazim po TAG ID ona koristim whereHas
         if ($request->filled('tag_id')) {
@@ -54,7 +52,7 @@ class JobController extends Controller
         $tags=Tag::all();
 
         // Rezultatu prikljucujem jos ime GRADA i ime Kompanije za svaki oglas
-        $jobs = $query->with('company:id,name,user_id,logo_path')->with('city')->get();
+        $jobs = $query->with('company:id,name,user_id,logo_path')->with('city:id,name');
         $jobsCount = $jobs->count();
 
 
