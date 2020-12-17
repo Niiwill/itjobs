@@ -7,7 +7,7 @@
         <title>ITPoslovi.me | Svi IT poslovi u Crnoj Gori, kompanije i poslodavci na jednom mestu</title>
         <meta name="description" content="IT Poslovi, konkursi i slobodna radna mesta! Poslodavci i firme u Crnoj Gori na jednom mestu. Oglasi za programiranje, dizajn, administraciju, web poslove i socijalne mreze i drugo.">
 
-        <link rel="canonical" href="http://itposlovi.me"/>
+        <link rel="canonical" href="https://itposlovi.me"/>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.gstatic.com">

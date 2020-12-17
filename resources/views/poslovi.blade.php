@@ -6,7 +6,7 @@
         <link rel="icon" type="image/x-icon" href="{{asset('storage/img/favicon.png')}}" />
         <title>Oglasi za posao i konkursi | ITPoslovi.me - Crna gora</title>
         <meta name="description" content="IT Poslovi, konkursi i slobodna radna mesta! ITPoslovi.me - Crna gora Programeri, dizajneri, QA testeri, Sitemski administratori u  Crnoj Gori.">
-        <link rel="canonical" href="http://itposlovi.me/oglasi-za-posao"/>
+        <link rel="canonical" href="https://itposlovi.me/oglasi-za-posao"/>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -379,7 +379,7 @@
                     padding: 20px 10px 15px;
                 }
                 ul.tags li a {
-                    margin-right: .3rem;
+                    margin-right: .4rem;
                     min-width:auto; 
                     padding: .25rem 0.6rem;
                 }
@@ -528,7 +528,7 @@
                                     </div>
                                 </div>
 
-                                <div class="col-12 col-sm-5 my-1 pr-0 pr-sm-5">
+                                <div class="col-12 col-sm-4 my-1 pr-0 pr-sm-3">
                                     <div class="input-group mb-1">
                                         <div class="input-group-prepend icon">
                                             <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-geo-alt" fill="#00b074" xmlns="http://www.w3.org/2000/svg">
@@ -545,7 +545,7 @@
                                     </div>
                                 </div>
 
-                                <div class="col-12 col-sm-2 my-1">
+                                <div class="col-12 col-sm-3 my-1">
                                   <button type="submit" class="btn btn-primary w-100">Traži</button>
                                 </div>
                               </div>
