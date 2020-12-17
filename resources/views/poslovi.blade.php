@@ -137,7 +137,7 @@
             .job-name{
                 font-weight: 700;
                 color: #2b3940;
-                font-size: 1.4rem;
+                font-size: 1.3rem;
                 line-height: 1.62;
                 letter-spacing: -.25px;
             }
