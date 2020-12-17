@@ -571,7 +571,7 @@
                         <div class="col-12 col-md-10">
                             <div class="media">
                                 <div class="square72">
-                                    <img src="http://www.lifeisone.net/site/wp-content/uploads/airbnb-logo.png" alt="{{$job->company->name}}" width="100%">
+                                    <img src="{{asset('storage/'.$job->company->logo_path)}}" alt="{{$job->company->name}} logo" width="100%">
                                 </div>
                                 <div class="job-card-body">
                                     <h3><a href="/posao/{{$job->id}}/{{$job->slug}}" class="job-name">{{$job->title}}</a></h3>
