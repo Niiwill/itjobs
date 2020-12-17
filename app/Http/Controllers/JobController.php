@@ -53,8 +53,6 @@ class JobController extends Controller
 
         // Rezultatu prikljucujem jos ime GRADA i ime Kompanije za svaki oglas
         $jobs = $query->with('company:id,name,user_id,logo_path')->with('city:id,name')->get();
-        $jobs->dd();
-        die;
         $jobsCount = $jobs->count();
 
 
