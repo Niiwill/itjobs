@@ -6,12 +6,12 @@
   http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 
   <url>
-    <loc>http://itposlovi.me/</loc>
+    <loc>https://itposlovi.me/</loc>
     <lastmod>2020-12-12T17:22:55+00:00</lastmod>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>http://itposlovi.me/oglasi-za-posao</loc>
+    <loc>https://itposlovi.me/oglasi-za-posao</loc>
     <lastmod>2020-12-12T17:22:55+00:00</lastmod>
     <priority>0.80</priority>
   </url>
