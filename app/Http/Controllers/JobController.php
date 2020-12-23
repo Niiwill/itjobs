@@ -60,6 +60,19 @@ class JobController extends Controller
 
     }
 
+      public function home(Request $request)
+    {
+        $tags=Tag::all();
+
+        // Rezultatu prikljucujem jos ime GRADA i ime Kompanije za svaki oglas
+        $jobs = Job::with('tags')->with('company:id,name,user_id,logo_path')->with('city:id,name')->get();
+
+        return view('welcome')->with('jobs',$jobs)->with('tags',$tags);
+
+    }
+
+
+
     /**
      * Show the form for creating a new resource.
      *

@@ -11,7 +11,7 @@
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
         <!-- Bootstrap -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
          <!-- Jquery -->
@@ -229,7 +229,7 @@
                 letter-spacing: .26px;
             }
             .header h2{
-                font-size: 3rem;
+                font-size: 2.7rem;
                 line-height: 1.375;
                 letter-spacing: -.4px;
                 font-weight: 700;
@@ -447,14 +447,67 @@
                     padding: 20px 10px 15px;
                 }
             }
+        #events{
+            background-color: #f6f5fb;
+            padding: 100px 0;
+        }
+        #events h2{
+            margin-bottom: 50px;
+                font-size: 2rem;
+            line-height: 1.375;
+    letter-spacing: -.4px;
+    font-weight: 700;
+    color: #3a416f;
+    text-transform: uppercase;
+        }
+        .timeline-item{
+            background-color: #eaeaf4;
+            position: relative;
+            padding: 17px 20px 10px 30px;
+            color: #3a416f;
 
+        }
+        .timeline-item .calendar span{
+            display: block;
+            margin-bottom: -10px;
+            font-size: 50px;
+            font-weight: 300;
+        }
+        .timeline-item .item-body{
+            padding-top: 45px;
+        }
+        .timeline-item .calendar {
+            font-size: 14px;
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 0.15rem;
+        }
+        .timeline-item h5 {
+            font-size: 1.1rem;
+            line-height: 1.5;
+            font-weight: 500;
+        }
+        .timeline-item p {
+            color: #336ef7;
+            font-size: 14px;
+            font-weight: 400;
+            margin-top: 11px;
+        }
+        .timeline-item.first{
+            background-color:#5468ff;
+            color:white!important;
+            box-shadow: 0px 2px 20px 0px rgba(76,132,255,0.9);
+        }
+        .timeline-item.first p{
+            color:white!important;
+        }
+        }
         </style>
         
                                                                
         
     </head>
     <body>
-
         <nav class="navbar navbar-expand-lg">
             <div class="container">
                 <a class="navbar-logo navbar-logo px-3 px-sm-2 pt-3 pb-1" href="{{ url('/') }}">
@@ -562,8 +615,6 @@
                   
 
 
-    
-
 <!-- POPULARNE KATEGORIJE -->
 <div class="my-0 my-sm-4 py-5">
     <div class="container">
@@ -654,6 +705,106 @@
     </div>
 </div>
 
+<!-- NAJNOVIJI POSLOVI -->
+<div style="background-color: #F4F5F8!important;padding-top: 6rem;padding-bottom:7.5rem;">
+    <div class="container">
+        <!-- Naslov -->
+        <div class="row" style="padding-bottom: 3.4375rem;">
+            <div class="col-12 col-lg-12">
+                <div class="header text-center">
+                    <h2>Istaknuti <span style="color:#04D223;">IT</span> poslovi</h2>
+                </div>
+            </div>
+           <!--  <div class="col-12 col-lg-6">
+                <div class="header-button">
+                    <a class="btn" href="/oglasi-za-posao">ISTRAŽI SVE</a>
+                </div>
+            </div> -->
+        </div>
+
+        <!-- Home posao list -->
+        <div class="row">
+        @foreach ($jobs as $job)
+
+            <div class="col-md-10 offset-md-1">
+                <!-- List item -->
+                <div class="job-card">
+                    <div class="row">
+                        <div class="col-12 col-md-10">
+                            <div class="media">
+                                <div class="square72">
+                                    <img src="{{asset('storage/'.$job->company->logo_path)}}" alt="{{$job->company->name}} logo" width="100%">
+                                </div>
+                                <div class="job-card-body">
+                                    <h3><a href="/posao/{{$job->id}}/{{$job->slug}}" class="job-name">{{$job->title}}</a></h3>
+                                    <a class="company-name">{{$job->company->name}}</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="padding-top:1.6rem;">
+                        <div class="col-12 col-md-7">
+                            <ul class="tags">
+                                @foreach($job->tags as $tag)
+                                <li><a href="/oglasi-za-posao?tag_id={{$tag->id}}">{{$tag->name}}</a></li>
+                                @endforeach
+                            </ul>
+                        </div>
+                        <div class="col-12 col-md-5 col-12 col-md-5 my-2 my-sm-0" style="padding-top:3px;">
+                            <ul class="job-card-info text-left text-sm-right">
+                                <li>
+                                    <span>
+                                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-geo-alt" fill="#6b6e6f" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" d="M12.166 8.94C12.696 7.867 13 6.862 13 6A5 5 0 0 0 3 6c0 .862.305 1.867.834 2.94.524 1.062 1.234 2.12 1.96 3.07A31.481 31.481 0 0 0 8 14.58l.208-.22a31.493 31.493 0 0 0 1.998-2.35c.726-.95 1.436-2.008 1.96-3.07zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z"/>
+                                            <path fill-rule="evenodd" d="M8 8a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                                        </svg>
+                                    </span>
+                                    <span>{{$job->city->name}}</span>
+                                </li>
+                                <li>
+                                    <span>
+                                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-clock" fill="#6b6e6f" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm8-7A8 8 0 1 1 0 8a8 8 0 0 1 16 0z"/>
+                                            <path fill-rule="evenodd" d="M7.5 3a.5.5 0 0 1 .5.5v5.21l3.248 1.856a.5.5 0 0 1-.496.868l-3.5-2A.5.5 0 0 1 7 9V3.5a.5.5 0 0 1 .5-.5z"/>
+                                        </svg>
+                                    </span>
+                                    <span>{{$job->expired_at}}</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+             @endforeach
+
+            <!-- <div class="col-sm-3" style="background-color: white;">col-sm-4</div> -->
+        </div>
+    </div>
+</div>
+
+<div id="events" >
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2>Kalendar događaja</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-sm-3">
+                <a href="" style="text-decoration: none;">
+                    <div class="timeline-item first">
+                        <div class="calendar"><span>08</span>DEC</div>
+                        <div class="item-body first">
+                            <h5>Paris Start-up Innovation Summit</h5>
+                            <p>Beograd</p>
+                        </div>
+                    </div>
+                </a>
+            </div> 
+        </div>
+    </div>
+</div>
+
 <div id="features" class="my-0 my-sm-5 py-0 py-sm-5">
     <div class="container">
         <div class="row">
@@ -722,80 +873,6 @@
     </div>
 </div>
 
-
-<!-- NAJNOVIJI POSLOVI -->
-<div style="background-color: #F4F5F8!important;padding-top: 6rem;padding-bottom:7.5rem;">
-    <div class="container">
-        <!-- Naslov -->
-        <div class="row" style="padding-bottom: 3.4375rem;">
-            <div class="col-12 col-lg-12">
-                <div class="header text-center">
-                    <h2>Istaknuti <span style="color:#04D223;">IT</span> poslovi</h2>
-                </div>
-            </div>
-           <!--  <div class="col-12 col-lg-6">
-                <div class="header-button">
-                    <a class="btn" href="/oglasi-za-posao">ISTRAŽI SVE</a>
-                </div>
-            </div> -->
-        </div>
-
-        <!-- Home posao list -->
-        <div class="row">
-            <div class="col-md-10 offset-md-1">
-                <!-- List item -->
-                <div class="job-card">
-                    <div class="row">
-                        <div class="col-12 col-md-10">
-                            <div class="media">
-                                <div class="square72">
-                                    <img src="http://www.lifeisone.net/site/wp-content/uploads/airbnb-logo.png" width="100%">
-                                </div>
-                                <div class="job-card-body">
-                                    <h3><a href="" class="job-name">Product Designer</a></h3>
-                                    <a class="company-name">AirBnb</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row" style="padding-top:1.6rem;">
-                        <div class="col-12 col-md-7">
-                            <ul class="tags">
-                                <li><a href="">Agile</a></li>
-                                <li><a href="">Wireframing</a></li>
-                                <li><a href="">Prototyping</a></li>
-                            </ul>
-                        </div>
-                        <div class="col-12 col-md-5 col-12 col-md-5 my-2 my-sm-0" style="padding-top:3px;">
-                            <ul class="job-card-info text-left text-sm-right">
-                                <li>
-                                    <span>
-                                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-geo-alt" fill="#6b6e6f" xmlns="http://www.w3.org/2000/svg">
-                                            <path fill-rule="evenodd" d="M12.166 8.94C12.696 7.867 13 6.862 13 6A5 5 0 0 0 3 6c0 .862.305 1.867.834 2.94.524 1.062 1.234 2.12 1.96 3.07A31.481 31.481 0 0 0 8 14.58l.208-.22a31.493 31.493 0 0 0 1.998-2.35c.726-.95 1.436-2.008 1.96-3.07zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z"/>
-                                            <path fill-rule="evenodd" d="M8 8a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
-                                        </svg>
-                                    </span>
-                                    <span>Podgorica</span>
-                                </li>
-                                <li>
-                                    <span>
-                                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-clock" fill="#6b6e6f" xmlns="http://www.w3.org/2000/svg">
-                                            <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm8-7A8 8 0 1 1 0 8a8 8 0 0 1 16 0z"/>
-                                            <path fill-rule="evenodd" d="M7.5 3a.5.5 0 0 1 .5.5v5.21l3.248 1.856a.5.5 0 0 1-.496.868l-3.5-2A.5.5 0 0 1 7 9V3.5a.5.5 0 0 1 .5-.5z"/>
-                                        </svg>
-                                    </span>
-                                    <span>12-01-2021</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-            <!-- <div class="col-sm-3" style="background-color: white;">col-sm-4</div> -->
-        </div>
-    </div>
-</div>
 
 <!-- FOOTER -->
 <footer>
