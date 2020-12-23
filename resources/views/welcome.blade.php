@@ -446,61 +446,71 @@
                 .cat-banner{
                     padding: 20px 10px 15px;
                 }
-            }
-        #events{
-            background-color: #f6f5fb;
-            padding: 100px 0;
-        }
-        #events h2{
-            margin-bottom: 50px;
-                font-size: 2rem;
-            line-height: 1.375;
-    letter-spacing: -.4px;
-    font-weight: 700;
-    color: #3a416f;
-    text-transform: uppercase;
-        }
-        .timeline-item{
-            background-color: #eaeaf4;
-            position: relative;
-            padding: 17px 20px 10px 30px;
-            color: #3a416f;
-
-        }
-        .timeline-item .calendar span{
-            display: block;
-            margin-bottom: -10px;
-            font-size: 50px;
-            font-weight: 300;
-        }
-        .timeline-item .item-body{
-            padding-top: 45px;
-        }
-        .timeline-item .calendar {
-            font-size: 14px;
-            text-transform: uppercase;
-            font-weight: 600;
-            letter-spacing: 0.15rem;
-        }
-        .timeline-item h5 {
-            font-size: 1.1rem;
-            line-height: 1.5;
-            font-weight: 500;
-        }
-        .timeline-item p {
-            color: #336ef7;
-            font-size: 14px;
-            font-weight: 400;
-            margin-top: 11px;
-        }
-        .timeline-item.first{
-            background-color:#5468ff;
-            color:white!important;
-            box-shadow: 0px 2px 20px 0px rgba(76,132,255,0.9);
-        }
-        .timeline-item.first p{
-            color:white!important;
-        }
+                }
+                #events{
+                    background-color: #f6f5fb;
+                    padding: 120px 0 100px;
+                }
+                #events h2{
+                    margin-bottom: 55px;
+                    font-size: 2rem;
+                    line-height: 1.375;
+                    letter-spacing: -.4px;
+                    font-weight: 700;
+                    color: #3a416f;
+                    text-transform: uppercase;
+                }
+                .timeline-item{
+                    height: 270px;
+                    background-color: #eaeaf4;
+                    position: relative;
+                    padding: 17px 20px 10px 30px;
+                    color: #3a416f;
+                }
+                 .timeline-item:hover{
+                    transition:0.2s linear;
+                    transform:scale(1.05);
+                }
+                .timeline-item .calendar span{
+                    display: block;
+                    margin-bottom: -10px;
+                    font-size: 50px;
+                    font-weight: 300;
+                }
+                .item-body{
+                    position: absolute;
+                    bottom: 0;
+                    margin: 0 30px 10px 0;
+                }
+                .timeline-item .item-body{
+                    padding-top: 45px;
+                }
+                .timeline-item .calendar {
+                    font-size: 14px;
+                    text-transform: uppercase;
+                    font-weight: 600;
+                    letter-spacing: 0.12rem;
+                }
+                .timeline-item h5 {
+                    font-size: 1.1rem;
+                    line-height: 1.5;
+                    font-weight: 500;
+                    padding-bottom: 2px;
+                }
+                .timeline-item p {
+                    color: #336ef7;
+                    font-size: 14px;
+                    font-weight: 400;
+                    margin-top: 11px;
+                }
+                .timeline-item.first{
+                    background-color:#5468ff;
+                    color:white!important;
+                    box-shadow: 0px 2px 20px 0px rgba(76,132,255,0.9);
+                }
+                .timeline-item.first p{
+                    color:white!important;
+                }
         }
         </style>
         
@@ -607,7 +617,6 @@
                     
                     <div class="col-md-5 mt-5">
                         <img class="d-none d-md-block" src="{{asset('storage/img/hero.png')}}" class="m-4 m-md-0" alt="logo it poslovi crna gora me" width="100%">
-
                     </div>
                 </div>
             </div>
@@ -706,7 +715,7 @@
 </div>
 
 <!-- NAJNOVIJI POSLOVI -->
-<div style="background-color: #F4F5F8!important;padding-top: 6rem;padding-bottom:7.5rem;">
+<div style="padding-top: 4rem;padding-bottom:7.5rem;">
     <div class="container">
         <!-- Naslov -->
         <div class="row" style="padding-bottom: 3.4375rem;">
@@ -790,17 +799,28 @@
             </div>
         </div>
         <div class="row">
+        @foreach ($articles as $article)
             <div class="col-12 col-sm-3">
-                <a href="" style="text-decoration: none;">
+                <a href="/it-desavanja/{{$article->id}}/{{$article->slug}}" style="text-decoration: none;">
+                    @if ($loop->first)
                     <div class="timeline-item first">
-                        <div class="calendar"><span>08</span>DEC</div>
+                    @else
+                    <div class="timeline-item">
+                    @endif 
+
+                        <div class="calendar"><span>08</span>{{$meseci[$article->article_event_date->format('n')]}}</div>
+                        @if ($loop->first)
                         <div class="item-body first">
-                            <h5>Paris Start-up Innovation Summit</h5>
-                            <p>Beograd</p>
+                        @else
+                        <div class="item-body">
+                        @endif 
+                            <h5>{{$article->title}}</h5>
+                            <p>@ {{$article->location}}</p>
                         </div>
                     </div>
                 </a>
-            </div> 
+            </div>
+            @endforeach
         </div>
     </div>
 </div>

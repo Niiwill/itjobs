@@ -7,6 +7,7 @@ use App\Models\Job;
 use App\Models\Category;
 use App\Models\City;
 use App\Models\Tag;
+use App\Models\Article;
 use App\Models\Company;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
@@ -61,13 +62,30 @@ class JobController extends Controller
     }
 
       public function home(Request $request)
-    {
+    {   
+        $meseci=array();
+        $meseci[1] = "Januar";
+        $meseci[2] = "Februar";
+        $meseci[3] = "Mart";
+        $meseci[4] = "April";
+        $meseci[5] = "Maj";
+        $meseci[6] = "Jun";
+        $meseci[7] = "Jul";
+        $meseci[8] = "Avgust";
+        $meseci[9] = "Septembar";
+        $meseci[10] = "Oktobar";
+        $meseci[11] = "Novembar";
+        $meseci[12] = "Decembar";
+
+        $articles=Article::latest()->take(4)->get();
+        $articles->article_event_data=2;
+
         $tags=Tag::all();
 
         // Rezultatu prikljucujem jos ime GRADA i ime Kompanije za svaki oglas
         $jobs = Job::with('tags')->with('company:id,name,user_id,logo_path')->with('city:id,name')->get();
 
-        return view('welcome')->with('jobs',$jobs)->with('tags',$tags);
+        return view('welcome')->with('jobs',$jobs)->with('tags',$tags)->with('articles',$articles)->with('meseci',$meseci);
 
     }
 

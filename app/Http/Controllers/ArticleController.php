@@ -17,7 +17,8 @@ class ArticleController extends Controller
      */
     public function index(Request $request)
     {
-
+        $articles=Article::latest()->limit(4)
+                ->get();
      
     }
 
@@ -55,9 +56,6 @@ class ArticleController extends Controller
         $article->article_category_id = $request->article_category_id;
         $article->article_event_date = $request->article_event_date;
         $article->article_event_time=$request->article_event_time;
-        
-        var_dump($article->article_event_date);
-        die;
         $article->location = $request->location;
         $article->slug=Str::slug($request->title, '-');
 
