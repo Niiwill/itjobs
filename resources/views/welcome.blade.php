@@ -801,14 +801,14 @@
         <div class="row">
         @foreach ($articles as $article)
             <div class="col-12 col-sm-3">
-                <a href="/it-desavanja/{{$article->id}}/{{$article->slug}}" style="text-decoration: none;">
+                <a href="/it-dogadjaji/{{$article->id}}/{{$article->slug}}" style="text-decoration: none;">
                     @if ($loop->first)
                     <div class="timeline-item first">
                     @else
                     <div class="timeline-item">
                     @endif 
 
-                        <div class="calendar"><span>08</span>{{$meseci[$article->article_event_date->format('n')]}}</div>
+                        <div class="calendar"><span>{{$article->article_event_date->format('d')}}</span>{{$meseci[$article->article_event_date->format('n')]}}</div>
                         @if ($loop->first)
                         <div class="item-body first">
                         @else

@@ -77,7 +77,8 @@ class JobController extends Controller
         $meseci[11] = "Novembar";
         $meseci[12] = "Decembar";
 
-        $articles=Article::latest()->take(4)->get();
+        $articles=Article::orderBy('article_event_date','DESC')->limit(4)
+                                ->get();
         $articles->article_event_data=2;
 
         $tags=Tag::all();
