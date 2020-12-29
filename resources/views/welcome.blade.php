@@ -735,7 +735,7 @@
         <div class="row">
         @foreach ($jobs as $job)
 
-            <div class="col-md-8 col-md-2">
+            <div class="col-md-8 offset-md-2">
                 <!-- List item -->
                 <div class="job-card">
                     <div class="row">
