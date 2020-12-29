@@ -142,7 +142,7 @@
                 color: white;
             }
             #heading, #event-heading{
-            	margin-top: 70px;
+            	margin-top: 100px;
             }
             #heading img,#event-heading img{
 			  	width: 100%;
@@ -159,6 +159,7 @@
 			    letter-spacing: -0.4px;
             }
             #event-heading h1{
+                color: #39374d;
                 text-align: left;
                 font-size: 2.5rem;
                 border-right: 1px solid #e1e2eb;
@@ -175,6 +176,28 @@
 			#body p{
 			    margin-bottom: 35px;
 			}
+            .heading-date{
+                box-shadow: rgba(36, 37, 38, 0.04) 4px 4px 15px 0px;
+                height: 200px;
+                background: linear-gradient(180deg,#21c8f6,#637bff);
+                border-radius: 20px;
+                color: white;
+                padding: 10px 25px;
+                text-align: center;
+            }
+            .heading-date span{
+                font-weight: 600;
+                font-size: 70px;
+            }
+            .heading-date #month{
+                text-transform: uppercase;
+                margin-top: -12px;
+                margin-bottom: 0px;
+            }
+            .heading-date #time{
+                font-size: 34px;
+            }
+
             
      
             @media (max-width: 576px){
@@ -256,31 +279,18 @@
             <div class="row no-gutters">
                 <div class="col-12 col-sm-8 offset-md-2">
                     <div class="row">
-                        <div class="col-8">
-                            <span>DOGAĐAJ</span>
+                        <div class="col-8 mb-5">
+                            <span style="text-transform:uppercase;color:#adadb2;font-size:14px;letter-spacing:3px;font-weight:600;">DOGAĐAJ</span>
                             <h1>{{$article->title}}</h1>
                         </div>
-                        <div class="col-4">
-                            <ul>
-                                <li>
-                                    <div>
-                                        <span>Datum</span>
-                                        22-66-949
-                                    </div>
-                                </li>
-                                <li>
-                                    <div>
-                                        <span>Datum i vreme</span>
-                                        22-66-949
-                                    </div>
-                                </li>
-                                <li>
-                                    <div>
-                                        <span>Lokacija</span>
-                                        22-66-949
-                                    </div>
-                                </li>
-                            </ul>
+                        <div class="col-4 mb-5">
+                            <div class="heading-date">
+                                <span>{{$article->article_event_date->format('d')}}</span>
+                                <p id="month">{{$meseci[$article->article_event_date->format('n')]}}</p>
+                                <p id="time">{{date('H:i', strtotime($article->article_event_time))}}</p>
+                                
+                            </div>
+                           
                         </div>
 
                         <p class="description">Osnivač Facebook-a je donirao 75 miliona dolara jedinoj javnoj bolnici u San Francisku, a u sklopu dogovora je da ona nosi njegovo ime sledećih 50 godina.</p>

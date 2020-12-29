@@ -486,7 +486,7 @@
                     padding-top: 45px;
                 }
                 .timeline-item .calendar {
-                    font-size: 14px;
+                    font-size: 13px;
                     text-transform: uppercase;
                     font-weight: 600;
                     letter-spacing: 0.12rem;
@@ -735,7 +735,7 @@
         <div class="row">
         @foreach ($jobs as $job)
 
-            <div class="col-md-10 offset-md-1">
+            <div class="col-md-9 ">
                 <!-- List item -->
                 <div class="job-card">
                     <div class="row">
@@ -785,8 +785,36 @@
                 </div>
             </div>
              @endforeach
+            <div class="col-md-9" style="background-color: white;">col-sm-4</div>
 
-            <!-- <div class="col-sm-3" style="background-color: white;">col-sm-4</div> -->
+            <div class="col-md-3" style="background-color: white;">
+                <div class="row">
+                            @foreach ($articles as $article)
+
+                  <div class="col-12">
+                    <a href="/it-dogadjaji/{{$article->id}}/{{$article->slug}}" style="text-decoration: none;">
+                        @if ($loop->first)
+                        <div class="timeline-item first">
+                        @else
+                        <div class="timeline-item">
+                        @endif 
+
+                            <div class="calendar"><span>{{$article->article_event_date->format('d')}}</span>{{$meseci[$article->article_event_date->format('n')]}}</div>
+                            @if ($loop->first)
+                            <div class="item-body first">
+                            @else
+                            <div class="item-body">
+                            @endif 
+                                <h5>{{$article->title}}</h5>
+                                <p>@ {{$article->location}}</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                            @endforeach
+
+                </div>
+            </div>
         </div>
     </div>
 </div>

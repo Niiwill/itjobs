@@ -80,9 +80,23 @@ class ArticleController extends Controller
      */
     public function show($id, $slug) {
 
+        $meseci=array();
+        $meseci[1] = "Januar";
+        $meseci[2] = "Februar";
+        $meseci[3] = "Mart";
+        $meseci[4] = "April";
+        $meseci[5] = "Maj";
+        $meseci[6] = "Jun";
+        $meseci[7] = "Jul";
+        $meseci[8] = "Avgust";
+        $meseci[9] = "Septembar";
+        $meseci[10] = "Oktobar";
+        $meseci[11] = "Novembar";
+        $meseci[12] = "Decembar";
+
         $article = Article::find($id);
 
-        return view('article-show', compact('article'));
+        return view('article-show', compact('article','meseci'));
     }    
 
     /**
