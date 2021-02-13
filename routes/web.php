@@ -25,7 +25,7 @@ Route::get('/it-dogadjaji/{id}/{slug}','ArticleController@show')->name('job.show
 Route::get('/it-price/{id}/{slug}','ArticleController@show')->name('job.show');  
 
 // ADMIN
-Route::get('/admin','JobController@indexAdmin')->name('admin');
+Route::get('/admin','JobController@indexAdmin')->name('admin')->middleware('auth');;
 
 // ADMIN - JOBS
 Route::resource('job', 'JobController')->middleware('auth');
