@@ -17,9 +17,20 @@ class ArticleController extends Controller
      */
     public function index(Request $request)
     {
-        $articles=Article::latest()->limit(4)
-                ->get();
+        $articles=Article::latest()->limit(4)->get();
      
+    }
+
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function indexAdmin()
+    {
+        $articles = Article::latest()->get();
+        return view('admin/article/index', compact('articles'));
     }
 
     /**
@@ -107,7 +118,8 @@ class ArticleController extends Controller
      */
     public function edit($id)
     {
-
+        $article = Article::find($id);
+        return view('admin/article/edit', compact('article'));
      
     }
 

@@ -1,32 +1,41 @@
-@push('scripts')
-<script src="https://cloud.tinymce.com/5/tinymce.min.js?apiKey=orluaejj30g3r6fymv4rb18b45bnrfsojdct6gsht1kvazt8" referrerpolicy="origin"></script>
-<script>tinymce.init({
-selector: 'textarea',
-plugins: 'lists',
-toolbar: "undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist",
-style_formats: [
-{title: 'Podnaslov', format: 'h3'},
-{title: 'Paragraf', format: 'p'}
-],
-menubar:false
-});</script>
-@endpush
-@push('scripts')
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+@push('css')
 <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
-<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            $('.js-example-basic-multiple').select2();
-            $('.js-example-basic-multiple').select2().val({!! json_encode($job->tags()->allRelatedIds()) !!}).trigger('change');
-        });
-    </script>
 @endpush
 
-<x-employer-layout>
+@push('scripts')
+<!-- Jquery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- Tinymce -->
+<script src="https://cloud.tinymce.com/5/tinymce.min.js?apiKey=orluaejj30g3r6fymv4rb18b45bnrfsojdct6gsht1kvazt8" referrerpolicy="origin"></script>
+<!-- Select2 -->
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+<script>
+
+    $(document).ready(function() {
+        $('.js-example-basic-multiple').select2();
+        $('.js-example-basic-multiple').select2().val({!! json_encode($job->tags()->allRelatedIds()) !!}).trigger('change');
+    });
+
+    tinymce.init({
+        selector: 'textarea',
+        plugins: 'lists',
+        toolbar: "undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist",
+        style_formats: [
+            {title: 'Podnaslov', format: 'h3'},
+            {title: 'Paragraf', format: 'p'}
+        ],
+        menubar:false
+    });
+    
+</script>
+@endpush
+
+
+
+<x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dodaj Novi Posao') }}
+            {{ __('Izmeni oglas') }}
         </h2>
     </x-slot>
     <div class="py-12">
@@ -71,8 +80,17 @@ menubar:false
                                             </label>
                                 </div>
                             </div>
+
+                                <div class="col-span-2">
+                                    <label for="company" class="block text-sm font-medium leading-5 text-gray-700">Kompanija</label>
+                                    <select id="company" name="company_id" class="mt-1 block form-select w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
+                                        @foreach ($companies as $company)
+                                            <option value="{{ $company->id }}" {{$job->company_id == $company->id ? "selected" : "" }}>{{ $company->name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
                             
-                                <div class="col-span-6 sm:col-span-2">
+                                <div class="col-span-2">
                                     <label for="country" class="block text-sm font-medium leading-5 text-gray-700">Kategorija</label>
                                     <select id="country" name='category_id' class="mt-1 block form-select w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
                                         @foreach ($categories as $category)
@@ -80,8 +98,16 @@ menubar:false
                                         @endforeach
                                     </select>
                                 </div>
-                                
 
+                                <div class="col-span-2">
+                                    <label for="country" class="block text-sm font-medium leading-5 text-gray-700">Senioritet</label>
+                                    <select id="country" name="level_id" class="mt-1 block form-select w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
+                                        <option value="1" {{$job->level_id == '1' ? "selected" : "" }}>Junior</option>
+                                        <option value="2" {{$job->level_id == '2' ? "selected" : "" }}>Intermediate</option>
+                                        <option value="3" {{$job->level_id == '3' ? "selected" : "" }}>Senior</option>
+                                    </select>
+                                </div>
+                                
             					<div class="col-span-6 sm:col-span-4">
             						<label for="title" class="block text-sm font-medium leading-5 text-gray-700">Naziv pozicije</label>
             						<input id="title" name="title" value="{{$job->title}}" class="mt-1 form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5" maxlength="40">
@@ -93,20 +119,8 @@ menubar:false
             						</label>
             						<textarea id="mytextarea" name="text" rows="20">{{$job->text}}</textarea>
             					</div>
-            					<!-- <p>Partner odgovara za tačnost i istinitost svih podataka koje dostavi PrekoVeze za potrebe sastavljanja Informacije o Partneru. Partner garantuje PrekoVeze da na tekstu, fotografijama, graficima i sličnom, koje dostavlja PrekoVeze za potrebe Informacije o Partneru, polaže autorska i srodna prava i obavezuje se da trećim licima i PrekoVeze nadoknadi svu eventualno nastalu štetu u slučaju povrede navedenih prava. -->
 
-                                <!-- Prema Zakonu o oglašavanju zabranjen je svaki vid obmanjujućeg, prikrivenog i upoređujućeg oglašavanja kojim se dovode u zabludu primaoci oglasne poruke. Oglasna poruka treba da sadrži isključivo podatke o predmetu koji se prodaje ili usluzi koja se pruža, odnosno podaci o potrebama Partnera ili Oglašivača za radnom snagom, sa nazivom radnog mesta, opisom poslova i uslova koje Poslodavac zahteva za obavljanje traženog posla. U oglasnim porukama nije dopuštena upotreba fotografija sa drugih oglasnih sajtova ili iz oglasa drugih oglašivača na našem sajtu.</p> -->
-
-            					<div class="col-span-6 sm:col-span-3">
-            						<label for="country" class="block text-sm font-medium leading-5 text-gray-700">Senioritet</label>
-            						<select id="country" name="level_id" class="mt-1 block form-select w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
-            							<option value="1" {{$job->level_id == '1' ? "selected" : "" }}>Junior</option>
-            							<option value="2" {{$job->level_id == '2' ? "selected" : "" }}>Intermediate</option>
-            							<option value="3" {{$job->level_id == '3' ? "selected" : "" }}>Senior</option>
-            						</select>
-            					</div>
-
-            					<div class="col-span-6 sm:col-span-3">
+            					<div class="col-span-2">
             						<label for="country" class="block text-sm font-medium leading-5 text-gray-700">Grad</label>
             						<select id="country" name="city_id" class="mt-1 block form-select w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
                                         <option value="1" {{$job->level_id == '1' ? "selected" : "" }}>Podgorica</option>
@@ -133,12 +147,20 @@ menubar:false
             					</div>
 
 
-            					<div class="col-span-6 sm:col-span-3">
+            					<div class="col-span-2">
             						<label for="expired_at" class="block text-sm font-medium leading-5 text-gray-700">Rok za prijavu</label>
             						<input type="date" id="expired_at" name="expired_at" class="mt-1 form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5" value="{{$job->expired_at}}">
             					</div>
 
-                                <div class="col-span-6 ">
+                                <div class="col-span-2">
+                                    <label for="status" class="block text-sm font-medium leading-5 text-gray-700">Status</label>
+                                    <select id="status" name="status" class="mt-1 block form-select w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
+                                        <option value="0" {{$job->status == '0' ? "selected" : "" }}>Neaktivan</option>
+                                        <option value="1" {{$job->status == '1' ? "selected" : "" }}>Aktivan</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-span-6">
                                     <label for="country" class="block text-sm font-medium leading-5 text-gray-700">TAGOVI</label>
                                     <select name="tags[]" multiple="multiple" class="js-example-basic-multiple mt-1 block form-select w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
 
@@ -147,9 +169,6 @@ menubar:false
                                         @endforeach
                                     </select>
                                 </div>
-
-                             
-                               
 
             				</div>
             			</div>
@@ -163,4 +182,4 @@ menubar:false
             </div>
         </div>
     </div>
-</x-employer-layout>
+</x-app-layout>

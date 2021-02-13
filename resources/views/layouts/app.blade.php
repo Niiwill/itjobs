@@ -12,18 +12,18 @@
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+        @stack('css')
 
         @livewireStyles
 
         <!-- Scripts -->
         <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.3/dist/alpine.js" defer></script>
 
-        <script src="https://cloud.tinymce.com/5/tinymce.min.js?apiKey=orluaejj30g3r6fymv4rb18b45bnrfsojdct6gsht1kvazt8" referrerpolicy="origin"></script>
-        <script>tinymce.init({selector: 'textarea'});</script>
+       
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100">
-            @livewire('navigation-dropdown')
+            @livewire('admin-nav')
 
             <!-- Page Heading -->
             <header class="bg-white shadow">
@@ -41,5 +41,7 @@
         @stack('modals')
 
         @livewireScripts
+        
+        @stack('scripts')
     </body>
 </html>

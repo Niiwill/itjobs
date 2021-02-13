@@ -12,15 +12,7 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="{{ route('adminEmp') }}" :active="request()->routeIs('adminEmp')">
-                        {{ __('Dashboard') }}
-                    </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('job.create') }}" :active="request()->routeIs('job.create')">
-                        {{ __('Dodaj novi oglas') }}
-                    </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('mycompany.edit') }}" :active="request()->routeIs('mycompany.edit')">
-                        {{ __('Profil Kompanije') }}
-                    </x-jet-nav-link>
+                   
                 </div>
             </div>
 

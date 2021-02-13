@@ -1,10 +1,7 @@
 @push('scripts')
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script>
-        $(document).ready(function(){$("#imgInp").change(function(){var e,n;(e=this).files&&e.files[0]&&((n=new FileReader).onload=function(e){$("#imgPrew").attr("src",e.target.result)},n.readAsDataURL(e.files[0]))})});
-    </script>
 @endpush
-<x-employer-layout>
+<x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Profil Poslodavca') }}
@@ -17,7 +14,7 @@
             @endif
 
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                <form method="POST" action="{{ route('mycompany.update') }}" enctype="multipart/form-data">
+                <form method="POST" action="{{ route('company.update', $company->id) }}" enctype="multipart/form-data">
                     @method('PATCH')
                     @csrf
                     <div class="shadow overflow-hidden sm:rounded-md">
@@ -36,8 +33,8 @@
                                 </div>
 
                                 <div class="col-span-6 sm:col-span-2 overflow-hidden">
-                                    <label for="name" class="block text-sm font-medium text-gray-700">Logo</label>
-                                    <input type="file" id="imgInp" name="logo"  class="form-input mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
+                                    <label for="logo" class="block text-sm font-medium text-gray-700">Logo</label>
+                                    <input type="file" id="logo" name="logo"  class="form-input mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
                                 </div>
 
                                 <div class="col-span-6 sm:col-span-2">
@@ -60,19 +57,19 @@
                                     </div>
                                 </div>
 
-                                 <div class="col-span-6 sm:col-span-1">
-                                    <label for="name" class="block text-sm font-medium text-gray-700">Telefon</label>
-                                    <input type="text" id="name" name="phone" value="{{$company->phone}}" class="form-input mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
+                                 <div class="col-span-2">
+                                    <label for="phone" class="block text-sm font-medium text-gray-700">Telefon</label>
+                                    <input type="text" id="phone" name="phone" value="{{$company->phone}}" class="form-input mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
                                 </div>
 
-                                 <div class="col-span-6 sm:col-span-2">
-                                    <label for="name" class="block text-sm font-medium text-gray-700">E-mail</label>
-                                    <input type="email" id="name" name="email" value="{{$company->email}}" class="form-input mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
+                                 <div class="col-span-2">
+                                    <label for="email" class="block text-sm font-medium text-gray-700">E-mail</label>
+                                    <input type="email" id="email" name="email" value="{{$company->email}}" class="form-input mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
                                 </div>
 
-                                <div class="col-span-6 sm:col-span-3">
-                                    <label for="name" class="block text-sm font-medium text-gray-700">Adresa</label>
-                                    <input type="text" id="name" name="adress" value="{{$company->adress}}" class="form-input mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
+                                <div class="col-span-2">
+                                    <label for="address" class="block text-sm font-medium text-gray-700">Adresa (Grad,Ulica)</label>
+                                    <input type="text" id="address" name="address" value="{{$company->address}}" class="form-input mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
                                 </div>
                             </div>
                         </div>
@@ -86,4 +83,4 @@
             </div>
         </div>
     </div>
-</x-employer-layout>
+</x-app-layout>

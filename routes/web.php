@@ -14,41 +14,33 @@ use App\Models\Tag;
 |
 */
 
-Route::get('/admin', function () {
-    //
-})->name('admin')->middleware(['auth','role']);
-
+// VIEWS
 Route::get('/','JobController@home');
 Route::get('/oglasi-za-posao','JobController@index')->name('job.listing');
-
 Route::post('/oglasi-za-posao', function (Request $request) {
     return $request->all();
 });
-Route::get('/posao/{id}/{slug}','JobController@show')->name('job.show'); 
+Route::get('/posao/{id}/{slug}','JobController@show')->name('job.show');
+Route::get('/it-dogadjaji/{id}/{slug}','ArticleController@show')->name('job.show'); 
+Route::get('/it-price/{id}/{slug}','ArticleController@show')->name('job.show');  
 
-// NEWS
-Route::get('/admin/article/create','ArticleController@create')->middleware('auth');
+// ADMIN
+Route::get('/admin','JobController@indexAdmin')->name('admin');
+
+// ADMIN - JOBS
+Route::resource('job', 'JobController')->middleware('auth');
+
+// ADMIN - COMPANIES
+Route::resource('company', 'CompanyController')->middleware('auth');
+
+
+
+// ADMIN - ARTICLES
+Route::get('/admin/article/','ArticleController@indexAdmin')->middleware('auth');
+Route::get('/admin/article/edit/{id}','ArticleController@edit')->name('article.edit')->middleware('auth');
+Route::get('/admin/article/create','ArticleController@create')->name('article.create')->middleware('auth');
 Route::post('/admin/article/store','ArticleController@store')->name('article.store')->middleware('auth');
 
-Route::get('/it-dogadjaji/{id}/{slug}','ArticleController@show')->name('job.show'); 
-Route::get('/it-price/{id}/{slug}','ArticleController@show')->name('job.show'); 
-
-
-//ADD ROLE TO USER 
-Route::middleware(['auth','role.prevent'])->get('/pre-auth', function () {
-    return view('admin/pre-auth');
-});
-Route::middleware(['auth'])->post('/pre-auth', 'Controller@checkPost');
-//
-
-Route::get('/my-company', 'Admin\EmployerController@editMyCompany')->name('mycompany.edit')->middleware(['auth']);
-Route::patch('/my-company', 'Admin\EmployerController@updateMyCompany')->name('mycompany.update')->middleware(['auth']);
-
-
-Route::get('/admin/candidate', 'Admin\CandidateController@index')->name('adminCan')->middleware(['auth','candidate']);
-Route::get('/admin/employer', 'Admin\EmployerController@index')->name('adminEmp')->middleware(['auth','employer']);
-
-Route::resource('job', 'JobController')->middleware(['auth','employer']);
 
 
 

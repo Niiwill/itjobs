@@ -94,12 +94,12 @@ $(document).ready(function(){
                                 </div> 
                                 <div class="col-span-3 događaj-input">
                                     <label for="location" class="block text-sm font-medium leading-5 text-gray-700">Lokacija događaja</label>
-                                    <input type="text" id="location" name="location" class="mt-1 form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5" maxlength="100">
+                                    <input type="text" id="location" name="location" class="mt-1 form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5" maxlength="100" value="{{ $article->location }}">
                                 </div>
                                 
             					<div class="col-span-3">
             						<label for="title" class="block text-sm font-medium leading-5 text-gray-700">Naziv priče ili događaja</label>
-            						<input type="text" id="title" name="title" class="mt-1 form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5" maxlength="40" required>
+            						<input type="text" id="title" name="title" class="mt-1 form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5" maxlength="40" required value="{{$article->title}}">
             					</div>
                                 <div class="col-span-3">
                                     <label for="main_image" class="block text-sm font-medium leading-5 text-gray-700">Glavna slika</label>
@@ -110,7 +110,7 @@ $(document).ready(function(){
             						<label for="about" class="block text-sm leading-5 font-medium text-gray-700 mb-4">
 										Upišite tekst
             						</label>
-            						<textarea id="mytextarea" name="text" rows="20"></textarea>
+            						<textarea id="mytextarea" name="text" rows="20">{{$article->text}}</textarea>
             					</div>
             					<!-- <p>Partner odgovara za tačnost i istinitost svih podataka koje dostavi PrekoVeze za potrebe sastavljanja Informacije o Partneru. Partner garantuje PrekoVeze da na tekstu, fotografijama, graficima i sličnom, koje dostavlja PrekoVeze za potrebe Informacije o Partneru, polaže autorska i srodna prava i obavezuje se da trećim licima i PrekoVeze nadoknadi svu eventualno nastalu štetu u slučaju povrede navedenih prava. -->
 

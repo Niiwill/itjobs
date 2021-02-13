@@ -61,6 +61,14 @@ class JobController extends Controller
 
     }
 
+    public function indexAdmin()
+    {
+        $jobs = Job::all();
+
+        return view('admin/index')->with('jobs',$jobs);
+
+    }
+
       public function home(Request $request)
     {   
         $meseci=array();
@@ -99,9 +107,11 @@ class JobController extends Controller
      */
     public function create()
     {
-        $categories=Category::all();
-        $tags=Tag::all();
-        return view('admin/job/create')->with('categories',$categories)->with('tags',$tags);
+        $categories = Category::all();
+        $tags = Tag::all();
+        $companies = Company::all();
+        
+        return view('admin/job/create')->with('categories',$categories)->with('tags',$tags)->with('companies',$companies);
     }
 
     /**
@@ -127,10 +137,12 @@ class JobController extends Controller
         $job->title = ucwords(mb_strtolower($request->title));
         $job->text = $request->text;
         $job->user_id = Auth::id();
+        $job->company_id = $request->company_id;
         $job->category_id = $request->category_id;
         $job->level_id = $request->level_id;
         $job->city_id = $request->city_id;
         $job->type_id = $request->type_id;
+        $job->status = $request->status;
         $job->expired_at = $request->expired_at;
         $job->slug=Str::slug($request->title, '-');
 
@@ -138,7 +150,7 @@ class JobController extends Controller
 
         $job->tags()->sync($request->tags,false);
 
-        return redirect()->route('adminEmp')->with('status', 'Uspješno kreiran novi oglas!');
+        return redirect()->route('admin')->with('status', 'Uspješno kreiran novi oglas!');
     }
 
     /**
@@ -166,8 +178,10 @@ class JobController extends Controller
         $job=Job::findOrFail($id);
         $categories=Category::all();
         $tags=Tag::all();
+        $companies = Company::all();
 
-        return view('admin/job/edit')->with('job',$job)->with('categories',$categories)->with('tags',$tags);
+
+        return view('admin/job/edit')->with('job',$job)->with('categories',$categories)->with('tags',$tags)->with('companies',$companies);
 
     }
 
@@ -185,16 +199,18 @@ class JobController extends Controller
         $job->title = ucwords(mb_strtolower($request->title));
         $job->text = $request->text;
         $job->user_id = Auth::id();
+        $job->company_id = $request->company_id;
         $job->category_id = $request->category_id;
         $job->level_id = $request->level_id;
         $job->city_id = $request->city_id;
         $job->type_id = $request->type_id;
+        $job->status = $request->status;
         $job->expired_at = $request->expired_at;
         $job->save();
     
         $job->tags()->sync($request->tags);
 
-        return redirect()->route('adminEmp')->with('status', 'Uspješno promijenjen oglas!');
+        return redirect()->route('admin')->with('status', 'Uspješno promijenjen oglas!');
 
     }
 
