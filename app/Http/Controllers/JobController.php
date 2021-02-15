@@ -109,8 +109,9 @@ class JobController extends Controller
         $tags = Tag::all();
         $companies = Company::all();
         $cities = City::all();
+
         
-        return view('admin/job/create')->with('categories',$categories)->with('tags',$tags)->with('companies',$companies)->with('cities',$cities);
+        return view('admin/job/create')->with('categories',$categories)->with('tags',$tags)->with('companies',$companies);
     }
 
     /**
@@ -161,9 +162,8 @@ class JobController extends Controller
     public function show($id, $slug) {
 
         $job = Job::where('id', $id)->with(['level:id,name','company:id,user_id,name,logo_path','type:id,name','city:id,name'])->first();
-        $cities = City::all();
 
-        return view('single', compact('job','cities'));
+        return view('single', compact('job'));
     }    
 
     /**
@@ -179,9 +179,10 @@ class JobController extends Controller
         $categories=Category::all();
         $tags=Tag::all();
         $companies = Company::all();
+        $cities = City::all();
 
 
-        return view('admin/job/edit')->with('job',$job)->with('categories',$categories)->with('tags',$tags)->with('companies',$companies);
+        return view('admin/job/edit')->with('job',$job)->with('categories',$categories)->with('tags',$tags)->with('companies',$companies)->with('cities',$cities);
 
     }
 
