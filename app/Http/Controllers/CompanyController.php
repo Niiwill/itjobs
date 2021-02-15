@@ -49,8 +49,8 @@ class CompanyController extends Controller
         $company->address = $request->address;
 
         if($request->hasFile('logo')){
-            $imgfile=$request->file('logo');
-            $custom_name = $company->user_id.'.'.$imgfile->getClientOriginalExtension();
+            $imgfile = $request->file('logo');
+            $custom_name = uniqid().'_'.$imgfile->getClientOriginalName();
             $request->file('logo')->storeAs('public/logos', $custom_name);
             $company->logo_path='logos/'.$custom_name;
 
@@ -105,7 +105,7 @@ class CompanyController extends Controller
 
         if($request->hasFile('logo')){
             $imgfile=$request->file('logo');
-            $custom_name = $company->user_id.'.'.$imgfile->getClientOriginalExtension();
+            $custom_name = uniqid().'_'.$imgfile->getClientOriginalName();
             $request->file('logo')->storeAs('public/logos', $custom_name);
             $company->logo_path='logos/'.$custom_name;
 
