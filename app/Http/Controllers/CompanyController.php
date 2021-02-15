@@ -58,8 +58,7 @@ class CompanyController extends Controller
 
         $company->save();
 
-
-        return redirect()->route('company')->with('status', 'Uspješno kreirana kompanija!');
+        return redirect()->route('company.index')->with('status', 'Uspješno kreirana kompanija!');
     }
 
     /**
