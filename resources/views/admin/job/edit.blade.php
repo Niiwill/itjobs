@@ -121,28 +121,11 @@
             					</div>
 
             					<div class="col-span-2">
-            						<label for="country" class="block text-sm font-medium leading-5 text-gray-700">Grad</label>
-            						<select id="country" name="city_id" class="mt-1 block form-select w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
-                                        <option value="1" {{$job->level_id == '1' ? "selected" : "" }}>Podgorica</option>
-                                        <option value="2" {{$job->level_id == '2' ? "selected" : "" }}>Nikšić</option>
-                                        <option value="3" {{$job->level_id == '3' ? "selected" : "" }}>Pljevlja</option>
-                                        <option value="4" {{$job->level_id == '4' ? "selected" : "" }}>Bijelo Polje</option>
-                                        <option value="5" {{$job->level_id == '5' ? "selected" : "" }}>Cetinje</option>
-                                        <option value="6" {{$job->level_id == '6' ? "selected" : "" }}>Bar</option>
-                                        <option value="7" {{$job->level_id == '8' ? "selected" : "" }}>Herceg Novi</option>
-                                        <option value="8" {{$job->level_id == '8' ? "selected" : "" }}>Berane</option>
-                                        <option value="9" {{$job->level_id == '9' ? "selected" : "" }}>Budva</option>
-                                        <option value="10" {{$job->level_id == '10' ? "selected" : "" }}>Ulcinj</option>
-                                        <option value="11" {{$job->level_id == '11' ? "selected" : "" }}>Tivat</option>
-                                        <option value="12" {{$job->level_id == '12' ? "selected" : "" }}>Rožaje</option>
-                                        <option value="13" {{$job->level_id == '13' ? "selected" : "" }}>Kotor</option>
-                                        <option value="14" {{$job->level_id == '14' ? "selected" : "" }}>Danilovgrad</option>
-                                        <option value="15" {{$job->level_id == '15' ? "selected" : "" }}>Mojkovac</option>
-                                        <option value="16" {{$job->level_id == '16' ? "selected" : "" }}>Plav</option>
-                                        <option value="17" {{$job->level_id == '17' ? "selected" : "" }}>Kolašin</option>
-                                        <option value="18" {{$job->level_id == '18' ? "selected" : "" }}>Žabljak</option>
-                                        <option value="19" {{$job->level_id == '19' ? "selected" : "" }}>Plužine</option>
-                                        <option value="20" {{$job->level_id == '20' ? "selected" : "" }}>Andrijevica</option>
+            						<label for="city" class="block text-sm font-medium leading-5 text-gray-700">Grad</label>
+            						<select id="city" name="city_id" class="mt-1 block form-select w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
+                                        @foreach ($cities as $city)
+                                        <option value="{{$city->id}}" {{$city->id == $job->city_id ? "selected" : "" }}>{{$city->name}}</option>
+                                        @endforeach
             						</select>
             					</div>
 

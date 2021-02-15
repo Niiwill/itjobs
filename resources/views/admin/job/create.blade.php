@@ -124,29 +124,11 @@
             					</div>	
 
             					<div class="col-span-2">
-            						<label for="country" class="block text-sm font-medium leading-5 text-gray-700">Grad</label>
-            						<select id="country" name="city_id" class="mt-1 block form-select w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
-                                        <option value="0">Remote</option>
-                                        <option value="1">Podgorica</option>
-                                        <option value="2">Nikšić</option>
-                                        <option value="3">Pljevlja</option>
-                                        <option value="4">Bijelo Polje</option>
-                                        <option value="5">Cetinje</option>
-                                        <option value="6">Bar</option>
-                                        <option value="7">Herceg Novi</option>
-                                        <option value="8">Berane</option>
-                                        <option value="9">Budva</option>
-                                        <option value="10">Ulcinj</option>
-                                        <option value="11">Tivat</option>
-                                        <option value="12">Rožaje</option>
-                                        <option value="13">Kotor</option>
-                                        <option value="14">Danilovgrad</option>
-                                        <option value="15">Mojkovac</option>
-                                        <option value="16">Plav</option>
-                                        <option value="17">Kolašin</option>
-                                        <option value="18">Žabljak</option>
-                                        <option value="19">Plužine</option>
-                                        <option value="20">Andrijevica</option>
+            						<label for="city" class="block text-sm font-medium leading-5 text-gray-700">Grad</label>
+            						<select id="city" name="city_id" class="mt-1 block form-select w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
+                                        @foreach ($cities as $city)
+                                        <option value="{{$city->id}}" {{$city->id == $job->city_id ? "selected" : "" }}>{{$city->name}}</option>
+                                        @endforeach
             						</select>
             					</div>
 
