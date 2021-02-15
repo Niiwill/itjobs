@@ -46,7 +46,7 @@ $(document).ready(function(){
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            Nova Priča ili Događaj
+            Novi Tekst ili Događaj
         </h2>
     </x-slot>
     <div class="py-12">
@@ -71,7 +71,7 @@ $(document).ready(function(){
                                             <label for="variant---" class="px-3 py-2 flex items-center ">
                                                 <input name="article_category_id" type="radio" checked="" class="form-radio h-4 w-4 text-orange-600 transition duration-150 ease-in-out" value="1"> 
                                                 <span class="block text-sm leading-5 font-medium text-gray-700 ml-3 capitalize">
-                                                    PRIČA
+                                                    TEKST
                                                 </span>
                                             </label>
 

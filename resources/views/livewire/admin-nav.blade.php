@@ -18,7 +18,9 @@
                     <x-jet-nav-link href="{{ route('company.index') }}" :active="request()->routeIs('company')">
                         {{ __('Kompanije') }}
                     </x-jet-nav-link>
-                  
+                    <x-jet-nav-link href="{{ route('article.index') }}" :active="request()->routeIs('article.index')">
+                        {{ __('Tekstovi i Događaji') }}
+                    </x-jet-nav-link>
                 </div>
             </div>
 

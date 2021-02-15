@@ -70,7 +70,7 @@ class ArticleController extends Controller
         $article->location = $request->location;
         $article->slug=Str::slug($request->title, '-');
 
-         if($request->hasFile('main_image')){
+        if($request->hasFile('main_image')){
             $image=$request->file('main_image');
             $custom_name = time().'.'.$image->getClientOriginalExtension();
             $request->file('main_image')->storeAs('public/img/articles', $custom_name);
