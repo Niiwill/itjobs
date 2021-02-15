@@ -798,23 +798,23 @@
             </div>
         </div>
         <div class="row">
-        @foreach ($articles as $article)
+        @foreach ($it_events as $it_event)
             <div class="col-12 col-sm-3">
-                <a href="/it-dogadjaji/{{$article->id}}/{{$article->slug}}" style="text-decoration: none;">
+                <a href="/it-dogadjaji/{{$it_event->id}}/{{$it_event->slug}}" style="text-decoration: none;">
                     @if ($loop->first)
                     <div class="timeline-item first">
                     @else
                     <div class="timeline-item">
                     @endif 
 
-                        <div class="calendar"><span>{{$article->article_event_date->format('d')}}</span>{{$meseci[$article->article_event_date->format('n')]}}</div>
+                        <div class="calendar"><span>{{$it_event->article_event_date->format('d')}}</span>{{$meseci[$it_event->article_event_date->format('n')]}}</div>
                         @if ($loop->first)
                         <div class="item-body first">
                         @else
                         <div class="item-body">
                         @endif 
-                            <h5>{{$article->title}}</h5>
-                            <p>@ {{$article->location}}</p>
+                            <h5>{{$it_event->title}}</h5>
+                            <p>@ {{$it_event->location}}</p>
                         </div>
                     </div>
                 </a>

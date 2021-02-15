@@ -17,7 +17,7 @@ class ArticleController extends Controller
      */
     public function index(Request $request)
     {
-        $articles=Article::latest()->limit(4)->get();
+        $it_events = Article::latest()->where('article_category_id', 2)->limit(4)->get();
      
     }
 

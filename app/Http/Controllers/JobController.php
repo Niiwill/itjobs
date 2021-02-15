@@ -85,16 +85,14 @@ class JobController extends Controller
         $meseci[11] = "Novembar";
         $meseci[12] = "Decembar";
 
-        $articles=Article::orderBy('article_event_date','DESC')->limit(4)
-                                ->get();
-        $articles->article_event_data=2;
+        $it_events = Article::orderBy('article_event_date','DESC')->where('article_category_id', 2)->limit(4)->get();
 
         $tags=Tag::all();
 
         // Rezultatu prikljucujem jos ime GRADA i ime Kompanije za svaki oglas
         $jobs = Job::with('tags')->with('company:id,name,user_id,logo_path')->with('city:id,name')->get();
 
-        return view('welcome')->with('jobs',$jobs)->with('tags',$tags)->with('articles',$articles)->with('meseci',$meseci);
+        return view('welcome')->with('jobs',$jobs)->with('tags',$tags)->with('it_events',$it_events)->with('meseci',$meseci);
 
     }
 
