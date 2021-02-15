@@ -79,7 +79,7 @@ class ArticleController extends Controller
 
         $article->save();
 
-        return redirect()->route('adminEmp')->with('status', 'Uspješno kreiran!');
+        return redirect()->route('article.index')->with('status', 'Uspješno kreiran!');
 
     }
 
