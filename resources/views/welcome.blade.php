@@ -135,7 +135,7 @@
             }
             .job-card{
                 background: #fff;
-                padding: 2.1rem;
+                padding: 2rem;
                 border-radius: .6rem;
                 display: table;
                 width: 100%;
@@ -196,7 +196,7 @@
             }
             .job-card-info li{
                 display: inline;
-                margin-right: 1.5rem;
+                margin-right: 1rem;
             }
             .job-card-info span{
                 color: #2b3940;
@@ -221,7 +221,6 @@
                 color: #2b3940;
                 display: inline-block;
                 text-align: center;
-                margin-right: .3rem;
                 margin-top: .375rem;
                 font-size: 13px;
                 min-width: 96px;
@@ -762,7 +761,7 @@
                                 @endforeach
                             </ul>
                         </div>
-                        <div class="col-12 col-md-5 col-12 col-md-5 my-2 my-sm-0" style="padding-top:3px;">
+                        <div class="col-12 col-md-5 my-2 my-sm-0" style="padding-top:3px;">
                             <ul class="job-card-info text-left text-sm-right">
                                 <li>
                                     <span>
