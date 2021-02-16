@@ -20,15 +20,15 @@ menubar:false
 <script type="text/javascript">
 $(document).ready(function(){
 
-    var checked_val = $('#article_category:checked').val();
-    if( checked_val === '2' )
+    var checked_val = $("input[name='article_category_id']:checked").val();
+    if( checked_val == '2' )
         $('.događaj-input').slideDown('slow'); 
     else if( $('.događaj-input').is(':visible') )
         $('.događaj-input').slideUp('slow');
 
 
     $('#article_category :radio').change(function(){
-       if( this.value === '2' )
+       if( this.value == '2' )
            $('.događaj-input').slideDown('slow'); 
         else if( $('.događaj-input').is(':visible') )
            $('.događaj-input').slideUp('slow');               
