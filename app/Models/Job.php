@@ -31,7 +31,7 @@ class Job extends Model
     */
     public function company()
     {
-        return $this->belongsTo('App\Models\Company','user_id','user_id');
+        return $this->belongsTo('App\Models\Company');
 
     }
 
