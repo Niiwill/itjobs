@@ -21,28 +21,23 @@ menubar:false
 $(document).ready(function(){
 
     var checked_val = $("input[name='article_category_id']:checked").val();
-    if( checked_val == '2' )
-        $('.događaj-input').slideDown('slow'); 
-    else if( $('.događaj-input').is(':visible') )
-        $('.događaj-input').slideUp('slow');
-
+    if( checked_val == '2' ){ $('.događaj-input').slideUp('slow'); }
 
     $('#article_category :radio').change(function(){
-       if( this.value == '2' )
+        if( this.value == '2' )
            $('.događaj-input').slideDown('slow'); 
         else if( $('.događaj-input').is(':visible') )
            $('.događaj-input').slideUp('slow');               
     }); 
     // TIME PICKER FOR INPUT
     var timepicker = new TimePicker('#time', {
-      lang: 'en',
-      theme: 'dark'
+        lang: 'en',
+        theme: 'dark'
     });
-    timepicker.on('change', function(evt) {
-      
-      var value = (evt.hour || '00') + ':' + (evt.minute || '00');
-      evt.element.value = value;
 
+    timepicker.on('change', function(evt) {
+        var value = (evt.hour || '00') + ':' + (evt.minute || '00');
+        evt.element.value = value;
     });
 });
 
@@ -91,15 +86,15 @@ $(document).ready(function(){
                                 </div>
                             </div>
 
-                                <div class="col-span-1 događaj-input">
+                                <div class="col-span-1 događaj-input" style="display: none">
                                     <label for="date" class="block text-sm font-medium leading-5 text-gray-700">Datum događaja</label>
                                     <input type="date" id="article_event_date" name="article_event_date" class="mt-1 form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5" value="{{ $article->article_event_date }}">
                                 </div> 
-                                <div class="col-span-1 događaj-input">
+                                <div class="col-span-1 događaj-input" style="display: none">
                                     <label for="article_event_date" class="block text-sm font-medium leading-5 text-gray-700">Vreme događaja</label>
                                     <input type="text" id="time" name="article_event_time" class="mt-1 form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5" value="{{ $article->article_event_time }}">
                                 </div> 
-                                <div class="col-span-3 događaj-input">
+                                <div class="col-span-3 događaj-input" style="display: none">
                                     <label for="location" class="block text-sm font-medium leading-5 text-gray-700">Lokacija događaja</label>
                                     <input type="text" id="location" name="location" class="mt-1 form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5" maxlength="100" value="{{ $article->location }}">
                                 </div>
