@@ -111,7 +111,7 @@ class JobController extends Controller
         $cities = City::all();
 
         
-        return view('admin/job/create')->with('categories',$categories)->with('tags',$tags)->with('companies',$companies);
+        return view('admin/job/create')->with('categories',$categories)->with('tags',$tags)->with('companies',$companies)->with('cities',$cities);
     }
 
     /**
