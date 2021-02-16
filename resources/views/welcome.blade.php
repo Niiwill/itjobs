@@ -174,6 +174,9 @@
                 max-height: 72px;
                 min-height: 72px;
                 margin-right: 1.5625rem!important;
+                display: flex;
+                align-items: center;
+                justify-content: center;
             }
 
             .job-card .media{
