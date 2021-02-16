@@ -21,7 +21,7 @@ menubar:false
 $(document).ready(function(){
 
     var checked_val = $("input[name='article_category_id']:checked").val();
-    if( checked_val == '2' ){ $('.događaj-input').slideUp('slow'); }
+    if( checked_val == '2' ){$('.događaj-input').show(); }
 
     $('#article_category :radio').change(function(){
         if( this.value == '2' )
