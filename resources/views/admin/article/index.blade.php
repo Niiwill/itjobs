@@ -23,6 +23,9 @@
                                             Naslov
                                         </th>
                                         <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                            Link
+                                        </th>
+                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                             Tip Teksta
                                         </th>
                                         <th scope="col" class="relative px-6 py-3">
@@ -35,6 +38,13 @@
                                     <tr>
                                         <td class="px-6 py-4 whitespace-nowrap">
                                             <div class="text-sm text-gray-900">{{ $article->title }}</div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            @if ($article->article_category_id === 1)
+                                                <a href="/it-price/{{$article->id}}/{{$article->slug}}" target="_blank" style="text-decoration: none;">LIVE</a>
+                                            @else
+                                                <a href="/it-dogadjaji/{{$article->id}}/{{$article->slug}}" target="_blank" style="text-decoration: none;">Live</a>
+                                            @endif
                                         </td>
                                          <td class="px-6 py-4 whitespace-nowrap">
                                             @if ($article->article_category_id === 1)

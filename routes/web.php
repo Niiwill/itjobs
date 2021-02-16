@@ -20,9 +20,9 @@ Route::get('/oglasi-za-posao','JobController@index')->name('job.listing');
 Route::post('/oglasi-za-posao', function (Request $request) {
     return $request->all();
 });
-Route::get('/posao/{id}/{slug}','JobController@show')->name('job.show');
-Route::get('/it-dogadjaji/{id}/{slug}','ArticleController@show')->name('job.show'); 
-Route::get('/it-price/{id}/{slug}','ArticleController@show')->name('job.show');
+Route::get('/posao/{id}/{slug}','JobController@show');
+Route::get('/it-dogadjaji/{id}/{slug}','ArticleController@show');
+Route::get('/it-price/{id}/{slug}','ArticleController@show');
 
 // Private Policy
 Route::get('/politika-privatnosti', function (Request $request) {
