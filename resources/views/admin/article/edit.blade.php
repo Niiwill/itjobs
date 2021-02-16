@@ -1,45 +1,43 @@
 @push('scripts')
 <script src="https://cloud.tinymce.com/5/tinymce.min.js?apiKey=orluaejj30g3r6fymv4rb18b45bnrfsojdct6gsht1kvazt8" referrerpolicy="origin"></script>
-<script>tinymce.init({
-selector: 'textarea',
-plugins: 'lists',
-toolbar: "undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist",
-style_formats: [
-{title: 'Podnaslov', format: 'h3'},
-{title: 'Paragraf', format: 'p'}
-],
-menubar:false
-});</script>
-@endpush
-
-@push('scripts')
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/timepicker.js/latest/timepicker.min.js"></script>
 <link href="https://cdn.jsdelivr.net/timepicker.js/latest/timepicker.min.css" rel="stylesheet"/>
 
-<script type="text/javascript">
-$(document).ready(function(){
+<script>
+    $(document).ready(function(){
 
-    var checked_val = $("input[name='article_category_id']:checked").val();
-    if( checked_val == '2' ){$('.događaj-input').show(); }
+        var checked_val = $("input[name='article_category_id']:checked").val();
+        if( checked_val == '2' ){$('.događaj-input').show(); }
 
-    $('#article_category :radio').change(function(){
-        if( this.value == '2' )
-           $('.događaj-input').slideDown('slow'); 
-        else if( $('.događaj-input').is(':visible') )
-           $('.događaj-input').slideUp('slow');               
-    }); 
-    // TIME PICKER FOR INPUT
-    var timepicker = new TimePicker('#time', {
-        lang: 'en',
-        theme: 'dark'
+        $('#article_category :radio').change(function(){
+            if( this.value == '2' )
+               $('.događaj-input').slideDown('slow'); 
+            else if( $('.događaj-input').is(':visible') )
+               $('.događaj-input').slideUp('slow');               
+        }); 
+        // TIME PICKER FOR INPUT
+        var timepicker = new TimePicker('#time', {
+            lang: 'en',
+            theme: 'dark'
+        });
+
+        timepicker.on('change', function(evt) {
+            var value = (evt.hour || '00') + ':' + (evt.minute || '00');
+            evt.element.value = value;
+        });
     });
 
-    timepicker.on('change', function(evt) {
-        var value = (evt.hour || '00') + ':' + (evt.minute || '00');
-        evt.element.value = value;
+    tinymce.init({
+        selector: 'textarea',
+        plugins: 'lists',
+        toolbar: "undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist",
+        style_formats: [
+        {title: 'Podnaslov', format: 'h3'},
+        {title: 'Paragraf', format: 'p'}
+        ],
+        menubar:false
     });
-});
 
 </script>
 @endpush
@@ -114,11 +112,6 @@ $(document).ready(function(){
             						</label>
             						<textarea id="mytextarea" name="text" rows="20">{{$article->text}}</textarea>
             					</div>
-            					<!-- <p>Partner odgovara za tačnost i istinitost svih podataka koje dostavi PrekoVeze za potrebe sastavljanja Informacije o Partneru. Partner garantuje PrekoVeze da na tekstu, fotografijama, graficima i sličnom, koje dostavlja PrekoVeze za potrebe Informacije o Partneru, polaže autorska i srodna prava i obavezuje se da trećim licima i PrekoVeze nadoknadi svu eventualno nastalu štetu u slučaju povrede navedenih prava. -->
-
-                                <!-- Prema Zakonu o oglašavanju zabranjen je svaki vid obmanjujućeg, prikrivenog i upoređujućeg oglašavanja kojim se dovode u zabludu primaoci oglasne poruke. Oglasna poruka treba da sadrži isključivo podatke o predmetu koji se prodaje ili usluzi koja se pruža, odnosno podaci o potrebama Partnera ili Oglašivača za radnom snagom, sa nazivom radnog mesta, opisom poslova i uslova koje Poslodavac zahteva za obavljanje traženog posla. U oglasnim porukama nije dopuštena upotreba fotografija sa drugih oglasnih sajtova ili iz oglasa drugih oglašivača na našem sajtu.</p> -->
-          
-
             				</div>
             			</div>
             			<div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
