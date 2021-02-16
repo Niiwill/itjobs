@@ -12,10 +12,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/oglasi-za-posao">Poslovi</a>
                         </li>
-                        <li class="nav-item">
+                        <!-- <li class="nav-item">
                             <a class="nav-link" href="#">Edukacija</a>
-                        </li>
-                        
+                        </li> -->
                     @guest
                     </ul>
                     <div class="nav-auth float-right">
