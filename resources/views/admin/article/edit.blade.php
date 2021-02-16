@@ -69,28 +69,29 @@ $(document).ready(function(){
                                         <div class="flex flex-wrap items-center -mx-3">
 
                                             <label for="variant---" class="px-3 py-2 flex items-center ">
-                                                <input name="article_category_id" type="radio" checked="" class="form-radio h-4 w-4 text-orange-600 transition duration-150 ease-in-out" value="1"> 
+                                                <input name="article_category_id" type="radio" class="form-radio h-4 w-4 text-orange-600 transition duration-150 ease-in-out" value="1" {{$article->article_category_id == 1 ? 'checked':'' }}> 
                                                 <span class="block text-sm leading-5 font-medium text-gray-700 ml-3 capitalize">
                                                     PRIČA
                                                 </span>
                                             </label>
 
                                             <label for="variant---" class="px-3 py-2 flex items-center ">
-                                                <input name="article_category_id" type="radio" checked="" class="form-radio h-4 w-4 text-orange-600 transition duration-150 ease-in-out" value="2"> 
+                                                <input name="article_category_id" type="radio" class="form-radio h-4 w-4 text-orange-600 transition duration-150 ease-in-out" value="2" {{$article->article_category_id == 2 ? 'checked':'' }}> 
                                                 <span class="block text-sm leading-5 font-medium text-gray-700 ml-3 capitalize">
                                                    DOGAĐAJ
                                                 </span>
                                             </label>
+
                                 </div>
                             </div>
 
                                 <div class="col-span-1 događaj-input">
                                     <label for="date" class="block text-sm font-medium leading-5 text-gray-700">Datum događaja</label>
-                                    <input type="date" id="article_event_date" name="article_event_date" class="mt-1 form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5">
+                                    <input type="date" id="article_event_date" name="article_event_date" class="mt-1 form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5" value="{{ $article->article_event_date }}">
                                 </div> 
                                 <div class="col-span-1 događaj-input">
                                     <label for="article_event_date" class="block text-sm font-medium leading-5 text-gray-700">Vreme događaja</label>
-                                    <input type="text" id="time" name="article_event_time" class="mt-1 form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5">
+                                    <input type="text" id="time" name="article_event_time" class="mt-1 form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5" value="{{ $article->article_event_time }}">
                                 </div> 
                                 <div class="col-span-3 događaj-input">
                                     <label for="location" class="block text-sm font-medium leading-5 text-gray-700">Lokacija događaja</label>
