@@ -97,10 +97,11 @@ $(document).ready(function(){
                                     <input type="text" id="location" name="location" class="mt-1 form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5" maxlength="100">
                                 </div>
                                 
-            					<div class="col-span-3">
+            					<div class="col-span-4">
             						<label for="title" class="block text-sm font-medium leading-5 text-gray-700">Naziv priče ili događaja</label>
-            						<input type="text" id="title" name="title" class="mt-1 form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5" maxlength="40" required>
+            						<input type="text" id="title" name="title" class="mt-1 form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5" maxlength="90" required>
             					</div>
+                                <div class="col-span-2"></div>
                                 <div class="col-span-3">
                                     <label for="main_image" class="block text-sm font-medium leading-5 text-gray-700">Glavna slika</label>
                                     <input type="file" id="main_image" name="main_image" class="mt-1 form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5" maxlength="40" required>

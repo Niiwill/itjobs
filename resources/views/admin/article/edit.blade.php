@@ -97,20 +97,20 @@
                                     <input type="text" id="location" name="location" class="mt-1 form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5" maxlength="100" value="{{ $article->location }}">
                                 </div>
                                 
-            					<div class="col-span-3">
+            					<div class="col-span-4">
             						<label for="title" class="block text-sm font-medium leading-5 text-gray-700">Naziv priče ili događaja</label>
-            						<input type="text" id="title" name="title" class="mt-1 form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5" maxlength="80" required value="{{$article->title}}">
+            						<input type="text" id="title" name="title" class="mt-1 form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5" maxlength="90" required value="{{$article->title}}">
             					</div>
-                                <div class="col-span-3"></div>
+                                <div class="col-span-2"></div>
 
                                 <div class="col-span-3">
                                     <label for="main_image" class="block text-sm font-medium leading-5 text-gray-700">Trenutna naslovna slika:</label>
-                                    <img class="w-24 h-auto" src="{{asset('storage/'.$article->image_url)}}">
+                                    <img class="w-60 h-auto" src="{{asset('storage/'.$article->image_url)}}">
                                 </div>
                                 <div class="col-span-3"></div>
 
                                 <div class="col-span-3">
-                                    <label for="main_image" class="block text-sm font-medium leading-5 text-gray-700">Dodaj i izmeni novu sliku</label>
+                                    <label for="main_image" class="block text-sm font-medium leading-5 text-gray-700">Dodaj i izmeni trenutnu sliku novom</label>
                                     <input type="file" id="main_image" name="main_image" class="mt-1 form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5">
                                 </div>
                              
