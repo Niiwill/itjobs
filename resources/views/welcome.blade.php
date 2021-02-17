@@ -535,7 +535,7 @@
                             <a class="nav-link" href="/oglasi-za-posao">Poslovi</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/it-price">IT Priče</a>
+                            <a class="nav-link" href="/it-price">IT Priče i Vijesti</a>
                         </li>
                 </div>  
             </div>

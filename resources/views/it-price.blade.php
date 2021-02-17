@@ -94,6 +94,9 @@
                 border-color: #00b074;
             }
             .card img{
+                height: 100%;
+                width: 100%;
+                object-fit: contain;
                 border-radius: 8px;
             }
             
@@ -138,15 +141,19 @@
             .card{
                 border:none;
             }
-            .card a{
-
-            }
             .card-title{
                 font-size: 1.5rem;
                 line-height: 1.5;
                 letter-spacing: -0.24px;
                 color: #2b3940;
                 font-weight: 700;
+            }
+            .badge-blue {
+                font-size: 13px;
+                line-height: 2;
+                letter-spacing: 0.26px;
+                color: #fff;
+                background-color: #336ef7;
             }
            
         </style> 
@@ -167,7 +174,7 @@
                             <a class="nav-link" href="/oglasi-za-posao">Poslovi</a>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link" href="/it-price">IT Priče</a>
+                            <a class="nav-link" href="/it-price">IT Priče i Vijesti</a>
                         </li>
                     </ul>
                 </div>  
@@ -182,7 +189,8 @@
                     <div class="card">
                         <img class="card-img-top" src="{{asset('storage/'.$article->image_url)}}" alt="{{$article->title}} slika">
                         <div class="card-body  pt-11 px-0 pb-0">
-                            <h5><a href="/it-price/{{$article->id}}/{{$article->slug}}" class="card-title text-decoration-none mt-8 mb-6">{{$article->title}}</a></h5>
+                            <span class="badge badge-blue text-uppercase font-size-3 font-weight-bold px-3 py-1">{{$article->created_at->format('j M, Y')}}</span>
+                            <h5><a href="/it-price/{{$article->id}}/{{$article->slug}}" class="card-title text-decoration-none mt-4 mb-2 d-inline-block">{{$article->title}}</a></h5>
                         </div>
                     </div>
                 </div> 

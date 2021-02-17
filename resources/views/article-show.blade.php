@@ -229,7 +229,7 @@
                             <a class="nav-link" href="/oglasi-za-posao">Poslovi</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Edukacija</a>
+                            <a class="nav-link" href="/it-price">IT Priče i Vijesti</a>
                         </li>
                         
                    <!--  @guest
