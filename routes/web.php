@@ -22,6 +22,8 @@ Route::post('/oglasi-za-posao', function (Request $request) {
 });
 Route::get('/posao/{id}/{slug}','JobController@show');
 Route::get('/it-dogadjaji/{id}/{slug}','ArticleController@show');
+
+Route::get('/it-price','ArticleController@texts');
 Route::get('/it-price/{id}/{slug}','ArticleController@show');
 
 // Private Policy

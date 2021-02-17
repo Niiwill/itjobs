@@ -10,6 +10,18 @@ use Illuminate\Support\Str;
 
 class ArticleController extends Controller
 {
+    
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function texts(Request $request)
+    {
+        $articles = Article::where('article_category_id', 1)->latest()->paginate(12);
+        return view('it-price', compact('articles'));
+     
+    }
     /**
      * Display a listing of the resource.
      *
