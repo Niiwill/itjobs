@@ -64,6 +64,7 @@ class ArticleController extends Controller
 
         $article = new Article;
         $article->title = $request->title;
+        $article->description = $request->description;
         $article->text = $request->text;
         $article->article_category_id = $request->article_category_id;
         $article->article_event_date = $request->article_event_date;
@@ -133,9 +134,9 @@ class ArticleController extends Controller
      */
     public function update(Request $request, $id)
     {
-
         $article = Article::find($id);
         $article->title = $request->title;
+        $article->description = $request->description;
         $article->text = $request->text;
         $article->article_category_id = $request->article_category_id;
         $article->article_event_date = $request->article_event_date;
@@ -153,8 +154,6 @@ class ArticleController extends Controller
         $article->save();
 
         return redirect()->route('article.index')->with('status', 'Uspješno kreiran!');
-
-      
     }
 
     /**

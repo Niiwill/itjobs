@@ -97,11 +97,14 @@
                                     <input type="text" id="location" name="location" class="mt-1 form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5" maxlength="100" value="{{ $article->location }}">
                                 </div>
                                 
-            					<div class="col-span-4">
-            						<label for="title" class="block text-sm font-medium leading-5 text-gray-700">Naziv priče ili događaja</label>
-            						<input type="text" id="title" name="title" class="mt-1 form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5" maxlength="90" required value="{{$article->title}}">
-            					</div>
-                                <div class="col-span-2"></div>
+                                <div class="col-span-2">
+                                    <label for="title" class="block text-sm font-medium leading-5 text-gray-700">Naziv priče ili događaja</label>
+                                    <input type="text" id="title" name="title" class="mt-1 form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5" maxlength="80" value="{{$article->title}}" required>
+                                </div>
+                                <div class="col-span-4">
+                                    <label for="description" class="block text-sm font-medium leading-5 text-gray-700">Kratak opis</label>
+                                    <input type="text" id="description" name="description" class="mt-1 form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5" maxlength="140" value="{{$article->description}}">
+                                </div>
 
                                 <div class="col-span-3">
                                     <label for="main_image" class="block text-sm font-medium leading-5 text-gray-700">Trenutna naslovna slika:</label>

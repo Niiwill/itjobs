@@ -231,33 +231,7 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/it-price">IT Priče i Vijesti</a>
                         </li>
-                        
-                   <!--  @guest
                     </ul>
-                    <div class="nav-auth float-right">
-                        <a class="btn singin" href="{{ route('login') }}">Prijava</a>
-                        <a class="btn singup" href="{{ route('register') }}">Registruj se</a>
-                    </div>
-                    @else -->
-
-
-
-
-                 <!--        <li class=" nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" style="color: #4c83ff;">Moj nalog</a>
-
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="/admin">Moj Panel</a>
-                                <a class="dropdown-item" href="{{ route('logout') }}"
-                                onclick="event.preventDefault();
-                                document.getElementById('logout-form').submit();">Log out</a>
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                    {{ csrf_field() }}
-                                </form>
-                            </div>
-                        </li> -->
-                    </ul>
-                    <!-- @endguest -->
                 </div>  
             </div>
         </nav>
@@ -269,7 +243,7 @@
             <div class="row">
                 <div class="col-12 col-sm-8 offset-md-2">
                     <h1>{{$article->title}}</h1>
-                    <p class="description">Osnivač Facebook-a je donirao 75 miliona dolara jedinoj javnoj bolnici u San Francisku, a u sklopu dogovora je da ona nosi njegovo ime sledećih 50 godina.</p>
+                    <p class="description">{{$article->description}}</p>
                     <img src="{{asset('storage/'.$article->image_url)}}" alt="{{$article->title}} slika">
                 </div>
             </div>
@@ -293,7 +267,7 @@
                            
                         </div>
 
-                        <p class="description">Osnivač Facebook-a je donirao 75 miliona dolara jedinoj javnoj bolnici u San Francisku, a u sklopu dogovora je da ona nosi njegovo ime sledećih 50 godina.</p>
+                        <p class="description">{{$article->description}}</p>
                         <img src="{{asset('storage/'.$article->image_url)}}" alt="{{$article->title}} slika">
 
                     </div>

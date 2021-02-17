@@ -4,8 +4,8 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="icon" type="image/x-icon" href="{{asset('storage/img/favicon.png')}}" />
-        <title>IT Priče | Svi IT poslovi u Crnoj Gori, kompanije i poslodavci na jednom mestu</title>
-        <meta name="description" content="IT Poslovi, konkursi i slobodna radna mesta! Poslodavci i firme u Crnoj Gori na jednom mestu. Oglasi za programiranje, dizajn, administraciju, web poslove i socijalne mreze i drugo.">
+        <title>IT Priče i Vijesti | ITPoslovi.me</title>
+        <meta name="description" content="IT Priče i vijesti u Crnoj Gori na jendom mestu.">
         <link rel="canonical" href="https://itposlovi.me"/>
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -148,6 +148,12 @@
                 color: #2b3940;
                 font-weight: 700;
             }
+            .card-body p{
+                font-size: 1rem;
+                letter-spacing: -0.08px;
+                color: #6b6e6f;
+                font-weight: 400;
+            }
             .badge-blue {
                 font-size: 13px;
                 line-height: 2;
@@ -188,9 +194,10 @@
                 <div class="col-12 col-md-4 mt-5">
                     <div class="card">
                         <img class="card-img-top" src="{{asset('storage/'.$article->image_url)}}" alt="{{$article->title}} slika">
-                        <div class="card-body  pt-11 px-0 pb-0">
+                        <div class="card-body pt-4 px-0 pb-0">
                             <span class="badge badge-blue text-uppercase font-size-3 font-weight-bold px-3 py-1">{{$article->created_at->format('j M, Y')}}</span>
-                            <h5><a href="/it-price/{{$article->id}}/{{$article->slug}}" class="card-title text-decoration-none mt-4 mb-2 d-inline-block">{{$article->title}}</a></h5>
+                            <h5><a href="/it-price/{{$article->id}}/{{$article->slug}}" class="card-title text-decoration-none mt-4 mb-3 d-inline-block">{{$article->title}}</a></h5>
+                            <p>{{$article->description}}</p>
                         </div>
                     </div>
                 </div> 
