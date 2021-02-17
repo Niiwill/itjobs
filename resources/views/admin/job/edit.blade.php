@@ -18,8 +18,8 @@
 
     tinymce.init({
         selector: 'textarea',
-        plugins: 'lists',
-        toolbar: "undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist",
+        plugins: 'lists,link',
+        toolbar: "undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist | link ",
         style_formats: [
             {title: 'Podnaslov', format: 'h3'},
             {title: 'Paragraf', format: 'p'}

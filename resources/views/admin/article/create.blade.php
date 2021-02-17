@@ -2,8 +2,8 @@
 <script src="https://cloud.tinymce.com/5/tinymce.min.js?apiKey=orluaejj30g3r6fymv4rb18b45bnrfsojdct6gsht1kvazt8" referrerpolicy="origin"></script>
 <script>tinymce.init({
 selector: 'textarea',
-plugins: 'lists',
-toolbar: "undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist",
+plugins: 'lists,link',
+toolbar: "undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist | link",
 style_formats: [
 {title: 'Podnaslov', format: 'h3'},
 {title: 'Paragraf', format: 'p'}
