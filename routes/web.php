@@ -40,10 +40,8 @@ Route::resource('job', 'JobController')->middleware('auth');
 Route::resource('company', 'CompanyController')->middleware('auth');
 
 // ADMIN - ARTICLES
-Route::get('/admin/article/','ArticleController@indexAdmin')->name('article.index')->middleware('auth');
-Route::get('/admin/article/edit/{id}','ArticleController@edit')->name('article.edit')->middleware('auth');
-Route::get('/admin/article/create','ArticleController@create')->name('article.create')->middleware('auth');
-Route::post('/admin/article/store','ArticleController@store')->name('article.store')->middleware('auth');
+Route::resource('admin/article', 'ArticleController')->middleware('auth');
+
 
 
 

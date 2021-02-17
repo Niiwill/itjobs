@@ -10,27 +10,16 @@ use Illuminate\Support\Str;
 
 class ArticleController extends Controller
 {
-        /**
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request)
     {
-        $it_events = Article::latest()->where('article_category_id', 2)->limit(4)->get();
-     
-    }
-
-
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function indexAdmin()
-    {
         $articles = Article::latest()->get();
         return view('admin/article/index', compact('articles'));
+     
     }
 
     /**
@@ -132,6 +121,26 @@ class ArticleController extends Controller
      */
     public function update(Request $request, $id)
     {
+
+        $article = Article::find($id);
+        $article->title = $request->title;
+        $article->text = $request->text;
+        $article->article_category_id = $request->article_category_id;
+        $article->article_event_date = $request->article_event_date;
+        $article->article_event_time=$request->article_event_time;
+        $article->location = $request->location;
+        $article->slug=Str::slug($request->title, '-');
+
+        if($request->hasFile('main_image')){
+            $image=$request->file('main_image');
+            $custom_name = time().'.'.$image->getClientOriginalExtension();
+            $request->file('main_image')->storeAs('public/img/articles', $custom_name);
+            $article->image_url='img/articles/'.$custom_name;
+        }
+
+        $article->save();
+
+        return redirect()->route('article.index')->with('status', 'Uspješno kreiran!');
 
       
     }
