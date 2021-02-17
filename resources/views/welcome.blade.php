@@ -135,13 +135,11 @@
             }
             .job-card{
                 background: #fff;
-                padding: 2rem;
+                padding: 1.7rem;
                 border-radius: .6rem;
                 display: table;
                 width: 100%;
                 margin-bottom: 30px;
-                box-shadow: 0 0 20px 0 rgba(62,28,131,0.1);
-                -webkit-box-shadow: 0 0 20px 0 rgba(62,28,131,0.1);
                 transition: .4s;
             }
             .job-card:hover{
@@ -450,7 +448,6 @@
                 }
                 }
                 #events{
-                    background-color: #f6f5fb;
                     padding: 120px 0 100px;
                 }
                 #events h2{
@@ -690,7 +687,7 @@
 </div>
 
 <!-- NAJNOVIJI POSLOVI -->
-<div style="padding-top: 4rem;padding-bottom:7.5rem;">
+<div style="padding-top: 4rem;padding-bottom:7.5rem;background:#F4F5F8;">
     <div class="container">
         <!-- Naslov -->
         <div class="row" style="padding-bottom: 3.4375rem;">
