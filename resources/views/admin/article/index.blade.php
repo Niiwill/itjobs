@@ -42,25 +42,25 @@
                                         <td class="px-6 py-4 whitespace-nowrap">
                                             @if ($article->article_category_id === 1)
                                                 <a href="/it-price/{{$article->id}}/{{$article->slug}}" target="_blank" class="no-underline flex">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="flex-shrink-0 h-6 w-6 text-indigo-600">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="flex-shrink-0 h-5 w-5 text-indigo-600">
                                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                                                     </svg>
-                                                    <div class="ml-3 text-sm text-indigo-600">Live</div>
+                                                    <div class="ml-3 text-xs text-indigo-600">Live</div>
                                                 </a>
                                             @else
                                                 <a href="/it-dogadjaji/{{$article->id}}/{{$article->slug}}" target="_blank" class="no-underline flex">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="flex-shrink-0 h-6 w-6 text-indigo-600">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="flex-shrink-0 h-5 w-5 text-indigo-600">
                                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                                                     </svg>
-                                                    <div class="ml-3 text-sm text-indigo-600">Live</div>
+                                                    <div class="ml-3 text-xs text-indigo-600">Live</div>
                                                 </a>
                                             @endif
                                         </td>
                                          <td class="px-6 py-4 whitespace-nowrap">
                                             @if ($article->article_category_id === 1)
-                                            <span class="px-3 py-1 inline-flex text-sm leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">Teskt</span>
+                                            <span class="px-3 py-1 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">Teskt</span>
                                             @else
-                                            <span class="px-3 py-1 inline-flex text-sm leading-5 font-semibold rounded-full bg-green-100 text-green-800">Događaj</span>
+                                            <span class="px-3 py-1 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Događaj</span>
                                             @endif
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap text-right text-sm">

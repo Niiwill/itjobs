@@ -55,9 +55,9 @@
                     </td> -->
                     <td class="px-6 py-4 whitespace-nowrap">
                         @if ($job->status === 0)
-                            <span class="px-3 py-1 inline-flex text-sm leading-5 font-semibold rounded-full bg-red-100 text-red-800">Neaktivno</span>
+                            <span class="px-3 py-1 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">Neaktivno</span>
                         @else
-                            <span class="px-3 py-1 inline-flex text-sm leading-5 font-semibold rounded-full bg-green-100 text-green-800">Aktivno</span>
+                            <span class="px-3 py-1 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Aktivno</span>
                         @endif
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap text-right text-sm">
