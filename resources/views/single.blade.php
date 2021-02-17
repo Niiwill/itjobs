@@ -173,7 +173,7 @@
             #job-header .square-72 img{
                 border-radius: 6px;
             }
-            #job-header h3{
+            #job-header h1{
                 font-size: 1.3125rem;
                 line-height: 1.62;
                 letter-spacing: -.21px;
@@ -323,33 +323,7 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/it-price">IT Priče i Vijesti</a>
                         </li>
-                        
-                   <!--  @guest
                     </ul>
-                    <div class="nav-auth float-right">
-                        <a class="btn singin" href="{{ route('login') }}">Prijava</a>
-                        <a class="btn singup" href="{{ route('register') }}">Registruj se</a>
-                    </div>
-                    @else -->
-
-
-
-
-                 <!--        <li class=" nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" style="color: #4c83ff;">Moj nalog</a>
-
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="/admin">Moj Panel</a>
-                                <a class="dropdown-item" href="{{ route('logout') }}"
-                                onclick="event.preventDefault();
-                                document.getElementById('logout-form').submit();">Log out</a>
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                    {{ csrf_field() }}
-                                </form>
-                            </div>
-                        </li> -->
-                    </ul>
-                    <!-- @endguest -->
                 </div>  
             </div>
         </nav>
@@ -378,7 +352,7 @@
                                         <img src="{{asset('storage/'.$job->company->logo_path)}}" alt="{{$job->company->name}} logo" width="100%">
                                     </div>
                                     <div>
-                                        <h3>{{$job->title}}</h3>
+                                        <h1>{{$job->title}}</h1>
                                         <span>{{$job->company->name}}</span>
                                     </div>
                                 </div>
