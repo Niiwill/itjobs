@@ -28,6 +28,9 @@
                                         <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                             Tip Teksta
                                         </th>
+                                        <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                            Status
+                                        </th>
                                         <th scope="col" class="relative px-6 py-3">
                                             <span class="sr-only">Edit</span>
                                         </th>
@@ -60,7 +63,15 @@
                                             @if ($article->article_category_id === 1)
                                             <span class="px-3 py-1 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">Teskt</span>
                                             @else
-                                            <span class="px-3 py-1 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Događaj</span>
+                                            <span class="px-3 py-1 inline-flex text-xs leading-5 font-semibold rounded-full bg-blue-100 text-blue-800">Događaj</span>
+                                            @endif
+                                        </td>
+
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            @if ($article->status === 0)
+                                                <span class="px-3 py-1 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">Neaktivno</span>
+                                            @else
+                                                <span class="px-3 py-1 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Aktivno</span>
                                             @endif
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap text-right text-sm">

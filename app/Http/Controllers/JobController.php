@@ -27,12 +27,12 @@ class JobController extends Controller
         // Ako trazim po TAG ID ona koristim whereHas
         if ($request->filled('tag_id')) {
             $query = Job::whereHas('tags', function($q) use ($request){
-                $q->where('tag_id', '=', $request->tag_id);
+                $q->where('tag_id', '=', $request->tag_id)->where('status', 1);
             });
 
         }else{
             // Ako trazimo bez TAG ID
-            $query = Job::with('tags');
+            $query = Job::where('status', 1)->with('tags');
         }
 
         // Dodatna provera filtera ako korisnik posalje
@@ -63,7 +63,7 @@ class JobController extends Controller
 
     public function indexAdmin()
     {
-        $jobs = Job::all();
+        $jobs = Job::latest()->get();
 
         return view('admin/index')->with('jobs',$jobs);
 
@@ -90,7 +90,7 @@ class JobController extends Controller
         $tags=Tag::all();
 
         // Rezultatu prikljucujem jos ime GRADA i ime Kompanije za svaki oglas
-        $jobs = Job::with('tags')->with('company:id,name,user_id,logo_path')->with('city:id,name')->limit(5)->get();
+        $jobs = Job::where('status', 1)->with('tags')->with('company:id,name,user_id,logo_path')->with('city:id,name')->limit(5)->get();
 
         return view('welcome')->with('jobs',$jobs)->with('tags',$tags)->with('it_events',$it_events)->with('meseci',$meseci);
 

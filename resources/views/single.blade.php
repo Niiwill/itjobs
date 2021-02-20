@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="icon" type="image/x-icon" href="{{asset('storage/img/favicon.png')}}" />
         <title>{{$job->title}} | {{$job->company->name}} | {{$job->city->name}} | ITPoslovi.me</title>
-        <meta name="description" content="Oglas: {{$job->title}} - Crna Gora / Montenegro - Svi It oglasi na jednom mjestu. Pronađite sve software kompanije u Crnoj Gori i biraj posao koji voliš. ">
+        <meta name="description" content="Oglas: {{$job->title}} - Crna Gora / Montenegro - Svi It poslovi na jednom mjestu. Pronađite software kompanije u Crnoj Gori i biraj posao koji voliš.">
         <link rel="canonical" href="{{url()->current()}}"/>
 
         <!-- Fonts -->

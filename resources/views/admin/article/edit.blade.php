@@ -124,6 +124,15 @@
             						</label>
             						<textarea id="mytextarea" name="text" rows="20">{{$article->text}}</textarea>
             					</div>
+
+                                <div class="col-span-2">
+                                    <label for="status" class="block text-sm font-medium leading-5 text-gray-700">Status</label>
+                                    <select id="status" name="status" class="mt-1 block form-select w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
+                                        <option value="0" {{$article->status == '0' ? "selected" : "" }}>Neaktivan</option>
+                                        <option value="1" {{$article->status == '1' ? "selected" : "" }}>Aktivan</option>
+                                    </select>
+                                </div>
+
             				</div>
             			</div>
             			<div class="px-4 py-3 bg-gray-50 text-right sm:px-6">

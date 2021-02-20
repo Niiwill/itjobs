@@ -18,7 +18,7 @@ class ArticleController extends Controller
      */
     public function texts(Request $request)
     {
-        $articles = Article::where('article_category_id', 1)->latest()->paginate(12);
+        $articles = Article::where('article_category_id', 1)->where('status', 1)->latest()->paginate(12);
         return view('it-price', compact('articles'));
      
     }
@@ -70,6 +70,7 @@ class ArticleController extends Controller
         $article->article_event_date = $request->article_event_date;
         $article->article_event_time=$request->article_event_time;
         $article->location = $request->location;
+        $article->status = $request->status;
         $article->slug=Str::slug($request->title, '-');
 
         if($request->hasFile('main_image')){
@@ -143,6 +144,8 @@ class ArticleController extends Controller
         $article->article_event_time=$request->article_event_time;
         $article->location = $request->location;
         $article->slug=Str::slug($request->title, '-');
+        $article->status = $request->status;
+
 
         if($request->hasFile('main_image')){
             $image=$request->file('main_image');
