@@ -90,7 +90,7 @@ class JobController extends Controller
         $tags=Tag::all();
 
         // Rezultatu prikljucujem jos ime GRADA i ime Kompanije za svaki oglas
-        $jobs = Job::where('status', 1)->with('tags')->with('company:id,name,user_id,logo_path')->with('city:id,name')->limit(5)->get();
+        $jobs = Job::where('expired_at', '>=', date('Y-m-d'))->where('status', 1)->with('tags')->with('company:id,name,user_id,logo_path')->with('city:id,name')->limit(5)->get();
 
         return view('welcome')->with('jobs',$jobs)->with('tags',$tags)->with('it_events',$it_events)->with('meseci',$meseci);
 
