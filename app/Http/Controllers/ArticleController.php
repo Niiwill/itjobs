@@ -70,8 +70,8 @@ class ArticleController extends Controller
         $article->article_event_date = $request->article_event_date;
         $article->article_event_time=$request->article_event_time;
         $article->location = $request->location;
-        $article->status = $request->status;
         $article->slug=Str::slug($request->title, '-');
+        $article->status = $request->status;
 
         if($request->hasFile('main_image')){
             $image=$request->file('main_image');
@@ -81,9 +81,7 @@ class ArticleController extends Controller
         }
 
         $article->save();
-
         return redirect()->route('article.index')->with('status', 'Uspješno kreiran!');
-
     }
 
     /**
@@ -146,7 +144,6 @@ class ArticleController extends Controller
         $article->slug=Str::slug($request->title, '-');
         $article->status = $request->status;
 
-
         if($request->hasFile('main_image')){
             $image=$request->file('main_image');
             $custom_name = time().'.'.$image->getClientOriginalExtension();
@@ -155,7 +152,6 @@ class ArticleController extends Controller
         }
 
         $article->save();
-
         return redirect()->route('article.index')->with('status', 'Uspješno kreiran!');
     }
 
