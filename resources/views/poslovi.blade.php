@@ -623,6 +623,10 @@
                 </div>
                 @endforeach
 
+                <div>
+                    {{ $jobs->links() }}
+                </div>
+
 
                
 
