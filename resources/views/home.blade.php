@@ -891,7 +891,7 @@
 <div id="articles">
     <div class="container">
         <h2>IT vijesti i priče</h2>
-        <div class="row mt-5">
+        <div class="row">
         @foreach ($articles as $article)
             <div class="col-12 col-md-4 mt-5">
                 <div class="card">

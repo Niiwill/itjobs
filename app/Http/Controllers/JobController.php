@@ -63,7 +63,9 @@ class JobController extends Controller
 
     public function indexAdmin()
     {
-        $jobs = Job::latest()->get();
+        $jobs = Job::select('id', 'title', 'category_id', 'expired_at', 'status')
+                    ->latest()
+                    ->paginate(8);
 
         return view('admin/index')->with('jobs',$jobs);
 
