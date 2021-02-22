@@ -623,9 +623,22 @@
                 </div>
                 @endforeach
 
-                <div>
-                    {{ $jobs->links() }}
-                </div>
+                
+                @if($jobs->hasMorePages())
+                <nav aria-label="Page navigation example">
+                  <ul class="pagination">
+                    @if($jobs->currentPage() != 1)
+                        <li class="page-item"><a class="page-link" href="{{$jobs->previousPageUrl()}}">Prethodni</a></li>
+                    @endif
+                    @for ($i = 1; $i <= $jobs->lastPage(); $i++)
+                        <li class="page-item"><a class="page-link" href="{{$jobs->url($i)}}">{{ $i }}</a></li>
+                    @endfor
+                    @if($jobs->hasMorePages())
+                        <li class="page-item"><a class="page-link" href="{{$jobs->nextPageUrl() }}">Sledeći</a></li>
+                    @endif
+                  </ul>
+                </nav>
+                @endif
 
 
                

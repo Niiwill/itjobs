@@ -53,7 +53,7 @@ class JobController extends Controller
         $tags=Tag::all();
 
         // Rezultatu prikljucujem jos ime GRADA i ime Kompanije za svaki oglas
-        $jobs = $query->with('company:id,name,user_id,logo_path')->with('city:id,name')->paginate(1);
+        $jobs = $query->with('company:id,name,user_id,logo_path')->with('city:id,name')->paginate(15);
         $jobsCount = $jobs->count();
 
 
