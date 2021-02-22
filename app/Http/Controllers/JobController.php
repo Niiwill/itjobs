@@ -85,14 +85,31 @@ class JobController extends Controller
         $meseci[11] = "Novembar";
         $meseci[12] = "Decembar";
 
-        $it_events = Article::orderBy('article_event_date','DESC')->where('article_category_id', 2)->limit(4)->get();
+        $it_events = Article::select('id','slug', 'article_event_date','title','location')
+                            ->orderBy('article_event_date','DESC')
+                            ->where('article_category_id', 2)
+                            ->limit(4)
+                            ->get();
+
+        $articles = Article::select('id','slug','image_url', 'created_at','title','description')
+                            ->where('article_category_id', 1)
+                            ->latest()
+                            ->limit(3)
+                            ->get();
+
 
         $tags=Tag::all();
 
         // Rezultatu prikljucujem jos ime GRADA i ime Kompanije za svaki oglas
-        $jobs = Job::where('expired_at', '>=', date('Y-m-d'))->where('status', 1)->with('tags')->with('company:id,name,user_id,logo_path')->with('city:id,name')->limit(5)->get();
+        $jobs = Job::where('expired_at', '>=', date('Y-m-d'))
+                    ->where('status', 1)
+                    ->with('tags')
+                    ->with('company:id,name,user_id,logo_path')
+                    ->with('city:id,name')
+                    ->limit(5)
+                    ->get();
 
-        return view('welcome')->with('jobs',$jobs)->with('tags',$tags)->with('it_events',$it_events)->with('meseci',$meseci);
+        return view('home')->with('jobs',$jobs)->with('tags',$tags)->with('it_events',$it_events)->with('meseci',$meseci)->with('articles',$articles);
 
     }
 

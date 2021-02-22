@@ -228,7 +228,7 @@
                 line-height: 2;
                 letter-spacing: .26px;
             }
-            .header h2{
+            .header h2, #articles h2{
                 font-size: 2.7rem;
                 line-height: 1.375;
                 letter-spacing: -.4px;
@@ -412,6 +412,29 @@
                 color: #6b6e6f;
                 margin-bottom:0;
                 font-weight: 400;
+            }
+            .card{
+                border:none;
+            }
+            .card-title{
+                font-size: 1.5rem;
+                line-height: 1.5;
+                letter-spacing: -0.24px;
+                color: #2b3940;
+                font-weight: 700;
+            }
+            .card-body p{
+                font-size: 1rem;
+                letter-spacing: -0.08px;
+                color: #6b6e6f;
+                font-weight: 400;
+            }
+            .badge-blue {
+                font-size: 13px;
+                line-height: 2;
+                letter-spacing: 0.26px;
+                color: #fff;
+                background-color: #336ef7;
             }
             @media (max-width: 1200px){
                 #features h2{
@@ -861,6 +884,31 @@
                 </div>
             </div>
         </div>
+    </div>
+</div>
+
+<!-- IT VESTI I PRIČE -->
+<div id="articles">
+    <div class="container">
+        <h2>IT vijesti i priče</h2>
+        <div class="row mt-5">
+        @foreach ($articles as $article)
+            <div class="col-12 col-md-4 mt-5">
+                <div class="card">
+                    <img class="card-img-top" src="{{asset('storage/'.$article->image_url)}}" alt="{{$article->title}} slika">
+                    <div class="card-body pt-4 px-0 pb-0">
+                        <span class="badge badge-blue text-uppercase font-size-3 font-weight-bold px-3 py-1">{{$article->created_at->format('j M, Y')}}</span>
+                        <h5>
+                            <a href="{{ route('articles_single', ['id' => $article->id, 'slug' => $article->slug]) }}" class="card-title text-decoration-none mt-4 mb-3 d-inline-block"> 
+                                {{$article->title}}
+                            </a>
+                        </h5>
+                        <p>{{$article->description}}</p>
+                    </div>
+                </div>
+            </div> 
+            @endforeach
+       </div>
     </div>
 </div>
 

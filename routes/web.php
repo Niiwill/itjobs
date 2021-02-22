@@ -24,7 +24,7 @@ Route::get('/posao/{id}/{slug}','JobController@show');
 Route::get('/it-dogadjaji/{id}/{slug}','ArticleController@show');
 
 Route::get('/it-price','ArticleController@texts');
-Route::get('/it-price/{id}/{slug}','ArticleController@show');
+Route::get('/it-price/{id}/{slug}','ArticleController@show')->name('articles_single');
 
 // Private Policy
 Route::get('/politika-privatnosti', function (Request $request) {

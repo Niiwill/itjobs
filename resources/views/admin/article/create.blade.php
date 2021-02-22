@@ -20,7 +20,6 @@ menubar:false
 $(document).ready(function(){
 
     $('#article_category :radio').change(function(){
-        console.log(this.value);
        if( this.value === '2' )
            $('.događaj-input').slideDown('slow'); 
         else if( $('.događaj-input').is(':visible') )
