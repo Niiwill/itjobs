@@ -890,7 +890,7 @@
 <!-- IT VESTI I PRIČE -->
 <div id="articles">
     <div class="container">
-        <h2>IT vijesti i priče</h2>
+        <h2><span style="color:#04D223;">IT</span> vijesti i priče</h2>
         <div class="row mt-5">
         @foreach ($articles as $article)
             <div class="col-12 col-md-4">
