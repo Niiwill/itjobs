@@ -631,7 +631,11 @@
                         <li class="page-item"><a class="page-link" href="{{$jobs->previousPageUrl()}}">Prethodni</a></li>
                     @endif
                     @for ($i = 1; $i <= $jobs->lastPage(); $i++)
+                        @if($jobs->currentPage() == $i)
+                        <li class="page-item active"><a class="page-link" href="{{$jobs->url($i)}}">{{ $i }}</a></li>
+                        @else
                         <li class="page-item"><a class="page-link" href="{{$jobs->url($i)}}">{{ $i }}</a></li>
+                        @endif
                     @endfor
                     @if($jobs->hasMorePages())
                         <li class="page-item"><a class="page-link" href="{{$jobs->nextPageUrl() }}">Sledeći</a></li>

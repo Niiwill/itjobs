@@ -130,7 +130,7 @@
 
             					<div class="col-span-2">
             						<label for="expired_at" class="block text-sm font-medium leading-5 text-gray-700">Rok za prijavu</label>
-            						<input type="date" id="expired_at" name="expired_at" class="mt-1 form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5" value="{{$job->expired_at->format('Y-m-d')}}">
+            						<input type="date" id="expired_at" name="expired_at" class="mt-1 form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5" value="{{$job->expired_at}}">
             					</div>
 
                                 <div class="col-span-2">
