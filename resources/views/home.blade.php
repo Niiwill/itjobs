@@ -891,9 +891,9 @@
 <div id="articles">
     <div class="container">
         <h2><span style="color:#04D223;">IT</span> vijesti i priče</h2>
-        <div class="row mt-5">
+        <div class="row">
         @foreach ($articles as $article)
-            <div class="col-12 col-md-4">
+            <div class="col-12 col-md-4 mt-5">
                 <div class="card">
                     <img class="card-img-top" src="{{asset('storage/'.$article->image_url)}}" alt="{{$article->title}} slika">
                     <div class="card-body pt-4 px-0 pb-0">
