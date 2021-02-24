@@ -86,7 +86,7 @@
 
                                 <div class="col-span-1 događaj-input" style="display: none">
                                     <label for="date" class="block text-sm font-medium leading-5 text-gray-700">Datum događaja</label>
-                                    <input type="date" id="article_event_date" name="article_event_date" class="mt-1 form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5" value="{{ $article->article_event_date->format('Y-m-d') }}">
+                                    <input type="date" id="article_event_date" name="article_event_date" class="mt-1 form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5" value="{{ $article->article_event_date }}">
                                 </div> 
                                 <div class="col-span-1 događaj-input" style="display: none">
                                     <label for="article_event_date" class="block text-sm font-medium leading-5 text-gray-700">Vreme događaja</label>
