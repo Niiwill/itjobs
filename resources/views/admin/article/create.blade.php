@@ -21,9 +21,9 @@ $(document).ready(function(){
 
     $('#article_category :radio').change(function(){
        if( this.value === '2' )
-           $('.događaj-input').slideDown('slow'); 
-        else if( $('.događaj-input').is(':visible') )
-           $('.događaj-input').slideUp('slow');               
+           $('#event_input_group').slideDown('slow'); 
+        else if( $('#event_input_group').is(':visible') )
+           $('#event_input_group').slideUp('slow');               
     }); 
     // TIME PICKER FOR INPUT
     var timepicker = new TimePicker('#time', {
@@ -59,40 +59,40 @@ $(document).ready(function(){
                           </h3>
                         </div>
                     
-            			<div class="px-4 py-5 bg-white sm:p-6">
+            			<div class="px-4 py-5 bg-white space-y-6 sm:p-6">
             				<div class="grid grid-cols-6 gap-9">
                                 <div id="article_category" class="col-span-6">
                                     <label for="title" class="block text-sm font-medium leading-5 text-gray-700">TIP :</label>
+                                    <div class="flex flex-wrap items-center -mx-3">
 
-                                        <div class="flex flex-wrap items-center -mx-3">
+                                        <label for="variant---" class="px-3 py-2 flex items-center ">
+                                            <input name="article_category_id" type="radio"  class="form-radio h-4 w-4 text-orange-600 transition duration-150 ease-in-out" value="1" checked> 
+                                            <span class="block text-sm leading-5 font-medium text-gray-700 ml-3 capitalize">
+                                                TEKST
+                                            </span>
+                                        </label>
 
-                                            <label for="variant---" class="px-3 py-2 flex items-center ">
-                                                <input name="article_category_id" type="radio" checked="" class="form-radio h-4 w-4 text-orange-600 transition duration-150 ease-in-out" value="1"> 
-                                                <span class="block text-sm leading-5 font-medium text-gray-700 ml-3 capitalize">
-                                                    TEKST
-                                                </span>
-                                            </label>
-
-                                            <label for="variant---" class="px-3 py-2 flex items-center ">
-                                                <input name="article_category_id" type="radio" checked="" class="form-radio h-4 w-4 text-orange-600 transition duration-150 ease-in-out" value="2"> 
-                                                <span class="block text-sm leading-5 font-medium text-gray-700 ml-3 capitalize">
-                                                   DOGAĐAJ
-                                                </span>
-                                            </label>
+                                        <label for="variant---" class="px-3 py-2 flex items-center ">
+                                            <input name="article_category_id" type="radio" class="form-radio h-4 w-4 text-orange-600 transition duration-150 ease-in-out" value="2"> 
+                                            <span class="block text-sm leading-5 font-medium text-gray-700 ml-3 capitalize">
+                                               DOGAĐAJ
+                                            </span>
+                                        </label>
+                                    </div>
                                 </div>
-                            </div>
-
-                                <div class="col-span-1 događaj-input">
-                                    <label for="date" class="block text-sm font-medium leading-5 text-gray-700">Datum događaja</label>
-                                    <input type="date" id="article_event_date" name="article_event_date" class="mt-1 form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5">
-                                </div> 
-                                <div class="col-span-1 događaj-input">
-                                    <label for="article_event_date" class="block text-sm font-medium leading-5 text-gray-700">Vreme događaja</label>
-                                    <input type="text" id="time" name="article_event_time" class="mt-1 form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5">
-                                </div> 
-                                <div class="col-span-3 događaj-input">
-                                    <label for="location" class="block text-sm font-medium leading-5 text-gray-700">Lokacija događaja</label>
-                                    <input type="text" id="location" name="location" class="mt-1 form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5" maxlength="100">
+                                <div id="event_input_group" class="col-span-6 grid grid-cols-4 gap-6" style="display: none;">
+                                    <div class="col-span-1">
+                                        <label for="date" class="block text-sm font-medium leading-5 text-gray-700">Datum događaja</label>
+                                        <input type="date" id="article_event_date" name="article_event_date" class="mt-1 form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5">
+                                    </div> 
+                                    <div class="col-span-1">
+                                        <label for="article_event_date" class="block text-sm font-medium leading-5 text-gray-700">Vreme događaja</label>
+                                        <input type="text" id="time" name="article_event_time" class="mt-1 form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5">
+                                    </div> 
+                                    <div class="col-span-2">
+                                        <label for="location" class="block text-sm font-medium leading-5 text-gray-700">Lokacija događaja</label>
+                                        <input type="text" id="location" name="location" class="mt-1 form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5" maxlength="100">
+                                    </div>
                                 </div>
                                 
             					<div class="col-span-2">
