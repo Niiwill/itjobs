@@ -94,7 +94,7 @@
                 border-color: #00b074;
             }
             .card img{
-                max-height: 250px;
+                max-height: 230px;
                 height: 100%;
                 width: 100%;
                 object-fit: cover;

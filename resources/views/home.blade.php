@@ -416,6 +416,13 @@
             .card{
                 border:none;
             }
+            .card img{
+                max-height: 230px;
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+                border-radius: 8px;
+            }
             .card-title{
                 font-size: 1.5rem;
                 line-height: 1.5;
