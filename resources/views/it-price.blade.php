@@ -94,9 +94,10 @@
                 border-color: #00b074;
             }
             .card img{
+                max-height: 250px;
                 height: 100%;
                 width: 100%;
-                object-fit: contain;
+                object-fit: cover;
                 border-radius: 8px;
             }
             
