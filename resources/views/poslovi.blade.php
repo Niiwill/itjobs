@@ -324,7 +324,7 @@
             #search-bar{
                 border-radius: .6rem;
                 background: white;
-                padding: 1rem;
+                padding: 0.8rem;
                 box-shadow: 0 29px 75px rgba(156, 156, 156, 0.16);
             }
         	#search-bar input, #search-bar select{

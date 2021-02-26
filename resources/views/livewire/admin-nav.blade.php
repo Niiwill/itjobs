@@ -70,8 +70,15 @@
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
             <x-jet-responsive-nav-link href="{{ route('admin') }}" :active="request()->routeIs('admin')">
-                {{ __('Dashboard') }}
+                {{ __('Oglasi') }}
             </x-jet-responsive-nav-link>
+            <x-jet-responsive-nav-link href="{{ route('company.index') }}" :active="request()->routeIs('company.index')">
+                {{ __('Kompanije') }}
+            </x-jet-responsive-nav-link>
+            <x-jet-responsive-nav-link href="{{ route('article.index') }}" :active="request()->routeIs('article.index')">
+                {{ __('Tekstovi i Događaji') }}
+            </x-jet-responsive-nav-link>
+            
         </div>
 
         <!-- Responsive Settings Options -->

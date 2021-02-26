@@ -35,6 +35,12 @@
                 font-family: 'Inter', sans-serif;
 
             }
+            .color-blue{
+                color: #1a5aeb !important;
+            }
+            .color-orange{
+                color: #fa5f1c !important;
+            }
             .btn-zeleni{
                 background-color:#0fbc49;
                 color: white;
@@ -128,7 +134,7 @@
                 margin-bottom: 1.2rem
             }
             .hero-body p{
-                font-size: 1.125rem;
+                font-size: 1.3100rem;
                 line-height: 1.66;
                 letter-spacing: -.09px;
                 color: #6b6e6f;
@@ -214,12 +220,9 @@
             }
             ul.tags li{
                 display: inline;
-            }
-            ul.tags li a{
                 color: #2b3940;
                 display: inline-block;
                 text-align: center;
-                margin-top: .375rem;
                 font-size: 13px;
                 min-width: 96px;
                 padding: .25rem 1rem;
@@ -417,11 +420,10 @@
                 border:none;
             }
             .card img{
-                max-height: 230px;
-                height: 100%;
+                height: 240px;
                 width: 100%;
                 object-fit: cover;
-                border-radius: 8px;
+                border-radius: 10px;
             }
             .card-title{
                 font-size: 1.5rem;
@@ -467,9 +469,9 @@
                     border-radius: 0 0 6px 6px;
                     padding: 15px;
                 }
-                .job-card{
+                /*.job-card{
                     padding:1.875rem 1.25rem 1.25rem 1.25rem;
-                }
+                }*/
                 .job-card-info svg {
                     font-size: 15px;
                 }
@@ -590,7 +592,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-md-8">
+                            <div class="col-md-8 mt-0 mt-md-3">
                                 <form action="/oglasi-za-posao" method="get">
                                 <div class="row no-gutters search-bar-home">                                    
                                     <div class="search_padding col-md-8">
@@ -716,65 +718,56 @@
     </div>
 </div>
 
-<!-- NAJNOVIJI POSLOVI -->
-<div style="padding-top: 4rem;padding-bottom:7.5rem;background:#F4F5F8;">
+<!-- ISTAKNUTI POSLOVI -->
+<div style="padding-top: 6rem;padding-bottom:7.5rem;background:#2b3940;">
     <div class="container">
         <!-- Naslov -->
         <div class="row" style="padding-bottom: 3.4375rem;">
             <div class="col-12 col-lg-12">
-                <div class="header text-center">
-                    <h2>Istaknuti <span style="color:#04D223;">IT</span> poslovi</h2>
+                <div class="header" >
+                    <h2 class="text-white">Istaknuti <span style="color:#04D223;">IT</span> poslovi</h2>
                 </div>
             </div>
-           <!--  <div class="col-12 col-lg-6">
-                <div class="header-button">
-                    <a class="btn" href="/oglasi-za-posao">ISTRAŽI SVE</a>
-                </div>
-            </div> -->
         </div>
 
         <!-- Home posao list -->
         <div class="row">
-        @foreach ($jobs as $job)
-
-            <div class="col-md-8 offset-md-2">
-                <!-- List item -->
-                <div class="job-card">
+            @foreach ($jobs as $job)
+            <!-- List item -->
+            <div class="col-12 col-md-4">
+                <div class="job-card px-4 py-4">
                     <div class="row">
-                        <div class="col-12 col-md-10">
+                        <div class="col mb-3">
                             <div class="media">
                                 <div class="square72">
                                     <img src="{{asset('storage/'.$job->company->logo_path)}}" alt="{{$job->company->name}} logo" width="100%">
                                 </div>
-                                <div class="job-card-body">
-                                    <h3><a href="/posao/{{$job->id}}/{{$job->slug}}" class="job-name">{{$job->title}}</a></h3>
-                                    <a class="company-name">{{$job->company->name}}</a>
-                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="row" style="padding-top:1.6rem;">
-                        <div class="col-12 col-md-7">
-                            <ul class="tags">
-                                @foreach($job->tags as $tag)
-                                <li><a href="/oglasi-za-posao?tag_id={{$tag->id}}">{{$tag->name}}</a></li>
-                                @endforeach
-                            </ul>
+                    <div class="row">
+                        <div class="col mb-4">
+                            <div class="job-card-body">
+                                <a class="company-name">{{$job->company->name}}</a>
+                                <h3><a href="/posao/{{$job->id}}/{{$job->slug}}" class="job-name">{{$job->title}}</a></h3>
+                            </div>
                         </div>
-                        <div class="col-12 col-md-5 my-2 my-sm-0" style="padding-top:3px;">
-                            <ul class="job-card-info text-left text-sm-right">
-                                <li>
-                                    <span>
-                                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-geo-alt" fill="#6b6e6f" xmlns="http://www.w3.org/2000/svg">
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <ul class="tags">
+                                <li class="mr-1 color-blue">
+                                    <span class="mr-1">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" class="bi bi-geo-alt" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                             <path fill-rule="evenodd" d="M12.166 8.94C12.696 7.867 13 6.862 13 6A5 5 0 0 0 3 6c0 .862.305 1.867.834 2.94.524 1.062 1.234 2.12 1.96 3.07A31.481 31.481 0 0 0 8 14.58l.208-.22a31.493 31.493 0 0 0 1.998-2.35c.726-.95 1.436-2.008 1.96-3.07zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z"/>
                                             <path fill-rule="evenodd" d="M8 8a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
                                         </svg>
                                     </span>
                                     <span>{{$job->city->name}}</span>
                                 </li>
-                                <li>
-                                    <span>
-                                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-clock" fill="#6b6e6f" xmlns="http://www.w3.org/2000/svg">
+                                <li class="mr-1 color-orange">
+                                    <span class="mr-1 color-orange">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" class="bi bi-clock" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                             <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm8-7A8 8 0 1 1 0 8a8 8 0 0 1 16 0z"/>
                                             <path fill-rule="evenodd" d="M7.5 3a.5.5 0 0 1 .5.5v5.21l3.248 1.856a.5.5 0 0 1-.496.868l-3.5-2A.5.5 0 0 1 7 9V3.5a.5.5 0 0 1 .5-.5z"/>
                                         </svg>
@@ -786,8 +779,7 @@
                     </div>
                 </div>
             </div>
-             @endforeach
-
+            @endforeach
         </div>
     </div>
 </div>
