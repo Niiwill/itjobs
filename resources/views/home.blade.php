@@ -161,7 +161,7 @@
             .job-name{
                 font-weight: 700;
                 color: #2b3940;
-                font-size: 1.4rem;
+                font-size: 1.5rem;
                 line-height: 1.62;
                 letter-spacing: -.25px;
             }
@@ -754,7 +754,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col">
+                        <div class="col mb-4">
                             <ul class="tags">
                                 <li class="mr-1 color-blue">
                                     <span class="mr-1">
@@ -767,14 +767,20 @@
                                 </li>
                                 <li class="mr-1 color-orange">
                                     <span class="mr-1 color-orange">
-                                        <svg width="16" height="16" viewBox="0 0 16 16" class="bi bi-clock" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                            <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm8-7A8 8 0 1 1 0 8a8 8 0 0 1 16 0z"/>
-                                            <path fill-rule="evenodd" d="M7.5 3a.5.5 0 0 1 .5.5v5.21l3.248 1.856a.5.5 0 0 1-.496.868l-3.5-2A.5.5 0 0 1 7 9V3.5a.5.5 0 0 1 .5-.5z"/>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clock-fill" viewBox="0 0 16 16">
+                                            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
                                         </svg>
                                     </span>
                                     <span>{{$job->expired_at}}</span>
                                 </li>
                             </ul>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col mb-1">
+                            <a href="/posao/{{$job->id}}/{{$job->slug}}">
+                                <button class="btn btn-zeleni px-5 py-3" type="button">Prijavi se</button> 
+                            </a>
                         </div>
                     </div>
                 </div>

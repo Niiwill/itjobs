@@ -108,7 +108,7 @@ class JobController extends Controller
                     ->with('tags')
                     ->with('company:id,name,user_id,logo_path')
                     ->with('city:id,name')
-                    ->limit(4)
+                    ->limit(6)
                     ->get();
 
         return view('home')->with('jobs',$jobs)->with('tags',$tags)->with('it_events',$it_events)->with('meseci',$meseci)->with('articles',$articles);
