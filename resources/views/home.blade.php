@@ -41,7 +41,7 @@
             .color-orange{
                 color: #fa5f1c !important;
             }
-            .btn-zeleni{
+            .btn-zeleni, .btn-teget{
                 background-color:#0fbc49;
                 color: white;
                 border: #04D223;
@@ -50,9 +50,16 @@
                 font-weight: 600;
                 font-size: 13px;
             }
+            .btn-teget{
+                background-color:#2b3940;
+            }
             .btn-zeleni:hover{
                 transition: .2s cubic-bezier(.39,.575,.565,1);
                 opacity: 0.8;
+                color: white;
+            }
+            .btn-teget:hover{
+                opacity: 0.9;
                 color: white;
             }
             .navbar{
@@ -719,7 +726,7 @@
 </div>
 
 <!-- ISTAKNUTI POSLOVI -->
-<div style="padding-top: 6rem;padding-bottom:7.5rem;background:#2b3940;">
+<div style="padding-top:8rem;padding-bottom:7.5rem;background:#2b3940;">
     <div class="container">
         <!-- Naslov -->
         <div class="row" style="padding-bottom: 3.4375rem;">
@@ -746,7 +753,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col mb-4">
+                        <div class="col mb-3">
                             <div class="job-card-body">
                                 <a class="company-name">{{$job->company->name}}</a>
                                 <h3><a href="/posao/{{$job->id}}/{{$job->slug}}" class="job-name">{{$job->title}}</a></h3>
@@ -779,7 +786,7 @@
                     <div class="row">
                         <div class="col mb-1">
                             <a href="/posao/{{$job->id}}/{{$job->slug}}">
-                                <button class="btn btn-zeleni px-5 py-3" type="button">Prijavi se</button> 
+                                <button class="btn btn-teget px-5 py-3" type="button">Prijavi se</button> 
                             </a>
                         </div>
                     </div>
