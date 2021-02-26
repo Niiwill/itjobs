@@ -222,6 +222,11 @@
                 background-color: rgba(176,213,232,.15);
                 line-height: 2;
                 letter-spacing: .26px;
+                transition: 0.3s;
+            }
+            ul.tags li a:hover{
+                background-color:#2b3940;
+                color: white;
             }
         	 footer{
                 background-color: white;

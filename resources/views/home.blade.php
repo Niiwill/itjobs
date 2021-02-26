@@ -784,7 +784,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col mb-1">
+                        <div class="col">
                             <a href="/posao/{{$job->id}}/{{$job->slug}}">
                                 <button class="btn btn-teget px-5 py-3" type="button">Prijavi se</button> 
                             </a>

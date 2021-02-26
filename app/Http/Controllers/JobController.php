@@ -244,4 +244,15 @@ class JobController extends Controller
     {
         //
     }
+
+
+    /**
+     * Update status for expired jobs.
+     * 
+     */
+    public function updateExpired()
+    {
+        Job::where('expired_at', '<', date('Y-m-d'))->update(array('status' => 0));
+
+    }
 }
