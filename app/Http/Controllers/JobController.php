@@ -9,6 +9,7 @@ use App\Models\City;
 use App\Models\Tag;
 use App\Models\Article;
 use App\Models\Company;
+use \Cache;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 
@@ -55,9 +56,10 @@ class JobController extends Controller
         // Rezultatu prikljucujem jos ime GRADA i ime Kompanije za svaki oglas
         $jobs = $query->with('company:id,name,user_id,logo_path')->with('city:id,name')->latest()->paginate(10);
         $jobsCount = $jobs->count();
+        $jobsTotal = $jobs->total();
 
 
-        return view('poslovi')->with('jobs',$jobs)->with('jobsCount',$jobsCount)->with('cities',$cities)->with('tags',$tags);
+        return view('poslovi')->with('jobs',$jobs)->with('jobsCount',$jobsCount)->with('jobsTotal',$jobsTotal)->with('cities',$cities)->with('tags',$tags);
 
     }
 
@@ -87,6 +89,23 @@ class JobController extends Controller
         $meseci[11] = "Novembar";
         $meseci[12] = "Decembar";
 
+        
+        $programming_count = Cache::remember('programming_count', 60*24 ,function () {
+            return Job::where('category_id', 1)->count();
+        });
+
+        $design_count = Cache::remember('design_count', 60*24 ,function () {
+            return Job::where('category_id', 2)->count();
+        });
+
+        $qa_count = Cache::remember('qa_count', 60*24 ,function () {
+            return Job::where('category_id', 5)->count();
+        });
+
+        $intership_count = Cache::remember('intership_count', 60*24 ,function () {
+            return Job::where('category_id', 8)->count();
+        });
+
         $it_events = Article::select('id','slug', 'article_event_date','title','location')
                             ->orderBy('article_event_date','DESC')
                             ->where('article_category_id', 2)
@@ -99,20 +118,27 @@ class JobController extends Controller
                             ->limit(3)
                             ->get();
 
+        $tags = Cache::rememberForever('tags', function () {
+            return Tag::all();
+        });
 
-        $tags=Tag::all();
-
-        // Rezultatu prikljucujem jos ime GRADA i ime Kompanije za svaki oglas
-        $jobs = Job::where('expired_at', '>=', date('Y-m-d'))
+        $jobs = Cache::remember('jobs', 60*8 ,function () {
+            return Job::where('expired_at', '>=', date('Y-m-d'))
                     ->where('status', 1)
                     ->with('tags')
                     ->with('company:id,name,user_id,logo_path')
                     ->with('city:id,name')
                     ->limit(6)
                     ->get();
+        });
 
-        return view('home')->with('jobs',$jobs)->with('tags',$tags)->with('it_events',$it_events)->with('meseci',$meseci)->with('articles',$articles);
-
+        return view('home')
+                ->with('jobs',$jobs)
+                ->with('tags',$tags)
+                ->with('it_events',$it_events)
+                ->with('meseci',$meseci)
+                ->with('articles',$articles)
+                ->with(compact('programming_count', 'design_count', 'qa_count', 'intership_count'));
     }
 
 

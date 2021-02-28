@@ -666,7 +666,7 @@
                         </div>
                         <div class="cat-banner-body text-center text-md-left">
                             <h5>Programiranje</h5>
-                            <p>12 Poslova</p>
+                            <p>{{$programming_count}} Poslova</p>
                         </div>
                     </a>
                 </div>
@@ -683,7 +683,7 @@
                         </div>
                         <div class="cat-banner-body text-center text-md-left">
                             <h5>QA</h5>
-                            <p>7 Poslova</p>
+                            <p>{{$qa_count}} Poslova</p>
                         </div>
                     </a>
                 </div>
@@ -699,7 +699,7 @@
                         </div>
                         <div class="cat-banner-body text-center text-md-left">
                             <h5>Dizajn</h5>
-                            <p>5 Poslova</p>
+                            <p>{{$design_count}} Poslova</p>
                         </div>
                     </a>
                 </div>
@@ -715,7 +715,7 @@
                         </div>
                         <div class="cat-banner-body text-center text-md-left">
                             <h5>Prakse</h5>
-                            <p>5 Poslova</p>
+                            <p>{{$intership_count}} Poslova</p>
                         </div>
                     </a>
                 </div>
@@ -806,7 +806,7 @@
         </div>
         <div class="row">
         @foreach ($it_events as $it_event)
-            <div class="col-12 col-sm-3">
+            <div class="col-12 col-sm-3 mb-4">
                 <a href="/it-dogadjaji/{{$it_event->id}}/{{$it_event->slug}}" style="text-decoration: none;">
                     @if ($loop->first)
                     <div class="timeline-item first">

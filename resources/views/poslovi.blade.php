@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="me">
     <head>
@@ -329,7 +330,7 @@
             #search-bar{
                 border-radius: .6rem;
                 background: white;
-                padding: 0.8rem;
+                padding: 0.6rem;
                 box-shadow: 0 29px 75px rgba(156, 156, 156, 0.16);
             }
         	#search-bar input, #search-bar select{
@@ -553,7 +554,7 @@
 
             	<div style="padding-top:2.8125rem;margin-bottom:1.5rem;">
             		<span style="color:#6b6e6f;font-weight: 400;font-size: 1.1rem;line-height: 1.625;letter-spacing: -.08px;">
-            			<span style="color:#2b3940;">{{$jobsCount}}</span> oglasa
+            			Prikazano <span style="color:#2b3940;">{{$jobsCount}}</span> od <span style="color:#2b3940;">{{$jobsTotal}}</span> oglasa
             		</span>
             	</div>
                 @foreach ($jobs as $job)
