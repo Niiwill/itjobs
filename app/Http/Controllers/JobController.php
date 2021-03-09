@@ -65,7 +65,7 @@ class JobController extends Controller
 
     public function indexAdmin()
     {
-        $jobs = Job::select('id', 'title', 'category_id', 'expired_at', 'status')
+        $jobs = Job::select('id', 'title', 'category_id', 'expired_at', 'slug', 'status')
                     ->latest()
                     ->paginate(8);
 
@@ -179,7 +179,7 @@ class JobController extends Controller
         // ]);
 
         $job = new Job;
-        $job->title = ucwords(mb_strtolower($request->title));
+        $job->title = $request->title;
         $job->text = $request->text;
         $job->user_id = Auth::id();
         $job->company_id = $request->company_id;
@@ -242,7 +242,7 @@ class JobController extends Controller
     {
 
         $job = Job::find($id);
-        $job->title = ucwords(mb_strtolower($request->title));
+        $job->title = $request->title;
         $job->text = $request->text;
         $job->user_id = Auth::id();
         $job->company_id = $request->company_id;

@@ -252,7 +252,6 @@
             }
             .job-body ul{
                 color: #2b3940;
-                padding-left: 0;
                 font-size: 15px;
             }
             .job-body ul li{

@@ -852,7 +852,7 @@
                             </div>
                             <div class="col-10 col-md-10">
                                 <h5>#1 Sajt za IT poslove u CG</h5>
-                                <p>Najveća baza IT poslova i proverenih poslodavaca u Crnoj Gori.</p>
+                                <p>Najveća baza IT poslova i provjerenih poslodavaca u Crnoj Gori.</p>
                             </div>
                         </div>
                         

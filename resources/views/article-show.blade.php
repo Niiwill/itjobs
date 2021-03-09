@@ -145,9 +145,10 @@
             	margin-top: 100px;
             }
             #heading img,#event-heading img{
-			  	width: 100%;
-			  	object-fit: cover;
-				margin: 2.2rem 0;
+                width: 100%;
+                object-fit: contain;
+                margin: 2.2rem 0;
+                max-height: 400px;
             }
             #heading h1,#event-heading h1{
                 text-align: center;
