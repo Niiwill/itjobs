@@ -612,35 +612,22 @@
                 <nav aria-label="Page navigation">
                   <ul class="pagination">
                     @if($jobs->currentPage() != 1)
-                        <li class="page-item"><a class="page-link" href="{{$jobs->previousPageUrl()}}">Prethodni</a></li>
+                        <li class="page-item"><a class="page-link" href="{{$jobs->appends($_GET)->previousPageUrl()}}">Prethodni</a></li>
                     @endif
                     @for ($i = 1; $i <= $jobs->lastPage(); $i++)
                         @if($jobs->currentPage() == $i)
-                        <li class="page-item active"><a class="page-link" href="{{$jobs->url($i)}}">{{ $i }}</a></li>
+                        <li class="page-item active"><a class="page-link" href="{{$jobs->appends($_GET)->url($i)}}">{{ $i }}</a></li>
                         @else
-                        <li class="page-item"><a class="page-link" href="{{$jobs->url($i)}}">{{ $i }}</a></li>
+                        <li class="page-item"><a class="page-link" href="{{$jobs->appends($_GET)->url($i)}}">{{ $i }}</a></li>
                         @endif
                     @endfor
                     @if($jobs->hasMorePages())
-                        <li class="page-item"><a class="page-link" href="{{$jobs->nextPageUrl() }}">Sledeći</a></li>
+                        <li class="page-item"><a class="page-link" href="{{$jobs->appends($_GET)->nextPageUrl() }}">Sledeći</a></li>
                     @endif
                   </ul>
                 </nav>
                 @endif
-
-
-               
-
-                
-
-                
-
-                
-
-              
-
             </div>
-
         </div>
     </div>
 </div>
