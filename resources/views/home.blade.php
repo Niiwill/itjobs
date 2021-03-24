@@ -412,7 +412,7 @@
             }
             #features img{
                 width: 100%;
-                border-radius: 10px;
+                border-radius: 16px;
             }
             #features h5{
                 font-weight: 700;
