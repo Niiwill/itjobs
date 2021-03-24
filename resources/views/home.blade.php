@@ -88,7 +88,7 @@
                 padding: 25px 0 25px;
                 margin-left: 18px;
                 margin-right: 18px;
-                color: #2b3940;
+                color: #000;
                 font-size: 13px;
                 font-weight: 700;
                 text-transform: uppercase;
@@ -138,7 +138,7 @@
             }
 
             .hero{
-                background: linear-gradient(rgb(248, 250, 253) 0%, rgba(248, 250, 253, 0) 413px);
+                background: #f6f8fc;
             }
             .hero img{
                 margin-top: -40px;
@@ -227,7 +227,7 @@
                 font-size: 13px; 
             }
             .job-card-info svg{
-                color: #2b3940;
+                color: #000;
                 margin-right:.2rem;
                 font-size: 16px;
                 margin-top: -3px; 
@@ -239,7 +239,7 @@
             }
             ul.tags li{
                 display: inline;
-                color: #2b3940;
+                color: #000;
                 display: inline-block;
                 text-align: center;
                 font-size: 13px;
@@ -355,7 +355,7 @@
                 font-size: 2.5rem;
                 line-height: 1.2;
                 letter-spacing: -.7px;
-                color: #2b3940;
+                color: #000;
                 margin-bottom: 1.875rem;
             }
             .jobletter p{
@@ -418,7 +418,7 @@
                 font-weight: 700;
                 font-size: 1.35rem;
                 line-height: 1.2;
-                color: #2b3940;
+                color: #000;
                 margin-bottom: 0.75rem;
             }
             #features .features-icon{
@@ -488,7 +488,7 @@
                 .header-button a {
                     width: 100%;
                 }
-                .header h2{
+                 h2{
                     text-align: center;
                     font-size: 1.7rem;
                 }
@@ -633,7 +633,7 @@
 
 
 <!-- POPULARNE KATEGORIJE -->
-<div class="my-0 my-sm-4 py-5">
+<div class="mt-5 py-2 py-md-5">
     <div class="container">
 
         <div class="row">
@@ -723,7 +723,7 @@
 </div>
 
 <!-- ISTAKNUTI POSLOVI -->
-<div id="featured-jobs" class="py-5">
+<div id="featured-jobs" class="py-2 py-md-5">
     <div class="container">
         <!-- Naslov -->
         <div class="row" style="padding-bottom: 3.4375rem;">
@@ -797,7 +797,7 @@
         </div>
         <div class="row">
         @foreach ($it_events as $it_event)
-            <div class="col-12 col-sm-3 my-5">
+            <div class="col-12 col-sm-3 my-3 my-md-5">
                 <a href="/it-dogadjaji/{{$it_event->id}}/{{$it_event->slug}}" style="text-decoration: none;">
                     <div class="timeline-item p-4"> 
                         <div class="calendar mb-5">
@@ -818,7 +818,7 @@
 </div>
 
 <!-- FEATURES SECTION -->
-<div id="features" class="py-5">
+<div id="features" class="py-2 py-md-5">
     <div class="container">
         <div class="row">
             <div class="col-md-6 pb-4 pb-sm-0">
@@ -887,13 +887,13 @@
 </div>
 
 <!-- IT VESTI I PRIČE -->
-<div id="articles" class="py-5">
+<div id="articles" class="py-2 py-md-5">
     <div class="container">
         <div class="row">
-            <div class="col-6">
+            <div class="col-12 col-md-6">
                 <h2><span style="color:#04D223;">IT</span> vijesti i priče</h2>
             </div>
-            <div class="col-6">
+            <div class="col-6 d-none d-md-block">
                 <a href="{{ route('articles_all')}}" class="all-articles float-right"> Pročitaj sve priče ⟶</a>
             </div>
         </div>
@@ -901,7 +901,7 @@
         <div class="row">
         @foreach ($articles as $article)
             <div class="col-12 col-md-4">
-                <a href="{{ route('articles_single', ['id' => $article->id, 'slug' => $article->slug]) }}" class="text-decoration-none mt-4 mb-3 d-inline-block">
+                <a href="{{ route('articles_single', ['id' => $article->id, 'slug' => $article->slug]) }}" class="text-decoration-none mt-4 mb-3">
                     <div class="article-card py-5">
                         <img src="{{asset('storage/'.$article->image_url)}}" alt="{{$article->title}} slika">
                         <div class="pt-4 px-0 pb-0">
