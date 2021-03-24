@@ -453,6 +453,7 @@
                 line-height: 32px;
                 letter-spacing: -0.24px;
                 color: #000;
+                padding-bottom: 8px;
                 font-weight: 700;
             }
             .article-card p, .article-card .date{
@@ -463,6 +464,55 @@
             }
             .article-card .date{
                 padding-left: 6px;
+            }
+            .timeline-item{
+                height: 270px;
+                background-color: #eaeaf4;
+                position: relative;
+                padding: 17px 20px 10px 30px;
+                color: #3a416f;
+                border-radius: 16px;
+            }
+            .timeline-item:hover{
+                transition:all .2s ease-in-out;
+                transform:scale(1.03);
+                color: #fff;
+                background-color: var(--blue-color);
+            }
+            .timeline-item:hover h5{
+                color: #fff;
+            }
+            .timeline-item .calendar span{
+                display: block;
+                margin-bottom: -10px;
+                font-size: 50px;
+                font-weight: 300;
+            }
+            .timeline-item .calendar {
+                font-size: 13px;
+                text-transform: uppercase;
+                font-weight: 600;
+                letter-spacing: 0.12rem;
+            }
+            .timeline-item h5 {
+                font-size: 1.1rem;
+                line-height: 32px;
+                font-weight: 600;
+                color: #000;
+            }
+            .timeline-item p {
+                color: #336ef7;
+                font-size: 14px;
+                font-weight: 400;
+                margin-top: 11px;
+            }
+            .timeline-item .location{
+                padding-left: 6px;
+                font-size: 0.9rem;
+            }
+            .timeline-item .fix-bottom, .article-card .fix-bottom{
+                position: absolute;
+                bottom: 1.1em;
             }
             .date-dot {
                 display: inline-block;
@@ -496,62 +546,14 @@
                     border-radius: 0 0 6px 6px;
                     padding: 15px;
                 }
-                /*.job-card{
-                    padding:1.875rem 1.25rem 1.25rem 1.25rem;
-                }*/
                 .job-card-info svg {
                     font-size: 15px;
                 }
                 .cat-banner{
                     padding: 20px 10px 15px;
                 }
-                }
-
-                .timeline-item{
-                    height: 270px;
-                    background-color: #eaeaf4;
-                    position: relative;
-                    padding: 17px 20px 10px 30px;
-                    color: #3a416f;
-                    border-radius: 16px;
-                }
-                .timeline-item:hover{
-                    transition:0.2s linear;
-                    transform:scale(1.05);
-                }
-                .timeline-item .calendar span{
-                    display: block;
-                    margin-bottom: -10px;
-                    font-size: 50px;
-                    font-weight: 300;
-                }
-                .timeline-item .calendar {
-                    font-size: 13px;
-                    text-transform: uppercase;
-                    font-weight: 600;
-                    letter-spacing: 0.12rem;
-                }
-                .timeline-item h5 {
-                    font-size: 1.1rem;
-                    line-height: 32px;
-                    font-weight: 600;
-                    color: #000;
-                }
-                .timeline-item p {
-                    color: #336ef7;
-                    font-size: 14px;
-                    font-weight: 400;
-                    margin-top: 11px;
-                }
-                .timeline-item .location{
-                    padding-left: 6px;
-                    font-size: 0.9rem;
-                }
-                .timeline-item .fix-bottom, .article-card .fix-bottom{
-                    position: absolute;
-                    bottom: 1.1em;
-                }
-        }
+                
+            }
         </style>                                               
 
     </head>
@@ -920,6 +922,18 @@
     </div>
 </div>
 
+<!-- <div id="send-job" class="py-2 py-md-5" >
+    <div class="container">
+        <div style="box-shadow: 1px 1px 2px 0 rgb(0 0 0 / 8%), 0 0 180px 0 rgb(0 0 0 / 8%)">
+            <div class="row">
+                <div class="col">
+                    <h3></h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+ -->
 
 <!-- FOOTER -->
 <footer>
