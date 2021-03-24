@@ -205,7 +205,25 @@
                 @endforeach
             </div>
             <div class="row">
-                {{ $articles->links() }}
+                @if($articles->lastPage() > 1 )
+                <nav aria-label="Page navigation">
+                  <ul class="pagination">
+                    @if($articles->currentPage() != 1)
+                        <li class="page-item"><a class="page-link" href="{{$articles->previousPageUrl()}}">Prethodni</a></li>
+                    @endif
+                    @for ($i = 1; $i <= $articles->lastPage(); $i++)
+                        @if($articles->currentPage() == $i)
+                        <li class="page-item active"><a class="page-link" href="{{$articles->url($i)}}">{{ $i }}</a></li>
+                        @else
+                        <li class="page-item"><a class="page-link" href="{{$articles->url($i)}}">{{ $i }}</a></li>
+                        @endif
+                    @endfor
+                    @if($articles->hasMorePages())
+                        <li class="page-item"><a class="page-link" href="{{$articles->nextPageUrl() }}">Sledeći</a></li>
+                    @endif
+                  </ul>
+                </nav>
+                @endif
             </div>
         </div>
 

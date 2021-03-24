@@ -106,30 +106,38 @@ class JobController extends Controller
             return Job::where('category_id', 8)->count();
         });
 
-        $it_events = Article::select('id','slug', 'article_event_date','title','location')
+        // SECTION - FEATURED JOBS
+        // $jobs = Cache::remember('jobs', 60*120 ,function () {
+            $jobs = Job::where('expired_at', '>=', date('Y-m-d'))
+                    ->where('status', 1)
+                    ->with('company:id,name,user_id,logo_path')
+                    ->with('city:id,name')
+                    ->groupBy('company_id')
+                    ->limit(6)
+                    ->get();
+        // });
+
+        // SECTION - IT EVENTS
+        $it_events = Cache::remember('it_events',60*120, function () {
+            return Article::select('id','slug', 'article_event_date','title','location')
                             ->orderBy('article_event_date','DESC')
                             ->where('article_category_id', 2)
                             ->limit(4)
                             ->get();
+        });
 
-        $articles = Article::select('id','slug','image_url', 'created_at','title','description')
+        // SECTION - ARTICLES
+        $articles = Cache::remember('articles',60*120, function () { 
+            return Article::select('id','slug','image_url', 'created_at','title','description')
                             ->where('article_category_id', 1)
+                            ->where('status', 1)
                             ->latest()
                             ->limit(3)
                             ->get();
+        });
 
         $tags = Cache::rememberForever('tags', function () {
             return Tag::all();
-        });
-
-        $jobs = Cache::remember('jobs', 60*8 ,function () {
-            return Job::where('expired_at', '>=', date('Y-m-d'))
-                    ->where('status', 1)
-                    ->with('tags')
-                    ->with('company:id,name,user_id,logo_path')
-                    ->with('city:id,name')
-                    ->limit(6)
-                    ->get();
         });
 
         return view('home')
@@ -140,8 +148,6 @@ class JobController extends Controller
                 ->with('articles',$articles)
                 ->with(compact('programming_count', 'design_count', 'qa_count', 'intership_count'));
     }
-
-
 
     /**
      * Show the form for creating a new resource.

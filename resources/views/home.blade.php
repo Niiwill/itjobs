@@ -30,13 +30,23 @@
           gtag('config', 'G-TETF7GV131');
         </script>
         <style>
-            
+
+            :root {
+                --blue-color:#3861fb;
+            }
             body{
                 font-family: 'Inter', sans-serif;
 
             }
+            h2{
+                font-size: 2.5rem;
+                line-height: 1.375;
+                letter-spacing: -.4px;
+                font-weight: 700;
+                color: #000;
+            }
             .color-blue{
-                color: #1a5aeb !important;
+                color: var(--blue-color)!important;
             }
             .color-orange{
                 color: #fa5f1c !important;
@@ -45,6 +55,7 @@
                 background-color:#0fbc49;
                 color: white;
                 border: #04D223;
+                border-radius: 8px;
                 text-transform: uppercase;
                 letter-spacing: .26px;
                 font-weight: 600;
@@ -127,17 +138,17 @@
             }
 
             .hero{
-                background-color: #f7f8fc;
+                background: linear-gradient(rgb(248, 250, 253) 0%, rgba(248, 250, 253, 0) 413px);
             }
             .hero img{
                 margin-top: -40px;
             }
             .hero-body h1{
                 font-weight: 700;
-                font-size: 3.75rem;
+                font-size: 3.5rem;
                 line-height: 1.2;
                 letter-spacing: -.9px;
-                color: #2b3940;
+                color: #000;
                 margin-bottom: 1.2rem
             }
             .hero-body p{
@@ -147,13 +158,14 @@
                 color: #6b6e6f;
             }
             .job-card{
-                background: #fff;
                 padding: 1.7rem;
-                border-radius: .6rem;
                 display: table;
                 width: 100%;
                 margin-bottom: 30px;
                 transition: .4s;
+                border-radius: 16px;
+                background-color: #fff;
+                box-shadow: 1px 1px 2px 0 rgb(88 102 126 / 12%), 1px 1px 40px 0 rgb(88 102 126 / 12%);
             }
             .job-card:hover{
                 box-shadow: 0 40px 60px rgba(0,0,0,.08);
@@ -167,13 +179,13 @@
             }
             .job-name{
                 font-weight: 700;
-                color: #2b3940;
+                color: #000;
                 font-size: 1.5rem;
                 line-height: 1.62;
                 letter-spacing: -.25px;
             }
             a.company-name{
-                color: #6b6e6f !important;
+                color: #808a9d !important;
                 font-weight: 400;
                 font-size: 13px;
                 line-height: 2;
@@ -233,22 +245,16 @@
                 font-size: 13px;
                 min-width: 96px;
                 padding: .25rem 1rem;
-                border-radius: 3px;
+                border-radius: 6px;
                 background-color: rgba(176,213,232,.15);
                 line-height: 2;
                 letter-spacing: .26px;
-            }
-            .header h2, #articles h2{
-                font-size: 2.7rem;
-                line-height: 1.375;
-                letter-spacing: -.4px;
-                font-weight: 700;
-                color: #2b3940;
             }
             .header-button{
                 padding-top: 15px;
                 text-align: right;
             }
+
             .header-button a{
                 border-radius: 3px;
                 font-size: 13px;
@@ -263,17 +269,27 @@
                 color: #00b074;
                 border-color: #00b074;
             }
+
             .header-button a:hover{
                 color: #fff;
                 background-color: #00b074;
                 border-color: #00b074;
+            }
+            .all-articles{
+                font-weight: 600;
+                color: var(--blue-color);
+                border-color: var(--blue-color);
+            }
+            .all-articles:link{
+                color: var(--blue-color);
+                text-decoration: none;
             }
             .cat-banner{
                 border: 1px solid #e5e5e5;
                 padding: 30px 33px 10px;
                 background-color: white;
                 max-height: 210px;
-                border-radius: 10px;       
+                border-radius: 16px;       
             }
             .cat-banner:hover{
                 transition: .4s;
@@ -392,7 +408,7 @@
                 letter-spacing: -0.4px;
                 margin: 3.8rem 0;
                 font-weight: 700;
-                color: #2b3940;
+                color: #000;
             }
             #features img{
                 width: 100%;
@@ -423,34 +439,38 @@
                 margin-bottom:0;
                 font-weight: 400;
             }
-            .card{
+            .article-card{
                 border:none;
             }
-            .card img{
-                height: 240px;
+            .article-card img{
+                height: 200px;
                 width: 100%;
                 object-fit: cover;
-                border-radius: 10px;
+                border-radius: 16px;
             }
-            .card-title{
+            .article-card h3{
                 font-size: 1.5rem;
-                line-height: 1.5;
+                line-height: 32px;
                 letter-spacing: -0.24px;
-                color: #2b3940;
+                color: #000;
                 font-weight: 700;
             }
-            .card-body p{
-                font-size: 1rem;
-                letter-spacing: -0.08px;
-                color: #6b6e6f;
+            .article-card p, .article-card .date{
+                font-size: 0.9rem;
                 font-weight: 400;
+                color: #58667e;
+                line-height: 21px;
             }
-            .badge-blue {
-                font-size: 13px;
-                line-height: 2;
-                letter-spacing: 0.26px;
-                color: #fff;
-                background-color: #336ef7;
+            .article-card .date{
+                padding-left: 6px;
+            }
+            .date-dot {
+                display: inline-block;
+                width: 8px;
+                height: 8px;
+                margin: 0 0 2px;
+                border-radius: 3px;
+                background-color: var(--blue-color);;
             }
             @media (max-width: 1200px){
                 #features h2{
@@ -486,26 +506,16 @@
                     padding: 20px 10px 15px;
                 }
                 }
-                #events{
-                    padding: 120px 0 100px;
-                }
-                #events h2{
-                    margin-bottom: 55px;
-                    font-size: 2rem;
-                    line-height: 1.375;
-                    letter-spacing: -.4px;
-                    font-weight: 700;
-                    color: #3a416f;
-                    text-transform: uppercase;
-                }
+
                 .timeline-item{
                     height: 270px;
                     background-color: #eaeaf4;
                     position: relative;
                     padding: 17px 20px 10px 30px;
                     color: #3a416f;
+                    border-radius: 16px;
                 }
-                 .timeline-item:hover{
+                .timeline-item:hover{
                     transition:0.2s linear;
                     transform:scale(1.05);
                 }
@@ -515,14 +525,6 @@
                     font-size: 50px;
                     font-weight: 300;
                 }
-                .item-body{
-                    position: absolute;
-                    bottom: 0;
-                    margin: 0 30px 10px 0;
-                }
-                .timeline-item .item-body{
-                    padding-top: 45px;
-                }
                 .timeline-item .calendar {
                     font-size: 13px;
                     text-transform: uppercase;
@@ -530,10 +532,10 @@
                     letter-spacing: 0.12rem;
                 }
                 .timeline-item h5 {
-                    font-size: 1.1rem;
-                    line-height: 1.5;
-                    font-weight: 500;
-                    padding-bottom: 2px;
+                    font-size: 1rem;
+                    line-height: 32px;
+                    font-weight: 600;
+                    color: #000;
                 }
                 .timeline-item p {
                     color: #336ef7;
@@ -541,19 +543,17 @@
                     font-weight: 400;
                     margin-top: 11px;
                 }
-                .timeline-item.first{
-                    background-color:#5468ff;
-                    color:white!important;
-                    box-shadow: 0px 2px 20px 0px rgba(76,132,255,0.9);
+                .timeline-item .location{
+                    padding-left: 6px;
+                    font-size: 0.9rem;
                 }
-                .timeline-item.first p{
-                    color:white!important;
+                .timeline-item .fix-bottom{
+                    position: absolute;
+                    bottom: 1.1em;
                 }
         }
-        </style>
-        
-                                                               
-        
+        </style>                                               
+
     </head>
     <body>
         <nav class="navbar navbar-expand-lg">
@@ -576,11 +576,8 @@
                 </div>  
             </div>
         </nav>
-       
 
-
-
-<!-- JUMBOTRON -->
+        <!-- JUMBOTRON -->
         <div class="hero pt-0 pt-md-5">
             <div class="container">
                 <div class="row">
@@ -658,8 +655,8 @@
             <div class="col-6 col-md-3">
                 <div class="cat-banner mb-5 mb-md-0">
                     <a href="/oglasi-za-posao?cat_id=1">
-                        <div class="cat-banner-icon mx-auto mx-md-0" style="background-color: rgba(71,67,219,.1)">
-                            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-code-square" fill="#4743db" xmlns="http://www.w3.org/2000/svg">
+                        <div class="cat-banner-icon mx-auto mx-md-0" style="background-color: rgba(138,63,252,.1)">
+                            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-code-square" fill="#8a3ffc" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" d="M14 1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
                                 <path fill-rule="evenodd" d="M6.854 4.646a.5.5 0 0 1 0 .708L4.207 8l2.647 2.646a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 0 1 .708 0zm2.292 0a.5.5 0 0 0 0 .708L11.793 8l-2.647 2.646a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708 0z"/>
                             </svg>
@@ -675,8 +672,8 @@
             <div class="col-6 col-md-3">
                 <div class="cat-banner mb-5 mb-md-0">
                     <a href="/oglasi-za-posao?cat_id=5">
-                        <div class="cat-banner-icon mx-auto mx-md-0" style="background-color:rgba(255,179,0,.1)">
-                            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-tools" fill="#ffb300" xmlns="http://www.w3.org/2000/svg">
+                        <div class="cat-banner-icon mx-auto mx-md-0" style="background-color:rgba(35,220,245,.1)">
+                            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-tools" fill="#23dcf5" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" d="M0 1l1-1 3.081 2.2a1 1 0 0 1 .419.815v.07a1 1 0 0 0 .293.708L10.5 9.5l.914-.305a1 1 0 0 1 1.023.242l3.356 3.356a1 1 0 0 1 0 1.414l-1.586 1.586a1 1 0 0 1-1.414 0l-3.356-3.356a1 1 0 0 1-.242-1.023L9.5 10.5 3.793 4.793a1 1 0 0 0-.707-.293h-.071a1 1 0 0 1-.814-.419L0 1zm11.354 9.646a.5.5 0 0 0-.708.708l3 3a.5.5 0 0 0 .708-.708l-3-3z"/>
                             <path fill-rule="evenodd" d="M15.898 2.223a3.003 3.003 0 0 1-3.679 3.674L5.878 12.15a3 3 0 1 1-2.027-2.027l6.252-6.341A3 3 0 0 1 13.778.1l-2.142 2.142L12 4l1.757.364 2.141-2.141zm-13.37 9.019L3.001 11l.471.242.529.026.287.445.445.287.026.529L5 13l-.242.471-.026.529-.445.287-.287.445-.529.026L3 15l-.471-.242L2 14.732l-.287-.445L1.268 14l-.026-.529L1 13l.242-.471.026-.529.445-.287.287-.445.529-.026z"/>
                             </svg>
@@ -692,8 +689,8 @@
             <div class="col-6 col-md-3">
                 <div class="cat-banner mb-5 mb-md-0">
                     <a href="/oglasi-za-posao?cat_id=2">
-                        <div class="cat-banner-icon mx-auto mx-md-0" style="background-color: rgba(247,30,63,.1)">
-                            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-pencil-fill" fill="#f71e3f" xmlns="http://www.w3.org/2000/svg">
+                        <div class="cat-banner-icon mx-auto mx-md-0" style="background-color: rgba(56,97,251,.1)">
+                            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-pencil-fill" fill="#3861fb" xmlns="http://www.w3.org/2000/svg">
                               <path fill-rule="evenodd" d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"/>
                           </svg>
                         </div>
@@ -708,8 +705,8 @@
             <div class="col-6 col-md-3">
                 <div class="cat-banner mb-5 mb-md-0">
                     <a href="/oglasi-za-posao?cat_id=8">
-                        <div class="cat-banner-icon mx-auto mx-md-0" style="background-color:rgba(0,176,116,.1)">
-                            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person-lines-fill" fill="#00b074" xmlns="http://www.w3.org/2000/svg">
+                        <div class="cat-banner-icon mx-auto mx-md-0" style="background-color:rgba(35,245,195,.1)">
+                            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person-lines-fill" fill="#23f5c3" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm7 1.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5zm2 9a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5z"/>
                             </svg>
                         </div>
@@ -726,13 +723,13 @@
 </div>
 
 <!-- ISTAKNUTI POSLOVI -->
-<div style="padding-top:8rem;padding-bottom:7.5rem;background:#2b3940;">
+<div id="featured-jobs" class="py-5">
     <div class="container">
         <!-- Naslov -->
         <div class="row" style="padding-bottom: 3.4375rem;">
             <div class="col-12 col-lg-12">
                 <div class="header" >
-                    <h2 class="text-white">Istaknuti <span style="color:#04D223;">IT</span> poslovi</h2>
+                    <h2>Istaknuti <span style="color:#04D223;">IT</span> poslovi</h2>
                 </div>
             </div>
         </div>
@@ -761,7 +758,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col mb-4">
+                        <div class="col">
                             <ul class="tags">
                                 <li class="mr-1 color-blue">
                                     <span class="mr-1">
@@ -783,13 +780,6 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col">
-                            <a href="/posao/{{$job->id}}/{{$job->slug}}">
-                                <button class="btn btn-teget px-5 py-3" type="button">Prijavi se</button> 
-                            </a>
-                        </div>
-                    </div>
                 </div>
             </div>
             @endforeach
@@ -797,7 +787,8 @@
     </div>
 </div>
 
-<div id="events" >
+<!-- EVENTS -->
+<div id="events" class="py-5">
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -806,22 +797,17 @@
         </div>
         <div class="row">
         @foreach ($it_events as $it_event)
-            <div class="col-12 col-sm-3 mb-4">
+            <div class="col-12 col-sm-3 my-5">
                 <a href="/it-dogadjaji/{{$it_event->id}}/{{$it_event->slug}}" style="text-decoration: none;">
-                    @if ($loop->first)
-                    <div class="timeline-item first">
-                    @else
-                    <div class="timeline-item">
-                    @endif 
-
-                        <div class="calendar"><span>{{$it_event->article_event_date->format('d')}}</span>{{$meseci[$it_event->article_event_date->format('n')]}}</div>
-                        @if ($loop->first)
-                        <div class="item-body first">
-                        @else
-                        <div class="item-body">
-                        @endif 
-                            <h5>{{$it_event->title}}</h5>
-                            <p>@ {{$it_event->location}}</p>
+                    <div class="timeline-item p-4"> 
+                        <div class="calendar mb-5">
+                            <span>{{$it_event->article_event_date->format('d')}}</span>
+                            {{$meseci[$it_event->article_event_date->format('n')]}}
+                        </div>
+                        <h5>{{$it_event->title}}</h5>
+                        <div class="fix-bottom">
+                            <span class="date-dot"></span>
+                            <span class="location">{{$it_event->location}}</span>
                         </div>
                     </div>
                 </a>
@@ -831,7 +817,8 @@
     </div>
 </div>
 
-<div id="features" class="my-0 my-sm-5 py-0 py-sm-5">
+<!-- FEATURES SECTION -->
+<div id="features" class="py-5">
     <div class="container">
         <div class="row">
             <div class="col-md-6 pb-4 pb-sm-0">
@@ -900,26 +887,34 @@
 </div>
 
 <!-- IT VESTI I PRIČE -->
-<div id="articles">
+<div id="articles" class="py-5">
     <div class="container">
-        <h2><span style="color:#04D223;">IT</span> vijesti i priče</h2>
+        <div class="row">
+            <div class="col-6">
+                <h2><span style="color:#04D223;">IT</span> vijesti i priče</h2>
+            </div>
+            <div class="col-6">
+                <a href="{{ route('articles_all')}}" class="all-articles float-right"> Pročitaj sve priče ⟶</a>
+            </div>
+        </div>
+        
         <div class="row">
         @foreach ($articles as $article)
             <div class="col-12 col-md-4 mt-5">
-                <div class="card">
-                    <img class="card-img-top" src="{{asset('storage/'.$article->image_url)}}" alt="{{$article->title}} slika">
-                    <div class="card-body pt-4 px-0 pb-0">
-                        <span class="badge badge-blue text-uppercase font-size-3 font-weight-bold px-3 py-1">{{$article->created_at->format('j M, Y')}}</span>
-                        <h5>
-                            <a href="{{ route('articles_single', ['id' => $article->id, 'slug' => $article->slug]) }}" class="card-title text-decoration-none mt-4 mb-3 d-inline-block"> 
-                                {{$article->title}}
-                            </a>
-                        </h5>
-                        <p>{{$article->description}}</p>
+                <a href="{{ route('articles_single', ['id' => $article->id, 'slug' => $article->slug]) }}" class="text-decoration-none mt-4 mb-3 d-inline-block">
+                    <div class="article-card">
+                        <img src="https://itposlovi.me/storage/img/articles/1616591271.jpg" alt="{{$article->title}} slika">
+                        <!-- {{asset('storage/'.$article->image_url)}} -->
+                        <div class="pt-4 px-0 pb-0">
+                            <h3>{{$article->title}}</h3>
+                            <p>{{$article->description}}</p>
+                            <span class="date-dot"></span>
+                            <span class="date">{{$article->created_at->format('j M, Y')}}</p>
+                        </div>
                     </div>
-                </div>
+                </a>
             </div> 
-            @endforeach
+        @endforeach
        </div>
     </div>
 </div>
