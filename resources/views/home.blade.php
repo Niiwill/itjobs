@@ -180,7 +180,7 @@
             .job-name{
                 font-weight: 700;
                 color: #000;
-                font-size: 1.5rem;
+                font-size: 1.3rem;
                 line-height: 1.62;
                 letter-spacing: -.25px;
             }
@@ -532,7 +532,7 @@
                     letter-spacing: 0.12rem;
                 }
                 .timeline-item h5 {
-                    font-size: 1rem;
+                    font-size: 1.1rem;
                     line-height: 32px;
                     font-weight: 600;
                     color: #000;
@@ -547,7 +547,7 @@
                     padding-left: 6px;
                     font-size: 0.9rem;
                 }
-                .timeline-item .fix-bottom{
+                .timeline-item .fix-bottom, .article-card .fix-bottom{
                     position: absolute;
                     bottom: 1.1em;
                 }
@@ -832,8 +832,8 @@
                     <div class="col-md-12 mb-5">
                         <div class="row">
                             <div class="col-2 col-md-2">
-                                <div class="features-icon" style="background-color: rgba(0, 176, 116, 0.2);">
-                                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-check-square-fill" fill="#00b074" xmlns="http://www.w3.org/2000/svg">
+                                <div class="features-icon" style="background-color: rgba(35, 245, 195, 0.2);">
+                                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-check-square-fill" fill="#23f5c3" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd" d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm10.03 4.97a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/></svg>
                                 </div>
                             </div>
@@ -848,8 +848,8 @@
                     <div class="col-md-12 mb-5">
                         <div class="row">
                             <div class="col-2 col-md-2">
-                                <div class="features-icon" style="background-color:rgba(250, 207, 50, 0.2);">
-                                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-search" fill="#facf32" xmlns="http://www.w3.org/2000/svg">
+                                <div class="features-icon" style="background-color:rgba(138, 63, 252, 0.2);">
+                                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-search" fill="#8a3ffc" xmlns="http://www.w3.org/2000/svg">
                                       <path fill-rule="evenodd" d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"/>
                                       <path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
                                     </svg>
@@ -866,8 +866,8 @@
                     <div class="col-md-12 mb-5">
                         <div class="row">
                             <div class="col-2 col-md-2">
-                                <div class="features-icon" style="background-color:rgba(247, 30, 63, 0.2);">
-                                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-award-fill" fill="#f71e3f" xmlns="http://www.w3.org/2000/svg">
+                                <div class="features-icon" style="background-color:rgba(56, 97, 251, 0.2);">
+                                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-award-fill" fill="#3861fb" xmlns="http://www.w3.org/2000/svg">
                                       <path d="M8 0l1.669.864 1.858.282.842 1.68 1.337 1.32L13.4 6l.306 1.854-1.337 1.32-.842 1.68-1.858.282L8 12l-1.669-.864-1.858-.282-.842-1.68-1.337-1.32L2.6 6l-.306-1.854 1.337-1.32.842-1.68L6.331.864 8 0z"/>
                                       <path d="M4 11.794V16l4-1 4 1v-4.206l-2.018.306L8 13.126 6.018 12.1 4 11.794z"/>
                                     </svg>
@@ -900,16 +900,17 @@
         
         <div class="row">
         @foreach ($articles as $article)
-            <div class="col-12 col-md-4 mt-5">
+            <div class="col-12 col-md-4">
                 <a href="{{ route('articles_single', ['id' => $article->id, 'slug' => $article->slug]) }}" class="text-decoration-none mt-4 mb-3 d-inline-block">
-                    <div class="article-card">
-                        <img src="https://itposlovi.me/storage/img/articles/1616591271.jpg" alt="{{$article->title}} slika">
-                        <!-- {{asset('storage/'.$article->image_url)}} -->
+                    <div class="article-card py-5">
+                        <img src="{{asset('storage/'.$article->image_url)}}" alt="{{$article->title}} slika">
                         <div class="pt-4 px-0 pb-0">
                             <h3>{{$article->title}}</h3>
                             <p>{{$article->description}}</p>
-                            <span class="date-dot"></span>
-                            <span class="date">{{$article->created_at->format('j M, Y')}}</p>
+                            <div class="fix-bottom">   
+                                <span class="date-dot"></span>
+                                <span class="date">{{$article->created_at->format('j M, Y')}}</p>
+                            </div>
                         </div>
                     </div>
                 </a>
