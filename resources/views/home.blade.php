@@ -495,7 +495,7 @@
                 letter-spacing: 0.12rem;
             }
             .timeline-item h5 {
-                font-size: 1.1rem;
+                font-size: 1rem;
                 line-height: 32px;
                 font-weight: 600;
                 color: #000;
