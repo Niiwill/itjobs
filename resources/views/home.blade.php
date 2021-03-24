@@ -750,7 +750,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col mb-3">
+                        <div class="col mb-4">
                             <div class="job-card-body">
                                 <a class="company-name">{{$job->company->name}}</a>
                                 <h3><a href="/posao/{{$job->id}}/{{$job->slug}}" class="job-name">{{$job->title}}</a></h3>
