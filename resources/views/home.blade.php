@@ -474,13 +474,16 @@
                 border-radius: 16px;
             }
             .timeline-item:hover{
-                transition:all .2s ease-in-out;
-                transform:scale(1.03);
+                transition:all .24s ease-in-out;
+                transform:scale(1.05);
                 color: #fff;
                 background-color: var(--blue-color);
             }
             .timeline-item:hover h5{
                 color: #fff;
+            }
+            .timeline-item:hover .date-dot{
+                background-color:white;
             }
             .timeline-item .calendar span{
                 display: block;

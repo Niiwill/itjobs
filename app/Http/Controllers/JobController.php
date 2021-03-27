@@ -51,7 +51,7 @@ class JobController extends Controller
         }
 
         $cities=City::all();
-        $tags=Tag::all();
+        $tags = Tag::all();
 
         // Rezultatu prikljucujem jos ime GRADA i ime Kompanije za svaki oglas
         $jobs = $query->with('company:id,name,user_id,logo_path')->with('city:id,name')->latest()->paginate(10);
@@ -107,15 +107,15 @@ class JobController extends Controller
         });
 
         // SECTION - FEATURED JOBS
-        // $jobs = Cache::remember('jobs', 60*120 ,function () {
-            $jobs = Job::where('expired_at', '>=', date('Y-m-d'))
+        $jobs = Cache::remember('jobs', 60*120 ,function () {
+            return Job::where('expired_at', '>=', date('Y-m-d'))
                     ->where('status', 1)
                     ->with('company:id,name,user_id,logo_path')
                     ->with('city:id,name')
                     ->groupBy('company_id')
                     ->limit(6)
                     ->get();
-        // });
+        });
 
         // SECTION - IT EVENTS
         $it_events = Cache::remember('it_events',60*120, function () {
@@ -212,9 +212,20 @@ class JobController extends Controller
      */
     public function show($id, $slug) {
 
-        $job = Job::where('id', $id)->with(['level:id,name','company:id,user_id,name,logo_path','type:id,name','city:id,name'])->first();
+        $job = Job::where('id', $id)
+                    ->with(['level:id,name','company:id,user_id,name,logo_path','type:id,name','city:id,name'])
+                    ->first();
 
-        return view('single', compact('job'));
+        $related_jobs = Job::whereHas('tags', function ($q) use ($job) {
+                        return $q->whereIn('name', $job->tags->pluck('name')); 
+                    })
+                    ->where('id', '!=', $job->id)
+                    ->where('status', 1)
+                    ->with(['company:id,user_id,name,logo_path','city:id,name'])
+                    ->limit(2)
+                    ->get();
+
+        return view('single', compact('job','related_jobs'));
     }    
 
     /**
