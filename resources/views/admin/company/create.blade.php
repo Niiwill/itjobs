@@ -28,6 +28,11 @@
                                     <input type="file" id="logo" name="logo" class="form-input mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
                                 </div>
 
+                                <div class="col-span-6 sm:col-span-2">
+                                    <label for="website" class="block text-sm font-medium text-gray-700">Web stranica firme </label>
+                                    <input type="url" id="website" name="website" class="form-input mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" placeholder="URL mora sadržati http ili https">
+                                </div>
+
                                 <div class="col-span-6">
                                     <label for="about" class="block text-sm font-medium text-gray-700">
                                         Opis

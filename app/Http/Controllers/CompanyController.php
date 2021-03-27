@@ -43,6 +43,7 @@ class CompanyController extends Controller
         $company = new Company;
         $company->user_id = Auth::id();
         $company->name = $request->name;
+        $company->website = $request->website;
         $company->description = $request->description;
         $company->phone = $request->phone;
         $company->email = $request->email;
@@ -98,6 +99,7 @@ class CompanyController extends Controller
         $company = Company::find($id);
         $company->user_id = Auth::id();
         $company->name = $request->name;
+        $company->website = $request->website;
         $company->description = $request->description;
         $company->phone = $request->phone;
         $company->email = $request->email;

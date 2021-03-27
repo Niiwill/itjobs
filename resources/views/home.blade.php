@@ -474,7 +474,7 @@
                 border-radius: 16px;
             }
             .timeline-item:hover{
-                transition:all .24s ease-in-out;
+                transition:all .2s ease-in-out;
                 transform:scale(1.05);
                 color: #fff;
                 background-color: var(--blue-color);

@@ -35,6 +35,11 @@
                                 </div>
 
                                 <div class="col-span-6 sm:col-span-2">
+                                    <label for="website" class="block text-sm font-medium text-gray-700">Web stranica firme</label>
+                                    <input type="url" id="website" name="website" value="{{$company->website}}" class="form-input mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" placeholder="URL mora sadržati http ili https" >
+                                </div>
+
+                                <div class="col-span-6 sm:col-span-2">
                                     @if(empty($company->logo_path))
                                     <!-- Default slika -->
                                     <img class="rounded-full h-28 w-28 " id="imgPrew" src="https://www.allianceplast.com/wp-content/uploads/2017/11/no-image-300x300.png" alt="your image"/>

@@ -184,7 +184,7 @@
                 font-family: : Inter,sans-serif;
                 margin-bottom: 0;
             }
-             #job-header span{
+             #job-header a{
                 font-size: 13px;
                 line-height: 2;
                 letter-spacing: .26px;
@@ -467,7 +467,7 @@
                                         </div>
                                         <div>
                                             <h1>{{$job->title}}</h1>
-                                            <span>{{$job->company->name}}</span>
+                                            <a href="//{{$job->company->website}}" target="_blank">{{$job->company->name}}</a>
                                         </div>
                                     </div>
                                 </div>
