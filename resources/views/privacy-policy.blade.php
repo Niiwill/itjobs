@@ -144,7 +144,7 @@
 
                         <p>Ako imate dodatnih pitanja ili tražite više informacija o našoj Politici privatnosti, ne ustručavajte se da nas kontaktirate.</p>
 
-                        <p>Ova Politika privatnosti odnosi se samo na naše mrežne aktivnosti i važi za posetioce naše veb stranice s obzirom na informacije koje su delili i / ili prikupljali u ITPoslovi.me. Ova politika se ne odnosi na bilo koje informacije prikupljene van mreže ili putem kanala koji nisu deo veb lokacije.</p>
+                        <p>Ova Politika privatnosti odnosi se samo na naše mrežne aktivnosti i važi za posetioce naše web stranice s obzirom na informacije koje su delili i / ili prikupljali u ITPoslovi.me. Ova politika se ne odnosi na bilo koje informacije prikupljene van mreže ili putem kanala koji nisu deo veb lokacije.</p>
                     </li>
                     <li>
                         <h2><strong>1.</strong> Pristanak</h2>
@@ -179,7 +179,7 @@
                     </li>
                     <li>
                         <h2><strong>5.</strong> Kako nas kontaktirati</h2>
-                        <p>Ako imate bilo kakvih pitanja u vezi sa ovom Politikom privatnosti, <a href="#">kontaktirajte nas</a>.</p>
+                        <p>Ako imate bilo kakvih pitanja u vezi sa ovom Politikom privatnosti, <a href="mailto:itposlovi.me@gmail.com">kontaktirajte nas</a>.</p>
                     </li>
                 </ul>
                 <br>

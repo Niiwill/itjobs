@@ -17,18 +17,14 @@ use Illuminate\Support\Facades\Auth;
 
 class JobController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    // SEARCH JOBS PAGE
     public function index(Request $request)
     {
 
         // Ako trazim po TAG ID ona koristim whereHas
         if ($request->filled('tag_id')) {
             $query = Job::whereHas('tags', function($q) use ($request){
-                $q->where('tag_id', '=', $request->tag_id)->where('status', 1);
+                $q->where('tag_id', '=', $request->tag_id);
             });
 
         }else{
@@ -63,6 +59,7 @@ class JobController extends Controller
 
     }
 
+    // ADMIN JOBS PAGE
     public function indexAdmin()
     {
         $jobs = Job::select('id', 'title', 'category_id', 'expired_at', 'slug', 'status')
@@ -73,7 +70,9 @@ class JobController extends Controller
 
     }
 
-      public function home(Request $request)
+    
+    // HOME PAGE
+    public function home(Request $request)
     {   
         $meseci=array();
         $meseci[1] = "Januar";

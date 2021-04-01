@@ -82,51 +82,6 @@
         		background-color: #00b074;
         		border-color: #00b074;
         	}
-            footer{
-                background-color: white;
-                padding:  105px 0 88px 0;
-            }
-            footer .jobletter{
-                text-align: center;
-            }
-            footer svg{
-                margin-top: 7px;
-                float: right;
-                font-size: 60px;
-                color: #e5e5e5;
-            }
-            footer input{
-                border:0!important;
-            }
-            footer .input-group{
-                box-shadow: 4px 4px 15px 0 rgba(36,37,38,.08);
-            }
-            .jobletter-mail{
-                height: 50px;
-                border-radius: 8px;
-                border: 1px solid #eaeced;
-                padding: 15px;
-                transition: .3s;
-                /* width: 100%; */
-                font-size: 15px;
-                letter-spacing: -.1px;
-            }
-            .jobletter h4{
-                font-weight: 700;
-                font-size: 2.5rem;
-                line-height: 1.2;
-                letter-spacing: -.7px;
-                color: #2b3940;
-                margin-bottom: 1.875rem;
-            }
-            .jobletter p{
-                color: #6b6e6f;
-                font-weight: 400;
-                font-size: 1rem;
-                line-height: 1.625;
-                letter-spacing: -.08px;
-                margin-bottom: 30px;
-            }
              .btn-zeleni{
                 background-color: #04D223;
                 color: white;
@@ -198,8 +153,6 @@
             .heading-date #time{
                 font-size: 34px;
             }
-
-            
      
             @media (max-width: 576px){
                 #heading{
@@ -209,13 +162,14 @@
                 	font-size: 2.2rem;
                 }
             }
-        	
-            
         </style>
+        <!-- Footer CSS -->
+        <link href="{{ asset('css/footer.css') }}" rel="stylesheet">
 
     </head>
     <body>
-	<nav class="navbar navbar-expand-lg">
+        <!-- navigation -->
+	    <nav class="navbar navbar-expand-lg">
             <div class="container">
                 <a class="navbar-logo navbar-logo px-3 px-sm-2 pt-3 pb-1" href="{{ url('/') }}">
                     <img src="{{asset('storage/img/logo.png')}}" alt="logo it poslovi crna gora me">
@@ -238,116 +192,53 @@
         </nav>
 
 
-    <div class="container">
-        @if(empty($article->article_event_date))
-            <div id="heading">
-            <div class="row">
-                <div class="col-12 col-sm-8 offset-md-2">
-                    <h1>{{$article->title}}</h1>
-                    <p class="description">{{$article->description}}</p>
-                    <img src="{{asset('storage/'.$article->image_url)}}" alt="{{$article->title}} slika">
-                </div>
-            </div>
-        </div>
-        @else
-        <div id="event-heading">
-            <div class="row no-gutters">
-                <div class="col-12 col-sm-8 offset-md-2">
+        <div class="container">
+            @if(empty($article->article_event_date))
+                <div id="heading">
                     <div class="row">
-                        <div class="col-8 mb-5">
-                            <span style="text-transform:uppercase;color:#adadb2;font-size:14px;letter-spacing:3px;font-weight:600;">DOGAĐAJ</span>
+                        <div class="col-12 col-sm-8 offset-md-2">
                             <h1>{{$article->title}}</h1>
+                            <p class="description">{{$article->description}}</p>
+                            <img src="{{asset('storage/'.$article->image_url)}}" alt="{{$article->title}} slika">
                         </div>
-                        <div class="col-4 mb-5">
-                            <div class="heading-date">
-                                <span>{{$article->article_event_date->format('d')}}</span>
-                                <p id="month">{{$meseci[$article->article_event_date->format('n')]}}</p>
-                                <p id="time">{{date('H:i', strtotime($article->article_event_time))}}</p>
-                                
+                    </div>
+                </div>
+            @else
+                <div id="event-heading">
+                    <div class="row">
+                        <div class="col-12 col-sm-8 offset-md-2">
+                            <div class="row">
+                                <div class="col-12 col-md-8 mb-">
+                                    <span style="text-transform:uppercase;color:#adadb2;font-size:14px;letter-spacing:3px;font-weight:600;">DOGAĐAJ</span>
+                                    <h1>{{$article->title}}</h1>
+                                </div>
+                                <div class="col-12 col-md-4 mb-4">
+                                    <div class="heading-date">
+                                        <span>{{$article->article_event_date->format('d')}}</span>
+                                        <p id="month">{{$meseci[$article->article_event_date->format('n')]}}</p>
+                                        <p id="time">{{date('H:i', strtotime($article->article_event_time))}}</p>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <p class="description">{{$article->description}}</p>
+                                    <img src="{{asset('storage/'.$article->image_url)}}" alt="{{$article->title}} slika">
+                                </div>
                             </div>
-                           
                         </div>
-
-                        <p class="description">{{$article->description}}</p>
-                        <img src="{{asset('storage/'.$article->image_url)}}" alt="{{$article->title}} slika">
-
                     </div>
-                    
                 </div>
-               
-            </div>
-        </div>
-        @endif
+            @endif
     	
-        
-
-        <div class="row">
-        	<div id="body">
-	        	<div class="col-12 col-sm-8 offset-md-2">
-	        		 {!! $article->text !!}	
-	        	</div>
-        	</div>
-        </div>
-  
-    </div>
-  
-
-
-
-<!-- FOOTER -->
-<!-- FOOTER -->
-<footer>
-    <div class="container">
-        <div class="row">
-          <div class="col-md-6 jobletter offset-md-3">
-            <h4>Budi  <span style="color:#04D223;font-size:4rem;">prvi</span> obavješten</h4>
-            <p>Prijavi se i budi obavješten o najnovjim poslovima i vijestima sa IT scene u Crnoj Gori ali i u svijetu. </p> 
-          </div>
-          <div class="col-md-4 offset-md-4">
-               <form>
-                <div class="input-group">
-                    <input type="email" class="form-control jobletter-mail" placeholder="Mejl adresa" aria-label="Mejl adresa" aria-describedby="basic-addon2">
-                    <div class="input-group-append">
-                        <button class="btn btn-zeleni px-3" type="button">Prijavi se</button>
-                    </div>
-                </div>
-            </form>
-          </div>
-
-          </div>
-          <div class="row" style="padding: 140px 0px 60px;">
-          <div class="col-md-6" style="border-right: 1px solid #e5e5e5">
-            <div style="text-align:center;">
-                <img src="{{asset('storage/img/logo.png')}}" alt="logo it poslovi crna gora me mali oglasi karijera it programiranje" width="150px">
-            <small class="d-block mb-3 text-muted">© 2020</small>
-    
-            </div>
-          </div>
-          <div class="col-md-6" >
             <div class="row">
-                <div class="col-md-4 d-none d-sm-block">
-                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-chat-right-dots-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" d="M16 2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h9.586a1 1 0 0 1 .707.293l2.853 2.853a.5.5 0 0 0 .854-.353V2zM5 6a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
-                    </svg>
-                </div>
-                <div class="col-md-8 text-center text-sm-left">
-                    <h5 style="font-weight: 400;font-size: 1.2rem;line-height: 1.625;letter-spacing: -.08px;">Konktarijate nas</h5>
-                <span style="color: #04D223;font-weight: 700;font-size: 1.2rem;line-height: 1.625;letter-spacing: -.08px;">itposlovi.me@gmail.com</span>
-                </div>
+    	        <div class="col-12 col-sm-8 offset-md-2">
+    	        	{!! $article->text !!}	
+    	        </div>
             </div>
-          </div>
-          </div>
         </div>
-</footer>
 
+         <!-- FOOTER -->
+        @include('footer')
 
-
-
-
-        <!-- Optional JavaScript -->
-        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-        
-        <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script> -->
     </body>
 </html>
 
