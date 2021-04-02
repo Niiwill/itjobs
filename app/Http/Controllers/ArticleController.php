@@ -157,10 +157,18 @@ class ArticleController extends Controller
         $article->status = $request->status;
 
         if($request->hasFile('main_image')){
-            $image=$request->file('main_image');
-            $custom_name = time().'.'.$image->getClientOriginalExtension();
-            $request->file('main_image')->storeAs('public/img/articles', $custom_name);
-            $article->image_url = 'img/articles/'.$custom_name;
+            $image = $request->file('main_image');
+            $extension = $image->getClientOriginalExtension();
+            $custom_name = time().'.'.$extension;
+            // Resize and store image
+            $resized_image = $this->resizeMainImage($image,$extension);
+            Storage::put('public/articles/'.$custom_name, $resized_image);
+
+            // Thumbnail
+            $thumbnail = $this->createThumbnail($image,$extension);
+            $path = Storage::put('public/articles/thumbnails/'.$custom_name, $thumbnail);
+
+            $article->image_url = $custom_name;
         }
 
         $article->save();
