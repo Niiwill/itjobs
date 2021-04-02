@@ -199,7 +199,7 @@
                         <div class="col-12 col-sm-8 offset-md-2">
                             <h1>{{$article->title}}</h1>
                             <p class="description">{{$article->description}}</p>
-                            <img src="{{asset('storage/'.$article->image_url)}}" alt="{{$article->title}} slika">
+                            <img src="{{ asset('storage/articles/'.$article->image_url) }}" alt="{{$article->title}} slika">
                         </div>
                     </div>
                 </div>
@@ -221,7 +221,7 @@
                                 </div>
                                 <div class="col">
                                     <p class="description">{{$article->description}}</p>
-                                    <img src="{{asset('storage/'.$article->image_url)}}" alt="{{$article->title}} slika">
+                                    <img src="{{asset('storage/articles/'.$article->image_url)}}" alt="{{$article->title}} slika">
                                 </div>
                             </div>
                         </div>

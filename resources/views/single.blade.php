@@ -418,7 +418,7 @@
                                 <div class="col-md-12">
                                     <div class="media">
                                         <div class="square-72">
-                                            <img src="{{asset('storage/'.$job->company->logo_path)}}" alt="{{$job->company->name}} logo" width="100%">
+                                            <img src="{{asset('storage/articles/'.$job->company->logo_path)}}" alt="{{$job->company->name}} logo" width="100%">
                                         </div>
                                         <div>
                                             <h1>{{$job->title}}</h1>
