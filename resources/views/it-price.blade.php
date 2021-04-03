@@ -156,7 +156,7 @@
                 @foreach ($articles as $article)
                 <div class="col-12 col-md-4 mt-5">
                     <div class="card">
-                        <img class="card-img-top" src="{{asset('storage/'.$article->image_url)}}" alt="{{$article->title}} slika">
+                        <img class="card-img-top" src="{{asset('storage/articles/thumbnails/'.$article->image_url)}}" alt="{{$article->title}} slika">
                         <div class="card-body pt-4 px-0 pb-0">
                             <span class="badge badge-blue text-uppercase font-size-3 font-weight-bold px-3 py-1">{{$article->created_at->format('j M, Y')}}</span>
                             <h5><a href="/it-price/{{$article->id}}/{{$article->slug}}" class="card-title text-decoration-none mt-4 mb-3 d-inline-block">{{$article->title}}</a></h5>
