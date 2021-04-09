@@ -21,7 +21,7 @@
             <div class="col-md-6" style="border-right: 1px solid #e5e5e5">
                 <div style="text-align:center;">
                     <img src="{{asset('storage/img/logo.png')}}" alt="logo it poslovi crna gora me mali oglasi karijera it programiranje" width="150px">
-                    <small class="d-block mb-3 text-muted">© 2020</small>
+                    <small class="d-block mb-3 text-muted">© 2021</small>
                 </div>
             </div>
             <div class="col-md-6" >
@@ -32,7 +32,7 @@
                         </svg>
                     </div>
                     <div class="col-md-8 text-center text-sm-left">
-                        <h5 style="font-weight: 400;font-size: 1.2rem;line-height: 1.625;letter-spacing: -.08px;">Konktarijate nas</h5>
+                        <h5 style="font-weight: 400;font-size: 1.2rem;line-height: 1.625;letter-spacing: -.08px;">Kontaktirajte nas</h5>
                         <span style="color: #04D223;font-weight: 700;font-size: 1.2rem;line-height: 1.625;letter-spacing: -.08px;">itposlovi.me@gmail.com</span>
                     </div>
                 </div>
