@@ -15,7 +15,7 @@
         <!-- Navigation CSS -->
         <link href="{{ asset('css/navigation.css?v=50') }}" rel="stylesheet">
         <!-- Single Job CSS -->
-        <link href="{{ asset('css/single-job.css?v=60') }}" rel="stylesheet">
+        <link href="{{ asset('css/single-job.css?v=65') }}" rel="stylesheet">
         <!-- Footer CSS -->
         <link href="{{ asset('css/footer.css') }}" rel="stylesheet">
         <!-- Global site tag (gtag.js) - Google Analytics -->
