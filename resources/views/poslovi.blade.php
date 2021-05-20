@@ -194,7 +194,13 @@
                                             <img src="{{asset('storage/'.$job->company->logo_path)}}" alt="{{$job->company->name}} logo" width="100%">
                                         </div>
                                         <div class="job-card-body">
-                                            <h3><a href="/posao/{{$job->id}}/{{$job->slug}}" class="job-name">{{$job->title}}</a></h3>
+                                            <h3>
+                                                @if($job->expired_at->isPast())
+                                                    <del><a href="/posao/{{$job->id}}/{{$job->slug}}" class="job-name">{{$job->title}}</a></del>
+                                                @else
+                                                    <a href="/posao/{{$job->id}}/{{$job->slug}}" class="job-name">{{$job->title}}</a>
+                                                @endif
+                                            </h3>
                                             <a class="company-name">{{$job->company->name}}</a>
                                         </div>
                                     </div>
@@ -226,7 +232,12 @@
                                                     <path fill-rule="evenodd" d="M7.5 3a.5.5 0 0 1 .5.5v5.21l3.248 1.856a.5.5 0 0 1-.496.868l-3.5-2A.5.5 0 0 1 7 9V3.5a.5.5 0 0 1 .5-.5z"/>
                                                 </svg>
                                             </span>
-                                            <span>{{$job->expired_at}}</span>
+                                            
+                                            @if ($job->expired_at->isPast())
+                                                <span class="expired">Istekao</span>
+                                            @else
+                                                <span>{{$job->expired_at->format('d-m-Y')}}</span>
+                                            @endif
                                         </li>
                                     </ul>
                                 </div>

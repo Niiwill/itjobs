@@ -8,8 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Job extends Model
 {
     // use HasFactory;
-    protected $dates = ['expired_at/Y-m-d'];
-
+    protected $dates = ['expired_at'];
 
     /**
      * Get the category that owns job.

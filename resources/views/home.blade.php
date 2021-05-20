@@ -44,7 +44,7 @@
                         <div class="row">
 
                             <div class="col-md-12">
-                                <div class="hero-body py-5 py-md-0">
+                                <div class="hero-body py-5 py-md-0 mt-0 mt-sm-3">
                                     <div class="row">
                                         <div class="col-md-12">
                                             <h1>Pronađi savršen <span style="color:#04D223;">IT</span> posao koji zaslužuješ.</h1>
@@ -231,7 +231,7 @@
                                                     <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
                                                 </svg>
                                             </span>
-                                            <span>{{$job->expired_at}}</span>
+                                            <span>{{$job->expired_at->format('d-m-Y')}}</span>
                                         </li>
                                     </ul>
                                 </div>
@@ -345,11 +345,10 @@
         <!-- FOR COMPANIES - NEW JOB ACTION -->
         <div class="container d-none d-sm-block">
             <div id="add-job" class="p-5 my-5">
-                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-briefcase-fill mr-3" viewBox="0 0 16 16">
-                    <path d="M6.5 1A1.5 1.5 0 0 0 5 2.5V3H1.5A1.5 1.5 0 0 0 0 4.5v1.384l7.614 2.03a1.5 1.5 0 0 0 .772 0L16 5.884V4.5A1.5 1.5 0 0 0 14.5 3H11v-.5A1.5 1.5 0 0 0 9.5 1h-3zm0 1h3a.5.5 0 0 1 .5.5V3H6v-.5a.5.5 0 0 1 .5-.5z"/>
-                    <path d="M0 12.5A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5V6.85L8.129 8.947a.5.5 0 0 1-.258 0L0 6.85v5.65z"/>
+                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" style="transform: scaleX(-1);" class="bi bi-megaphone-fill mr-3" viewBox="0 0 16 16">
+                  <path d="M13 2.5a1.5 1.5 0 0 1 3 0v11a1.5 1.5 0 0 1-3 0v-11zm-1 .724c-2.067.95-4.539 1.481-7 1.656v6.237a25.222 25.222 0 0 1 1.088.085c2.053.204 4.038.668 5.912 1.56V3.224zm-8 7.841V4.934c-.68.027-1.399.043-2.008.053A2.02 2.02 0 0 0 0 7v2c0 1.106.896 1.996 1.994 2.009a68.14 68.14 0 0 1 .496.008 64 64 0 0 1 1.51.048zm1.39 1.081c.285.021.569.047.85.078l.253 1.69a1 1 0 0 1-.983 1.187h-.548a1 1 0 0 1-.916-.599l-1.314-2.48a65.81 65.81 0 0 1 1.692.064c.327.017.65.037.966.06z"/>
                 </svg>
-                <h4>Ti si <span>poslodavac</span> ?</h4>
+                <h4><span>Zapošljavate ?</span></h4>
                 <a href="mailto:itposlovi.me@gmail.com" class="px-5 py-3 float-right">
                     Pošalji oglas 
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-forward-fill" viewBox="0 0 16 16">

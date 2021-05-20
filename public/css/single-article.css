@@ -22,7 +22,6 @@ body{
     width: 100%;
     object-fit: cover;
     margin: 2.2rem 0;
-    max-height: 400px;
 }
 #heading h1,#event-heading h1{
     text-align: center;
