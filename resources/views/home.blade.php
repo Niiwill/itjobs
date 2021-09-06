@@ -29,7 +29,8 @@
           gtag('js', new Date());
 
           gtag('config', 'G-TETF7GV131');
-        </script>                                             
+        </script>   
+        <script data-ad-client="ca-pub-5138244234973689" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     </head>
     <body>
         <!-- NAVIGATION -->
