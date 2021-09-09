@@ -203,9 +203,8 @@
                             <div class="col-12 col-md-3 offset-md-3 mt-md-5 mb-3 ">
                                 <select class="form-control" id="order_select" name="order_id" style="border:0px!important;" >
 
-                                    <option value="expiration" {{ request()->get('order_id') == 'expiration' ? "selected":""}}>Uskoro ističe</option>                
                                     <option value="latest" {{ request()->get('order_id') == 'latest' ? "selected":""}}>Najnovije</option>
-                                                                    
+                                    <option value="expiration" {{ request()->get('order_id') == 'expiration' ? "selected":""}}>Uskoro ističe</option>                                                                                    
                                  </select>
                             </div>
  

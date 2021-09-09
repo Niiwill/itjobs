@@ -58,18 +58,46 @@ class JobController extends Controller
         $jobs = $query->with('company:id,name,user_id,logo_path')->with('city:id,name');
 
         // Order by
-        if ($request->filled('order_id')) {
-            if($request->order_id == 'latest'){
-                $jobs = $jobs->latest()->paginate(10);
-            }else{
-                $jobs = $jobs->orderBy('expired_at', 'desc')->paginate(10);
+        if ($request->filled('order_id') && $request->order_id == 'expiration') {
+                
+            $now = date('Y-m-d H:i:s');
 
+            // Ako trazim po TAG ID ona koristim whereHas
+            if ($request->filled('tag_id')) {
+                $expired_query = Job::whereHas('tags', function($q) use ($request){
+                    $q->where('tag_id', '=', $request->tag_id);
+                });
+
+            }else{
+                // Ako trazimo bez TAG ID
+                $expired_query = Job::where('status', 1)->with('tags');
             }
+
+            // Dodatna provera filtera ako korisnik posalje
+            if ($request->filled('cat_id')) {
+                $expired_query->where('category_id',$request->cat_id);
+            }
+            if ($request->filled('type_id')) {
+                $expired_query->where('type_id',$request->type_id);
+            }
+            if ($request->filled('level_id')) {
+                $expired_query->where('level_id',$request->level_id);
+            }
+            if ($request->filled('city_id')) {
+                $expired_query->where('city_id',$request->city_id);
+            }
+
+
+            $jobs_expired = $expired_query->whereDate('expired_at', '<', $now)->orderBy('expired_at', 'desc');
+
+            $jobs = $jobs->whereDate('expired_at', '>', $now)->orderBy('expired_at', 'desc');
+
+            $jobs = $jobs->union($jobs_expired)->orderBy('expired_at', 'desc')->paginate(10);
+            
         }else{
-            $jobs = $jobs->orderBy('expired_at', 'desc')->latest()->paginate(10);
+            $jobs = $jobs->latest()->paginate(10);
         }
 
-        
         $jobsCount = $jobs->count();
         $jobsTotal = $jobs->total();
 
