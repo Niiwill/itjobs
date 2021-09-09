@@ -88,11 +88,11 @@ class JobController extends Controller
             }
 
 
-            $jobs_expired = $expired_query->whereDate('expired_at', '<', $now)->orderBy('expired_at', 'desc');
+            $jobs_expired = $expired_query->whereDate('expired_at', '<', $now)->orderBy('expired_at', 'asc');
 
             $jobs = $jobs->whereDate('expired_at', '>', $now)->orderBy('expired_at', 'desc');
 
-            $jobs = $jobs->union($jobs_expired)->orderBy('expired_at', 'desc')->paginate(10);
+            $jobs = $jobs->union($jobs_expired)->paginate(10);
             
         }else{
             $jobs = $jobs->latest()->paginate(10);
