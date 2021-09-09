@@ -46,11 +46,30 @@ class JobController extends Controller
             $query->where('city_id',$request->city_id);
         }
 
-        $cities=City::all();
-        $tags = Tag::all();
+        $cities = Cache::remember('cities', 60*24 ,function () {
+            return City::all();
+        });
+
+        $tags = Cache::remember('tags', 60*24 ,function () {
+            return Tag::all();
+        });
 
         // Rezultatu prikljucujem jos ime GRADA i ime Kompanije za svaki oglas
-        $jobs = $query->with('company:id,name,user_id,logo_path')->with('city:id,name')->orderBy('expired_at', 'desc')->latest()->paginate(10);
+        $jobs = $query->with('company:id,name,user_id,logo_path')->with('city:id,name');
+
+        // Order by
+        if ($request->filled('order_id')) {
+            if($request->order_id == 'latest'){
+                $jobs = $jobs->latest()->paginate(10);
+            }else{
+                $jobs = $jobs->orderBy('expired_at', 'desc')->paginate(10);
+
+            }
+        }else{
+            $jobs = $jobs->orderBy('expired_at', 'desc')->latest()->paginate(10);
+        }
+
+        
         $jobsCount = $jobs->count();
         $jobsTotal = $jobs->total();
 

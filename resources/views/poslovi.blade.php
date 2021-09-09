@@ -39,8 +39,19 @@
                     // Animate the div element. A duration is set to 500 milliseconds.
                     // $("#filter").hide("slide", { direction: "down" }, 1000);
                     $("#filter").slideToggle('slow');
+                });
+            });
 
+            $(function () {
+                $('select#order_select').on("change", function () {
 
+                        var a = $(this).attr("name"),
+                            b = $(this).val(),
+                            c = $("#poslovi-form");
+                            
+                        c.find("input[name="+a+"]").prop("disabled",!1)
+                        c.find("input[name=" + a + "]").val(b);
+                        c.submit();
                 });
             });
         </script>
@@ -129,6 +140,8 @@
                                         <input type="hidden" name="cat_id" value="{{ request()->get('cat_id')}}" {{ (request()->get('cat_id')) ? "":"disabled"}}>
                                         <input type="hidden" name="type_id" value="{{ request()->get('type_id')}}" {{ (request()->get('type_id')) ? "":"disabled"}}>
                                         <input type="hidden" name="level_id" value="{{ request()->get('level_id')}}" {{ (request()->get('level_id')) ? "":"disabled"}}>
+                                        <input type="hidden" name="order_id" value="{{ request()->get('order_id')}}" {{ (request()->get('order_id')) ? "":"disabled"}}>
+
                                       <div class="form-row align-items-center">
 
                                         <div class="col-12 col-sm-5 my-1 pl-1 pl-sm-3">
@@ -175,15 +188,29 @@
                         </div>
 
 
+                        <div class="row">
 
+                            <div class="col-12 col-md-6 mt-5 mb-3">
+                                <span style="color:#6b6e6f;font-weight: 400;font-size: 1.1rem;line-height: 1.625;letter-spacing: -.08px;">
+                                        Prikazano 
+                                        <span style="color:#2b3940;">{{$jobsCount}}</span> 
+                                        od 
+                                        <span style="color:#2b3940;">{{$jobsTotal}}</span> 
+                                        oglasa
+                                </span>
+                            </div>
 
+                            <div class="col-12 col-md-3 offset-md-3 mt-md-5 mb-3 ">
+                                <select class="form-control" id="order_select" name="order_id" style="border:0px!important;" >
 
-
-                    	<div style="padding-top:2.8125rem;margin-bottom:1.5rem;">
-                    		<span style="color:#6b6e6f;font-weight: 400;font-size: 1.1rem;line-height: 1.625;letter-spacing: -.08px;">
-                    			Prikazano <span style="color:#2b3940;">{{$jobsCount}}</span> od <span style="color:#2b3940;">{{$jobsTotal}}</span> oglasa
-                    		</span>
-                    	</div>
+                                    <option value="expiration" {{ request()->get('order_id') == 'expiration' ? "selected":""}}>Uskoro ističe</option>                
+                                    <option value="latest" {{ request()->get('order_id') == 'latest' ? "selected":""}}>Najnovije</option>
+                                                                    
+                                 </select>
+                            </div>
+ 
+                        </div>
+                    	
                         @foreach ($jobs as $job)
                     	<!-- List item -->
                           <div class="job-card">

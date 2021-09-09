@@ -19,7 +19,6 @@
         <link href="{{ asset('css/single-article.css?v=60') }}" rel="stylesheet">
         <!-- Footer CSS -->
         <link href="{{ asset('css/footer.css') }}" rel="stylesheet">
-        <script data-ad-client="ca-pub-5138244234973689" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     </head>
     <body>
         <!-- NAVIGATION -->
