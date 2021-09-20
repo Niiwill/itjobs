@@ -22,7 +22,7 @@
         <link href="{{ asset('css/footer.css?v=50') }}" rel="stylesheet">
         
         <!-- Global site tag (gtag.js) - Google Analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-TETF7GV131"></script>
+        <script data-ad-client="ca-pub-5183714891579425" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
         <script>
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
