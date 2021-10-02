@@ -22,8 +22,7 @@
         <link href="{{ asset('css/footer.css?v=50') }}" rel="stylesheet">
         
         <!-- Global site tag (gtag.js) - Google Analytics -->
-        <script data-ad-client="ca-pub-5183714891579425" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-        <script>
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1424446387057620" crossorigin="anonymous"></script><script>
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
