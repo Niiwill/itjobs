@@ -305,6 +305,12 @@ select2-selection {
     line-height: 1.3;
     font-size: 1.2rem;
 }
+.article-card.sub-articles .title{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .timeline-item{
     height: 270px;
     background-color: #eaeaf4;

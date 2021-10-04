@@ -17,7 +17,7 @@
         <!-- Navigation CSS -->
         <link href="{{ asset('css/navigation.css?v=50') }}" rel="stylesheet">
         <!-- Home CSS -->
-        <link href="{{ asset('css/home.css?v=63') }}" rel="stylesheet">
+        <link href="{{ asset('css/home.css?v=67') }}" rel="stylesheet">
         <!-- Footer CSS -->
         <link href="{{ asset('css/footer.css?v=50') }}" rel="stylesheet">
         
@@ -397,7 +397,7 @@
                                             <div class="col">
                                                 <img src="{{asset('storage/articles/thumbnails/'.$article->image_url)}}" alt="{{$article->title}} slika">
                                             </div>
-                                            <div class="col">
+                                            <div class="col title">
                                                 <div class="px-0 pb-0">
                                                 <h3>{{$article->title}}</h3>
                                                 <!-- <p>{{$article->description}}</p> -->
