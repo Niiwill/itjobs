@@ -373,7 +373,7 @@
                 <div class="row">
                     <div class="col-12 col-md-7">
                         <a href="{{ route('articles_single', ['id' => $articles[0]->id, 'slug' => $articles[0]->slug]) }}" class="text-decoration-none mt-4 mb-3">
-                            <div class="article-card py-5 py-md-4">
+                            <div class="article-card py-3 py-md-4">
                                    <img src="{{asset('storage/articles/'.$articles[0]->image_url)}}" alt="{{$articles[0]->title}} slika">
                                     <div class="pt-4 px-0 pb-0">
                                     <h3>{{$articles[0]->title}}</h3>
@@ -392,7 +392,7 @@
                         <div class="row">
                             <div class="col">
                                 <a href="{{ route('articles_single', ['id' => $article->id, 'slug' => $article->slug]) }}" class="text-decoration-none mt-4 mb-3">
-                                    <div class="article-card sub-articles py-0 py-md-4">
+                                    <div class="article-card sub-articles py-2 py-md-4">
                                         <div class="row">
                                             <div class="col-12 col-md-6 py-4 py-md-0">
                                                 <img src="{{asset('storage/articles/thumbnails/'.$article->image_url)}}" alt="{{$article->title}} slika">
