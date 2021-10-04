@@ -17,7 +17,7 @@
         <!-- Navigation CSS -->
         <link href="{{ asset('css/navigation.css?v=50') }}" rel="stylesheet">
         <!-- Home CSS -->
-        <link href="{{ asset('css/home.css?v=67') }}" rel="stylesheet">
+        <link href="{{ asset('css/home.css?v=68') }}" rel="stylesheet">
         <!-- Footer CSS -->
         <link href="{{ asset('css/footer.css?v=50') }}" rel="stylesheet">
         
@@ -392,7 +392,7 @@
                         <div class="row">
                             <div class="col">
                                 <a href="{{ route('articles_single', ['id' => $article->id, 'slug' => $article->slug]) }}" class="text-decoration-none mt-4 mb-3">
-                                    <div class="article-card sub-articles py-5 py-md-4">
+                                    <div class="article-card sub-articles py-0 py-md-4">
                                         <div class="row">
                                             <div class="col-12 col-md-6 py-4 py-md-0">
                                                 <img src="{{asset('storage/articles/thumbnails/'.$article->image_url)}}" alt="{{$article->title}} slika">
