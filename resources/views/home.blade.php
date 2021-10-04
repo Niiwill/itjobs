@@ -17,7 +17,7 @@
         <!-- Navigation CSS -->
         <link href="{{ asset('css/navigation.css?v=50') }}" rel="stylesheet">
         <!-- Home CSS -->
-        <link href="{{ asset('css/home.css?v=60') }}" rel="stylesheet">
+        <link href="{{ asset('css/home.css?v=62') }}" rel="stylesheet">
         <!-- Footer CSS -->
         <link href="{{ asset('css/footer.css?v=50') }}" rel="stylesheet">
         
@@ -371,23 +371,49 @@
                 </div>
                 
                 <div class="row">
-                @foreach ($articles as $article)
-                    <div class="col-12 col-md-4">
-                        <a href="{{ route('articles_single', ['id' => $article->id, 'slug' => $article->slug]) }}" class="text-decoration-none mt-4 mb-3">
-                            <div class="article-card py-5">
-                                <img src="{{asset('storage/articles/thumbnails/'.$article->image_url)}}" alt="{{$article->title}} slika">
-                                <div class="pt-4 px-0 pb-0">
-                                    <h3>{{$article->title}}</h3>
-                                    <p>{{$article->description}}</p>
+                    <div class="col-12 col-md-7">
+                        <a href="{{ route('articles_single', ['id' => $articles[0]->id, 'slug' => $articles[0]->slug]) }}" class="text-decoration-none mt-4 mb-3">
+                            <div class="article-card py-5 py-md-4">
+                                   <img src="{{asset('storage/articles/'.$articles[0]->image_url)}}" alt="{{$articles[0]->title}} slika">
+                                    <div class="pt-4 px-0 pb-0">
+                                    <h3>{{$articles[0]->title}}</h3>
+                                    <p>{{$articles[0]->description}}</p>
                                     <div class="fix-bottom">   
                                         <span class="date-dot"></span>
-                                        <span class="date">{{$article->created_at->format('j M, Y')}}</p>
+                                        <span class="date">{{$articles[0]->created_at->format('j M, Y')}}</p>
                                     </div>
                                 </div>
                             </div>
                         </a>
                     </div> 
-                @endforeach
+                    <div class="col-12 col-md-5">
+                        @foreach ($articles as $article)
+                        @if ($loop->first) @continue @endif
+                        <div class="row">
+                            <div class="col">
+                                <a href="{{ route('articles_single', ['id' => $article->id, 'slug' => $article->slug]) }}" class="text-decoration-none mt-4 mb-3">
+                                    <div class="article-card sub-articles py-5 py-md-4">
+                                        <div class="row">
+                                            <div class="col">
+                                                <img src="{{asset('storage/articles/thumbnails/'.$article->image_url)}}" alt="{{$article->title}} slika">
+                                            </div>
+                                            <div class="col">
+                                                <div class="px-0 pb-0">
+                                                <h3>{{$article->title}}</h3>
+                                                <!-- <p>{{$article->description}}</p> -->
+                                                <!-- <div class="fix-bottom">   
+                                                    <span class="date-dot"></span>
+                                                    <span class="date">{{$article->created_at->format('j M, Y')}}</p>
+                                                </div> -->
+                                            </div>
+                                            </div>
+                                        </div>                                       
+                                    </div>
+                                </a>
+                            </div>
+                        </div> 
+                        @endforeach
+                    </div> 
                </div>
             </div>
         </div>

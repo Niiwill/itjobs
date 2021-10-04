@@ -275,11 +275,12 @@ select2-selection {
     border:none;
 }
 .article-card img{
-    height: 200px;
+    height: 350px;
     width: 100%;
     object-fit: cover;
     border-radius: 16px;
 }
+
 .article-card h3{
     font-size: 1.5rem;
     line-height: 32px;
@@ -296,6 +297,12 @@ select2-selection {
 }
 .article-card .date{
     padding-left: 6px;
+}
+.article-card.sub-articles img{
+    height: 140px;
+}
+.article-card.sub-articles h3{
+    font-size: 1.2rem;
 }
 .timeline-item{
     height: 270px;

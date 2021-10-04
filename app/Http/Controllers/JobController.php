@@ -185,7 +185,7 @@ class JobController extends Controller
                             ->where('article_category_id', 1)
                             ->where('status', 1)
                             ->latest()
-                            ->limit(3)
+                            ->limit(4)
                             ->get();
         });
 
