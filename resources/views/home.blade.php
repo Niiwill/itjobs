@@ -394,10 +394,10 @@
                                 <a href="{{ route('articles_single', ['id' => $article->id, 'slug' => $article->slug]) }}" class="text-decoration-none mt-4 mb-3">
                                     <div class="article-card sub-articles py-5 py-md-4">
                                         <div class="row">
-                                            <div class="col">
+                                            <div class="col-12 col-md-6 py-4 pb-md-0">
                                                 <img src="{{asset('storage/articles/thumbnails/'.$article->image_url)}}" alt="{{$article->title}} slika">
                                             </div>
-                                            <div class="col title">
+                                            <div class="col-12 col-md-6 title">
                                                 <div class="px-0 pb-0">
                                                 <h3>{{$article->title}}</h3>
                                                 <!-- <p>{{$article->description}}</p> -->
