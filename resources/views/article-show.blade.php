@@ -19,6 +19,10 @@
         <link href="{{ asset('css/single-article.css?v=60') }}" rel="stylesheet">
         <!-- Footer CSS -->
         <link href="{{ asset('css/footer.css') }}" rel="stylesheet">
+        <!-- Adsense -->
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1424446387057620"
+     crossorigin="anonymous"></script>
+     
     </head>
     <body>
         <!-- NAVIGATION -->
