@@ -58,7 +58,7 @@ h2{
     width:100%;
     margin-bottom:30px;
     transition:.4s;
-    border-radius:16px;
+    border-radius:30px;
     background-color: #fff;
     box-shadow: 1px 1px 2px 0 rgb(88 102 126 / 12%), 1px 1px 40px 0 rgb(88 102 126 / 12%);
 }
@@ -160,7 +160,7 @@ ul.tags li{
     padding: 30px 33px 10px;
     background-color:#fff;
     max-height: 210px;
-    border-radius: 16px;       
+    border-radius: 30px;       
 }
 .cat-banner:hover{
     transition: .4s;
@@ -244,7 +244,7 @@ select2-selection {
 }
 #features img{
     width: 100%;
-    border-radius: 16px;
+    border-radius: 30px;
 }
 #features h5{
     font-weight: 700;
@@ -317,7 +317,7 @@ select2-selection {
     position: relative;
     padding: 17px 20px 10px 30px;
     color: #3a416f;
-    border-radius: 16px;
+    border-radius: 30px;
 }
 .timeline-item .calendar span{
     color: #000;
@@ -378,7 +378,7 @@ select2-selection {
     display: flex;
     align-items: center;
     border: 6px solid #3861fb;
-    border-radius: 24px;
+    border-radius: 30px;
     color: #000;
 }
 #add-job h4{
