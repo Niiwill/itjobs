@@ -67,6 +67,11 @@ h2{
 }
 .job-card a{
     text-decoration: none;
+    overflow: hidden!important;
+    text-overflow: ellipsis!important;
+    display: -webkit-box!important;
+    -webkit-line-clamp: 1!important;
+    -webkit-box-orient: vertical;
 }
 .job-card-body h3{
     margin-bottom: 0;
