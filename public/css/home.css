@@ -475,4 +475,7 @@ select2-selection {
     .job-card-body {
         padding-top:0; 
     }
+    .job-name{
+        font-size: 1rem;
+    }
 }
