@@ -106,7 +106,7 @@ a.company-name{
     align-content: center;
 }
 .job-card .square72 img{
-    border-radius: 16px;
+    border-radius: 8px;
 }
 .job-card-body{
     padding-top: 5px;
@@ -460,7 +460,7 @@ select2-selection {
         text-align: center;
     }
     .job-card .square72 img{
-        border-radius: 16px;
+        border-radius: 8px;
     }
     .job-card .square72 {
         max-width: 60px;

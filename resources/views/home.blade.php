@@ -207,11 +207,7 @@
                                 <div class="col mb-md-3">
                                     <div class="media">
                                         <div class="square72">
-<!--                                        <img src="{{asset('storage/'.$job->company->logo_path)}}" alt="{{$job->company->name}} logo" width="100%">
- -->                                           
-                                            <img src="https://itposlovi.me/storage/logos/6173c00c3272d_193298804_4027335397302132_2542605694786054268_n.jpg
-" alt="{{$job->company->name}} logo" width="100%">
-
+                                            <img src="{{asset('storage/'.$job->company->logo_path)}}" alt="{{$job->company->name}} logo" width="100%">
                                         </div>
                                     </div>
                                 </div>
