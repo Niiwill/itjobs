@@ -9,7 +9,7 @@ h2{
     line-height: 1.375;
     letter-spacing: -.4px;
     font-weight: 700;
-    color: #000;
+    color: #1d1d1f;
 }
 .color-blue{
     color: var(--blue-color)!important;
@@ -213,26 +213,29 @@ ul.tags li{
 .select2-container--default.select2-container--focus .select2-selection--multiple {
     border:none;
 }
-.search-bar-home{
+
+#search-form-home{
     -webkit-box-shadow:rgba(36, 37, 38, 0.08) 4px 4px 15px 0;
     box-shadow:rgba(36, 37, 38, 0.08) 4px 4px 15px 0;
-    border-radius: 6px;
+}
+.search_input_home{
     background-color: white;
+    display:flex;
+    align-content: center;
+    padding:10px;
+    border-radius: 8px;
+
 }
-.search-bar-home button{
-    border-radius: 0 6px 6px 0;
-}
-.search-bar-home .search_icon{
+.search_input_home .search_icon{
     margin-right: 15px;
     margin-left: 5px;
     display: flex;
     align-items: center;
 }
-.search-bar-home .search_padding{
-    padding:10px;
-    display:flex;
-    align-content: center;
+.btn-search-home{
+    border-radius: 0 8px 8px 0;
 }
+
 select2-selection { 
     overflow: hidden;
 }
@@ -399,17 +402,20 @@ select2-selection {
     font-size: 1rem;
     font-weight: 600;
     border-radius: 8px;
-    color:#fff;
     margin-left: auto;
-    background-color: #000;
     transition: .2s;
+    color: #ffffff;
+    background-color: #175cff;
+    border-color: #175cff;
+    box-shadow: 0 11px 18px -8px rgb(23 92 255 / 60%);
+    transition: all .3s ease-in-out;
 }
 #add-job a:hover{
-    box-shadow: 1px 1px 2px 0 rgb(88 102 126 / 12%), 1px 1px 40px 0 rgb(88 102 126 / 20%);
-    transform: translate(0,-3px);
+    box-shadow: none;
 }
 
-@media (max-width:1200px){
+@media (max-width: 575.98px) {
+
     #features h2{
         font-size: 1.8rem;
     }
@@ -429,9 +435,18 @@ select2-selection {
         text-align: center;
         font-size: 1.7rem;
     }
-    .search-bar-home button {
-        border-radius: 0 0 6px 6px;
-        padding: 15px;
+
+    #search-form-home{
+        box-shadow:none;
+    }
+    .btn-search-home{
+        border-radius: 8px;
+        -webkit-box-shadow:rgba(36, 37, 38, 0.08) 4px 4px 15px 0;
+        box-shadow:rgba(36, 37, 38, 0.08) 4px 4px 15px 0;
+    }
+    .search_input_home{
+        -webkit-box-shadow:rgba(36, 37, 38, 0.08) 4px 4px 15px 0;
+        box-shadow:rgba(36, 37, 38, 0.08) 4px 4px 15px 0;
     }
     .cat-banner{
         padding: 20px 10px 15px;

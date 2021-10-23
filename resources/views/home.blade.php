@@ -19,7 +19,7 @@
         <!-- Home CSS -->
         <link href="{{ asset('css/home.css?v=71') }}" rel="stylesheet">
         <!-- Footer CSS -->
-        <link href="{{ asset('css/footer.css?v=55') }}" rel="stylesheet">
+        <link href="{{ asset('css/footer.css?v=59') }}" rel="stylesheet">
         
         <!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1424446387057620" crossorigin="anonymous"></script><script>
@@ -55,28 +55,35 @@
                             </div>
 
                             <div class="col-md-8 mt-0 mt-md-3">
-                                <form action="/oglasi-za-posao" method="get">
-                                <div class="row no-gutters search-bar-home">                                    
-                                    <div class="search_padding col-md-8">
-                                        <span class="search_icon">
-                                        <svg width="1.4em" height="1.4em" viewBox="0 0 16 16" class="bi bi-search" fill="#00b074" xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd" d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"/>
-                                        <path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
-                                        </svg>
-                                    </span>                                       
-                                        <select class="search_tags" name="tag_id" multiple="multiple">
-                                            @foreach ($tags as $tag)
-                                            <option value="{{ $tag->id }}">{{ $tag->name }}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
+                                <form id="search-form-home" action="/oglasi-za-posao" method="get">                                    
+                                    <div class="row">
+                                        <div class="col-9 col-md-8 pr-sm-0">
+                                            <div class="search_input_home">
+                                                <span class="search_icon">
+                                                    <svg width="1.4em" height="1.4em" viewBox="0 0 16 16" class="bi bi-search" fill="#00b074" xmlns="http://www.w3.org/2000/svg">
+                                                        <path fill-rule="evenodd" d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"/>
+                                                        <path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
+                                                    </svg>
+                                                </span>                                       
+                                                <select class="search_tags" name="tag_id" multiple="multiple">
+                                                    @foreach ($tags as $tag)
+                                                    <option value="{{ $tag->id }}">{{ $tag->name }}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                        </div>
 
-                                    <div class="col-md-4">
-                                        <button class="btn btn-zeleni line-height-reset h-100 btn-submit w-100 text-uppercase">TRAŽI
-                                        </button>
+                                        <div class="col-3 col-md-4 px-sm-0">
+                                            <button class="d-none d-sm-block btn btn-zeleni btn-search-home line-height-reset h-100 btn-submit w-100 text-uppercase">TRAŽI
+                                            </button>
+                                            <button class="d-sm-none btn btn-zeleni btn-search-home line-height-reset h-100 btn-submit w-100 ">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-caret-right-fill" viewBox="0 0 16 16">
+                                                  <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
+                                                </svg>
+                                            </button>
+                                        </div>
                                     </div>
                                 </form>
-                                </div>
                             </div>
                         </div>
                     </div>
