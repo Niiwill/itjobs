@@ -126,7 +126,7 @@
                                 </div>
                                 <div class="cat-banner-body text-center text-md-left">
                                     <h5>Programiranje</h5>
-                                    <p>{{$programming_count}} Poslova</p>
+                                    <p class="d-none d-sm-block">{{$programming_count}} Poslova</p>
                                 </div>
                             </a>
                         </div>
@@ -143,7 +143,7 @@
                                 </div>
                                 <div class="cat-banner-body text-center text-md-left">
                                     <h5>QA</h5>
-                                    <p>{{$qa_count}} Poslova</p>
+                                    <p class="d-none d-sm-block">{{$qa_count}} Poslova</p>
                                 </div>
                             </a>
                         </div>
@@ -159,7 +159,7 @@
                                 </div>
                                 <div class="cat-banner-body text-center text-md-left">
                                     <h5>Dizajn</h5>
-                                    <p>{{$design_count}} Poslova</p>
+                                    <p class="d-none d-sm-block">{{$design_count}} Poslova</p>
                                 </div>
                             </a>
                         </div>
@@ -175,7 +175,7 @@
                                 </div>
                                 <div class="cat-banner-body text-center text-md-left">
                                     <h5>Prakse</h5>
-                                    <p>{{$intership_count}} Poslova</p>
+                                    <p class="d-none d-sm-block">{{$intership_count}} Poslova</p>
                                 </div>
                             </a>
                         </div>
