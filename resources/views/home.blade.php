@@ -17,7 +17,7 @@
         <!-- Navigation CSS -->
         <link href="{{ asset('css/navigation.css?v=50') }}" rel="stylesheet">
         <!-- Home CSS -->
-        <link href="{{ asset('css/home.css?v=80') }}" rel="stylesheet">
+        <link href="{{ asset('css/home.css?v=77') }}" rel="stylesheet">
         <!-- Footer CSS -->
         <link href="{{ asset('css/footer.css?v=59') }}" rel="stylesheet">
         
@@ -89,7 +89,7 @@
                     </div>
                     
                     <div class="col-md-5 mt-5">
-                        <img src="{{asset('storage/img/hero.png')}}" class="m-4 m-md-0" alt="logo it poslovi crna gora me" width="100%">
+                        <img src="{{asset('storage/img/hero.png')}}" class="m-md-0" alt="logo it poslovi crna gora me" width="100%">
                     </div>
                 </div>
             </div>
