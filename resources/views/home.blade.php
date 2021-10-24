@@ -44,7 +44,7 @@
                         <div class="row">
 
                             <div class="col-md-12">
-                                <div class="hero-body py-5 py-md-0 mt-0 mt-sm-3">
+                                <div class="hero-body pt-5 pb-4 py-md-0 mt-0 mt-sm-3">
                                     <div class="row">
                                         <div class="col-md-12">
                                             <h1>Pronađi savršen <span style="color:#04D223;">IT</span> posao koji zaslužuješ.</h1>
