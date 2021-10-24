@@ -309,9 +309,6 @@ select2-selection {
 .article-card .date{
     padding-left: 6px;
 }
-.article-card.sub-articles img{
-    height: 135px;
-}
 .article-card.sub-articles h3{
     line-height: 1.4;
     font-size: 1.2rem;
@@ -463,9 +460,7 @@ select2-selection {
 
     }
     .article-card.sub-articles h3 {
-        line-height: 1.3;
-        font-size: 1.5rem;
-        text-align: center;
+        text-align: left;
     }
     .job-card .square72 img{
         border-radius: 8px;
