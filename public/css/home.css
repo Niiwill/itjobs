@@ -431,6 +431,7 @@ select2-selection {
     }
     .hero-body p{
         font-size: 1.1rem;
+        text-align: left;  
     }
     .header-button a {
         width: 100%;
