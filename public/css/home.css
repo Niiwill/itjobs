@@ -461,6 +461,7 @@ select2-selection {
     }
     .article-card h5, .article-card.sub-articles h3{
         font-size: 1.5rem;
+        text-align: center;
     }
     .job-card .square72 img{
         border-radius: 8px;
