@@ -17,7 +17,7 @@
         <!-- Navigation CSS -->
         <link href="{{ asset('css/navigation.css?v=50') }}" rel="stylesheet">
         <!-- Home CSS -->
-        <link href="{{ asset('css/home.css?v=84') }}" rel="stylesheet">
+        <link href="{{ asset('css/home.css?v=85') }}" rel="stylesheet">
         <!-- Footer CSS -->
         <link href="{{ asset('css/footer.css?v=59') }}" rel="stylesheet">
         
@@ -381,8 +381,8 @@
                                    <img src="{{asset('storage/articles/'.$articles[0]->image_url)}}" alt="{{$articles[0]->title}} slika">
                                     <div class="pt-4 px-0 pb-0">
                                     <h3>{{$articles[0]->title}}</h3>
-                                    <p>{{$articles[0]->description}}</p>
-                                    <div>   
+                                    <p class="d-none d-sm-block">{{$articles[0]->description}}</p>
+                                    <div class="d-none d-sm-block">   
                                         <span class="date-dot"></span>
                                         <span class="date">{{$articles[0]->created_at->format('j M, Y')}}</p>
                                     </div>
@@ -404,11 +404,11 @@
                                             <div class="col-12 col-md-6 title">
                                                 <div class="px-0 pb-0">
                                                 <h3>{{$article->title}}</h3>
-                                                <p class="d-block d-sm-none">{{$article->description}}</p>
+                                                <!-- <p class="d-block d-sm-none">{{$article->description}}</p>
                                                 <div class="fix-bottom d-block d-sm-none">   
                                                     <span class="date-dot"></span>
                                                     <span class="date">{{$article->created_at->format('j M, Y')}}</p>
-                                                </div>
+                                                </div> -->
                                             </div>
                                             </div>
                                         </div>                                       
