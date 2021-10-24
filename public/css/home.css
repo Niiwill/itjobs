@@ -459,7 +459,7 @@ select2-selection {
         box-shadow: 5px 10px 20px hsl(0deg 0% 69% / 16%);
 
     }
-    .article-card h5, .article-card.sub-articles h3{
+    .article-card h3, .article-card.sub-articles h3{
         font-size: 1.5rem;
         text-align: center;
     }
