@@ -404,11 +404,11 @@
                                             <div class="col-12 col-md-6 title">
                                                 <div class="px-0 pb-0">
                                                 <h3>{{$article->title}}</h3>
-                                                <!-- <p>{{$article->description}}</p> -->
-                                                <!-- <div class="fix-bottom">   
+                                                <p class="d-block d-sm-none">{{$article->description}}</p>
+                                                <div class="fix-bottom d-block d-sm-none">   
                                                     <span class="date-dot"></span>
                                                     <span class="date">{{$article->created_at->format('j M, Y')}}</p>
-                                                </div> -->
+                                                </div>
                                             </div>
                                             </div>
                                         </div>                                       

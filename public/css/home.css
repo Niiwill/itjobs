@@ -286,7 +286,7 @@ select2-selection {
     border:none;
 }
 .article-card img{
-    height: 350px;
+    max-height: 350px;
     width: 100%;
     object-fit: cover;
     border-radius: 16px;
