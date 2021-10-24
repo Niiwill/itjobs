@@ -261,19 +261,28 @@
                 <div class="row">
                 @foreach ($it_events as $it_event)
                     <div class="col-12 col-sm-3 my-3 my-md-5">
-                        <a href="/it-dogadjaji/{{$it_event->id}}/{{$it_event->slug}}" style="text-decoration: none;">
-                            <div class="timeline-item p-4"> 
-                                <div class="calendar mb-5">
-                                    <span>{{$it_event->article_event_date->format('d')}}</span>
-                                    {{$meseci[$it_event->article_event_date->format('n')]}}
+                        <div class="timeline-item">
+                            <a href="/it-dogadjaji/{{$it_event->id}}/{{$it_event->slug}}" style="text-decoration: none;">
+                                <div class="row float-left float-sm-none">
+                                    <div class="col">
+                                        <div class="calendar mb-sm-5">
+                                            <span>{{$it_event->article_event_date->format('d')}}</span>
+                                            {{$meseci[$it_event->article_event_date->format('n')]}}
+                                        </div>
+                                    </div>
                                 </div>
-                                <h5>{{$it_event->title}}</h5>
-                                <div class="fix-bottom">
-                                    <span class="date-dot"></span>
-                                    <span class="location">{{$it_event->location}}</span>
+
+                                 <div class="row">
+                                    <div class="col">
+                                        <h5>{{$it_event->title}}</h5>
+                                        <div class="d-none d-sm-block">
+                                            <span class="date-dot"></span>
+                                            <span class="location">{{$it_event->location}}</span>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </a>
+                            </a>
+                        </div>
                     </div>
                     @endforeach
                 </div>
