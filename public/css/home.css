@@ -459,9 +459,6 @@ select2-selection {
         box-shadow: 5px 10px 20px hsl(0deg 0% 69% / 16%);
 
     }
-    .article-card.sub-articles h3 {
-        text-align: left;
-    }
     .job-card .square72 img{
         border-radius: 8px;
     }
