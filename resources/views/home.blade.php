@@ -289,6 +289,80 @@
             </div>
         </div>
 
+        <!-- IT VESTI I PRIČE -->
+        <div id="articles" class="py-2 py-md-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <h2><span style="color:#04D223;">IT</span> vijesti i priče</h2>
+                    </div>
+                    <div class="col-6 d-none d-md-block">
+                        <a href="{{ route('articles_all')}}" class="all-articles float-right"> Pročitaj sve priče ⟶</a>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-12 col-md-7 my-3 my-md-5">
+                        <a href="{{ route('articles_single', ['id' => $articles[0]->id, 'slug' => $articles[0]->slug]) }}" class="text-decoration-none mt-4 mb-3">
+                            <div class="article-card py-3 py-md-4">
+                                   <img src="{{asset('storage/articles/'.$articles[0]->image_url)}}" alt="{{$articles[0]->title}} slika">
+                                    <div class="pt-4 px-0 pb-0">
+                                    <h3>{{$articles[0]->title}}</h3>
+                                    <p class="d-none d-sm-block">{{$articles[0]->description}}</p>
+                                    <div class="d-none d-sm-block">   
+                                        <span class="date-dot"></span>
+                                        <span class="date">{{$articles[0]->created_at->format('j M, Y')}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div> 
+                    <div class="col-12 col-md-5 my-3 my-md-5">
+                        @foreach ($articles as $article)
+                        @if ($loop->first) @continue @endif
+                        <div class="row">
+                            <div class="col">
+                                <a href="{{ route('articles_single', ['id' => $article->id, 'slug' => $article->slug]) }}" class="text-decoration-none mt-4 mb-3">
+                                    <div class="article-card sub-articles py-2 py-md-4">
+                                        <div class="row">
+                                            <div class="col-12 col-md-6 py-4 py-md-0">
+                                                <img src="{{asset('storage/articles/thumbnails/'.$article->image_url)}}" alt="{{$article->title}} slika">
+                                            </div>
+                                            <div class="col-12 col-md-6 title">
+                                                <div class="px-0 pb-0">
+                                                <h3>{{$article->title}}</h3>
+                                                <!-- <p class="d-block d-sm-none">{{$article->description}}</p>
+                                                <div class="fix-bottom d-block d-sm-none">   
+                                                    <span class="date-dot"></span>
+                                                    <span class="date">{{$article->created_at->format('j M, Y')}}</p>
+                                                </div> -->
+                                            </div>
+                                            </div>
+                                        </div>                                       
+                                    </div>
+                                </a>
+                            </div>
+                        </div> 
+                        @endforeach
+                    </div> 
+               </div>
+            </div>
+        </div>
+
+        <!-- FOR COMPANIES - NEW JOB ACTION -->
+        <div class="container d-none d-sm-block">
+            <div id="add-job" class="p-5 my-5">
+                <h4><span>Zapošljavate <span style="color:#04D223;">?</span></span></h4>
+                <a href="mailto:itposlovi.me@gmail.com" class="px-5 py-3 float-right">
+                    Pošalji oglas 
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-forward-fill" viewBox="0 0 16 16">
+                      <path d="m9.77 12.11 4.012-2.953a.647.647 0 0 0 0-1.114L9.771 5.09a.644.644 0 0 0-.971.557V6.65H2v3.9h6.8v1.003c0 .505.545.808.97.557z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+
+
         <!-- FEATURES SECTION -->
         <div id="features" class="py-2 py-md-5">
             <div class="container">
@@ -358,78 +432,7 @@
             </div>
         </div>
 
-        <!-- FOR COMPANIES - NEW JOB ACTION -->
-        <div class="container d-none d-sm-block">
-            <div id="add-job" class="p-5 my-5">
-                <h4><span>Zapošljavate <span style="color:#04D223;">?</span></span></h4>
-                <a href="mailto:itposlovi.me@gmail.com" class="px-5 py-3 float-right">
-                    Pošalji oglas 
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-forward-fill" viewBox="0 0 16 16">
-                      <path d="m9.77 12.11 4.012-2.953a.647.647 0 0 0 0-1.114L9.771 5.09a.644.644 0 0 0-.971.557V6.65H2v3.9h6.8v1.003c0 .505.545.808.97.557z"/>
-                    </svg>
-                </a>
-            </div>
-        </div>
-
-        <!-- IT VESTI I PRIČE -->
-        <div id="articles" class="py-2 py-md-5">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12 col-md-6">
-                        <h2><span style="color:#04D223;">IT</span> vijesti i priče</h2>
-                    </div>
-                    <div class="col-6 d-none d-md-block">
-                        <a href="{{ route('articles_all')}}" class="all-articles float-right"> Pročitaj sve priče ⟶</a>
-                    </div>
-                </div>
-                
-                <div class="row">
-                    <div class="col-12 col-md-7 my-3 my-md-5">
-                        <a href="{{ route('articles_single', ['id' => $articles[0]->id, 'slug' => $articles[0]->slug]) }}" class="text-decoration-none mt-4 mb-3">
-                            <div class="article-card py-3 py-md-4">
-                                   <img src="{{asset('storage/articles/'.$articles[0]->image_url)}}" alt="{{$articles[0]->title}} slika">
-                                    <div class="pt-4 px-0 pb-0">
-                                    <h3>{{$articles[0]->title}}</h3>
-                                    <p class="d-none d-sm-block">{{$articles[0]->description}}</p>
-                                    <div class="d-none d-sm-block">   
-                                        <span class="date-dot"></span>
-                                        <span class="date">{{$articles[0]->created_at->format('j M, Y')}}</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div> 
-                    <div class="col-12 col-md-5 my-3 my-md-5">
-                        @foreach ($articles as $article)
-                        @if ($loop->first) @continue @endif
-                        <div class="row">
-                            <div class="col">
-                                <a href="{{ route('articles_single', ['id' => $article->id, 'slug' => $article->slug]) }}" class="text-decoration-none mt-4 mb-3">
-                                    <div class="article-card sub-articles py-2 py-md-4">
-                                        <div class="row">
-                                            <div class="col-12 col-md-6 py-4 py-md-0">
-                                                <img src="{{asset('storage/articles/thumbnails/'.$article->image_url)}}" alt="{{$article->title}} slika">
-                                            </div>
-                                            <div class="col-12 col-md-6 title">
-                                                <div class="px-0 pb-0">
-                                                <h3>{{$article->title}}</h3>
-                                                <!-- <p class="d-block d-sm-none">{{$article->description}}</p>
-                                                <div class="fix-bottom d-block d-sm-none">   
-                                                    <span class="date-dot"></span>
-                                                    <span class="date">{{$article->created_at->format('j M, Y')}}</p>
-                                                </div> -->
-                                            </div>
-                                            </div>
-                                        </div>                                       
-                                    </div>
-                                </a>
-                            </div>
-                        </div> 
-                        @endforeach
-                    </div> 
-               </div>
-            </div>
-        </div>
+        
 
         <!-- FOOTER -->
         @include('footer')
