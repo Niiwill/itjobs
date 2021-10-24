@@ -261,7 +261,7 @@
                 <div class="row">
                 @foreach ($it_events as $it_event)
                     <div class="col-12 col-sm-3 my-3 my-md-5">
-                        <div class="timeline-item">
+                        <div class="timeline-item p-4">
                             <a href="/it-dogadjaji/{{$it_event->id}}/{{$it_event->slug}}" style="text-decoration: none;">
                                 <div class="row float-left float-sm-none">
                                     <div class="col">
