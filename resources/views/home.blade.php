@@ -375,7 +375,7 @@
                 </div>
                 
                 <div class="row">
-                    <div class="col-12 col-md-7">
+                    <div class="col-12 col-md-7 my-3 my-md-5">
                         <a href="{{ route('articles_single', ['id' => $articles[0]->id, 'slug' => $articles[0]->slug]) }}" class="text-decoration-none mt-4 mb-3">
                             <div class="article-card py-3 py-md-4">
                                    <img src="{{asset('storage/articles/'.$articles[0]->image_url)}}" alt="{{$articles[0]->title}} slika">
@@ -390,7 +390,7 @@
                             </div>
                         </a>
                     </div> 
-                    <div class="col-12 col-md-5">
+                    <div class="col-12 col-md-5 my-3 my-md-5">
                         @foreach ($articles as $article)
                         @if ($loop->first) @continue @endif
                         <div class="row">
