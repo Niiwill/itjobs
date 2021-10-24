@@ -433,6 +433,9 @@ select2-selection {
         font-size: 1.1rem;
         text-align: left;  
     }
+    .hero img{
+        margin-top:0;
+    }
     .header-button a {
         width: 100%;
     }
