@@ -5,8 +5,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="icon" type="image/x-icon" href="{{asset('storage/img/favicon.png')}}" />
         <title>{{$article->title}} | ITPoslovi.me</title>
-        <meta name="description" content="">
+        <meta name="description" content="{{$article->description}}">
         <link rel="canonical" href="{{url()->current()}}"/>
+
+        <meta property="og:url" content="{{url()->current()}}" />
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content="{{$article->title}}" />
+        <meta property="og:description" content="{{$article->description}}" />
+        <meta property="og:image" content="{{asset('storage/articles/'.$article->image_url)}}" />
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.gstatic.com">
