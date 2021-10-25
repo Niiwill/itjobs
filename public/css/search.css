@@ -226,6 +226,8 @@ input[type=checkbox]:checked:disabled + label:before {
 .page-item.active .page-link{
     background-color: #04D223!important;
     border-color: #04D223!important;
+    transform: scale(1.1);
+    z-index: 3;
 }
 .pagination{
     justify-content:center;
