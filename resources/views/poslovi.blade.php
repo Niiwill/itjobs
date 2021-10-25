@@ -280,7 +280,7 @@
                             @endif
                             
                             @if($jobs->currentPage() == 1)
-                                <li class="page-item active"><a class="page-link" href="{{$jobs->appends($_GET)->previousPageUrl()}}">Prethodni</a></li>
+                            <li class="page-item active"><a class="page-link" href="{{$jobs->appends($_GET)->url('1')}}">1</a></li>
                             @endif
 
                             @if($jobs->currentPage() != 1)
