@@ -292,7 +292,6 @@
                                 <li class="page-item"><a class="page-link" href="{{$jobs->appends($_GET)->url($jobs->lastPage())}}">{{ $jobs->lastPage() }}</a></li>
 
                             @endif
-                            @endfor
                             @if($jobs->hasMorePages())
                                 <li class="page-item"><a class="page-link" href="{{$jobs->appends($_GET)->nextPageUrl() }}">Sledeći</a></li>
                             @endif
