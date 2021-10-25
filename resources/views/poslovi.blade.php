@@ -287,8 +287,8 @@
                                     @endif
                                 @endfor
                             @else
-                                <li class="page-item"><a class="page-link" href="{{$jobs->appends($_GET)->url($i)}}">{{ $i }}</a></li>
-                                <li class="page-item active"><a class="page-link" href="{{$jobs->appends($_GET)->url('1')}}">1</a></li>
+                                <li class="page-item"><a class="page-link" href="{{$jobs->appends($_GET)->url('1')}}">1</a></li>
+                                <li class="page-item active"><a class="page-link" href="{{$jobs->appends($_GET)->url($jobs->currentPage())}}">{{$jobs->currentPage()}}</a></li>
                                 <li class="page-item"><a class="page-link" href="{{$jobs->appends($_GET)->url($jobs->lastPage())}}">{{ $jobs->lastPage() }}</a></li>
 
                             @endif
