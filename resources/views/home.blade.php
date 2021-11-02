@@ -17,7 +17,7 @@
         <!-- Navigation CSS -->
         <link href="{{ asset('css/navigation.css?v=50') }}" rel="stylesheet">
         <!-- Home CSS -->
-        <link href="{{ asset('css/home.css?v=91') }}" rel="stylesheet">
+        <link href="{{ asset('css/home.css?v=266') }}" rel="stylesheet">
         <!-- Footer CSS -->
         <link href="{{ asset('css/footer.css?v=59') }}" rel="stylesheet">
         
@@ -306,7 +306,7 @@
                         <a href="{{ route('articles_single', ['id' => $articles[0]->id, 'slug' => $articles[0]->slug]) }}" class="text-decoration-none mt-4 mb-3">
                             <div class="article-card main mb-3 mb-sm-0">
                                    <img src="{{asset('storage/articles/'.$articles[0]->image_url)}}" alt="{{$articles[0]->title}} slika">
-                                    <div class="p-sm-5 pt-4">
+                                    <div class="pt-sm-5 px-sm-5 pb-sm-4 pt-4">
                                     <h3>{{$articles[0]->title}}</h3>
                                     <p class="d-none d-sm-block">{{$articles[0]->description}}</p>
                                     <div class="d-none d-sm-block">   
