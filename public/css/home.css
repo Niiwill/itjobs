@@ -346,7 +346,7 @@ select2-selection {
 .timeline-item .calendar span{
     display: block;
     margin-bottom: -10px;
-    font-size: 36px;
+    font-size: 32px;
     font-weight: 600;
     color: var(--blue-color);
 }
@@ -364,7 +364,7 @@ select2-selection {
     letter-spacing: .12rem;
     background: white;
     border-radius: 5px;
-    padding: 20px;
+    padding: 15px 20px;
 }
 .timeline-item h5 {
     font-size: 1.5rem;
