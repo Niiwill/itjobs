@@ -129,18 +129,18 @@ class JobController extends Controller
     public function home(Request $request)
     {   
         $meseci=array();
-        $meseci[1] = "Januar";
-        $meseci[2] = "Februar";
-        $meseci[3] = "Mart";
-        $meseci[4] = "April";
+        $meseci[1] = "Jan";
+        $meseci[2] = "Feb";
+        $meseci[3] = "Mar";
+        $meseci[4] = "Apr";
         $meseci[5] = "Maj";
         $meseci[6] = "Jun";
         $meseci[7] = "Jul";
-        $meseci[8] = "Avgust";
-        $meseci[9] = "Septembar";
-        $meseci[10] = "Oktobar";
-        $meseci[11] = "Novembar";
-        $meseci[12] = "Decembar";
+        $meseci[8] = "Avg";
+        $meseci[9] = "Sep";
+        $meseci[10] = "Okt";
+        $meseci[11] = "Nov";
+        $meseci[12] = "Dec";
 
         
         $programming_count = Cache::remember('programming_count', 60*24 ,function () {
