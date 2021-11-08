@@ -17,7 +17,7 @@
         <!-- Navigation CSS -->
         <link href="{{ asset('css/navigation.css?v=50') }}" rel="stylesheet">
         <!-- Home CSS -->
-        <link href="{{ asset('css/home.css?v=306') }}" rel="stylesheet">
+        <link href="{{ asset('css/home.css?v=307') }}" rel="stylesheet">
         <!-- Footer CSS -->
         <link href="{{ asset('css/footer.css?v=59') }}" rel="stylesheet">
         
@@ -264,7 +264,7 @@
                         <a href="/it-dogadjaji/{{$it_event->id}}/{{$it_event->slug}}" style="text-decoration: none;">
                             <div class="timeline-item">
 
-                                <div class="position-relative">
+                                <div class="position-relative p-3">
                                     <img src="{{asset('storage/articles/'.$it_event->image_url)}}" alt="{{$it_event->title}} slika">
                                 
                                     <div class="calendar">

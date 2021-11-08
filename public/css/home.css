@@ -340,13 +340,14 @@ select2-selection {
     width: 100%;
     max-height: 190px;
     object-fit: cover;
+    border-radius: 10px;
 }
 
 .timeline-item .calendar span{
     display: block;
     margin-bottom: -10px;
     font-size: 40px;
-    font-weight: 300;
+    font-weight: 600;
 }
 .timeline-item .calendar {
     position: absolute;
