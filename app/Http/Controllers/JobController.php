@@ -172,7 +172,7 @@ class JobController extends Controller
 
         // SECTION - IT EVENTS
         $it_events = Cache::remember('it_events',60*120, function () {
-            return Article::select('id','slug', 'article_event_date','title','location')
+            return Article::select('id', 'slug', 'image_url', 'article_event_date', 'title', 'location')
                             ->orderBy('article_event_date','DESC')
                             ->where('article_category_id', 2)
                             ->limit(3)
