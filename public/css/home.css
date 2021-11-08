@@ -352,15 +352,16 @@ select2-selection {
 .timeline-item .calendar {
     position: absolute;
     z-index: 10;
-    top:0;
-    left: 0;
+    bottom: -30px;
+    left: 30px;
     color: var(--blue-color);
     font-size: 13px;
     text-transform: uppercase;
     font-weight: 600;
+    box-shadow: rgb(0 0 0 / 8%) 0px 0px 38px 0px;
     letter-spacing: .12rem;
     background: white;
-    border-radius: 0 0 30px;
+    border-radius: 5px;
     padding: 20px;
 }
 .timeline-item h5 {
