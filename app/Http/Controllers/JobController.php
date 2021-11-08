@@ -175,7 +175,7 @@ class JobController extends Controller
             return Article::select('id','slug', 'article_event_date','title','location')
                             ->orderBy('article_event_date','DESC')
                             ->where('article_category_id', 2)
-                            ->limit(4)
+                            ->limit(3)
                             ->get();
         });
 

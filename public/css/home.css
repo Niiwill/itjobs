@@ -328,28 +328,43 @@ select2-selection {
 }
 
 .timeline-item{
-    max-height: 270px;
-    background-color: #eaeaf4;
+    overflow: hidden;
+    /*max-height: 270px;*/
+    box-shadow: 0 6px 25px rgb(12 89 219 / 9%);
     position: relative;
     color: #3a416f;
     border-radius: 30px;
 }
+.timeline-item img{
+    display: block;
+    width: 100%;
+    max-height: 190px;
+    object-fit: cover;
+}
+
 .timeline-item .calendar span{
     color: #000;
     display: block;
     margin-bottom: -10px;
-    font-size: 50px;
+    font-size: 40px;
     font-weight: 300;
 }
 .timeline-item .calendar {
+    position: absolute;
+    z-index: 10;
+    top:0;
+    left: 0;
     color: var(--blue-color);
     font-size: 13px;
     text-transform: uppercase;
     font-weight: 600;
-    letter-spacing:.12rem;
+    letter-spacing: .12rem;
+    background: white;
+    border-radius: 0 0 30px;
+    padding: 20px;
 }
 .timeline-item h5 {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     line-height: 32px;
     font-weight: 600;
     color: #000;
@@ -385,15 +400,8 @@ select2-selection {
 .timeline-item:hover{
     transition:all .2s ease-in-out;
     transform:scale(1.05);
-    color: #fff!important;
-    background-color: var(--blue-color);
 }
-.timeline-item:hover .calendar,.timeline-item:hover .calendar span, .timeline-item:hover h5{
-    color: #fff;
-}
-.timeline-item:hover .date-dot{
-    background-color: #fff;
-}
+
 #add-job{
     font-weight: 700;
     display: flex;

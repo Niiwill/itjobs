@@ -17,7 +17,7 @@
         <!-- Navigation CSS -->
         <link href="{{ asset('css/navigation.css?v=50') }}" rel="stylesheet">
         <!-- Home CSS -->
-        <link href="{{ asset('css/home.css?v=266') }}" rel="stylesheet">
+        <link href="{{ asset('css/home.css?v=304') }}" rel="stylesheet">
         <!-- Footer CSS -->
         <link href="{{ asset('css/footer.css?v=59') }}" rel="stylesheet">
         
@@ -260,31 +260,33 @@
                 </div>
                 <div class="row">
                 @foreach ($it_events as $it_event)
-                    <div class="col-12 col-sm-3 my-3 my-md-5">
-                        <div class="timeline-item p-4">
-                            <a href="/it-dogadjaji/{{$it_event->id}}/{{$it_event->slug}}" style="text-decoration: none;">
-                                <div class="row float-left float-sm-none">
-                                    <div class="col">
-                                        <div class="calendar mb-sm-5">
-                                            <span>{{$it_event->article_event_date->format('d')}}</span>
-                                            {{$meseci[$it_event->article_event_date->format('n')]}}
-                                        </div>
+                    <div class="col-12 col-sm-4 my-3 my-md-5">
+                        <a href="/it-dogadjaji/{{$it_event->id}}/{{$it_event->slug}}" style="text-decoration: none;">
+                            <div class="timeline-item">
+
+                                <div>
+                                    <img src="https://itposlovi.me/storage/articles/1635930820.jpg" alt="Climaton Podgorica 2021: (S)KRENI ZELENO slika">
+                                
+                                    <div class="calendar">
+                                        <span>{{$it_event->article_event_date->format('d')}}</span>
+                                        {{$meseci[$it_event->article_event_date->format('n')]}}
                                     </div>
+
                                 </div>
 
-                                 <div class="row">
-                                    <div class="col">
-                                        <h5>{{$it_event->title}}</h5>
-                                        <div class="d-none d-sm-block">
+                                <div class="description p-5">
+
+                                    <h5>{{$it_event->title}}</h5>
+                                    
+                                    <div class="d-none d-sm-block">
                                             <span class="date-dot"></span>
                                             <span class="location">{{$it_event->location}}</span>
-                                        </div>
                                     </div>
                                 </div>
-                            </a>
-                        </div>
+                            </div>
+                        </a>
                     </div>
-                    @endforeach
+                @endforeach
                 </div>
             </div>
         </div>
