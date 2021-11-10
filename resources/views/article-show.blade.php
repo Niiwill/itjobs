@@ -22,7 +22,7 @@
         <!-- Navigation CSS -->
         <link href="{{ asset('css/navigation.css?v=50') }}" rel="stylesheet">
         <!-- Single Job CSS -->
-        <link href="{{ asset('css/single-article.css?v=61') }}" rel="stylesheet">
+        <link href="{{ asset('css/single-article.css?v=62') }}" rel="stylesheet">
         <!-- Footer CSS -->
         <link href="{{ asset('css/footer.css') }}" rel="stylesheet">
         <!-- Adsense -->
