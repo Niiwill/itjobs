@@ -186,7 +186,7 @@
         </div>
 
         <!-- ISTAKNUTI POSLOVI -->
-        <div id="featured-jobs" class="py-2 py-md-5 mb-4">
+        <div id="featured-jobs" class="py-2 py-md-5 mb-5">
             <div class="container">
                 <!-- Naslov -->
                 <div class="row" style="padding-bottom: 3.4375rem;">
