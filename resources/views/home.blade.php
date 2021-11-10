@@ -186,7 +186,7 @@
         </div>
 
         <!-- ISTAKNUTI POSLOVI -->
-        <div id="featured-jobs" class="py-2 py-md-5">
+        <div id="featured-jobs" class="py-2 py-md-5 mb-4">
             <div class="container">
                 <!-- Naslov -->
                 <div class="row" style="padding-bottom: 3.4375rem;">
@@ -278,7 +278,7 @@
 
                                     <h5>{{$it_event->title}}</h5>
                                     
-                                    <div class="d-none d-sm-block">
+                                    <div>
                                             <span class="date-dot"></span>
                                             <span class="location">{{$it_event->location}}</span>
                                     </div>
@@ -295,10 +295,10 @@
         <div id="articles" class="py-2 py-md-5">
             <div class="container">
                 <div class="row">
-                    <div class="col-12 col-md-6">
+                    <div class="col-12 col-md-6 py-5">
                         <h2><span style="color:#04D223;">IT</span> vijesti i priče</h2>
                     </div>
-                    <div class="col-6 d-none d-md-block">
+                    <div class="col-6 d-none d-md-block py-5">
                         <a href="{{ route('articles_all')}}" class="all-articles float-right"> Pročitaj sve priče ⟶</a>
                     </div>
                 </div>
