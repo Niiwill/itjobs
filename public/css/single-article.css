@@ -1,6 +1,13 @@
 body{
     font-family: 'Inter', sans-serif;
 }
+p{
+    font-size: 18px;
+    line-height: 32px;
+    font-weight: 400;
+    color: #1a284d;
+    font-family: Inter,sans-serif;       
+}
 .btn-zeleni{
     background-color: #04D223;
     color: white;
@@ -38,18 +45,7 @@ body{
     font-size: 2.5rem;
     border-right: 1px solid #e1e2eb;
 }
-#heading p, #body p{
- font-family: 'Inter', sans-serif;
- color: #6e727d;
- font-weight: 500;
- margin-bottom:0;
- line-height: 1.7;
- letter-spacing: -.2px;
- font-size: 17px;        
-}
-#body p{
-   margin-bottom: 35px;
-}
+
 .heading-date{
     box-shadow: rgba(36, 37, 38, 0.04) 4px 4px 15px 0px;
     height: 200px;
