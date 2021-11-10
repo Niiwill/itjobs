@@ -327,8 +327,10 @@ select2-selection {
     justify-content: center;
 }
 #events{
-    color: #ffffff;
     background-color: #1d1d1d;
+}
+#events, #events h2{
+    color: #ffffff;
 }
 .timeline-item{
     background-color: #353535;
@@ -358,7 +360,7 @@ select2-selection {
     z-index: 10;
     bottom: -30px;
     left: 30px;
-    color: #111;
+    color: #ffffff;
     font-size: 14px;
     text-align: center;
     text-transform: uppercase;
@@ -373,7 +375,7 @@ select2-selection {
     font-size: 1.2rem;
     line-height: 32px;
     font-weight: 600;
-    color: #000;
+    color: #ffffff;
     text-decoration: none;
     overflow: hidden!important;
     text-overflow: ellipsis!important;
@@ -383,13 +385,13 @@ select2-selection {
 }
 .timeline-item p {
     color: #ffffff;
-    opacity: 40%;
     font-size: 14px;
     font-weight: 400;
     margin-top: 11px;
 }
 .timeline-item .location{
     padding-left: 6px;
+    opacity: 40%;
     font-size:.9rem;
 }
 .article-card .fix-bottom,.timeline-item .fix-bottom {
