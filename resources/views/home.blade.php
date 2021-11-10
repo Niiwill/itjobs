@@ -254,7 +254,7 @@
         <div id="events" class="py-5">
             <div class="container">
                 <div class="row">
-                    <div class="col-12">
+                    <div class="col-12 pt-5 pb-2">
                         <h2>Kalendar događaja</h2>
                     </div>
                 </div>
@@ -295,10 +295,10 @@
         <div id="articles" class="py-2 py-md-5">
             <div class="container">
                 <div class="row">
-                    <div class="col-12 col-md-6 py-5">
+                    <div class="col-12 col-md-6 pt-5 pb-2">
                         <h2><span style="color:#04D223;">IT</span> vijesti i priče</h2>
                     </div>
-                    <div class="col-6 d-none d-md-block py-5">
+                    <div class="col-6 d-none d-md-block pt-5 pb-2">
                         <a href="{{ route('articles_all')}}" class="all-articles float-right"> Pročitaj sve priče ⟶</a>
                     </div>
                 </div>
