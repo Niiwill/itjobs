@@ -32,7 +32,19 @@ class ArticleController extends Controller
      */
     public function index(Request $request)
     {
-        $articles = Article::latest()->get();
+
+        if($request->has('search')){
+
+            $search = $request->search;
+
+            $articles = Article::query()
+                                ->where('title', 'LIKE', "%{$search}%")
+                                ->latest()
+                                ->get();
+        }else{
+            $articles = Article::latest()->get();
+        }
+
         return view('admin/article/index', compact('articles'));
      
     }
@@ -58,6 +70,8 @@ class ArticleController extends Controller
     public function store(Request $request)
     {
 
+        
+
        $request->validate([
             'title' => 'required|max:100',
             'text' => 'required',
@@ -72,7 +86,7 @@ class ArticleController extends Controller
         $article->text = $request->text;
         $article->article_category_id = $request->article_category_id;
         $article->article_event_date = $request->article_event_date;
-        $article->article_event_time=$request->article_event_time;
+        $article->article_event_time = $request->article_event_time;
         $article->location = $request->location;
         $article->slug=Str::slug($request->title, '-');
         $article->status = $request->status;

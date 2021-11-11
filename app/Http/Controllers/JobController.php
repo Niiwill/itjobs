@@ -114,11 +114,25 @@ class JobController extends Controller
     }
 
     // ADMIN JOBS PAGE
-    public function indexAdmin()
+    public function indexAdmin(Request $request)
     {
-        $jobs = Job::select('id', 'title', 'category_id', 'expired_at', 'slug', 'status')
+
+        if($request->has('search')){
+
+            $search = $request->search;
+
+            $jobs = Job::select('id', 'title','company_id', 'category_id', 'expired_at', 'slug', 'status')
+                    ->where('title', 'LIKE', "%{$search}%")
+                    ->with('company:id,name')
                     ->latest()
                     ->paginate(8);
+
+        }else{
+            $jobs = Job::select('id', 'title', 'company_id', 'category_id', 'expired_at', 'slug', 'status')
+                    ->with('company:id,name')
+                    ->latest()
+                    ->paginate(8);
+        }
 
         return view('admin/index')->with('jobs',$jobs);
 
