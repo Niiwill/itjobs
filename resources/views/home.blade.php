@@ -294,12 +294,18 @@
         <!-- IT VESTI I PRIČE -->
         <div id="articles" class="py-2 py-md-5">
             <div class="container">
+               
                 <div class="row">
-                    <div class="col-12 col-md-6 pt-5 pb-2">
-                        <h2><span style="color:#04D223;">IT</span> vijesti i priče</h2>
+                    <div class="col-12 col-lg-6 py-4 py-sm-0 pb-sm-5">
+                        <div class="header">
+                            <h2><span style="color:#04D223;">IT</span> vijesti i priče</h2>
+                        </div>
                     </div>
-                    <div class="col-6 d-none d-md-block pt-5 pb-2">
-                        <a href="{{ route('articles_all')}}" class="all-articles float-right"> Pročitaj sve priče ⟶</a>
+
+                    <div class="col-12 col-lg-6 pb-5 pt-3 pt-sm-0 pb-sm-5">
+                        <div class="header-button">
+                            <a class="btn" href="{{ route('articles_all')}}">PROČITAJ SVE</a>
+                        </div>
                     </div>
                 </div>
                 
