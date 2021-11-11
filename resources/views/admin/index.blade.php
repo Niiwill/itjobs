@@ -15,7 +15,7 @@
                 @if( request()->get('search') )
                 <input type="search" name="search" placeholder="{{request()->get('search')}}" required="required" class="flex-1 h-10 px-4 m-1 text-gray-700 placeholder-gray-400 bg-transparent border-none appearance-none lg:h-12 dark:text-gray-200 focus:outline-none focus:placeholder-transparent focus:ring-0"> 
                 @else
-                <input type="search" name="search" placeholder="Naziv Pozicije" required="required" class="flex-1 h-10 px-4 m-1 text-gray-700 placeholder-gray-400 bg-transparent border-none appearance-none lg:h-12 dark:text-gray-200 focus:outline-none focus:placeholder-transparent focus:ring-0"> 
+                <input type="search" name="search" placeholder="Naziv Oglasa" required="required" class="flex-1 h-10 px-4 m-1 text-gray-700 placeholder-gray-400 bg-transparent border-none appearance-none lg:h-12 dark:text-gray-200 focus:outline-none focus:placeholder-transparent focus:ring-0"> 
                 @endif
 
                 <button type="submit" class="flex items-center justify-center w-full p-2 m-1 text-white transition-colors duration-200 transform rounded-md lg:w-12 lg:h-12 lg:p-0 bg-gray-900 hover:bg-teal-300 focus:outline-none focus:bg-teal-300">
