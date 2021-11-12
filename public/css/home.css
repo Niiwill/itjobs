@@ -389,6 +389,9 @@ select2-selection {
     font-weight: 400;
     margin-top: 11px;
 }
+.timeline-item .description{
+    border-top: 3px solid #20DEB0;
+}
 .timeline-item .location{
     padding-left: 6px;
     opacity: 40%;
