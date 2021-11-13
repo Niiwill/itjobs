@@ -17,7 +17,7 @@
         <!-- Navigation CSS -->
         <link href="{{ asset('css/navigation.css?v=50') }}" rel="stylesheet">
         <!-- Home CSS -->
-        <link href="{{ asset('css/home.css?v=318') }}" rel="stylesheet">
+        <link href="{{ asset('css/home.css?v=319') }}" rel="stylesheet">
         <!-- Footer CSS -->
         <link href="{{ asset('css/footer.css?v=59') }}" rel="stylesheet">
         
@@ -310,50 +310,25 @@
                 </div>
                 
                 <div class="row">
-                    <div class="col-12 col-md-7">
-                        <a href="{{ route('articles_single', ['id' => $articles[0]->id, 'slug' => $articles[0]->slug]) }}" class="text-decoration-none mt-4 mb-3">
-                            <div class="article-card main mb-3 mb-sm-0">
-                                   <img src="{{asset('storage/articles/'.$articles[0]->image_url)}}" alt="{{$articles[0]->title}} slika">
-                                    <div class="pt-sm-5 px-sm-5 pb-sm-4 pt-4">
-                                    <h3>{{$articles[0]->title}}</h3>
-                                    <p class="d-none d-sm-block">{{$articles[0]->description}}</p>
-                                    <div class="d-none d-sm-block">   
-                                        <span class="date-dot"></span>
-                                        <span class="date">{{$articles[0]->created_at->format('j M, Y')}}</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div> 
-                    <div class="col-12 col-md-5">
                         @foreach ($articles as $article)
-                        @if ($loop->first) @continue @endif
-                        <div class="row">
                             <div class="col">
                                 <a href="{{ route('articles_single', ['id' => $article->id, 'slug' => $article->slug]) }}" class="text-decoration-none mt-4 mb-3">
-                                    <div class="article-card sub-articles py-2 py-md-4">
-                                        <div class="row">
-                                            <div class="col-12 col-md-6 py-4 py-md-0">
-                                                <img src="{{asset('storage/articles/thumbnails/'.$article->image_url)}}" alt="{{$article->title}} slika">
-                                            </div>
-                                            <div class="col-12 col-md-6 title">
-                                                <div class="px-0 pb-0">
-                                                <h3>{{$article->title}}</h3>
-                                                <!-- <p class="d-block d-sm-none">{{$article->description}}</p>
-                                                <div class="fix-bottom d-block d-sm-none">   
-                                                    <span class="date-dot"></span>
-                                                    <span class="date">{{$article->created_at->format('j M, Y')}}</p>
-                                                </div> -->
-                                            </div>
-                                            </div>
-                                        </div>                                       
+                                    <div class="article-card sub-articles ">
+                                        <div class="d-block position-relative">
+                                            <img src="{{asset('storage/articles/thumbnails/'.$article->image_url)}}" alt="{{$article->title}} slika">
+                                            <div class="calendar py-2 px-5">{{$article->created_at->format('j')}} {{$meseci[$it_event->article_event_date->format('n')]}}</div>
+                                        </div>
+                                        
+
+                                        <div class="description p-5">
+                                            <h3>{{$article->title}}</h3>
+                                            <p>{{$article->description}}</p>        
+                                        </div>
                                     </div>
                                 </a>
-                            </div>
-                        </div> 
+                            </div>                                       
                         @endforeach
-                    </div> 
-               </div>
+                </div>
             </div>
         </div>
 

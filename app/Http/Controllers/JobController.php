@@ -17,6 +17,9 @@ use Illuminate\Support\Facades\Auth;
 
 class JobController extends Controller
 {
+
+    public $meseci = [" ","Jan","Feb","Mar","Apr","Maj","Jun","Jul","Avg","Sep","Okt","Nov","Dec"];
+
     // SEARCH JOBS PAGE
     public function index(Request $request)
     {
@@ -142,20 +145,7 @@ class JobController extends Controller
     // HOME PAGE
     public function home(Request $request)
     {   
-        $meseci=array();
-        $meseci[1] = "Jan";
-        $meseci[2] = "Feb";
-        $meseci[3] = "Mar";
-        $meseci[4] = "Apr";
-        $meseci[5] = "Maj";
-        $meseci[6] = "Jun";
-        $meseci[7] = "Jul";
-        $meseci[8] = "Avg";
-        $meseci[9] = "Sep";
-        $meseci[10] = "Okt";
-        $meseci[11] = "Nov";
-        $meseci[12] = "Dec";
-
+        $meseci = $this->meseci;
         
         $programming_count = Cache::remember('programming_count', 60*24 ,function () {
             return Job::where('category_id', 1)->count();
@@ -199,7 +189,7 @@ class JobController extends Controller
                             ->where('article_category_id', 1)
                             ->where('status', 1)
                             ->latest()
-                            ->limit(4)
+                            ->limit(3)
                             ->get();
         });
 
@@ -208,11 +198,11 @@ class JobController extends Controller
         });
 
         return view('home')
-                ->with('jobs',$jobs)
-                ->with('tags',$tags)
-                ->with('it_events',$it_events)
-                ->with('meseci',$meseci)
-                ->with('articles',$articles)
+                ->with('jobs', $jobs)
+                ->with('tags', $tags)
+                ->with('it_events', $it_events)
+                ->with('meseci', $meseci)
+                ->with('articles', $articles)
                 ->with(compact('programming_count', 'design_count', 'qa_count', 'intership_count'));
     }
 
