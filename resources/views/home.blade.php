@@ -255,7 +255,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12 pt-5 pb-2">
-                        <h2>Kalendar događaja</h2>
+                        <h2>Kalendar<span> IT događaja</span></h2>
                     </div>
                 </div>
                 <div class="row">
@@ -265,8 +265,9 @@
                             <div class="timeline-item">
 
                                 <div class="position-relative">
-                                    <img src="{{asset('storage/articles/'.$it_event->image_url)}}" alt="{{$it_event->title}} slika">
-                                
+                                    <!-- <img src="{{asset('storage/articles/'.$it_event->image_url)}}" alt="{{$it_event->title}} slika"> -->
+                                    <img src="https://itposlovi.me/storage/articles/1635930820.jpg" alt="{{$it_event->title}} slika">
+
                                     <div class="calendar">
                                         <span>{{$it_event->article_event_date->format('d')}}</span>
                                         {{$meseci[$it_event->article_event_date->format('n')]}}

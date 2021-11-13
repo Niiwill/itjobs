@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\Storage;
 class ArticleController extends Controller
 {
     
+    public $meseci = ["Jan","Feb","Mar","Apr","Maj","Jun","Jul","Avg","Sep","Okt","Nov","Dec"];
+
     /**
      * Display a listing of the resource.
      *
@@ -21,8 +23,10 @@ class ArticleController extends Controller
      */
     public function texts(Request $request)
     {
+        $meseci = $this->meseci;
         $articles = Article::where('article_category_id', 1)->where('status', 1)->latest()->paginate(12);
-        return view('it-price', compact('articles'));
+
+        return view('it-price', compact('articles','meseci'));
      
     }
     /**
