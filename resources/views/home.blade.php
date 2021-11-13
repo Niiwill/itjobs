@@ -311,7 +311,7 @@
                 
                 <div class="row">
                         @foreach ($articles as $article)
-                            <div class="col">
+                            <div class="col mb-5">
                                 <a href="{{ route('articles_single', ['id' => $article->id, 'slug' => $article->slug]) }}" class="text-decoration-none mt-4 mb-3">
                                     <div class="article-card sub-articles ">
                                         <div class="d-block position-relative">
