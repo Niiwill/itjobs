@@ -216,9 +216,7 @@
 
                             <div class="position-relative">
                                
-                                <img src="https://itposlovi.me/storage/articles/1635930820.jpg" alt="{{$article->title}} slika">
-
-                                <!-- <img src="{{asset('storage/articles/'.$article->image_url)}}" alt="{{$article->title}} slika"> -->
+                                <img src="{{asset('storage/articles/'.$article->image_url)}}" alt="{{$article->title}} slika">
 
                             </div>
 
