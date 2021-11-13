@@ -265,8 +265,7 @@
                             <div class="timeline-item">
 
                                 <div class="position-relative">
-                                    <!-- <img src="{{asset('storage/articles/'.$it_event->image_url)}}" alt="{{$it_event->title}} slika"> -->
-                                    <img src="https://itposlovi.me/storage/articles/1635930820.jpg" alt="{{$it_event->title}} slika">
+                                    <img src="{{asset('storage/articles/'.$it_event->image_url)}}" alt="{{$it_event->title}} slika">
 
                                     <div class="calendar">
                                         <span>{{$it_event->article_event_date->format('d')}}</span>
