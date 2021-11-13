@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Storage;
 class ArticleController extends Controller
 {
     
-    public $meseci = ["Jan","Feb","Mar","Apr","Maj","Jun","Jul","Avg","Sep","Okt","Nov","Dec"];
+    public $meseci = [" ","Jan","Feb","Mar","Apr","Maj","Jun","Jul","Avg","Sep","Okt","Nov","Dec"];
 
     /**
      * Display a listing of the resource.
