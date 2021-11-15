@@ -317,7 +317,7 @@ select2-selection {
 .article-card .calendar{
     position: absolute;
     bottom:0;
-    background-color:#04D223;
+    background-color:#0fbc49;
     color:#ffffff;
     font-size: 13px;
 }
@@ -498,7 +498,6 @@ select2-selection {
     }
     .article-card h3, .article-card.sub-articles h3{
         font-size: 1.5rem;
-        text-align: center;
     }
     .article-card.main {
         box-shadow: none;
