@@ -9,17 +9,13 @@
         <link rel="canonical" href="https://itposlovi.me"/>
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
         <!-- Bootstrap -->
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
         <!-- Select2 -->
         <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet">
-        <!-- Navigation CSS -->
-        <link href="{{ asset('css/navigation.css?v=50') }}" rel="stylesheet">
         <!-- Home CSS -->
-        <link href="{{ asset('css/home.css?v=320') }}" rel="stylesheet">
-        <!-- Footer CSS -->
-        <link href="{{ asset('css/footer.css?v=59') }}" rel="stylesheet">
+        <link href="{{ asset('css/home.css?v=321') }}" rel="stylesheet">
         
         <!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1424446387057620" crossorigin="anonymous"></script><script>

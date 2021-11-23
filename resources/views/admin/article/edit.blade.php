@@ -108,7 +108,7 @@
 
                                 <div class="col-span-3">
                                     <label for="main_image" class="block text-sm font-medium leading-5 text-gray-700">Trenutna naslovna slika:</label>
-                                    <img class="w-60 h-auto" src="{{asset('storage/'.$article->image_url)}}">
+                                    <img class="w-60 h-auto" src="{{asset('storage/articles/'.$article->image_url)}}">
                                 </div>
                                 <div class="col-span-3"></div>
 
