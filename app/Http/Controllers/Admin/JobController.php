@@ -9,133 +9,27 @@ use App\Models\City;
 use App\Models\Tag;
 use App\Models\Article;
 use App\Models\Company;
-use \Cache;
+use Illuminate\Routing\Route;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
-
-
+use Symfony\Component\Routing\Route as RoutingRoute;
 
 class JobController extends Controller
 {
 
-    public $meseci = [" ","Jan","Feb","Mar","Apr","Maj","Jun","Jul","Avg","Sep","Okt","Nov","Dec"];
-
-    // SEARCH JOBS PAGE
-    public function index(Request $request)
-    {
-
-        // Ako trazim po TAG ID ona koristim whereHas
-        if ($request->filled('tag_id')) {
-            $query = Job::whereHas('tags', function($q) use ($request){
-                $q->where('tag_id', '=', $request->tag_id);
-            });
-
-        }else{
-            // Ako trazimo bez TAG ID
-            $query = Job::where('status', 1)->with('tags');
-        }
-
-        // Dodatna provera filtera ako korisnik posalje
-        if ($request->filled('cat_id')) {
-            $query->where('category_id',$request->cat_id);
-        }
-        if ($request->filled('type_id')) {
-            $query->where('type_id',$request->type_id);
-        }
-        if ($request->filled('level_id')) {
-            $query->where('level_id',$request->level_id);
-        }
-        if ($request->filled('city_id')) {
-            $query->where('city_id',$request->city_id);
-        }
-
-        $cities = Cache::remember('cities', 60*24 ,function () {
-            return City::all();
-        });
-
-        $tags = Cache::remember('tags', 60*24 ,function () {
-            return Tag::all();
-        });
-
-        // Rezultatu prikljucujem jos ime GRADA i ime Kompanije za svaki oglas
-        $jobs = $query->with('company:id,name,user_id,logo_path')->with('city:id,name');
-
-        // Order by
-        if ($request->filled('order_id') && $request->order_id == 'expiration') {
-                
-            $now = date('Y-m-d H:i:s');
-
-            // Ako trazim po TAG ID ona koristim whereHas
-            if ($request->filled('tag_id')) {
-                $expired_query = Job::whereHas('tags', function($q) use ($request){
-                    $q->where('tag_id', '=', $request->tag_id);
-                });
-
-            }else{
-                // Ako trazimo bez TAG ID
-                $expired_query = Job::where('status', 1)->with('tags');
-            }
-
-            // Dodatna provera filtera ako korisnik posalje
-            if ($request->filled('cat_id')) {
-                $expired_query->where('category_id',$request->cat_id);
-            }
-            if ($request->filled('type_id')) {
-                $expired_query->where('type_id',$request->type_id);
-            }
-            if ($request->filled('level_id')) {
-                $expired_query->where('level_id',$request->level_id);
-            }
-            if ($request->filled('city_id')) {
-                $expired_query->where('city_id',$request->city_id);
-            }
-
-
-            $jobs_expired = $expired_query->selectRaw('*, 2 as order_num')->whereDate('expired_at', '<', $now);
-            $jobs_expired = $jobs_expired->with('company:id,name,user_id,logo_path')->with('city:id,name');
-
-            $jobs = $jobs->selectRaw('*, 1 as order_num')->whereDate('expired_at', '>', $now);
-
-            $jobs = $jobs->union($jobs_expired)
-                        ->orderBy('order_num', 'asc')
-                        ->orderByRaw(
-                            "CASE WHEN order_num = 1 THEN expired_at END ASC,
-                             CASE WHEN order_num = 2 THEN expired_at END DESC"
-                        )
-                        ->paginate(10);
-            
-        }else{
-            $jobs = $jobs->latest()->paginate(10);
-        }
-
-        $jobsCount = $jobs->count();
-        $jobsTotal = $jobs->total();
-
-
-        return view('poslovi')->with('jobs',$jobs)->with('jobsCount',$jobsCount)->with('jobsTotal',$jobsTotal)->with('cities',$cities)->with('tags',$tags);
-
-    }
-
     // ADMIN JOBS PAGE
-    public function indexAdmin(Request $request)
-    {
+    public function index(Request $request)
+    {   
+        $search = $request->search;
 
-        if($request->has('search')){
+        $query = Job::select('id', 'title','company_id', 'category_id', 'expired_at', 'slug', 'status')->with('company:id,name');
 
-            $search = $request->search;
+        $query->when($search, function ($q, $search) {
+            return $q->where('title', 'LIKE', "%{$search}%");
+        });
 
-            $jobs = Job::select('id', 'title','company_id', 'category_id', 'expired_at', 'slug', 'status')
-                    ->where('title', 'LIKE', "%{$search}%")
-                    ->with('company:id,name')
-                    ->latest()
-                    ->paginate(8);
-
-        }else{
-            $jobs = Job::select('id', 'title', 'company_id', 'category_id', 'expired_at', 'slug', 'status')
-                    ->with('company:id,name')
-                    ->latest()
-                    ->paginate(8);
-        }
+        $jobs = $query->latest()->paginate(8);
 
         return view('admin/index')->with('jobs',$jobs);
 
@@ -261,29 +155,6 @@ class JobController extends Controller
         return redirect()->route('admin')->with('status', 'Uspješno kreiran novi oglas!');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id, $slug) {
-
-        $job = Job::where('id', $id)
-                    ->with(['level:id,name','company:id,user_id,name,logo_path,website','type:id,name','city:id,name'])
-                    ->first();
-
-        $related_jobs = Job::whereHas('tags', function ($q) use ($job) {
-                        return $q->whereIn('name', $job->tags->pluck('name')); 
-                    })
-                    ->where('id', '!=', $job->id)
-                    ->where('status', 1)
-                    ->with(['company:id,user_id,name,logo_path','city:id,name'])
-                    ->limit(2)
-                    ->get();
-
-        return view('single', compact('job','related_jobs'));
-    }    
 
     /**
      * Show the form for editing the specified resource.

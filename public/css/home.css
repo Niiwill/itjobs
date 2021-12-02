@@ -45,7 +45,7 @@ h2{
     font-size: 3.5rem;
     line-height: 1.2;
     letter-spacing: -.9px;
-    color: #000;
+    color: #1d1d1f;
     margin-bottom: 1.2rem
 }
 .hero-body p{
@@ -138,12 +138,11 @@ ul.tags li{
 
 .header-button a{
     border-radius: 30px;
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 700;
     height: 40px;
-    min-width: 130px;
+    min-width: 150px;
     line-height: 29px;
-    padding: 5px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -453,7 +452,7 @@ select2-selection {
 
 
 
-/* NAVIGATION *//////////////////////////
+/* NAVIGATION */
 
 .navbar{
     background-color: #fff;
@@ -478,15 +477,11 @@ select2-selection {
     position: relative;
 }
 
-/* END NAVIGATION *//////////////////////
+/* END NAVIGATION */
 
 
 
-
-
-
-
-/* FOOTER *//////////////////////////////
+/* FOOTER */
 
 footer{
     background-color: #fff;
@@ -527,7 +522,8 @@ footer svg{
     letter-spacing: -.08px;
     margin-bottom: 30px;
 }
-/* END FOOTER */////////////////////////////
+
+/* END FOOTER */
 
 @media (max-width: 575.98px) {
 

@@ -1,34 +1,20 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Models\Article;
 use Illuminate\Support\Str;
-use Intervention\Image\ImageManager;
 use Image;
 use Illuminate\Support\Facades\Storage;
+use App\Http\Controllers\Controller;
+
 
 
 
 class ArticleController extends Controller
 {
     
-    public $meseci = [" ","Jan","Feb","Mar","Apr","Maj","Jun","Jul","Avg","Sep","Okt","Nov","Dec"];
-
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function texts(Request $request)
-    {
-        $meseci = $this->meseci;
-        $articles = Article::where('article_category_id', 1)->where('status', 1)->latest()->paginate(12);
-
-        return view('it-price', compact('articles','meseci'));
-     
-    }
     /**
      * Display a listing of the resource.
      *
