@@ -95,7 +95,7 @@ class ArticleController extends Controller
 
         }
         $article->save();
-        return redirect()->route('article.index')->with('status', 'Uspješno kreiran!');
+        return redirect()->route('admin.articles.index')->with('status', 'Uspješno kreiran!');
     }
 
     /**
@@ -174,7 +174,7 @@ class ArticleController extends Controller
         }
 
         $article->save();
-        return redirect()->route('article.index')->with('status', 'Uspješno kreiran!');
+        return redirect()->route('admin.articles.index')->with('status', 'Uspješno kreiran!');
     }
 
     public function resizeMainImage($img,$extension)

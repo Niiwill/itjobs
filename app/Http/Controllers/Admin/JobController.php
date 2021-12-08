@@ -90,7 +90,7 @@ class JobController extends Controller
 
         $job->tags()->sync($request->tags,false);
 
-        return redirect()->route('admin')->with('status', 'Uspješno kreiran novi oglas!');
+        return redirect()->route('admin.jobs.index')->with('status', 'Uspješno kreiran novi oglas!');
     }
 
 
@@ -139,7 +139,7 @@ class JobController extends Controller
     
         $job->tags()->sync($request->tags);
 
-        return redirect()->route('admin')->with('status', 'Uspješno promijenjen oglas!');
+        return redirect()->route('admin.jobs.index')->with('status', 'Uspješno promijenjen oglas!');
 
     }
 
