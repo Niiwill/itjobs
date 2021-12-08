@@ -1,33 +1,4 @@
-<!DOCTYPE html>
-<html lang="me">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="icon" type="image/x-icon" href="{{asset('storage/img/favicon.png')}}" />
-        <title>ITPoslovi.me | Svi IT poslovi u Crnoj Gori, kompanije i poslodavci na jednom mestu</title>
-        <meta name="description" content="IT Poslovi, konkursi i slobodna radna mesta! Poslodavci i firme u Crnoj Gori na jednom mestu. Programeri Crna Gora - Oglasi za programiranje, dizajn, administraciju, web poslove i drugo">
-        <link rel="canonical" href="https://itposlovi.me"/>
-        <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-        <!-- Bootstrap -->
-        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
-        <!-- Select2 -->
-        <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet">
-        <!-- Home CSS -->
-        <link href="{{ asset('css/home.css?v=322') }}" rel="stylesheet">
-        
-        <!-- Global site tag (gtag.js) - Google Analytics -->
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1424446387057620" crossorigin="anonymous"></script><script>
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-
-          gtag('config', 'G-TETF7GV131');
-        </script>   
-        <script data-ad-client="ca-pub-5138244234973689" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    </head>
-    <body>
+<x-home-layout>
         <!-- NAVIGATION -->
         @include('navigation')
 
@@ -51,7 +22,7 @@
                             </div>
 
                             <div class="col-md-8 mt-0 mt-md-3">
-                                <form id="search-form-home" action="/oglasi-za-posao" method="get">                                    
+                                <form id="search-form-home" action="{{ route('job.search') }}" method="get">                                    
                                     <div class="row">
                                         <div class="col-9 col-md-8 pr-0">
                                             <div class="search_input_home">
@@ -104,7 +75,7 @@
 
                     <div class="col-12 col-lg-6 pb-5 pt-3 pt-sm-0 pb-sm-5">
                         <div class="header-button">
-                            <a class="btn" href="/oglasi-za-posao">ISTRAŽI SVE</a>
+                            <a class="btn" href="{{ route('job.search')}}">ISTRAŽI SVE</a>
                         </div>
                     </div>
                 </div>
@@ -300,7 +271,7 @@
 
                     <div class="col-12 col-lg-6 pb-5 pt-3 pt-sm-0 pb-sm-5">
                         <div class="header-button">
-                            <a class="btn" href="{{ route('articles_all')}}">PROČITAJ SVE</a>
+                            <a class="btn" href="{{ route('articles.index')}}">PROČITAJ SVE</a>
                         </div>
                     </div>
                 </div>
@@ -308,7 +279,7 @@
                 <div class="row">
                         @foreach ($articles as $article)
                             <div class="col mb-5">
-                                <a href="{{ route('articles_single', ['id' => $article->id, 'slug' => $article->slug]) }}" class="text-decoration-none mt-4 mb-3">
+                                <a href="{{ route('articles.single', ['id' => $article->id, 'slug' => $article->slug]) }}" class="text-decoration-none mt-4 mb-3">
                                     <div class="article-card sub-articles ">
                                         <div class="d-block position-relative">
                                             <img src="{{asset('storage/articles/thumbnails/'.$article->image_url)}}" alt="{{$article->title}} slika">
@@ -342,95 +313,10 @@
         </div>
 
 
-        <!-- FEATURES SECTION -->
-        <div id="features" class="py-2 py-md-5">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6 pb-4 pb-sm-0">
-                        <div class="p-2 p-sm-0 pr-sm-5">
-                            <img  src="{{asset('storage/img/features.jpg')}}" alt=" it poslovi crna gora mali oglasi ">
-                        </div>
-                    </div>
-                    <div class="col-md-5 offset-md-1">
-                        <h2>Pomažemo ti da pronađeš posao po tvojoj mjeri</h2>
-                        <div class="row">
-                            <div class="col-md-12 mb-5">
-                                <div class="row">
-                                    <div class="col-2 col-md-2">
-                                        <div class="features-icon" style="background-color: rgba(35, 245, 195, 0.2);">
-                                            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-check-square-fill" fill="#23f5c3" xmlns="http://www.w3.org/2000/svg">
-                                            <path fill-rule="evenodd" d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm10.03 4.97a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/></svg>
-                                        </div>
-                                    </div>
-                                    <div class="col-10 col-md-10">
-                                        <h5>#1 Sajt za IT poslove u CG</h5>
-                                        <p>Najveća baza IT poslova i provjerenih poslodavaca u Crnoj Gori.</p>
-                                    </div>
-                                </div>
-                                
-                            </div>
+        <x-about/>
 
-                            <div class="col-md-12 mb-5">
-                                <div class="row">
-                                    <div class="col-2 col-md-2">
-                                        <div class="features-icon" style="background-color:rgba(138, 63, 252, 0.2);">
-                                            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-search" fill="#8a3ffc" xmlns="http://www.w3.org/2000/svg">
-                                              <path fill-rule="evenodd" d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"/>
-                                              <path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
-                                            </svg>
-                                        </div>
-                                    </div>
-                                    <div class="col-10 col-md-10">
-                                        <h5>Napredna pretraga</h5>
-                                        <p>Pretraga je kreirana da lako dođete do oglasa koji su kompatabilni vašim vještinama.</p>
-                                    </div>
-                                </div>
-                            </div>  
+        <x-footer/>
 
 
-                            <div class="col-md-12 mb-5">
-                                <div class="row">
-                                    <div class="col-2 col-md-2">
-                                        <div class="features-icon" style="background-color:rgba(56, 97, 251, 0.2);">
-                                            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-award-fill" fill="#3861fb" xmlns="http://www.w3.org/2000/svg">
-                                              <path d="M8 0l1.669.864 1.858.282.842 1.68 1.337 1.32L13.4 6l.306 1.854-1.337 1.32-.842 1.68-1.858.282L8 12l-1.669-.864-1.858-.282-.842-1.68-1.337-1.32L2.6 6l-.306-1.854 1.337-1.32.842-1.68L6.331.864 8 0z"/>
-                                              <path d="M4 11.794V16l4-1 4 1v-4.206l-2.018.306L8 13.126 6.018 12.1 4 11.794z"/>
-                                            </svg>
-                                        </div>
-                                    </div>
-                                    <div class="col-10 col-md-10">
-                                        <h5>Poslovi u top kompanijama</h5>
-                                        <p>Trudićemo se da na našoj platformi nađete poslove istaknutih kompanija koje nude i najbolje uslove zapošljavanja.</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        
-
-        <!-- FOOTER -->
-        @include('footer')
-
-        <!-- JQuery -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-        <!-- Select2 JS -->
-        <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
-        <script type="text/javascript">
-            $('.search_tags').select2({
-                width: '100%',
-                maximumSelectionLength:1,
-                placeholder:'Java',
-                minimumInputLength: 2,
-                language: {
-                    inputTooShort: function () { return ''; }
-                }
-            });
-        </script>
-    </body>
-</html>
+</x-home-layout>
 

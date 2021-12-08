@@ -3,13 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use App\Models\Article;
 use Illuminate\Support\Str;
 use Image;
 use Illuminate\Support\Facades\Storage;
-use App\Http\Controllers\Controller;
-
-
 
 
 class ArticleController extends Controller

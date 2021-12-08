@@ -5,24 +5,52 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'Admin Itposlovi') }}</title>
+        <title>{{ config('app.name', 'Admin IT-Poslovi') }}</title>
 
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+        @stack('css')
+
+        @livewireStyles
 
         <!-- Scripts -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.3/dist/alpine.js" defer></script>
     </head>
-    <body>
-        <div class="font-sans text-gray-900 antialiased">
-            {{ $slot }}
+    <style type="text/css">
+        .se-pre-con {
+            position: fixed;
+            left: 0px;
+            top: 0px;
+            width: 100%;
+            height: 100%;
+            z-index: 9999;
+            background: url('{{asset('storage/img/preloader.gif')}}') center no-repeat #fff;
+        }
+    </style>
+    <body class="font-sans antialiased">
+        <div class="se-pre-con"></div>
+        <div class="min-h-screen bg-gray-100">
+
+            <!-- Page Content -->
+            <main>
+                {{ $slot }}
+            </main>
         </div>
+
+        @stack('modals')
+
+        @livewireScripts
+        
+        @stack('scripts')
+        <script type='text/javascript'>
+            $(window).on('load',function() {
+                // Animate loader off screen
+                $(".se-pre-con").fadeOut("slow");;
+            });
+        </script>
     </body>
-<<<<<<< HEAD
 </html>
-=======
-</html>
->>>>>>> cca5e6aa4139f7214d11558909726fbce5a7accf

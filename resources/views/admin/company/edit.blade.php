@@ -11,7 +11,7 @@
             @endif
 
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                <form method="POST" action="{{ route('company.update', $company->id) }}" enctype="multipart/form-data">
+                <form method="POST" action="{{ route('admin.companies.update', $company->id) }}" enctype="multipart/form-data">
                     @method('PATCH')
                     @csrf
                     <div class="shadow overflow-hidden sm:rounded-md">

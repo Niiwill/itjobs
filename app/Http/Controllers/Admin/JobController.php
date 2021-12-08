@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use App\Models\Job;
 use App\Models\Category;
 use App\Models\City;
@@ -21,6 +22,7 @@ class JobController extends Controller
     // ADMIN JOBS PAGE
     public function index(Request $request)
     {   
+
         $search = $request->search;
 
         $query = Job::select('id', 'title','company_id', 'category_id', 'expired_at', 'slug', 'status')->with('company:id,name');
@@ -35,70 +37,6 @@ class JobController extends Controller
 
     }
 
-    
-    // HOME PAGE
-    public function home(Request $request)
-    {   
-        $meseci = $this->meseci;
-        
-        $programming_count = Cache::remember('programming_count', 60*24 ,function () {
-            return Job::where('category_id', 1)->count();
-        });
-
-        $design_count = Cache::remember('design_count', 60*24 ,function () {
-            return Job::where('category_id', 2)->count();
-        });
-
-        $qa_count = Cache::remember('qa_count', 60*24 ,function () {
-            return Job::where('category_id', 5)->count();
-        });
-
-        $intership_count = Cache::remember('intership_count', 60*24 ,function () {
-            return Job::where('category_id', 8)->count();
-        });
-
-        // SECTION - FEATURED JOBS
-        $jobs = Cache::remember('jobs', 60*120 ,function () {
-            return Job::where('expired_at', '>=', date('Y-m-d'))
-                    ->where('status', 1)
-                    ->with('company:id,name,user_id,logo_path')
-                    ->with('city:id,name')
-                    ->groupBy('company_id')
-                    ->limit(6)
-                    ->get();
-        });
-
-        // SECTION - IT EVENTS
-        $it_events = Cache::remember('it_events',60*120, function () {
-            return Article::select('id', 'slug', 'image_url', 'article_event_date', 'title', 'location')
-                            ->orderBy('article_event_date','DESC')
-                            ->where('article_category_id', 2)
-                            ->limit(3)
-                            ->get();
-        });
-
-        // SECTION - ARTICLES
-        $articles = Cache::remember('articles',60*120, function () { 
-            return Article::select('id','slug','image_url', 'created_at','title','description')
-                            ->where('article_category_id', 1)
-                            ->where('status', 1)
-                            ->latest()
-                            ->limit(3)
-                            ->get();
-        });
-
-        $tags = Cache::rememberForever('tags', function () {
-            return Tag::all();
-        });
-
-        return view('home')
-                ->with('jobs', $jobs)
-                ->with('tags', $tags)
-                ->with('it_events', $it_events)
-                ->with('meseci', $meseci)
-                ->with('articles', $articles)
-                ->with(compact('programming_count', 'design_count', 'qa_count', 'intership_count'));
-    }
 
     /**
      * Show the form for creating a new resource.

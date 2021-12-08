@@ -1,38 +1,36 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Models\Tag;
-
 
 // HOME PAGE
 Route::get('/','PublicController@home');
 
 // JOBS PUBLIC
-Route::get('/oglasi-za-posao','PublicController@search')->name('job.listing');
+Route::get('/oglasi-za-posao','PublicController@search')->name('job.search');
 Route::get('/posao/{id}/{slug}','PublicController@showJob')->name('job.single');
 
 // IT EVENTS
-Route::get('/it-dogadjaji','PublicController@events');
-Route::get('/it-dogadjaji/{id}/{slug}','PublicController@showEvent');
+Route::get('/it-dogadjaji','PublicController@events')->name('events.index');
+Route::get('/it-dogadjaji/{id}/{slug}','PublicController@showEvent')->name('events.single');
 
 // IT NEWS
-Route::get('/it-price','PublicController@articles')->name('articles_all');
-Route::get('/it-price/{id}/{slug}','PublicController@showArticle')->name('articles_single');
+Route::get('/it-price','PublicController@articles')->name('articles.index');
+Route::get('/it-price/{id}/{slug}','PublicController@showArticle')->name('articles.single');
 
 // ADMIN
-Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
+Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth']], function () {
 
    // ADMIN
-   Route::get('/','JobController@index')->name('admin');
+   Route::get('/','Admin\JobController@index')->name('index');
    
    // ADMIN - JOBS
-   Route::resource('job', 'JobController')->middleware('auth');
+   Route::resource('jobs', 'Admin\JobController');
 
    // ADMIN - COMPANIES
-   Route::resource('company', 'CompanyController')->middleware('auth');
+   Route::resource('companies', 'Admin\CompanyController');
 
    // ADMIN - ARTICLES
-   Route::resource('article', 'ArticleController')->middleware('auth');
+   Route::resource('articles', 'Admin\ArticleController');
 
 });
 
