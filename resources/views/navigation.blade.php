@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg">
+<nav class="navbar navbar-expand-lg navbar-light">
 	<div class="container">
 		<a class="navbar-logo navbar-logo px-3 px-sm-2 pt-3 pb-1" href="{{ url('/') }}">
 			<img src="{{asset('storage/img/logo.png')}}" alt="logo it poslovi crna gora me">
