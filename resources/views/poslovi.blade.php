@@ -57,9 +57,9 @@
         </script>
      
         <!-- Navigation CSS -->
-        <link href="{{ asset('css/navigation.css?v=15') }}" rel="stylesheet">
+        <link href="{{ asset('css/navigation.css?v=17') }}" rel="stylesheet">
         <!-- Search CSS -->
-        <link href="{{ asset('css/search.css?v=20') }}" rel="stylesheet">
+        <link href="{{ asset('css/search.css?v=21') }}" rel="stylesheet">
         <!-- Footer CSS -->
         <link href="{{ asset('css/footer.css?v=15') }}" rel="stylesheet">   
 
