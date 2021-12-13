@@ -59,4 +59,10 @@ class Job extends Model
     {
         return $this->belongsToMany('App\Models\Tag','job_tag');
     }
+
+
+    public function scopeSearch($query, $column, $search){
+        return $query->where($column, 'LIKE', "%{$search}%");
+
+    }
 }

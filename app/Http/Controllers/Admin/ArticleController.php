@@ -20,19 +20,16 @@ class ArticleController extends Controller
      */
     public function index(Request $request)
     {
+        $search = $request->search;
 
-        if($request->has('search')){
-
-            $search = $request->search;
-
-            $articles = Article::query()
-                                ->where('title', 'LIKE', "%{$search}%")
-                                ->latest()
-                                ->get();
-        }else{
-            $articles = Article::latest()->get();
-        }
-
+        $articles = Article::query()
+            ->when($search, function ($query, $search) {
+                return $query->search('title', $search);
+            })
+            ->latest()
+            ->get();
+       
+            // branch 2
         return view('admin/article/index', compact('articles'));
      
     }

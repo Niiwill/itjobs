@@ -25,13 +25,13 @@ class JobController extends Controller
 
         $search = $request->search;
 
-        $query = Job::select('id', 'title','company_id', 'category_id', 'expired_at', 'slug', 'status')->with('company:id,name');
-
-        $query->when($search, function ($q, $search) {
-            return $q->where('title', 'LIKE', "%{$search}%");
-        });
-
-        $jobs = $query->latest()->paginate(8);
+        $jobs = Job::select('id', 'title','company_id', 'category_id', 'expired_at', 'slug', 'status')
+            ->with('company:id,name')
+            ->when($search, function ($query, $search) {
+                return $query->search('title', $search);
+            })
+            ->latest()
+            ->paginate(8);
 
         return view('admin/index')->with('jobs',$jobs);
 
@@ -103,9 +103,9 @@ class JobController extends Controller
     public function edit($id)
     {
 
-        $job=Job::findOrFail($id);
-        $categories=Category::all();
-        $tags=Tag::all();
+        $job = Job::findOrFail($id);
+        $categories = Category::all();
+        $tags = Tag::all();
         $companies = Company::all();
         $cities = City::all();
 
