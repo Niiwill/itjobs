@@ -120,7 +120,7 @@ ul.tags li a{
     font-size: 13px;
     min-width: 96px;
     padding: .25rem 1rem;
-    border-radius: 3px;
+    border-radius: 30px;
     background-color: rgba(176,213,232,.15);
     line-height: 2;
     letter-spacing: .26px;

@@ -68,12 +68,17 @@ class PublicController extends Controller
             return Tag::all();
         });
 
+        $popular_tags = Cache::rememberForever('popular_tags', function () {
+            return Tag::withCount('jobs')->orderBy('jobs_count', 'desc')->limit(10)->get();
+        });
+
         return view('home')
                 ->with('jobs', $jobs)
                 ->with('tags', $tags)
                 ->with('it_events', $it_events)
                 ->with('meseci', $meseci)
                 ->with('articles', $articles)
+                ->with('popular_tags', $popular_tags)
                 ->with(compact('programming_count', 'design_count', 'qa_count', 'intership_count'));
     }
 
@@ -213,4 +218,5 @@ class PublicController extends Controller
 
         return view('single', compact('job','related_jobs'));
     } 
+
 }

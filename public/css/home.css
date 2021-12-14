@@ -37,22 +37,28 @@ h2{
 .hero{
     background: #f6f8fc;
 }
-.hero img{
-    margin-top: -40px;
-}
 .hero-body h1{
     font-weight: 700;
-    font-size: 3.5rem;
+    font-size: 3.4rem;
     line-height: 1.2;
     letter-spacing: -.9px;
     color: #1d1d1f;
     margin-bottom: 1.2rem
 }
 .hero-body p{
-    font-size: 1.31rem;
-    line-height: 1.66;
-    letter-spacing: -.09px;
-    color: #6b6e6f;
+    font-size: 1rem;
+    color: #17171d;
+}
+.hero .popular-tags .label{
+    font-weight:600;
+    color: #17171d;
+}
+.hero .popular-tags a{
+    background-color: rgb(9 105 195 / 5%);
+    border-radius: 8px;
+    color: #0969c3;
+    text-decoration: none;
+    
 }
 .job-card{
     padding:1.7rem;
