@@ -26,7 +26,7 @@ class JobController extends Controller
         $search = $request->search;
 
         $jobs = Job::select('id', 'title','company_id', 'category_id', 'expired_at', 'slug', 'status')
-            ->with('company:id,name')
+            ->with(['company:id,name', 'category'])
             ->when($search, function ($query, $search) {
                 return $query->search('title', $search);
             })

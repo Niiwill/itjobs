@@ -10,10 +10,10 @@
 		<div class="collapse navbar-collapse" id="navbarColor01">
 			<ul class="navbar-nav ml-auto">
 				<li class="nav-item">
-					<a class="nav-link" href="/oglasi-za-posao">Poslovi</a>
+					<a class="nav-link" href="{{ route('job.search') }}">Poslovi</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="/it-price">IT Priče i Vijesti</a>
+					<a class="nav-link" href="{{ route('articles.index') }}">IT Priče i Vijesti</a>
 				</li>
 			</ul>
 		</div>  

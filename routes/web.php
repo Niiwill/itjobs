@@ -32,6 +32,9 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth']], 
    // ADMIN - ARTICLES
    Route::resource('articles', 'Admin\ArticleController');
 
+   // ADMIN - ARTICLES
+   Route::resource('tags', 'Admin\TagController');
+
 });
 
 // Private Policy

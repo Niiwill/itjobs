@@ -236,7 +236,12 @@
                                 <div class="col-12 col-md-7">
                                     <ul class="tags">
                                         @foreach($job->tags as $tag)
-                                        <li><a href="/oglasi-za-posao?tag_id={{$tag->id}}">{{$tag->name}}</a></li>
+                                        <li>
+                                            <a href="/oglasi-za-posao?tag_id={{$tag->id}}">
+                                                <img src="{{asset('storage/tags/'.$tag->icon)}}" class="mr-1 mh-25" alt="{{ $tag->name }}">
+                                                {{$tag->name}}
+                                            </a>
+                                        </li>
                                         @endforeach
                                     </ul>
                                 </div>

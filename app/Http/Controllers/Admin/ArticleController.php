@@ -165,7 +165,7 @@ class ArticleController extends Controller
 
             // Thumbnail
             $thumbnail = $this->createThumbnail($image,$extension);
-            $path = Storage::put('public/articles/thumbnails/'.$custom_name, $thumbnail);
+            Storage::put('public/articles/thumbnails/'.$custom_name, $thumbnail);
 
             $article->image_url = $custom_name;
         }

@@ -21,6 +21,9 @@
                     <x-jet-nav-link href="{{ route('admin.articles.index') }}" :active="request()->routeIs('admin.article.index')">
                         {{ __('Tekstovi i Događaji') }}
                     </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('admin.tags.index') }}" :active="request()->routeIs('admin.tags.index')">
+                        {{ __('Tagovi') }}
+                    </x-jet-nav-link>
                 </div>
             </div>
 
