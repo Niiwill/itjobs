@@ -58,7 +58,7 @@
                                 @foreach ($popular_tags->take(4) as $tag)
                                     <a href="{{ route('job.search', ['tag_id' => $tag->id]) }}" class="px-3 mr-2 mb-2 py-2 d-inline-block">
                                         @if ($tag->icon)
-                                            <img src="{{asset('storage/tags/'.$tag->icon)}}" class="mr-1" height="25px" alt="{{ $tag->name }}">
+                                            <img src="{{asset('storage/tags/'.$tag->icon)}}" class="mr-2" height="25px" alt="{{ $tag->name }}">
                                         @endif
                                         {{ $tag->name }}</a>
                                 @endforeach
