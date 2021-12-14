@@ -117,7 +117,9 @@ class TagController extends Controller
 
     public function createIcon($img, $extension)
     {
-        $img = Image::make($img)->resize(28, 28)->encode($extension,90);
+        $img = Image::make($img)->resize(null, 28, function ($constraint) {
+            $constraint->aspectRatio();
+        })->encode($extension);
         return $img;
     }
 }
