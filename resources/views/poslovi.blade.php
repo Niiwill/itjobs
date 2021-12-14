@@ -238,7 +238,9 @@
                                         @foreach($job->tags as $tag)
                                         <li>
                                             <a href="/oglasi-za-posao?tag_id={{$tag->id}}">
-                                                <img src="{{asset('storage/tags/'.$tag->icon)}}" class="mr-1 mh-25" alt="{{ $tag->name }}">
+                                                @if ($tag->icon)
+                                                    <img src="{{asset('storage/tags/'.$tag->icon)}}" class="mr-1" height="25px" alt="{{ $tag->name }}">
+                                                @endif
                                                 {{$tag->name}}
                                             </a>
                                         </li>
