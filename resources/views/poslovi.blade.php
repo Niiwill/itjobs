@@ -59,7 +59,7 @@
         <!-- Navigation CSS -->
         <link href="{{ asset('css/navigation.css?v=17') }}" rel="stylesheet">
         <!-- Search CSS -->
-        <link href="{{ asset('css/search.css?v=21') }}" rel="stylesheet">
+        <link href="{{ asset('css/search.css?v=22') }}" rel="stylesheet">
         <!-- Footer CSS -->
         <link href="{{ asset('css/footer.css?v=15') }}" rel="stylesheet">   
 
@@ -237,9 +237,9 @@
                                     <ul class="tags">
                                         @foreach($job->tags as $tag)
                                         <li>
-                                            <a href="/oglasi-za-posao?tag_id={{$tag->id}}">
+                                            <a href="/oglasi-za-posao?tag_id={{$tag->id}}" class="px-3 mr-2 mb-1 py-2 d-inline-flex">
                                                 @if ($tag->icon)
-                                                    <img src="{{asset('storage/tags/'.$tag->icon)}}" class="mr-1" height="25px" alt="{{ $tag->name }}">
+                                                    <img src="{{asset('storage/tags/'.$tag->icon)}}" class="mr-2" height="25px" alt="{{ $tag->name }}">
                                                 @endif
                                                 {{$tag->name}}
                                             </a>

@@ -61,7 +61,7 @@ h2{
     color: #0969c3;
     text-decoration: none;
     font-size: 0.9rem;
-    box-shadow: 0 10px 20px rgb(52 82 255 / 6%);
+    box-shadow: 0 4px 15px rgb(52 82 255 / 6%);
 }
 .job-card{
     padding:1.7rem;
@@ -331,17 +331,7 @@ select2-selection {
 }
 
 #events{
-    background-color: #1d1d1d;
-}
-#events, #events h2{
     color: #ffffff;
-}
-#events h2 span{
-    background-image: linear-gradient(to right, #177afa 20%, #20DEB0);
-    -webkit-background-clip: text;
-    -moz-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    -moz-text-fill-color: transparent;
 }
 
 .timeline-item{
@@ -546,7 +536,7 @@ footer svg{
         text-align: left;  
     }
     .hero-body p{
-        font-size: 1.1rem;
+        font-size: 1rem;
         text-align: left;  
     }
     .hero img{

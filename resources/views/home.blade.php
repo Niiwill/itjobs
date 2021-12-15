@@ -54,7 +54,8 @@
                             </div>
 
                             <div class="col-12 mt-5 popular-tags">
-                                <div class="label py-1 mb-2  position-relative">Popularne vještine</div>
+                                <div class="label py-1 mb-2">Popularne vještine</div>
+                                <div class="d-flex">
                                 @foreach ($popular_tags->take(4) as $tag)
                                     <a href="{{ route('job.search', ['tag_id' => $tag->id]) }}" class="px-3 mr-2 mb-2 py-2 d-inline-flex">
                                         @if ($tag->icon)
@@ -62,6 +63,7 @@
                                         @endif
                                         {{ $tag->name }}</a>
                                 @endforeach
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -233,7 +235,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12 pt-5 pb-2">
-                        <h2>Kalendar<span> IT događaja</span></h2>
+                        <h2>Kalendar <span style="color:#04D223;">IT</span> događaja</h2>
                     </div>
                 </div>
                 <div class="row">
