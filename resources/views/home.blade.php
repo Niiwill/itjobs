@@ -55,7 +55,7 @@
 
                             <div class="col-12 mt-5 popular-tags">
                                 <div class="label py-1 mb-2">Popularne vještine</div>
-                                <div class="d-flex">
+                                <div class="d-flex flex-wrap">
                                 @foreach ($popular_tags->take(4) as $tag)
                                     <a href="{{ route('job.search', ['tag_id' => $tag->id]) }}" class="px-3 mr-2 mb-2 py-2 d-inline-flex">
                                         @if ($tag->icon)
