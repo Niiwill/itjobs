@@ -117,6 +117,7 @@ ul.tags li a{
     justify-content: center;
     text-align: center;
     font-size: 0.9rem;
+    min-height: 100%;
     border-radius: 8px;
     background-color: rgba(176,213,232,.15);
     transition: 0.3s;

@@ -166,7 +166,7 @@
         </div>
 
         <!-- ISTAKNUTI POSLOVI -->
-        <div id="featured-jobs" class="py-2 py-md-5 mb-5">
+        <div id="featured-jobs" class="py-2 py-md-5">
             <div class="container">
                 <!-- Naslov -->
                 <div class="row" style="padding-bottom: 3.4375rem;">
@@ -234,7 +234,7 @@
         <div id="events" class="py-5">
             <div class="container">
                 <div class="row">
-                    <div class="col-12 pt-5 pb-2">
+                    <div class="col-12">
                         <h2>Kalendar <span style="color:#04D223;">IT</span> događaja</h2>
                     </div>
                 </div>

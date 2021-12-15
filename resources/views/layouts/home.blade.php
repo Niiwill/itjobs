@@ -15,7 +15,7 @@
         <!-- Select2 -->
         <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet">
         <!-- Home CSS -->
-        <link href="{{ asset('css/home.css?v=331') }}" rel="stylesheet">
+        <link href="{{ asset('css/home.css?v=332') }}" rel="stylesheet">
         
         <!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1424446387057620" crossorigin="anonymous"></script><script>
