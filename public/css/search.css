@@ -255,5 +255,7 @@ select2-selection { overflow: hidden; }
     .cat-banner{
         padding: 20px 10px 15px;
     }
-   
+    ul.tags li a {
+       font-size: 0.7rem;
+    }
 }
