@@ -57,7 +57,7 @@ class TagController extends Controller
      */
     public function show($id)
     {
-        //
+    
     }
 
     /**
@@ -111,8 +111,15 @@ class TagController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
-    {
-        //
+    {   
+        $tag = Tag::find($id);
+        Storage::delete('public/tags/' . $tag->icon);
+
+        $tag->jobs()->detach();
+        $tag->delete();
+    
+        return redirect()->route('admin.tags.index')->with('status', 'Uspješno promijenjen oglas!');
+
     }
 
     public function createIcon($img, $extension)
