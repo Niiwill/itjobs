@@ -112,11 +112,11 @@ ul.tags li{
     display: inline;
 }
 ul.tags li a{
-    color: #2b3940;
+    color: #111;
     align-items: center;
     justify-content: center;
     text-align: center;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     min-height: 100%;
     border-radius: 8px;
     background-color: rgba(176,213,232,.15);
@@ -255,9 +255,5 @@ select2-selection { overflow: hidden; }
     .cat-banner{
         padding: 20px 10px 15px;
     }
-    ul.tags li a {
-        margin-right: .4rem;
-        min-width:auto; 
-        padding: .25rem 0.6rem;
-    }
+   
 }

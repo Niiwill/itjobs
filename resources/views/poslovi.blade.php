@@ -59,7 +59,7 @@
         <!-- Navigation CSS -->
         <link href="{{ asset('css/navigation.css?v=17') }}" rel="stylesheet">
         <!-- Search CSS -->
-        <link href="{{ asset('css/search.css?v=22') }}" rel="stylesheet">
+        <link href="{{ asset('css/search.css?v=23') }}" rel="stylesheet">
         <!-- Footer CSS -->
         <link href="{{ asset('css/footer.css?v=15') }}" rel="stylesheet">   
 
