@@ -236,8 +236,8 @@
                                 <div class="col-12 col-md-7">
                                     <ul class="tags">
                                         @foreach($job->tags as $tag)
-                                        <li>
-                                            <a href="/oglasi-za-posao?tag_id={{$tag->id}}" class="px-3 mr-2 mb-1 py-2 d-inline-flex">
+                                        <li class="mb-1">
+                                            <a href="/oglasi-za-posao?tag_id={{$tag->id}}" class="px-3 mr-2 py-2 d-inline-flex">
                                                 @if ($tag->icon)
                                                     <img src="{{asset('storage/tags/'.$tag->icon)}}" class="mr-2" height="25px" alt="{{ $tag->name }}">
                                                 @endif
