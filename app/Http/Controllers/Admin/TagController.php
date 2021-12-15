@@ -101,7 +101,7 @@ class TagController extends Controller
 
         $tag->save();
 
-        return redirect()->route('admin.tags.index')->with('status', 'Uspješno promijenjen oglas!');
+        return redirect()->route('admin.tags.index')->with('status', 'Uspješno izmenjen tag!');
     }
 
     /**
@@ -118,7 +118,7 @@ class TagController extends Controller
         $tag->jobs()->detach();
         $tag->delete();
     
-        return redirect()->route('admin.tags.index')->with('status', 'Uspješno promijenjen oglas!');
+        return redirect()->route('admin.tags.index')->with('status', 'Uspešno izbrisan tag!');
 
     }
 
