@@ -292,20 +292,36 @@ select2-selection {
     margin-bottom:0;
     font-weight: 400;
 }
+#articles, #events{ 
+    color:white;
+    background-color: #090212;
+}
+#articles h2, #events h2{ 
+    color:white;
+}
 .article-card{
-    border-radius: 30px;
+    border-radius: 20px;
     overflow: hidden;
     border:none;
     box-shadow: 0px 5px 83px 0px rgb(27 26 26 / 12%);
 }
 .article-card img{
-    max-height: 195px;
+    display: block;
     width: 100%;
+    height: 250px;
     object-fit: cover;
 }
+.article-card .description{
+    margin-top: -50px;
+    background-color: rgb(69, 44, 104, 0.2);
+    backdrop-filter: blur(20px);
+    box-shadow: 5px 3px 10px 0px rgb(0 0 0 / 30%);
+}
 .article-card h3{
-    font-size: 22px;
-    color:#1b1a1a;
+    margin-bottom: 15px;
+    font-size: 20px;
+    color:white;
+    line-height: 30px;
     font-weight: 600;
     display: -webkit-box;
     -webkit-line-clamp: 2;
@@ -314,31 +330,32 @@ select2-selection {
     text-overflow: ellipsis;
 }
 .article-card p {
-    font-size: 15px;
-    color: #9B9B9B;
+    color: #a8a8bd;
+    font-size: 14px;
+    font-weight: 300;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
     display: -webkit-box;
     -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
 }
-.article-card .calendar{
+/* .article-card .calendar{
     position: absolute;
     bottom:0;
     background-color:#0fbc49;
     color:#ffffff;
     font-size: 13px;
-}
+} */
 
 #events{
     color: #ffffff;
 }
 
 .timeline-item{
-    background-color:rgb(53, 53, 53);
-    overflow: hidden;
-    /*max-height: 270px;*/
-    box-shadow: 0px 0px 0px 0px rgb(0 0 0 / 80%);
+    background-color: transparent;
+    background-image: radial-gradient(at top right, #1a0a30 0%, #0c0417 100%);    overflow: hidden;
+    box-shadow: 5px 3px 10px 0px rgb(0 0 0 / 30%);
     position: relative;
     color: #ffffff;
     border-radius: 20px;
@@ -346,7 +363,7 @@ select2-selection {
 .timeline-item img{
     display: block;
     width: 100%;
-    max-height: 140px;
+    max-height: 215px;
     object-fit: cover;
 }
 
@@ -369,9 +386,9 @@ select2-selection {
     font-weight: 600;
     box-shadow: rgb(0 0 0 / 8%) 0px 0px 38px 0px;
     letter-spacing: .12rem;
-    background:#2a2a2a;
+    background:#090212;
     border-radius: 5px;
-    padding: 15px 20px;
+    padding: 10px 20px;
 }
 .timeline-item h5 {
     font-size: 1.2rem;

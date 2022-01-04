@@ -141,8 +141,8 @@
             }
             .timeline-item h5 {
                 margin-bottom: 15px;
-                font-size: 20px;
-                line-height: 32px;
+                font-size: 21px;
+                line-height: 30px;
                 font-weight: 600;
                 color: #ffffff;
                 text-decoration: none;

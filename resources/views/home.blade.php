@@ -234,7 +234,7 @@
         <div id="events" class="py-5">
             <div class="container">
                 <div class="row">
-                    <div class="col-12">
+                    <div class="col-12 mt-5">
                         <h2>Kalendar <span style="color:#04D223;">IT</span> događaja</h2>
                     </div>
                 </div>
@@ -245,6 +245,7 @@
                             <div class="timeline-item">
 
                                 <div class="position-relative">
+                                    {{-- <img src="https://itposlovi.me/storage/articles/thumbnails/1637224861.jpg" > --}}
                                     <img src="{{asset('storage/articles/'.$it_event->image_url)}}" alt="{{$it_event->title}} slika">
 
                                     <div class="calendar">
@@ -272,7 +273,7 @@
         </div>
 
         <!-- IT VESTI I PRIČE -->
-        <div id="articles" class="mt-5 py-2 py-md-5">
+        <div id="articles" class="py-2 py-md-5">
             <div class="container">
                
                 <div class="row">
@@ -292,15 +293,16 @@
                 <div class="row">
                         @foreach ($articles as $article)
                             <div class="col mb-5">
-                                <a href="{{ route('articles.single', ['id' => $article->id, 'slug' => $article->slug]) }}" class="text-decoration-none mt-4 mb-3">
+                                <a href="{{ route('articles.single', ['id' => $article->id, 'slug' => $article->slug]) }}" class="text-decoration-none">
                                     <div class="article-card sub-articles ">
                                         <div class="d-block position-relative">
+                                            {{-- <img src="https://itposlovi.me/storage/articles/thumbnails/1637224861.jpg" alt="{{$article->title}} slika"> --}}
+                                            
                                             <img src="{{asset('storage/articles/thumbnails/'.$article->image_url)}}" alt="{{$article->title}} slika">
-                                            <div class="calendar py-2 px-5">{{$article->created_at->format('j')}} {{$meseci[$it_event->article_event_date->format('n')]}}</div>
                                         </div>
                                         
 
-                                        <div class="description p-5">
+                                        <div class="description px-5 py-4">
                                             <h3>{{$article->title}}</h3>
                                             <p>{{$article->description}}</p>        
                                         </div>
