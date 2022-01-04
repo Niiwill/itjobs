@@ -36,10 +36,10 @@ class PublicController extends Controller
 
         // SECTION - FEATURED JOBS
         $jobs = Cache::remember('jobs', 60*120 ,function () {
-            return Job::where('expired_at', '>=', date('Y-m-d'))
-                    ->where('status', 1)
-                    ->with('company:id,name,user_id,logo_path')
+            return Job::with('company:id,name,user_id,logo_path')
                     ->with('city:id,name')
+                    ->where('expired_at', '>=', date('Y-m-d'))
+                    ->where('status', 1)
                     ->groupBy('company_id')
                     ->limit(6)
                     ->get();

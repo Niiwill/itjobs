@@ -28,7 +28,9 @@
             
             body{
                 font-family: 'Inter', sans-serif;
-                background-color: rgb(29, 29, 29);
+                background-color: #090212;
+                background-image: linear-gradient(80deg, #090212 50%, #0A021394 100%);
+                opacity: 1;
             }
             .navbar{
                 background-color: white;
@@ -106,21 +108,21 @@
                 -moz-text-fill-color: transparent;
             }
             .timeline-item{
-                background-color:rgb(53, 53, 53);
                 overflow: hidden;
-                /*max-height: 270px;*/
-                box-shadow: 0px 0px 0px 0px rgb(0 0 0 / 80%);
                 position: relative;
                 color: #ffffff;
-                border-radius: 20px;
+                border-radius: 10px;
             }
             .timeline-item .description{
-                border-top: 3px solid #20DEB0;
+                margin-top: -50px;
+                background-color: rgb(69, 44, 104, 0.2);
+                backdrop-filter: blur(20px);
+                box-shadow: 5px 3px 10px 0px rgb(0 0 0 / 30%);
             }
             .timeline-item img{
                 display: block;
                 width: 100%;
-                max-height: 150px;
+                height: 250px;
                 object-fit: cover;
             }
             .timeline-item .calendar {
@@ -138,7 +140,7 @@
                 padding: 7px 12px;
             }
             .timeline-item h5 {
-                margin-bottom: 10px;
+                margin-bottom: 15px;
                 font-size: 20px;
                 line-height: 32px;
                 font-weight: 600;
@@ -151,15 +153,11 @@
                 -webkit-box-orient: vertical;
             }
             .timeline-item p {
-                color: white;
-                opacity: 0.4;
-                font-size: 16px;
-                font-weight: 400;
-                line-height: 1.2em;
+                color: #a8a8bd;
+                font-size: 14px;
+                font-weight: 300;
                 width: 100%;
-                margin-bottom:0;
                 overflow: hidden;
-                height: 3.6em;
                 text-overflow: ellipsis;
                 display: -webkit-box;
                 -webkit-line-clamp: 3;
@@ -182,7 +180,7 @@
 
         <div class="container">
             <div class="row">
-                <div class="col mt-5 mb-3">
+                <div class="col mt-5 mb-5">
                     <div id="heading" class="pt-5">
                         <h1>IT Vijesti | Priče</h1>
                     </div>
@@ -191,17 +189,16 @@
             <div class="row">
                 @foreach ($articles as $article)
                 <div class="col-12 col-md-4 mb-5">
-                    <a href="/it-price/{{$article->id}}/{{$article->slug}}" class="card-title text-decoration-none mt-4 mb-3 d-inline-block">
+                    <a href="/it-price/{{$article->id}}/{{$article->slug}}" class="card-title text-decoration-none  d-inline-block">
                         <div class="timeline-item">
 
                             <div class="position-relative">
-                               
+                                
                                 <img src="{{asset('storage/articles/'.$article->image_url)}}" alt="{{$article->title}} slika">
-
                             </div>
 
-                            <div class="description p-5">
-                                <span class="calendar mb-2">{{$article->created_at->format('d')}} {{$meseci[$article->created_at->format('n')]}}</span>
+                            <div class="description px-5 py-4">
+                                {{-- <span class="calendar mb-2">{{$article->created_at->format('d')}} {{$meseci[$article->created_at->format('n')]}}</span> --}}
                                 <h5>{{$article->title}}</h5>
                                 <p>{{$article->description}}</p>
                             </div>
