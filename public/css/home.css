@@ -7,7 +7,7 @@ body {
     font-smoothing: antialiased;
 }
 h2{
-    font-size: clamp(16px,calc(1rem + 2vw), 40px);
+    font-size: clamp(16px,calc(1rem + 1vw), 40px);
     line-height: 1.375;
     letter-spacing: -.4px;
     font-weight: 700;
@@ -62,6 +62,33 @@ h2{
     text-decoration: none;
     font-size: 0.8rem;
     box-shadow: 0 4px 15px rgb(52 82 255 / 6%);
+}
+#top-companies{
+    
+}
+#top-companies img{
+    border-radius: 8px;
+    /* max-height: 90px; */
+    width: 100%;
+}
+#top-companies .company-card{
+    /* border-radius: 30px; */
+    text-align: center;
+    /* box-shadow: 0 10px 20px rgb(52 82 255 / 8%); */
+}
+#top-companies .company-card .company-logo{
+    border-radius: 10px;
+    background-color: #f3f2fc;
+}
+
+#top-companies h3{
+    font-weight: 600;
+    font-size: 1rem;
+    color: #2b3940;
+}
+#top-companies .description span{
+    font-size: 0.9rem;
+    color: #2b3940;
 }
 .job-card{
     padding:1.7rem;
@@ -298,6 +325,15 @@ select2-selection {
 }
 #articles h2, #events h2{ 
     color:white;
+}
+#articles .header-button a{
+    color: white;
+    background-color: #00b074;
+}
+#articles .header-button a:hover{
+    color: white;
+    background-color: transparent;
+    border-color: #00b074;
 }
 .article-card{
     border-radius: 20px;

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Job;
 use App\Models\Article;
 use App\Models\Tag;
+use App\Models\Company;
 use App\Models\City;
 
 class PublicController extends Controller
@@ -17,6 +18,10 @@ class PublicController extends Controller
     public function home(Request $request)
     {   
         $meseci = $this->meseci;
+        
+        $top_companies = Cache::remember('top_companies', 60*24*15 ,function () {
+            return Company::whereIn('id', [18, 3, 36, 47, 51, 54])->withCount('jobs')->get();
+        });
         
         $programming_count = Cache::remember('programming_count', 60*24 ,function () {
             return Job::where('category_id', 1)->count();
@@ -73,6 +78,7 @@ class PublicController extends Controller
         });
 
         return view('home')
+                ->with('top_companies', $top_companies)
                 ->with('jobs', $jobs)
                 ->with('tags', $tags)
                 ->with('it_events', $it_events)

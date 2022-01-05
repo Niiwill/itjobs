@@ -75,8 +75,37 @@
             </div>
         </div>
 
+        <!-- POPULARNE KOMPANIJE -->
+        <div id="top-companies" class="mt-4 py-2 py-5">
+            <div class="container">
+                <!-- Naslov -->
+                <div class="row" style="padding-bottom: 3.4375rem;">
+                    <div class="col-12 col-lg-12">
+                        <div class="header" >
+                            <h2>Istaknute <span style="color:#04D223;">IT</span> kompanije</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    @foreach ($top_companies as $company)
+                    <div class="col-6 col-md-2 mb-4">
+                        <div class="company-card">
+                            <div class="company-logo p-4 mb-3">
+                                <img src="{{asset('storage/'.$company->logo_path)}}" alt="{{$company->name}} logo" width="100%">
+                            </div>
+                            <div class="description">
+                                <h3>{{ $company->name }}</h3>
+                                <span>{{ $company->jobs_count }} pozicije</span>
+                            </div>
+                        </div>
+                    </div>
+                    @endforeach
+                </div>
+            </div>
+        </div>
+
         <!-- POPULARNE KATEGORIJE -->
-        <div class="mt-5 py-2 py-md-5">
+        <div class="py-2 py-md-5">
             <div class="container">
 
                 <div class="row">
@@ -235,7 +264,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12 mt-5">
-                        <h2>Kalendar <span style="color:#04D223;">IT</span> događaja</h2>
+                        <h2><span style="color:#04D223;">IT</span> događaji</h2>
                     </div>
                 </div>
                 <div class="row">
