@@ -67,11 +67,13 @@ h2{
     
 }
 #top-companies img{
+    /* filter: grayscale(100%); */
     background: white;
     border-radius: 8px;
-    min-height: 110px;
-    width: 100%;
+    /* min-height: 110px; */
+    width: 80px;
     object-fit: contain;
+    height: 80px;
 }
 #top-companies .company-card{
     /* border-radius: 30px; */
@@ -80,16 +82,15 @@ h2{
 }
 #top-companies .company-card .company-logo{
     border-radius: 20px;
-    background-color: #f3f2fc;
 }
 
 #top-companies h3{
     font-weight: 600;
-    font-size: 1rem;
-    color: #2b3940;
+    font-size: 0.9rem;
+    color: 000;
 }
 #top-companies .description span{
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     color: #2b3940;
 }
 .job-card{

@@ -89,8 +89,8 @@
                 <div class="row">
                     @foreach ($top_companies as $company)
                     <div class="col-6 col-md-2 mb-4">
-                        <div class="company-card">
-                            <div class="company-logo p-4 mb-3">
+                        <div class="company-card p-2">
+                            <div class="company-logo mb-2">
                                 <img src="{{asset('storage/'.$company->logo_path)}}" alt="{{$company->name}} logo" width="100%">
                             </div>
                             <div class="description">
