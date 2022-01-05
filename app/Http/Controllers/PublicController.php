@@ -20,7 +20,7 @@ class PublicController extends Controller
         $meseci = $this->meseci;
         
         $top_companies = Cache::remember('top_companies', 60*24*15 ,function () {
-            return Company::whereIn('id', [18, 3, 36, 47, 51, 54])->withCount('jobs')->get();
+            return Company::whereIn('id', [18, 3, 36, 55, 51, 54])->withCount('jobs')->orderBy('jobs_count', 'desc')->get();
         });
         
         $programming_count = Cache::remember('programming_count', 60*24 ,function () {
