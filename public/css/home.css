@@ -67,9 +67,11 @@ h2{
     
 }
 #top-companies img{
+    background: white;
     border-radius: 8px;
-    /* max-height: 90px; */
+    min-height: 110px;
     width: 100%;
+    object-fit: contain;
 }
 #top-companies .company-card{
     /* border-radius: 30px; */
@@ -77,7 +79,7 @@ h2{
     /* box-shadow: 0 10px 20px rgb(52 82 255 / 8%); */
 }
 #top-companies .company-card .company-logo{
-    border-radius: 10px;
+    border-radius: 20px;
     background-color: #f3f2fc;
 }
 
