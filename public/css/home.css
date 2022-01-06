@@ -87,7 +87,7 @@ h2{
 #top-companies h3{
     font-weight: 600;
     font-size: 0.9rem;
-    color: 000;
+    color: #000;
 }
 #top-companies .description span{
     font-size: 0.8rem;
@@ -234,7 +234,7 @@ ul.tags li{
 }
 .cat-banner-body h5{
     font-weight: 600;
-    font-size: 1.23rem;
+    font-size: 1.1rem;
     line-height: 1.6;
     letter-spacing: -.09px;
     color: #2b3940!important;
@@ -393,11 +393,12 @@ select2-selection {
 
 .timeline-item{
     background-color: transparent;
-    background-image: radial-gradient(at top right, #1a0a30 0%, #0c0417 100%);    overflow: hidden;
-    box-shadow: 5px 3px 10px 0px rgb(0 0 0 / 30%);
-    position: relative;
+    /* background-image: radial-gradient(at top right, #1a0a30 0%, #0c0417 100%);    overflow: hidden; */
+    /* box-shadow: 5px 3px 10px 0px rgb(0 0 0 / 30%); */
+    /* position: relative; */
+    border: 1px solid rgb(135 115 203 / 25%);
     color: #ffffff;
-    border-radius: 20px;
+    border-radius: 30px;
 }
 .timeline-item img{
     display: block;
@@ -414,7 +415,7 @@ select2-selection {
     color:#04D223;
 }
 .timeline-item .calendar {
-    position: absolute;
+    display: inline-block;
     z-index: 10;
     bottom: -30px;
     left: 30px;
@@ -423,14 +424,14 @@ select2-selection {
     text-align: center;
     text-transform: uppercase;
     font-weight: 600;
-    box-shadow: rgb(0 0 0 / 8%) 0px 0px 38px 0px;
+    box-shadow: 5px 3px 10px 0px rgb(0 0 0 / 30%);
     letter-spacing: .12rem;
-    background:#090212;
-    border-radius: 5px;
+    background-image: radial-gradient(at top right, #1a0a30 0%, #0c0417 100%);  overflow: hidden;
+    border-radius: 10px;
     padding: 10px 20px;
 }
 .timeline-item h5 {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     line-height: 32px;
     font-weight: 600;
     color: #ffffff;

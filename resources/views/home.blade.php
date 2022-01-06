@@ -273,25 +273,18 @@
                         <a href="/it-dogadjaji/{{$it_event->id}}/{{$it_event->slug}}" style="text-decoration: none;">
                             <div class="timeline-item">
 
-                                <div class="position-relative">
-                                    {{-- <img src="https://itposlovi.me/storage/articles/thumbnails/1637224861.jpg" > --}}
-                                    <img src="{{asset('storage/articles/'.$it_event->image_url)}}" alt="{{$it_event->title}} slika">
-
-                                    <div class="calendar">
+                                <div class="description p-5">
+                                    <div class="calendar mb-3">
                                         <span>{{$it_event->article_event_date->format('d')}}</span>
                                         {{$meseci[$it_event->article_event_date->format('n')]}}
                                     </div>
 
-                                </div>
-
-                                <div class="description p-5">
-
                                     <h5>{{$it_event->title}}</h5>
                                     
-                                    <div>
-                                            <span class="date-dot"></span>
-                                            <span class="location">{{$it_event->location}}</span>
-                                    </div>
+                                    {{-- <div> --}}
+                                            {{-- <span class="date-dot"></span> --}}
+                                            {{-- <span class="location">{{$it_event->location}}</span> --}}
+                                    {{-- </div> --}}
                                 </div>
                             </div>
                         </a>
