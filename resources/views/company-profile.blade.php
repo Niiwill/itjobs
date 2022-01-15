@@ -22,7 +22,7 @@
         <!-- Navigation CSS -->
         <link href="{{ asset('css/navigation.css?v=51') }}" rel="stylesheet">
         <!-- Single Job CSS -->
-        <link href="{{ asset('css/company-profile.css?v=22') }}" rel="stylesheet">
+        <link href="{{ asset('css/company-profile.css?v=23') }}" rel="stylesheet">
         <!-- Footer CSS -->
         <link href="{{ asset('css/footer.css') }}" rel="stylesheet">
      
