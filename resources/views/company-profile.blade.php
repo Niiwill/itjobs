@@ -5,13 +5,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="icon" type="image/x-icon" href="{{asset('storage/img/favicon.png')}}" />
         <title>{{$company->name}} | ITPoslovi.me</title>
-        <meta name="description" content="{{$company->description}}">
+        <meta name="description" content="Profil kompanije {{$company->name}} na sajtu ITposlovi.me , sve informacije o kompaniji i oglasi.">
         <link rel="canonical" href="{{url()->current()}}"/>
 
         <meta property="og:url" content="{{url()->current()}}" />
         <meta property="og:type" content="article" />
-        <meta property="og:title" content="{{$company->name}}" />
-        <meta property="og:description" content="{{$company->description}}" />
+        <meta property="og:title" content="{{$company->name}} | ITPoslovi.me" />
+        <meta property="og:description" content="Profil kompanije {{$company->name}} na sajtu ITposlovi.me , sve informacije o kompaniji i oglasi." />
         <meta property="og:image" content="{{asset('storage/articles/'.$company->logo_path)}}" />
 
         <!-- Fonts -->
@@ -22,7 +22,7 @@
         <!-- Navigation CSS -->
         <link href="{{ asset('css/navigation.css?v=51') }}" rel="stylesheet">
         <!-- Single Job CSS -->
-        <link href="{{ asset('css/company-profile.css?v=23') }}" rel="stylesheet">
+        <link href="{{ asset('css/company-profile.css?v=24') }}" rel="stylesheet">
         <!-- Footer CSS -->
         <link href="{{ asset('css/footer.css') }}" rel="stylesheet">
      

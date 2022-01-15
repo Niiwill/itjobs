@@ -141,3 +141,13 @@ body {
     line-height: 1.5;
     font-size: 1rem;;
 }
+.btn-zeleni {
+    background-color: #0fbc49;
+    color: #fff;
+    border: #04d223;
+    border-radius: 8px;
+    text-transform: uppercase;
+    letter-spacing: .26px;
+    font-weight: 600;
+    font-size: 13px;
+}
