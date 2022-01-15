@@ -61,11 +61,11 @@
         <section id="company-body">
             <div class="container">
                 <div class="row mt-5">
-                    <div class="col-8">
+                    <div class="col-12 col-sm-8">
                         <h2 class="mb-4">{{$company->name}}</h2>
                         <p>{{$company->description}}</p>
                     </div>
-                    <div class="col-4">
+                    <div class="col-12 col-sm-4 text-center text-sm-left">
                         <div class="single-company-side-panel p-4 ">
                             <div class="mt-4">
                                 <div class="label">Industrija</div>
@@ -111,7 +111,7 @@
                 </div>
                 <div class="row mt-3">
                     @foreach ($related_jobs as $job)
-                    <div class="col-6 mt-4">
+                    <div class="col-12 col-sm-6 mt-4">
                         <a href="{{ route('job.single', ['id' => $job->id, 'slug' => $job->slug]) }}">
                             <div class="job-card p-4">
                                 <div class="top">
