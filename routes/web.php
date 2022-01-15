@@ -5,6 +5,9 @@ use Illuminate\Support\Facades\Route;
 // HOME PAGE
 Route::get('/','PublicController@home');
 
+// COMPANY
+Route::get('/it-kompanija/{id}/{slug}','PublicController@showCompany')->name('company.single');;
+
 // JOBS PUBLIC
 Route::get('/oglasi-za-posao','PublicController@search')->name('job.search');
 Route::get('/posao/{id}/{slug}','PublicController@showJob')->name('job.single');

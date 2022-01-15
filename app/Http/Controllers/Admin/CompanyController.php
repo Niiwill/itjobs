@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Company;
+use Illuminate\Support\Str;
 
 class CompanyController extends Controller
 {
@@ -49,6 +50,7 @@ class CompanyController extends Controller
         $company->phone = $request->phone;
         $company->email = $request->email;
         $company->address = $request->address;
+        $company->slug=Str::slug($request->title, '-');
 
         if($request->hasFile('logo')){
             $imgfile = $request->file('logo');
@@ -105,6 +107,7 @@ class CompanyController extends Controller
         $company->phone = $request->phone;
         $company->email = $request->email;
         $company->address = $request->address;
+        $company->slug=Str::slug($request->title, '-');
 
         if($request->hasFile('logo')){
             $imgfile=$request->file('logo');

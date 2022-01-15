@@ -89,15 +89,16 @@
                 <div class="row">
                     @foreach ($top_companies as $company)
                     <div class="col-6 col-md-2 mb-4">
-                        <div class="company-card p-2">
-                            <div class="company-logo mb-2">
-                                <img src="{{asset('storage/'.$company->logo_path)}}" alt="{{$company->name}} logo" width="100%">
+                        <a href="{{ route('company.single', ['id' => $company->id, 'slug' => $company->slug]) }}">
+                            <div class="company-card p-2">
+                                <div class="company-logo mb-2">
+                                    <img src="{{asset('storage/'.$company->logo_path)}}" alt="{{$company->name}} logo" width="100%">
+                                </div>
+                                <div class="description">
+                                    <h3>{{ $company->name }}</h3>
+                                </div>
                             </div>
-                            <div class="description">
-                                <h3>{{ $company->name }}</h3>
-                                <span>{{ $company->jobs_count }} pozicije</span>
-                            </div>
-                        </div>
+                        </a>
                     </div>
                     @endforeach
                 </div>

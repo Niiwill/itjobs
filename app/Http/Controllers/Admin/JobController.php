@@ -135,6 +135,7 @@ class JobController extends Controller
         $job->type_id = $request->type_id;
         $job->status = $request->status;
         $job->expired_at = $request->expired_at;
+        $job->slug=Str::slug($request->title, '-');
         $job->save();
     
         $job->tags()->sync($request->tags);

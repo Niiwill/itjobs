@@ -22,7 +22,8 @@ class PublicController extends Controller
         $top_companies = Cache::remember('top_companies', 60*24*15 ,function () {
             return Company::whereIn('id', [18, 3, 36, 55, 51, 54])->withCount('jobs')->orderBy('jobs_count', 'desc')->get();
         });
-        
+       
+
         $programming_count = Cache::remember('programming_count', 60*24 ,function () {
             return Job::where('category_id', 1)->count();
         });
@@ -223,6 +224,16 @@ class PublicController extends Controller
                     ->get();
 
         return view('single', compact('job','related_jobs'));
+    } 
+
+    // SINGLE JOB PAGE
+    public function showCompany($id, $slug="") {
+
+        $company = Company::find($id);
+       
+        $related_jobs = Job::where('company_id', '=', $id)->orderBy('created_at','desc')->limit(4)->get();
+
+        return view('company-profile', compact('company','related_jobs'));
     } 
 
 }
