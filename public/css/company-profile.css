@@ -23,6 +23,7 @@ body {
     background-repeat: no-repeat;
     background-color: #fff;
     object-fit: contain;
+    box-shadow: 10px 10px 20px 0 rgb(0 0 0 / 10%);
 }
 #company-hero .hero-caption{
     height: 400px;
