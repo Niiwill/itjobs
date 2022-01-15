@@ -130,7 +130,7 @@
                                 </div>
                                 <div class="bottom mt-3">
                                     <div class="category">Kategorija: {{ $job->category->name }}</div>
-                                    <div class="created">prije 4 dana od <span>{{$company->name}}</span></div>
+                                    <div class="created">prije {{ $job->created_at->diffInDays()}} dana od <span>{{$company->name}}</span></div>
                                 </div>
                             </div>
                         </a>
