@@ -69,6 +69,8 @@ a.company-name{
     display: flex;
     align-items: center;
     justify-items: center;
+    border-radius: 8px;
+    overflow: hidden;
 }
 
 .job-card .media{
