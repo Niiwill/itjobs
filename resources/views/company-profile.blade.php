@@ -115,7 +115,7 @@
                         <a href="{{ route('job.single', ['id' => $job->id, 'slug' => $job->slug]) }}">
                             <div class="job-card p-4">
                                 <div class="top">
-                                    <img src="{{asset('storage/'.$company->logo_path)}}" alt=" it kompanija logo {{$company->name}} Crna Gora Itposlovi.me">
+                                    <img src="{{asset('storage/'.$company->logo_path)}}" class="company-logo" alt=" it kompanija logo {{$company->name}} Crna Gora Itposlovi.me">
                                     <div class="info ml-3">
                                         <h3>{{ $job->title}}</h3>
                                         <div class="details">
