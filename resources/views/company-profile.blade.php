@@ -104,7 +104,7 @@
         <section id="related-jobs">
             <div class="container">
                 <div class="row mt-5">
-                    <div id="header" class="col-12">
+                    <div id="header" class="col-12 text-center text-sm-left">
                         <h2>Poslovi</h2>          
                         <p>Lista poslijednjih poslova kompanije {{$company->name}}</p>  
                     </div>    
