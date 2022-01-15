@@ -39,8 +39,7 @@
                             <div class="hero-caption position-relative">
                                 <div class="position-absolute content">
                                     <div>
-                                        <img src=" https://itposlovi.me/storage/logos/60be805bac1ba_29342298_1682554825144010_9101353873616079925_n.png" alt=" it kompanija {{$company->name}} Crna Gora Itposlovi.me">
-
+                                        <img src="{{asset('storage/'.$company->logo_path)}}" alt=" it kompanija {{$company->name}} Crna Gora Itposlovi.me">
                                     </div>
                                     <div class="ml-3">
                                         <h1>{{$company->name}}</h1>
@@ -107,7 +106,7 @@
                 <div class="row mt-5">
                     <div id="header" class="col-12">
                         <h2>Poslovi</h2>          
-                        <p>Lista poslova objavljena od {{$company->name}} kompanije</p>  
+                        <p>Lista poslijednjih poslova kompanije {{$company->name}}</p>  
                     </div>    
                 </div>
                 <div class="row mt-3">
@@ -116,7 +115,7 @@
                         <a href="{{ route('job.single', ['id' => $job->id, 'slug' => $job->slug]) }}">
                             <div class="job-card p-4">
                                 <div class="top">
-                                    <img src=" https://itposlovi.me/storage/logos/60be805bac1ba_29342298_1682554825144010_9101353873616079925_n.png" class="company-logo" alt=" it kompanija {{$company->name}} Crna Gora Itposlovi.me">
+                                    <img src="{{asset('storage/'.$company->logo_path)}}" alt=" it kompanija logo {{$company->name}} Crna Gora Itposlovi.me">
                                     <div class="info ml-3">
                                         <h3>{{ $job->title}}</h3>
                                         <div class="details">
