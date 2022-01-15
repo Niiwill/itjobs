@@ -45,7 +45,18 @@ body {
     letter-spacing: -1px;
     font-size: 1.8rem;
     color: #17171d;
-}  
+} 
+
+#company-body h2, #company-body h3, #related-jobs h2{
+    letter-spacing: -1px;
+    font-size: 1.8rem;
+    color: #17171d;
+} 
+#company-body h3{
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
 #company-body p{
     font-family:Inter,sans-serif;
     -webkit-font-smoothing: antialiased;

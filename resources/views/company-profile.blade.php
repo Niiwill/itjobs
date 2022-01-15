@@ -22,7 +22,7 @@
         <!-- Navigation CSS -->
         <link href="{{ asset('css/navigation.css?v=51') }}" rel="stylesheet">
         <!-- Single Job CSS -->
-        <link href="{{ asset('css/company-profile.css?v=2') }}" rel="stylesheet">
+        <link href="{{ asset('css/company-profile.css?v=22') }}" rel="stylesheet">
         <!-- Footer CSS -->
         <link href="{{ asset('css/footer.css') }}" rel="stylesheet">
      
@@ -63,7 +63,7 @@
                 <div class="row mt-5">
                     <div class="col-12 col-sm-8">
                         <h2 class="mb-4">{{$company->name}}</h2>
-                        <p>{{$company->description}}</p>
+                        <p>{!! $company->description !!}	</p>
                     </div>
                     <div class="col-12 col-sm-4 text-center text-sm-left">
                         <div class="single-company-side-panel p-4 ">

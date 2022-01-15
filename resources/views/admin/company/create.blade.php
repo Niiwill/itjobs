@@ -1,3 +1,18 @@
+@push('scripts')
+<script src="https://cloud.tinymce.com/5/tinymce.min.js?apiKey=orluaejj30g3r6fymv4rb18b45bnrfsojdct6gsht1kvazt8" referrerpolicy="origin"></script>
+<script>tinymce.init({
+selector: 'textarea',
+plugins: 'lists,link',
+toolbar: "undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist | link",
+style_formats: [
+{title: 'Podnaslov', format: 'h3'},
+{title: 'Paragraf', format: 'p'}
+],
+menubar:false
+});</script>
+@endpush
+
+
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
@@ -34,12 +49,10 @@
                                 </div>
 
                                 <div class="col-span-6">
-                                    <label for="about" class="block text-sm font-medium text-gray-700">
-                                        Opis
-                                    </label>
-                                    <div class="mt-1">
-                                        <textarea id="about" rows="3" name="description" class="form-input block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md"></textarea>
-                                    </div>
+                                    <label for="about" class="block text-sm leading-5 font-medium text-gray-700 mb-4">
+										Opis - Upišite tekst
+            						</label>
+            						<textarea id="mytextarea" name="description" rows="20"></textarea>
                                 </div>
 
                                  <div class="col-span-2">
