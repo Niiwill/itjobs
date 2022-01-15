@@ -50,7 +50,7 @@ class CompanyController extends Controller
         $company->phone = $request->phone;
         $company->email = $request->email;
         $company->address = $request->address;
-        $company->slug=Str::slug($request->name, '-');
+        $company->slug = Str::slug($request->name, '-');
 
         if($request->hasFile('logo')){
             $imgfile = $request->file('logo');
@@ -107,7 +107,8 @@ class CompanyController extends Controller
         $company->phone = $request->phone;
         $company->email = $request->email;
         $company->address = $request->address;
-        $company->slug=Str::slug($request->name, '-');
+        $company->slug = Str::slug($request->name, '-');
+
 
         if($request->hasFile('logo')){
             $imgfile=$request->file('logo');
