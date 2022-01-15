@@ -20,7 +20,7 @@
         <!-- Bootstrap -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <!-- Navigation CSS -->
-        <link href="{{ asset('css/navigation.css?v=50') }}" rel="stylesheet">
+        <link href="{{ asset('css/navigation.css?v=51') }}" rel="stylesheet">
         <!-- Single Job CSS -->
         <link href="{{ asset('css/company-profile.css?v=2') }}" rel="stylesheet">
         <!-- Footer CSS -->

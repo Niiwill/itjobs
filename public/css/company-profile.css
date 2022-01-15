@@ -21,6 +21,8 @@ body {
     background-position: center center;
     background-size: contain;
     background-repeat: no-repeat;
+    background-color: #fff;
+    object-fit: contain;
 }
 #company-hero .hero-caption{
     height: 400px;
