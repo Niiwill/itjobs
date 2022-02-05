@@ -104,7 +104,7 @@ h2{
     transition:.4s;
     border-radius:30px;
     background-color: #fff;
-    box-shadow: 10px 10px 20px 0 rgb(0 0 0 / 10%);
+    box-shadow: 10px 10px 25px 0 rgb(0 0 0 / 10%);
 }
 .job-card:hover{
     box-shadow: 0 40px 60px rgba(0,0,0,.08);
@@ -327,9 +327,6 @@ select2-selection {
     margin-bottom:0;
     font-weight: 400;
 }
-#events{ 
-    background-image: url('/storage/img/bg-dots.webp');
-}
 #articles, #events{ 
     color:white;
     background-color: #090212;
@@ -400,11 +397,8 @@ select2-selection {
 }
 
 .timeline-item{
-    background-color: transparent;
-    /* background-image: radial-gradient(at top right, #1a0a30 0%, #0c0417 100%);    overflow: hidden; */
-    /* box-shadow: 5px 3px 10px 0px rgb(0 0 0 / 30%); */
-    /* position: relative; */
-    border: 1px solid rgb(135 115 203 / 25%);
+    background-color: #030303;
+    box-shadow: 4px 4px 60px 0px rgb(99 69 237 / 19%);
     color: #ffffff;
     border-radius: 30px;
 }

@@ -17,12 +17,12 @@ class PublicController extends Controller
     // HOME PAGE
     public function home(Request $request)
     {   
+
         $meseci = $this->meseci;
         
         $top_companies = Cache::remember('top_companies', 60*24*15 ,function () {
             return Company::whereIn('id', [18, 3, 36, 55, 51, 54])->withCount('jobs')->orderBy('jobs_count', 'desc')->get();
         });
-       
 
         $programming_count = Cache::remember('programming_count', 60*24 ,function () {
             return Job::where('category_id', 1)->count();
