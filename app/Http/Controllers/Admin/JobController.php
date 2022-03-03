@@ -85,7 +85,7 @@ class JobController extends Controller
             $item['expired_at'] =  date('F d, Y', strtotime($job->expired_at));
             $item['live_url'] =  route('job.single', ['id' => $job->id, 'slug' => $job->slug]); 
             $item['edit_url'] =  route('admin.jobs.edit', $job->id);
-            $item['status'] = ($job->status) ? 'neaktivan' : 'aktivan' ;
+            $item['status'] = ($job->status) ? 'aktivan' : 'neaktivan' ;
 
             $data[] = $item;
         }
