@@ -22,18 +22,80 @@ class JobController extends Controller
     // ADMIN JOBS PAGE
     public function index(Request $request)
     {   
+        return view('admin/index');
+    }
 
-        $search = $request->search;
+    // ADMIN JOBS PAGE
+    public function datatables(Request $request)
+    {   
+        $columns = [0 => 'title', 1 => 'company_id', 2 => 'expired_at', 3 => 'status'];
 
-        $jobs = Job::select('id', 'title','company_id', 'category_id', 'expired_at', 'slug', 'status')
-            ->with(['company:id,name', 'category'])
-            ->when($search, function ($query, $search) {
-                return $query->search('title', $search);
-            })
-            ->latest()
-            ->paginate(8);
+        $draw = $request->draw;
+        $start = $request->start;
+        $paginate = $request->length;
+        $order_field = $columns[$request->order[0]['column']];
+        $order_direction = $request->order[0]['dir'];
 
-        return view('admin/index')->with('jobs',$jobs);
+
+        // Total jobs
+        $jobs_total = Job::count();
+     
+        // Filter jobs data
+        $query = Job::with(['company:id,name', 'category']);
+        // Select
+        $query->select('id', 'title','company_id', 'category_id', 'expired_at', 'slug', 'status');
+
+        // Where
+        foreach($columns as $index => $column){
+            $search_value = $request->columns[$index]['search']['value'];
+
+            if($search_value == '') continue;
+
+            if($column == 'status'){
+                $query->where('status','=', $search_value);
+                continue;
+            }
+
+            if($column == 'company_id'){
+                $query->whereHas('company', function ($query) use ($search_value) {
+                    return $query->where('name', 'LIKE', "%{$search_value}%") ;
+                });
+                continue;
+            }
+
+            $query->where($column, 'LIKE', "%{$search_value}%") ;
+        }
+
+        // Order
+        $query->orderBy($order_field, $order_direction);
+        // Pagination
+
+        $jobs_filtered = $query->count();
+
+        $jobs = $query->offset($start)->limit($paginate)->get();
+
+        
+        
+        $data = [];
+
+        foreach($jobs as $job){
+            $item = [];
+            $item['title'] = $job->title;
+            $item['company_name'] = $job->company->name;
+            $item['expired_at'] =  date('F d, Y', strtotime($job->expired_at));
+            $item['live_url'] =  route('job.single', ['id' => $job->id, 'slug' => $job->slug]); 
+            $item['edit_url'] =  route('admin.jobs.edit', $job->id);
+            $item['status'] = ($job->status) ? 'neaktivan' : 'aktivan' ;
+
+            $data[] = $item;
+        }
+            
+        return response()->json([
+            "draw" => (int)$draw,
+            "recordsTotal" => $jobs_total,
+            "recordsFiltered" => $jobs_filtered,
+            "data" => $data
+        ]);
 
     }
 

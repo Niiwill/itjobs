@@ -1,3 +1,118 @@
+@push('css')
+<link href="//cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css" rel="stylesheet" />
+<style>
+    th{text-align:left;}
+</style>
+@endpush
+
+@push('scripts')
+<!-- Datatables -->
+<script src="//cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js" referrerpolicy="origin"></script>
+
+<script>
+
+$(document).ready( function () {
+    // Setup - add a text input to each footer cell
+    $('#table thead tr')
+        .clone(true)
+        .addClass('filters')
+        .appendTo('#table thead');
+
+    $('#table').DataTable( {
+        orderCellsTop: true,
+        fixedHeader: true,
+        serverSide: true,
+        ajax: {
+            url: "{{ URL::to('datatables') }}",
+            type: 'POST',
+            data : {
+                "_token": "{{ csrf_token() }}"
+            } 
+        },
+        dom: 'rtip',
+        columns: [
+            { data: 'title' },
+            { data: 'company_name' },
+            { data: 'expired_at' },
+            { 
+                data: 'status',
+                sortable : false
+            },
+            { 
+                data: 'live_url',
+                sortable: false,
+                render: function ( data, type, row ) {
+                    return '<a href="'+data+'" target="_blank" class="text-blue-600 dark:text-blue-500 hover:underline" >Live</a>'
+                }
+            },
+            { 
+                data: 'edit_url',
+                sortable: false,
+                render: function ( data, type, row ) {
+                    return '<a href="'+data+'" class="px-4 py-1 text-sm text-white bg-blue-400 rounded" target="_blank">Izmeni</a>'
+                }
+            }
+        ],
+        initComplete: function () {
+            var api = this.api();
+ 
+            // For each column
+            api
+                .columns()
+                .eq(0)
+                .each(function (colIdx) {
+                    // Set the header cell to contain the input element
+                    var cell = $('.filters th').eq(
+                        $(api.column(colIdx).header()).index()
+                    );
+                    var title = 'Pretraga';
+
+                    // Disable search input for columns
+                    var disabled_search = [2,4,5];
+                    if(disabled_search.includes(colIdx)){
+                        $(cell).html('');
+                        return;
+                    }
+                    else if(colIdx == 3){
+
+                        $(cell).html('<select id="status-select" class="w-full"><option value="">Svi</option><option value="0">Aktivan</option><option value="1">Neaktivan</option></select>');
+                        $('select#status-select').on('change', function (e) {
+                            e.stopPropagation();
+                            // Get the search value
+                            api.column(colIdx).search(this.value.toString()).draw();
+                        });
+                        return;
+                    }
+                    
+                    $(cell).html('<input type="text" class="w-full" placeholder="' + title + '" />');
+                    
+                    // On every keypress in this input
+                    $(
+                        'input',
+                        $('.filters th').eq($(api.column(colIdx).header()).index())
+                    )
+                        .off('keyup change')
+                        .on('keyup change', function (e) {
+                            e.stopPropagation();
+ 
+                            // Get the search value
+                            $(this).attr('title', $(this).val());
+ 
+                            var cursorPosition = this.selectionStart;
+                            // Search the column for that value
+                            api.column(colIdx).search(this.value).draw();
+ 
+                            $(this).focus()[0].setSelectionRange(cursorPosition, cursorPosition);
+                        });
+                });
+        }
+    });
+});
+
+    
+</script>
+@endpush
+
 <x-app-layout>
     <x-slot name="header">
         <a href="{{ route('admin.jobs.create') }}">
@@ -8,105 +123,32 @@
                 Dodaj oglas
             </button>
         </a>
-
-        <div class="float-right bg-transparent border rounded-md dark:border-gray-700 lg:w-2/3 focus-within:border-teal-500 focus-within:ring focus-within:ring-primary dark:focus-within:border-teal-500 focus-within:ring-opacity-40">
-            <form action="" method="get" class="flex flex-wrap justify-between md:flex-row">
-
-                @if( request()->get('search') )
-                <input type="search" name="search" placeholder="{{request()->get('search')}}" required="required" class="flex-1 h-10 px-4 m-1 text-gray-700 placeholder-gray-400 bg-transparent border-none appearance-none lg:h-12 dark:text-gray-200 focus:outline-none focus:placeholder-transparent focus:ring-0"> 
-                @else
-                <input type="search" name="search" placeholder="Naziv Oglasa" required="required" class="flex-1 h-10 px-4 m-1 text-gray-700 placeholder-gray-400 bg-transparent border-none appearance-none lg:h-12 dark:text-gray-200 focus:outline-none focus:placeholder-transparent focus:ring-0"> 
-                @endif
-
-                <button type="submit" class="flex items-center justify-center w-full p-2 m-1 text-white transition-colors duration-200 transform rounded-md lg:w-12 lg:h-12 lg:p-0 bg-gray-900 hover:bg-teal-300 focus:outline-none focus:bg-teal-300">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
-                </button>
-            </form>
-        </div>
     </x-slot>
 
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 mt-5">
-        @if(session('status'))
-            @livewire('alert')
-        @endif
+     
         <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg mt-8">
             <!-- This example requires Tailwind CSS v2.0+ -->
             <div class="flex flex-col">
                 <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                     <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
-                        <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
-                            <table class="min-w-full divide-y divide-gray-200">
+                        <div class="p-5 shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+                            <table id="table" class="display" style="width:100%">
                                 <thead>
                                     <tr>
-                                        <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                            Naziv oglasa
-                                        </th>
-                                        <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                            Kompanija
-                                        </th>
-                                        <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                            Datum isteka:
-                                        </th>
-                                        <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                            Link
-                                        </th>
-                                        <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                            Status
-                                        </th>
-                                        <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider text-right">
-                                        </th>
+                                        <th>Naziv oglasa</th>
+                                        <th>Kompanija</th>
+                                        <th>Datum isteka</th>
+                                        <th>Status</th>
+                                        <th>Live URL</th>
+                                        <th></th>
                                     </tr>
                                 </thead>
-                                <tbody class="bg-white divide-y divide-gray-200">
-                                @foreach ($jobs as $job)
-                                    <tr>
-                                        <td class="px-6 py-4 whitespace-nowrap">
-                                            <div class="text-sm text-gray-900">{{$job->title}}</div>
-                                            <div class="text-sm text-gray-500">{{$job->category->name}}</div>
-                                        </td>
-                                        <td class="px-6 py-4 whitespace-nowrap">
-                                            <div class="text-sm text-gray-500">{{$job->company->name}}</div>
-                                        </td>
-                                        <td class="px-6 py-4 whitespace-nowrap">
-                                            <div class="text-sm text-gray-900">{{$job->expired_at}}</div>
-                                        </td>
-                                        <td class="px-6 py-4 whitespace-nowrap">
-                                            <a href="{{ route('job.single', ['id' => $job->id, 'slug' => $job->slug]) }}" target="_blank" class="no-underline flex">
-                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="flex-shrink-0 h-5 w-5 text-indigo-600">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                                                </svg>
-                                                <div class="ml-3 text-xs text-indigo-600">Live</div>
-                                            </a>
-                                         
-                                        </td>
-                                        <td class="px-6 py-4 whitespace-nowrap">
-                                            @if ($job->status === 0)
-                                                <span class="px-3 py-1 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">Neaktivno</span>
-                                            @else
-                                                <span class="px-3 py-1 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Aktivno</span>
-                                            @endif
-                                        </td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-right text-sm">
-                                            <a href="{{ route('admin.jobs.edit', $job->id) }}">
-                                                <div class="w-full sm:w-auto inline-flex items-center justify-center text-blue-400  group-hover:text-purple-500 font-medium leading-none bg-white rounded-lg py-3 px-5 border border-transparent transform group-hover:-translate-y-0.5 transition-all duration-150">
-                                                    Uredi
-                                                        <svg height="20" width="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="text-blue-400 ml-2">
-                                                            <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
-                                                        </svg>
-                                                </div>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                @endforeach
-                                </tbody>
+                                <tbody></tbody>
                             </table>
                         </div>
                     </div>
-                </div>
-                <div class="bg-white px-4 py-3">
-                    {{ $jobs->links() }}
-                </div>
-                
+                </div>          
             </div>
         </div>
     </div>

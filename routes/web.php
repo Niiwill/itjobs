@@ -45,6 +45,9 @@ Route::get('/politika-privatnosti', function () {
    return view('privacy-policy');
 });
 
+Route::post('/datatables','Admin\JobController@datatables');
+
+
 
 
 
