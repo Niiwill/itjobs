@@ -75,7 +75,7 @@ $(document).ready( function () {
                     }
                     else if(colIdx == 3){
 
-                        $(cell).html('<select id="status-select" class="w-full"><option value="">Svi</option><option value="0">Aktivan</option><option value="1">Neaktivan</option></select>');
+                        $(cell).html('<select id="status-select" class="w-full"><option value="">Svi</option><option value="1">Aktivan</option><option value="0">Neaktivan</option></select>');
                         $('select#status-select').on('change', function (e) {
                             e.stopPropagation();
                             // Get the search value
