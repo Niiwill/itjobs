@@ -10,25 +10,21 @@
 <script>
 
     $(document).ready(function() {
-        $('.js-example-basic-multiple').select2({
-            maximumSelectionLength: 3,
-            formatSelectionTooBig: function (limit) {
-                return 'Maksimalan broj tagova je 3';
-            }  
-        });
+        $('.js-example-basic-multiple').select2();
+        $('.js-example-basic-multiple').select2().val({!! json_encode($job->tags()->allRelatedIds()) !!}).trigger('change');
     });
 
     tinymce.init({
         selector: 'textarea',
         plugins: 'lists,link',
-        toolbar: "undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist | link",
+        toolbar: "undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist | link ",
         style_formats: [
             {title: 'Podnaslov', format: 'h3'},
             {title: 'Paragraf', format: 'p'}
         ],
         menubar:false
     });
-
+    
 </script>
 @endpush
 
@@ -39,11 +35,12 @@
                 <div class="card">
                     <div class="card-header d-flex justify-content-between">
                         <div class="header-title">
-                            <h4 class="card-title">Novi Oglas</h4>
+                            <h4 class="card-title">Izmena Oglasa</h4>
                         </div>
                     </div>
                     <div class="card-body">
-                        <form method="POST" action="{{ route('admin.jobs.store') }}">
+                        <form method="POST" action="{{ route('admin.jobs.update', $job->id) }}">
+                            @method('PATCH')
                             @csrf
 
                             <div class="row">
@@ -52,10 +49,9 @@
                                     <div class="form-group">
                                         <label class="form-label" for="exampleFormControlSelect1">Tip posla</label>
                                         <select name="type_id" class="form-select" id="exampleFormControlSelect1">
-                                            <option selected="" disabled="">Izaberi</option>
-                                            <option value="1">Stalni</option>
-                                            <option value="2">Honorarni</option>
-                                            <option value="3">Freelance</option>
+                                            <option value="1" {{$job->type_id = '1' ? "selected" : "" }}>Stalni</option>
+                                            <option value="2" {{$job->type_id == '2' ? "selected" : "" }}>Honorarni</option>
+                                            <option value="3" {{$job->type_id == '3' ? "selected" : "" }}>Freelance</option>
                                         </select>
                                     </div>
                                 </div>
@@ -65,8 +61,8 @@
                                         <label class="form-label" for="exampleFormControlSelect1">Kompanija</label>
                                         <select name="company_id" class="form-select" id="exampleFormControlSelect1">
                                             <option selected="" disabled="">Izaberi</option>
-                                            @foreach ($categories as $category)
-                                                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                            @foreach ($companies as $company)
+                                                <option value="{{ $company->id }}" {{$job->company_id == $company->id ? "selected" : "" }}>{{ $company->name }}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -76,9 +72,8 @@
                                     <div class="form-group">
                                         <label class="form-label" for="exampleFormControlSelect1">Kategorija</label>
                                         <select name='category_id' class="form-select" id="exampleFormControlSelect1">
-                                            <option selected="" disabled="">Izaberi</option>
                                             @foreach ($categories as $category)
-                                                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                            <option value="{{ $category->id }}" {{$job->category_id == $category->id ? "selected" : "" }}>{{ $category->name }}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -88,10 +83,9 @@
                                     <div class="form-group">
                                         <label class="form-label" for="exampleFormControlSelect1">Senioritet</label>
                                         <select name="level_id" class="form-select" id="exampleFormControlSelect1">
-                                            <option selected="" disabled="">Izaberi</option>
-                                            <option value="1">Junior</option>
-                                            <option value="2">Intermediate</option>
-                                            <option value="3">Senior</option>
+                                            <option value="1" {{$job->level_id == '1' ? "selected" : "" }}>Junior</option>
+                                            <option value="2" {{$job->level_id == '2' ? "selected" : "" }}>Intermediate</option>
+                                            <option value="3" {{$job->level_id == '3' ? "selected" : "" }}>Senior</option>
                                         </select>
                                     </div>
                                 </div>
@@ -101,12 +95,12 @@
 
                             <div class="form-group">
                                 <label class="form-label" for="exampleInputText1">Naziv pozicje</label>
-                                <input name="title" type="text" class="form-control" id="exampleInputText1">
+                                <input name="title"  type="text" class="form-control" id="exampleInputText1" value="{{$job->title}}">
                             </div>
 
                             <div class="form-group">
                                 <label class="form-label" for="exampleFormControlTextarea1">Tekst oglasa</label>
-                                <textarea name="text" class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
+                                <textarea name="text" class="form-control" id="exampleFormControlTextarea1" rows="20">{{$job->text}}</textarea>
                             </div>
 
                             <hr class="my-4">
@@ -117,9 +111,8 @@
                                     <div class="form-group">
                                         <label class="form-label" for="exampleFormControlSelect1">Grad</label>
                                         <select name="city_id" class="form-select" id="exampleFormControlSelect1">
-                                            <option selected="" disabled="">Izaberi</option>
                                             @foreach ($cities as $city)
-                                            <option value="{{$city->id}}">{{$city->name}}</option>
+                                            <option value="{{$city->id}}" {{$city->id == $job->city_id ? "selected" : "" }}>{{$city->name}}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -128,7 +121,7 @@
                                 <div class="col">
                                     <div class="form-group">
                                         <label class="form-label" for="exampleInputdate">Date Input</label>
-                                        <input name="expired_at" type="date" class="form-control" id="exampleInputdate" value="2022-01-31">
+                                        <input name="expired_at" type="date" class="form-control" id="exampleInputdate" value="{{$job->expired_at->format('Y-m-d')}}">
                                     </div>
                                 </div>
 
@@ -136,9 +129,8 @@
                                     <div class="form-group">
                                         <label class="form-label" for="exampleFormControlSelect1">Status</label>
                                         <select name="status" class="form-select" id="exampleFormControlSelect1">
-                                            <option selected="" disabled="">Izaberi</option>
-                                            <option value="0">Neaktivan</option>
-                                            <option value="1">Aktivan</option>
+                                            <option value="0" {{$job->status == '0' ? "selected" : "" }}>Neaktivan</option>
+                                            <option value="1" {{$job->status == '1' ? "selected" : "" }}>Aktivan</option>
                                         </select>
                                     </div>
                                 </div>
@@ -158,3 +150,4 @@
                     </div>
                 </div>
 </x-app-layout>
+
