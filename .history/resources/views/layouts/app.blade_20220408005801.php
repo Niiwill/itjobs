@@ -144,7 +144,7 @@
                                     <form method="POST" action="{{ route('logout') }}">
                                      @csrf
 
-                                        <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();this.closest('form').submit();">Odjava</a>
+                                        <a href="{{ route('logout') }}" onclick="event.preventDefault();this.closest('form').submit();"></a>
                             
                                     </form>
                                 </li>
