@@ -10,25 +10,6 @@ use Illuminate\Support\Facades\Storage;
 
 class TagController extends Controller
 {
-
-     /**
-     * Display a dashboard.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index(Request $request)
-    {
-        $search = $request->search;
-
-        $tags = Tag::select('id','name','icon')
-            ->when($search, function ($query, $search) {
-                return $query->search('name', $search);
-            })
-            ->paginate(8);
-
-        return view('admin/tag/index')->with('tags',$tags);
-    }
-
     /**
      * Display a listing of the resource.
      *
