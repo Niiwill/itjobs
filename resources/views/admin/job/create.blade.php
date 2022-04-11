@@ -65,8 +65,8 @@
                                         <label class="form-label" for="exampleFormControlSelect1">Kompanija</label>
                                         <select name="company_id" class="form-select" id="exampleFormControlSelect1">
                                             <option selected="" disabled="">Izaberi</option>
-                                            @foreach ($categories as $category)
-                                                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                            @foreach ($companies as $company)
+                                                <option value="{{ $company->id }}">{{ $company->name }}</option>
                                             @endforeach
                                         </select>
                                     </div>
