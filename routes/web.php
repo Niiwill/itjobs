@@ -24,7 +24,7 @@ Route::get('/it-price/{id}/{slug}','PublicController@showArticle')->name('articl
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth']], function () {
 
    // ADMIN
-   Route::get('/','Admin\JobController@dashboard')->name('index');
+   Route::get('/','Admin\JobController@index')->name('index');
    
    // ADMIN - JOBS
    Route::resource('jobs', 'Admin\JobController');
