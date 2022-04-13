@@ -211,7 +211,7 @@ class PublicController extends Controller
     public function showJob($id, $slug) {
 
         $job = Job::where('id', $id)
-                    ->with(['level:id,name','company:id,user_id,name,logo_path,website','type:id,name','city:id,name'])
+                    ->with(['level:id,name','company:id,user_id,name,phone,address,email,logo_path,website','type:id,name','city:id,name'])
                     ->first();
 
         $related_jobs = Job::whereHas('tags', function ($q) use ($job) {
