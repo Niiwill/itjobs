@@ -58,13 +58,13 @@
                                 </span>
                             </div>
                         </div>
+                        @if($job->application_link)
+                        <div class="d-md-none mt-4">
+                            <a href="{{$job->application_link}}" class="btn btn-primary w-100">Apliciraj</a>
+                        </div>
+                        @endif
                         <div id="content">{!! $job->text !!}</div>
                     </div>
-                    @if($job->application_link)
-                    <div class="d-md-none mt-4">
-                        <a href="{{$job->application_link}}" class="btn btn-primary w-100">Apliciraj</a>
-                    </div>
-                    @endif
                 </div>
                 <div class="col-12 col-md-4">
                     <div class="company-info">
