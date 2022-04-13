@@ -56,8 +56,8 @@
                                 <td>{{$job->title}}</td>
                                 <td>{{$job->company->name}}</td>
                                 <td>{{$job->category->name}}</td>
-                                <td data-sort="{{  date('d-m-Y', strtotime($job->created_at)) }}">{{  date('d-m-Y', strtotime($job->created_at)) }}</td>
-                                <td data-sort="{{  date('d-m-Y', strtotime($job->expired_at)) }}">{{  date('d-m-Y', strtotime($job->expired_at)) }}</td>
+                                <td data-sort="{{ strtotime($job->created_at) }}">{{  date('d-m-Y', strtotime($job->created_at)) }}</td>
+                                <td data-sort="{{ strtotime($job->expired_at) }}">{{  date('d-m-Y', strtotime($job->expired_at)) }}</td>
                                 @if ($job->status == 1)
                                     <td>Aktivan</td>
                                 @else
