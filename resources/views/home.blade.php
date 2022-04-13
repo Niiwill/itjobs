@@ -1,4 +1,5 @@
 <x-home-layout>
+        <div class="hero-container">
         <!-- NAVIGATION -->
         @include('navigation')
 
@@ -73,6 +74,7 @@
                     </div>
                 </div>
             </div>
+        </div>
         </div>
 
         <!-- POPULARNE KOMPANIJE -->

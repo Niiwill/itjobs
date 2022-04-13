@@ -37,8 +37,11 @@ h2{
     opacity: 0.8;
     color: #fff;
 }
-.hero{
-    background: #f6f8fc;
+.hero-container{
+    background-image: url('../image/hero-background.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 .hero-body h1{
     font-weight: 700;
@@ -513,8 +516,8 @@ select2-selection {
 /* NAVIGATION */
 
 .navbar{
-    background-color: #fff;
-    box-shadow: 0 12px 34px -11px rgba(65,62,101,.1);
+    /* background-color: #fff; */
+    /* box-shadow: 0 12px 34px -11px rgba(65,62,101,.1); */
 }
 .navbar-logo{
     padding-top: 15px;

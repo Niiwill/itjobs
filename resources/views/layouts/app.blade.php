@@ -27,7 +27,7 @@
         <link rel="stylesheet" href="{{ asset('css/customizer.min.css') }}" />
 
         <!-- Styles -->
-        <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/app.css?v=1.1') }}">
 
         @stack('css')
       </head>
