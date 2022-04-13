@@ -43,6 +43,7 @@
                                 <th>Naziv oglasa</th>
                                 <th>Kompanija</th>
                                 <th>Kategorija</th>
+                                <th>Datum objave</th>
                                 <th>Datum isteka oglasa</th>
                                 <th>Status</th>
                                 <th>Akcija</th>
@@ -55,6 +56,7 @@
                                 <td>{{$job->title}}</td>
                                 <td>{{$job->company->name}}</td>
                                 <td>{{$job->category->name}}</td>
+                                <td>{{  date('d-m-Y', strtotime($job->created_at)) }}</td>
                                 <td>{{  date('d-m-Y', strtotime($job->expired_at)) }}</td>
                                 @if ($job->status == 1)
                                     <td>Aktivan</td>
