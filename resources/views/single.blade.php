@@ -60,6 +60,11 @@
                         </div>
                         <div id="content">{!! $job->text !!}</div>
                     </div>
+                    @if($job->application_link)
+                    <div class="d-md-none mt-4">
+                        <a href="{{$job->application_link}}" class="btn btn-primary w-100">Apliciraj</a>
+                    </div>
+                    @endif
                 </div>
                 <div class="col-12 col-md-4">
                     <div class="company-info">
@@ -74,10 +79,11 @@
                             <div>
                                 <p>Kompanija {{$job->company->name}} širi svoj tim i traži nove članove.</p>
                             </div>
+                            @if($job->application_link)
                             <div>
                                 <a href="{{$job->application_link}}" class="btn btn-primary w-100">Apliciraj</a>
                             </div>
-                           
+                            @endif
                         </div>
                         <div class="body border-bottom py-4">
                             <ul>
