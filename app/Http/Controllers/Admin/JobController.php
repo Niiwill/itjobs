@@ -30,7 +30,7 @@ class JobController extends Controller
     // ADMIN JOBS PAGE
     public function index(Request $request)
     {   
-        $jobs = Job::with(['company:id,name', 'category'])->select('id', 'title','company_id', 'category_id', 'expired_at', 'slug', 'status')->orderBy('created_at', 'desc')->get();
+        $jobs = Job::with(['company:id,name', 'category'])->select('id', 'title','company_id', 'category_id', 'created_at', 'expired_at', 'slug', 'status')->orderBy('created_at', 'desc')->get();
         return view('admin/job/index')->with('jobs',$jobs);
 
     }
