@@ -68,7 +68,7 @@
                                 <figure><img alt="jobhub" class="" src="{{asset('storage/'.$job->company->logo_path)}}" alt="{{$job->company->name}}"></figure>
                                 <div class="ml-3">
                                     <span class="d-block company-name">{{$job->company->name}}</span>
-                                    <a href="{{$job->company->website}}" target="_blank" class="website">{{$job->company->name}}</a>
+                                    <a href="{{$job->company->website}}" target="_blank" class="website">{{parse_url($job->company->website, PHP_URL_HOST)}}</a>
                                 </div>
                             </div>
                             <div>
