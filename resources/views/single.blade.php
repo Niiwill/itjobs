@@ -72,7 +72,7 @@
                                 </div>
                             </div>
                             <div>
-                                <p>We're looking to add more product designers to our growing teams.</p>
+                                <p>Kompanija {{$job->company->name}} širi svoj tim i traži nove članove.</p>
                             </div>
                             <div>
                                 <a href="{{$job->application_link}}" class="btn btn-primary w-100">Apliciraj</a>
