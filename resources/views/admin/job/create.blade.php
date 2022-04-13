@@ -127,8 +127,17 @@
 
                                 <div class="col">
                                     <div class="form-group">
-                                        <label class="form-label" for="exampleInputdate">Date Input</label>
+                                        <label class="form-label" for="exampleInputdate">Datum isteka</label>
                                         <input name="expired_at" type="date" class="form-control" id="exampleInputdate" value="2022-01-31">
+                                    </div>
+                                </div>
+
+                                <div class="col">
+                                    <div class="form-group">
+                                        
+                                        <label class="form-label" for="exampleInputdate">Link za prijavu</label>
+                                        <input name="application_link" type="text" class="form-control">
+                                        <small>Za mejl uneti mailto: pre emaila ( primer: mailto:test@test.com)</small>
                                     </div>
                                 </div>
 
