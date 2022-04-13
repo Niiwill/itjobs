@@ -1,3 +1,14 @@
+@push('scripts')
+<script>
+$(document).ready(function() {
+    $('#datatables').DataTable( {
+        "order": [[ 3, "desc" ]]
+    } );
+} );
+</script>
+@endpush
+
+
 <x-app-layout>
     {{-- <x-slot name="header">
         <a href="{{ route('admin.jobs.create') }}">
