@@ -1,7 +1,7 @@
 @push('scripts')
 <script>
 $(document).ready(function() {
-    $('#datatables').DataTable( {
+    $('#datatable').DataTable( {
         "order": [[ 3, "desc" ]]
     } );
 } );
