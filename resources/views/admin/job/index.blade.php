@@ -1,11 +1,11 @@
 @push('scripts')
 <script>
 $(document).ready(function() {
-    $('#datatable').DataTable( {
-        paging: false,
-        order: [[ 3, "desc" ]]
-    } );
+    table
+    .order( [ 3, 'asc' ] )
+    .draw();
 } );
+
 </script>
 @endpush
 
