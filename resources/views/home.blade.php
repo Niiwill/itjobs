@@ -128,7 +128,7 @@
                 <div class="row">
                     <!-- Programiranje -->
                     <div class="col-6 col-md-3">
-                        <div class="cat-banner mb-5 mb-md-0">
+                        <div class="cat-banner mb-5 mb-md-0 cat-1">
                             <a href="/oglasi-za-posao?cat_id=1">
                                 <div class="cat-banner-icon mx-auto mx-md-0" style="background-color: rgba(138,63,252,.1)">
                                     <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-code-square" fill="#8a3ffc" xmlns="http://www.w3.org/2000/svg">
@@ -145,7 +145,7 @@
                     </div>
                     <!-- QA -->
                     <div class="col-6 col-md-3">
-                        <div class="cat-banner mb-5 mb-md-0">
+                        <div class="cat-banner mb-5 mb-md-0 cat-5">
                             <a href="/oglasi-za-posao?cat_id=5">
                                 <div class="cat-banner-icon mx-auto mx-md-0" style="background-color:rgba(35,220,245,.1)">
                                     <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-tools" fill="#23dcf5" xmlns="http://www.w3.org/2000/svg">
@@ -162,7 +162,7 @@
                     </div>
                     <!-- Dizajn -->
                     <div class="col-6 col-md-3">
-                        <div class="cat-banner mb-5 mb-md-0">
+                        <div class="cat-banner mb-5 mb-md-0 cat-2">
                             <a href="/oglasi-za-posao?cat_id=2">
                                 <div class="cat-banner-icon mx-auto mx-md-0" style="background-color: rgba(56,97,251,.1)">
                                     <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-pencil-fill" fill="#3861fb" xmlns="http://www.w3.org/2000/svg">
@@ -178,7 +178,7 @@
                     </div>
                     <!-- Praksa -->
                     <div class="col-6 col-md-3">
-                        <div class="cat-banner mb-5 mb-md-0">
+                        <div class="cat-banner mb-5 mb-md-0 cat-8">
                             <a href="/oglasi-za-posao?cat_id=8">
                                 <div class="cat-banner-icon mx-auto mx-md-0" style="background-color:rgba(35,245,195,.1)">
                                     <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person-lines-fill" fill="#23f5c3" xmlns="http://www.w3.org/2000/svg">

@@ -24,7 +24,7 @@ menubar:false
                         </div>
                     </div>
                     <div class="card-body">
-                        <form method="POST" action="{{ route('admin.companies.store') }}">
+                        <form method="POST" action="{{ route('admin.companies.store') }}" enctype="multipart/form-data">
                             @csrf
 
                             <div class="row">

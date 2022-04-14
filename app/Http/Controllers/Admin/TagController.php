@@ -20,11 +20,7 @@ class TagController extends Controller
     {
         $search = $request->search;
 
-        $tags = Tag::select('id','name','icon')
-            ->when($search, function ($query, $search) {
-                return $query->search('name', $search);
-            })
-            ->paginate(8);
+        $tags = Tag::select('id','name','icon')->get();
 
         return view('admin/tag/index')->with('tags',$tags);
     }
@@ -36,7 +32,8 @@ class TagController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin/tag/create');
+
     }
 
     /**
@@ -47,7 +44,25 @@ class TagController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $tag = new Tag();
+        $tag->name = $request->name;
+
+        if($request->hasFile('icon')){
+          
+            $file = $request->file('icon');
+            $extension = $file->getClientOriginalExtension();
+            $filename = strtolower($request->name).'.'.$extension;
+            $filename = str_replace(' ', '_', $filename);
+
+            $icon = $this->createIcon($file, $extension);
+            Storage::put('public/tags/'.$filename, $icon);
+
+            $tag->icon = $filename;
+        }
+
+        $tag->save();
+
+        return redirect()->route('admin.tags.index');
     }
 
     /**
@@ -93,6 +108,7 @@ class TagController extends Controller
             $file = $request->file('icon');
             $extension = $file->getClientOriginalExtension();
             $filename = strtolower($request->name).'.'.$extension;
+            $filename = str_replace(' ', '_', $filename);
 
             $icon = $this->createIcon($file, $extension);
             Storage::put('public/tags/'.$filename, $icon);
@@ -102,7 +118,7 @@ class TagController extends Controller
 
         $tag->save();
 
-        return redirect()->route('admin.tags.index')->with('status', 'Uspješno izmenjen tag!');
+        return redirect()->route('admin.tags.index');
     }
 
     /**

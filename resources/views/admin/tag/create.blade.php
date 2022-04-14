@@ -6,28 +6,22 @@
                 <div class="card">
                     <div class="card-header d-flex justify-content-between">
                         <div class="header-title">
-                            <h4 class="card-title">Izmena Taga</h4>
+                            <h4 class="card-title">Novi Tag</h4>
                         </div>
                     </div>
                     <div class="card-body">
-                        <form method="POST" action="{{ route('admin.tags.update', $tag->id) }}">
-                            @method('PATCH')
+                        <form method="POST" action="{{ route('admin.tags.store') }}" enctype="multipart/form-data">
                             @csrf
 
                             <div class="row">
 
                                 <div class="form-group">
                                     <label class="form-label" for="exampleInputText1">Naziv taga</label>
-                                    <input name="title"  type="text" class="form-control" id="exampleInputText1" value="{{$tag->name}}">
+                                    <input name="name"  type="text" class="form-control" id="exampleInputText1" >
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="title" class="">Slika</label>
-                                    <img width="40" height="40" class="bg-light" src="{{asset('storage/tags/'.$tag->icon)}}" alt="">
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="customFile1" class="form-label custom-file-input">Nova ikona</label>
+                                    <label for="customFile1" class="form-label custom-file-input">Ikona</label>
                                     <input class="form-control" type="file" name="icon" id="customFile1">
                                 </div>
                             </div>

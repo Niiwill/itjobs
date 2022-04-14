@@ -16,6 +16,8 @@
                 return 'Maksimalan broj tagova je 3';
             }  
         });
+
+        $('#select_company').select2();
     });
 
     tinymce.init({
@@ -63,7 +65,8 @@
                                 <div class="col">
                                     <div class="form-group">
                                         <label class="form-label" for="exampleFormControlSelect1">Kompanija</label>
-                                        <select name="company_id" class="form-select" id="exampleFormControlSelect1">
+                                        <select id="select_company" name="company_id" class="select2 custom-select form-control w-100">
+
                                             <option selected="" disabled="">Izaberi</option>
                                             @foreach ($companies as $company)
                                                 <option value="{{ $company->id }}">{{ $company->name }}</option>
