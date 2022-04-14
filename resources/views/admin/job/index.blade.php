@@ -2,7 +2,8 @@
 <script>
 $(document).ready(function() {
     $('#datatable').DataTable( {
-        "order": [[ 3, "desc" ]]
+        paging: false,
+        order: [[ 3, "desc" ]]
     } );
 } );
 </script>
