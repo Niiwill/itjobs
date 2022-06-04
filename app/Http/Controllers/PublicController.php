@@ -65,6 +65,7 @@ class PublicController extends Controller
             return Article::select('id','slug','image_url', 'created_at','title','description')
                             ->where('article_category_id', 1)
                             ->where('status', 1)
+                            ->where('language', 'sr')
                             ->latest()
                             ->limit(3)
                             ->get();

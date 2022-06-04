@@ -54,9 +54,6 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-
-        
-
        $request->validate([
             'title' => 'required|max:100',
             'text' => 'required',
@@ -73,6 +70,7 @@ class ArticleController extends Controller
         $article->article_event_date = $request->article_event_date;
         $article->article_event_time = $request->article_event_time;
         $article->location = $request->location;
+        $article->language = $request->language;
         $article->slug=Str::slug($request->title, '-');
         $article->status = $request->status;
 
@@ -89,7 +87,6 @@ class ArticleController extends Controller
             $path = Storage::put('public/articles/thumbnails/'.$custom_name, $thumbnail);
 
             $article->image_url = $custom_name;
-
         }
         $article->save();
         return redirect()->route('admin.articles.index')->with('status', 'Uspješno kreiran!');
@@ -152,6 +149,7 @@ class ArticleController extends Controller
         $article->article_event_date = $request->article_event_date;
         $article->article_event_time=$request->article_event_time;
         $article->location = $request->location;
+        $article->language = $request->language;
         $article->slug=Str::slug($request->title, '-');
         $article->status = $request->status;
 
