@@ -4,8 +4,8 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="icon" type="image/x-icon" href="{{asset('storage/img/favicon.png')}}" />
-        <title>IT Priče i Vijesti | ITPoslovi.me</title>
-        <meta name="description" content="IT Priče i vijesti u Crnoj Gori na jendom mestu. Digitalna Crna Gora na jednom mjestu">
+        <title>IT Montenegro Blog | ITPoslovi.me</title>
+        <meta name="description" content="IT Montenegro articles jobs in montenegro programmers ">
         <link rel="canonical" href="https://itposlovi.me/it-price"/>
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -169,8 +169,6 @@
                 font-size:.9rem;
             }
         </style> 
-        <!-- Footer CSS -->
-        <link href="{{ asset('css/footer.css') }}" rel="stylesheet">
   
     </head>
     <body>
