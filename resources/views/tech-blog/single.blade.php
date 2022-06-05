@@ -36,7 +36,7 @@
                 "@id": "{{url()->current()}}"
               },
               "headline": "{{$article->title}}",
-              "description": "{{$article->description}} "
+              "description": "{{$article->description}} ",
               "image": {
                 "@type": "ImageObject",
                 "url": "{{ asset('storage/articles/'.$article->image_url) }}"
