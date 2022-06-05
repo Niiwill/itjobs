@@ -23,8 +23,40 @@
         <link href="{{ asset('css/single-article.css?v=62') }}" rel="stylesheet">
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5503948606321438"
         crossorigin="anonymous"></script>
+        
     </head>
     <body>
+
+        <script type="application/ld+json">
+            {
+              "@context": "https://schema.org/",
+              "@type": "BlogPosting",
+              "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "{{url()->current()}}"
+              },
+              "headline": "{{$article->title}}",
+              "description": "{{$article->description}} "
+              "image": {
+                "@type": "ImageObject",
+                "url": "{{ asset('storage/articles/'.$article->image_url) }}"
+              },
+              "author": {
+                "@type": "Person",
+                "name": "Nikola"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "Nikola",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "{{asset('storage/img/logo.png?v=1')}}"
+                }
+              },
+              "datePublished": "{{date('Y-m-d', time())}}",
+              "dateModified": "{{date('Y-m-d', time())}}w"
+            }
+            </script>
 
         <div class="container">
             <div id="heading">
