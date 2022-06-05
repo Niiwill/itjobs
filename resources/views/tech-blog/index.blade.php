@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="me">
+<html lang="en">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -169,7 +169,8 @@
                 font-size:.9rem;
             }
         </style> 
-  
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5503948606321438"
+        crossorigin="anonymous"></script>
     </head>
     <body>
        
