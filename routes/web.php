@@ -20,6 +20,10 @@ Route::get('/it-dogadjaji/{id}/{slug}','PublicController@showEvent')->name('even
 Route::get('/it-price','PublicController@articles')->name('articles.index');
 Route::get('/it-price/{id}/{slug}','PublicController@showArticle')->name('articles.single');
 
+// TECH BLOG
+Route::get('/tech-blog','PublicController@techIndex')->name('articles.tech.index');
+Route::get('/tech-blog/{id}/{slug}','PublicController@techSingle')->name('articles.tech.single');
+
 // ADMIN
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth']], function () {
 

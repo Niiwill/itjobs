@@ -94,7 +94,7 @@ class PublicController extends Controller
     public function articles(Request $request)
     {
         $meseci = $this->meseci;
-        $articles = Article::where('article_category_id', 1)->where('status', 1)->latest()->paginate(12);
+        $articles = Article::where('article_category_id', 1)->where('status', 1)->where('language', 'sr')->latest()->paginate(12);
 
         return view('it-price', compact('articles','meseci'));
      
@@ -128,7 +128,28 @@ class PublicController extends Controller
         $article = Article::find($id);
 
         return view('article-show', compact('article','meseci'));
-    }    
+    } 
+    
+    
+    // TECH BLOG INDEX
+    public function techIndex()
+    {
+        $meseci = $this->meseci;
+        $articles = Article::where('article_category_id', 1)->where('status', 1)->where('language', 'en')->latest()->paginate(12);
+
+        return view('tech-blog.index', compact('articles','meseci'));
+     
+    }
+
+    //SINGLE ARTICLE PAGE
+    public function techSingle($id, $slug) {
+
+        $meseci = $this->meseci;
+
+        $article = Article::find($id);
+
+        return view('tech-blog.single', compact('article','meseci'));
+    } 
 
     // SEARCH JOBS PAGE
     public function search(Request $request)
