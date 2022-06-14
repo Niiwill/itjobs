@@ -1,12 +1,18 @@
 body{
     font-family: 'Inter', sans-serif;
 }
+h3{
+    color: #2d2d2d;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
 p{
     font-size: 18px;
     line-height: 32px;
     font-weight: 400;
     color: #1a284d;
-    font-family: Inter,sans-serif;       
+    font-family: Inter,sans-serif;
+    margin-bottom: 36px;      
 }
 .btn-zeleni{
     background-color: #04D223;
