@@ -81,6 +81,19 @@
                     (adsbygoogle = window.adsbygoogle || []).push({});
                 </script>
     	        	{!! $article->text !!}	
+
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5503948606321438"
+                    crossorigin="anonymous"></script>
+                <!-- tech-blog 2 -->
+                <ins class="adsbygoogle"
+                    style="display:block"
+                    data-ad-client="ca-pub-5503948606321438"
+                    data-ad-slot="2763245547"
+                    data-ad-format="auto"
+                    data-full-width-responsive="true"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
     	        </div>
             </div>
         </div>
