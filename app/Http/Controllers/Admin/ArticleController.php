@@ -150,7 +150,6 @@ class ArticleController extends Controller
         $article->article_event_time=$request->article_event_time;
         $article->location = $request->location;
         $article->language = $request->language;
-        $article->slug=Str::slug($request->title, '-');
         $article->status = $request->status;
 
         if($request->hasFile('main_image')){
